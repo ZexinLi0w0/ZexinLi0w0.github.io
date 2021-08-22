@@ -12,12 +12,13 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|EB Garamond:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -99,6 +100,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -113,25 +115,72 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>朋友圈</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/ZexinLi0w0" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -145,10 +194,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-AnDrone/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/post/27403.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
       <meta itemprop="name" content="Zexin Li">
       <meta itemprop="description" content="">
     </span>
@@ -159,10 +208,118 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/08/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-AnDrone/" class="post-title-link" itemprop="url">论文笔记:AnDrone</a>
+            <a href="/post/27403.html" class="post-title-link" itemprop="url">论文笔记:Per-ApplicationPowerDelivery</a>
         </h2>
 
         <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-08 15:52:59" itemprop="dateCreated datePublished" datetime="2020-09-08T15:52:59+08:00">2020-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>在有power cap的情况下，对per application进行power distribute。</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>如何不影响性能的情况下降低功耗 power/energy<br><i>we focus on the problem of differential power delivery: how can and should a system allocate different amounts of power to different applications to effect prioritization and isolation?</i> 系统应该如何为不同的应用程序分配不同数量的功率以实现优先级划分和隔离？</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>类似文章套路都会在Introduction位置做一个很简单有力的初步的motivate example</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>server级别的power distribution较少，大多数都是在cluster做；本文把一些embedded system上的power constraint搬到了server上</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>Evaluation强：有一个motivate example之后做了一个相对强的case study，然后由此引出policy design &amp; implementation</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>已有的解决方案dynamic voltage and frequency scaling(DVFS), running average power limit(RAVL): </li>
+<li>1 DVFS: 有global和individual(可能只有部分处理器支持)可选</li>
+<li>2 RAVL: 把处理器分为若干部分，每个部分单独加power cap；可能会导致所有core被锁定至同一频率(“RAVL+global DVFS” -&gt; “all cores are throttled to the same frequecny”) -&gt; 出现priority和power不匹配的问题</li>
+<li>Conclusion: </li>
+<li>1 硬件水平上能够实现每个core的不同功率水平，但是policies are not yet available. </li>
+<li>2 文中提出power shares, frequency shares, performance shares 三个基于priority的policy。目前frequency shares表现最稳定，效果最好。理论上power shares最容易实现，但是需要预先知道application对应需要多少能量(不一定applicable)</li>
+<li>文中可以改进的地方:</li>
+<li>1 文中target了1个RAVL可能会出现的bad case: 在power cap比较低的情况下，power distribution不合理导致高优先级任务无法获得足够资源执行，尤其在high-priority low-demand(HPLD)和low-priority high-demand(LPHD)情况下会出现bad case。</li>
+<li>2 文中不考虑scheduler的问题(直接使用系统自定义的scheduler)，然而明确指出可以做power-aware scheduler而没有去做</li>
+<li>3 文中没有考虑real-time policy的问题，假设全部任务是concurrently执行</li>
+<li>4 文中没有考虑saturation的问题，即可能出现增加power也不会继续提升performance的情况(此现象在PredJoule中有提到并用Uncertainty来解决)。文中的policy在进行re-distribute时直接采用min-funding revocation policy，直接将saturated application从mix中移除再重新run distribute function</li>
+<li>5 文中提出的power shares policy本质还是priority-based policy，可能会出现low-priority task的starvation，文中没有设计合适的解决方案应对这个问题</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Per-Application Power Delivery, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3302424.3303981">https://dl.acm.org/doi/abs/10.1145/3302424.3303981</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/post/7870.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/7870.html" class="post-title-link" itemprop="url">论文笔记:AnDrone</a>
+        </h2>
+
+        <div class="post-meta">
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
@@ -176,7 +333,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 00:14:14" itemprop="dateModified" datetime="2021-08-22T00:14:14+08:00">2021-08-22</time>
+                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
               </span>
 
           <br>
@@ -225,108 +382,8 @@
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/26/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-ZygOS/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/26/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-ZygOS/" class="post-title-link" itemprop="url">论文笔记:ZygOS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-26 17:27:29" itemprop="dateCreated datePublished" datetime="2020-08-26T17:27:29+08:00">2020-08-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 00:14:14" itemprop="dateModified" datetime="2021-08-22T00:14:14+08:00">2021-08-22</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>The efficient scheduling on multicore systems of very fine-grain networked tasks (typical building lock of online data-intensive applications) -&gt; (can be also considered as in-memory services). To deliver high throughput for tail latency service-level objectives that are a small multiple of the task size.</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
-<li>场景：高并发，与面向用户的SLO(根据tail latency来定义)配合使用的应用程序。SLO通常伴随data-intensive call，相对的仅需要几微秒的user-execution time。<br>high concurrent, with user-facing SLO (defined in terms  of tail latency) applications. SLO of data service must consider long tail of the latency distributions of requests, meanwhile, individual task sizes often require only a handful of µs of user-level execution time. </li>
-<li>如果仅使用conventional OS (i.e., typically Linux) -&gt; suffers high overheads for µs-scale tasks; more spcialized kernel-bypass approach improves throughput substantially (through sweeping simplifications such as separation of control from the dataplane execution, polling, run-to-completion, and synchronization-free, flow-consistent mapping of requests to cores).</li>
-<li>简化设计导致了(a) the dataplane is not a work conserving scheduler; (b) the dataplane suffers from head-of-line blocking</li>
-</ol>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li> 2012年就有这个对于problem 1理论上的解答(a) single-queue, multiple-processor models deliver lower tail latency than parallel single-queue, single-processor models (-&gt; 文中做了study去验证正确性) (b) FCFS delivers the best tail latency for low-dispersion tasks while processor sharing delivers superior results in high dispersion service time distributions</li>
-<li>架构上分为3层: (a) a lower networking layer which runs in strict isolated on each core; (b) a middle shuffle layer which allows idle cores to aggressively steal pending events; (c) an upper execution layer which exposes a commutative API to applications for scalability. <strong>Shuffle layer eliminates head-of-line-blocking while also offering strong ordering semantics of events associated with the same connection.</strong></li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>To solve problem 2, this paper present ZygOS, a new approach to system software optimized for µs-scale, in-memory computing.</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>Just enough queuing theory: (个人感觉比较像是networking里采用的窗口探测，正好赋予congestion windows = bandwidth 能够避免高重传率也能够最大化throughput)</li>
-<li>System design: (a) designed for current-generation datacenter architectures; (b) build a robust, multi-core, work-conserving scheduler free of head-of-line blocking for event-driven apps; (c) provide clean, ordering semantics of task-stealing operations to multi-threaded apps when handling back-to-back events for the same socket; (d) <strong>minimally degrade</strong> the throughput of short tasks when compared with state-of-the-art, shared-nothing dataplanes. (这里paper直接自己提可能的弊端，并在设计中尽量削减这个问题的影响)</li>
-<li>Intermediate buffering and IPIs are used to eliminate head-of-line blocking (-&gt;FCFS的一个典型弊端). 在system architecture design中体现为middle shuffle layer中的shuffle queue (a single-producer, multiple-consumer queue which contains the list of ready connections originating from a given core)可以做到atomically stealing tasks</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>3个Microsoft-EPFL, Switzerland的工业界paper</li>
-<li>Implementation和Evaluation非常强：真的造了个OS（不是prototype），而且效果不错。</li>
-<li>可解释性强: paper里evaluation有明显效果还为效果提升做了解释，<i>“The speedup over Linux is explained by the use of many dataplane implementation principles in ZYGOS. The speedup over IX is explained by ZYGOS’swork-conservingscheduler,whichrebalancestasks to deliver consistently low tail latency nearly up to the point of saturation.”</i></li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] ZygOS, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/3132747.3132780">https://dl.acm.org/doi/pdf/10.1145/3132747.3132780</a></p>
-
-      
-    </div>
-
-    
-    
-    
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -396,6 +453,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zexin Li"
+      src="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
   <p class="site-author-name" itemprop="name">Zexin Li</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -408,17 +467,36 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
+          
         <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZexinLi0w0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZexinLi0w0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -436,7 +514,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2020 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -446,17 +524,37 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
+      <span class="post-meta-item-text">站点总字数：</span>
     <span title="站点总字数">45k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     <span title="站点阅读时长">41 分钟</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
 
+</div>
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -470,7 +568,11 @@
   </div>
 
   
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -484,28 +586,54 @@
 
 <script src="/js/next-boot.js"></script>
 
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
+<script src="/js/bookmark.js"></script>
 
 
 
 
   
 
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/z16.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":true}});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true}});</script></body>
 </html>
