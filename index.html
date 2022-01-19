@@ -203,101 +203,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/226.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/226.html" class="post-title-link" itemprop="url">迁移对抗攻击【持续更新】</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <i class="fa fa-thumb-tack"></i>
-            <font color=red>置顶</font>
-            <span class="post-meta-divider">|</span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-11-21 15:46:53 / 修改时间：21:51:12" itemprop="dateCreated datePublished" datetime="2021-11-21T15:46:53+08:00">2021-11-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文部分借鉴[1][2]对抗攻击综述中的内容来讲述迁移对抗攻击在计算机视觉方向的应用。</p>
-<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>尽管深度学习在很多计算机视觉领域的任务上表现出色，Szegedy et al. [] 第一次发现了深度神经网络在图像分类领域存在有意思的弱点。他们证明尽管有很高的正确率，现代深度网络是非常容易受到对抗样本的攻击的。这些对抗样本仅有很轻微的扰动，以至于人类视觉系统无法察觉这种扰动（图片看起来几乎一样）。这样的攻击会导致神经网络完全改变它对图片的分类。此外，同样的图片扰动可以欺骗不同的网络分类器(对抗攻击具有迁移性)。这类现象的深远意义吸引了众多研究人员在对抗攻击和深度学习安全性领域的研究。</p>
-<h2 id="对抗攻击目标"><a href="#对抗攻击目标" class="headerlink" title="对抗攻击目标"></a>对抗攻击目标</h2><h3 id="非定向攻击"><a href="#非定向攻击" class="headerlink" title="非定向攻击"></a>非定向攻击</h3><p>攻击者希望对抗样本使得目标神经网络分类错误。</p>
-<h3 id="定向攻击"><a href="#定向攻击" class="headerlink" title="定向攻击"></a>定向攻击</h3><p>攻击者希望对抗样本不仅使得目标神经网络分类错误，还要求分类为指定的目标类。</p>
-<h2 id="数字对抗攻击的经典方法"><a href="#数字对抗攻击的经典方法" class="headerlink" title="数字对抗攻击的经典方法"></a>数字对抗攻击的经典方法</h2><h3 id="白盒对抗攻击"><a href="#白盒对抗攻击" class="headerlink" title="白盒对抗攻击"></a>白盒对抗攻击</h3><p>在白盒对抗攻击场景下，攻击者能够获取目标神经网络的全部信息：包含输出、结构信息、梯度信息等。</p>
-<h4 id="Fast-Gradient-Sign-Method-FGSM"><a href="#Fast-Gradient-Sign-Method-FGSM" class="headerlink" title="Fast Gradient Sign Method (FGSM)"></a>Fast Gradient Sign Method (FGSM)</h4><p>Szegedy 等人发现可以通过对抗训练提高深度神经网络的鲁棒性，从而提升防御对抗样本攻击的能力。GoodFellow[] 等人开发了一种能有效计算对抗扰动的方法。而求解对抗扰动的方法在原文中就被称为FGSM。</p>
-<h4 id="Basic-Iterative-Method-BIM"><a href="#Basic-Iterative-Method-BIM" class="headerlink" title="Basic Iterative Method (BIM)"></a>Basic Iterative Method (BIM)</h4><p>one-step 方法通过一大步运算增大分类器的损失函数而进行图像扰动，因而可以直接将其扩展为通过多个小步增大损失函数的变体，从而我们得到 Basic Iterative Methods（BIM）[]。这一迭代式方法也被称为I-FGSM。</p>
-<h4 id="Projected-Gradient-Descent-PGD"><a href="#Projected-Gradient-Descent-PGD" class="headerlink" title="Projected Gradient Descent (PGD)"></a>Projected Gradient Descent (PGD)</h4><p>PGD是BIM的变体，区别是初始化方法可以为原图初始化(和BIM一致)或随机最大扰动初始化(即随机把原图每个像素都扰动{-\epsilon, \epsilon}作为初始化)。通常在对抗防御中经典对抗训练方法也被PGD，为了区别，通常在攻击论文中比较BIM或者I-FGSM。</p>
-<h4 id="Carlini-and-Wagner-Attacks-C-amp-W"><a href="#Carlini-and-Wagner-Attacks-C-amp-W" class="headerlink" title="Carlini and Wagner Attacks (C&amp;W)"></a>Carlini and Wagner Attacks (C&amp;W)</h4><p>Carlini 和 Wagner[] 提出了三种对抗攻击方法，通过限制 l_∞、l_2 和 l_0 范数使得扰动无法被察觉。实验证明 defensive distillation 完全无法防御这三种攻击。</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h2 id="数字对抗攻击的创新方法"><a href="#数字对抗攻击的创新方法" class="headerlink" title="数字对抗攻击的创新方法"></a>数字对抗攻击的创新方法</h2><h3 id="迁移对抗攻击"><a href="#迁移对抗攻击" class="headerlink" title="迁移对抗攻击"></a>迁移对抗攻击</h3><p>已有的工作说明：对抗样本普遍存在且天然具有迁移性，即对某些DNN模型进行白盒攻击的对抗样本直接用于攻击其他模型，也可能导致错误的推理结果。然而，早期的白盒攻击方法(FGSM, BIM, PGD等)虽然普遍能达到较高的攻击成功率，但是所生成的对抗样本迁移性均较差。以下调研的一些白盒攻击方法方法通过各种优化手段提升了对抗样本的迁移性。</p>
-<h4 id="Momentum-Iterative-Method-MIM"><a href="#Momentum-Iterative-Method-MIM" class="headerlink" title="Momentum Iterative Method (MIM)"></a>Momentum Iterative Method (MIM)</h4><p>在BIM中引入动量的思想，累计每一步迭代攻击的历史梯度。可以提升迁移攻击成功率。(类似地，其他训练过程使用的优化器，例如Adam等也可以被类似地引入到BIM中形成对抗攻击方法)</p>
-<h4 id="SIM"><a href="#SIM" class="headerlink" title="(SIM)"></a>(SIM)</h4><p>TODO</p>
-<h4 id="TIM"><a href="#TIM" class="headerlink" title="(TIM)"></a>(TIM)</h4><p>TODO</p>
-<h4 id="DIM"><a href="#DIM" class="headerlink" title="(DIM)"></a>(DIM)</h4><p>TODO</p>
-<h2 id="物理对抗攻击方法"><a href="#物理对抗攻击方法" class="headerlink" title="物理对抗攻击方法"></a>物理对抗攻击方法</h2><p>TODO</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>[1] 机器之心, <a target="_blank" rel="noopener" href="https://www.jiqizhixin.com/articles/2018-03-05-4">https://www.jiqizhixin.com/articles/2018-03-05-4</a><br>[2] Threat of Adversarial Attacks on Deep Learning in Computer Vision: A Survey, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8294186/">https://ieeexplore.ieee.org/abstract/document/8294186/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/43164.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,6 +301,95 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/17147.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/17147.html" class="post-title-link" itemprop="url">论文笔记:TimeGraph</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-28 16:13:40" itemprop="dateCreated datePublished" datetime="2020-09-28T16:13:40+08:00">2020-09-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>GPU Scheduling and resource reservation for Real-Time Multi-Tasking Environments</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/17147.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -467,7 +461,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,7 +474,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -516,7 +510,7 @@
 <div class="copyright">
   
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -526,13 +520,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">46k</span>
+    <span title="站点总字数">45k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">42 分钟</span>
+    <span title="站点阅读时长">41 分钟</span>
 
 </div>
         

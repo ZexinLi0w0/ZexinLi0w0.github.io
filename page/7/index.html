@@ -203,110 +203,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/12763.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/12763.html" class="post-title-link" itemprop="url">论文笔记:Karaoke</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-26 17:27:03" itemprop="dateCreated datePublished" datetime="2020-08-26T17:27:03+08:00">2020-08-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>913</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A low-latency metadata-private communication solutions to distributed private messaging.</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Performance problems:</p>
-<ol>
-<li><i>Differential privacy re-quires continuously adding noise messages, which leadsto high overheads.</i> -&gt; solution: optimistic indistinguishability 我认为此方案牺牲了一部分安全性来大幅度降低overhead，但是有补救方案（可以准确检测是否发生了信息泄露）</li>
-<li><i>Generating sufficient noise in a distributed system wheresome nodes may be malicious.</i> -&gt; solution: efficient noise verification</li>
-</ol>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Solve latency problem for distributed private messaging.</li>
-<li>Evaluation is perfect. The latency in the paper is 10x improvement than previous work.</li>
-<li>Private analysis of the Karaoke’s design </li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>…（背景知识不了解，没看出来）</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>…（背景知识不了解，没看出来）</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>Evaluation的结果很全面且特别强</li>
-<li><i>As a result, achieving privacy re-quires the use of expensive zero-knowledge proofs (e.g.,verifiable  shuffles)  to  ensure  that  an  adversary  cannotdrop messages</i>解释了传统解决problem 2的方案的弊端-&gt;会导致明显的CPU overhead</li>
-<li>略读感觉更偏向于安全方向</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Karaoke, <a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/osdi18-lazar.pdf">https://www.usenix.org/system/files/osdi18-lazar.pdf</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/2395.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,6 +292,97 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/10193.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/10193.html" class="post-title-link" itemprop="url">论文笔记:NeuOS</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-18 15:25:06" itemprop="dateCreated datePublished" datetime="2020-08-18T15:25:06+08:00">2020-08-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>877</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>DNN-driven autonomous Systems optimization (low latency, balance, high accuary)</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>How to optimize resource-constrainted (stringent space, weight, power constraints) DNNs application in software level (application-level + system-level)</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Multi device testing scenarios + multi dnn testing case </p>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><p>Address the challenge of balancing energy at system level and accuracy at application level for DNNs</p>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><p>Appliction-level accuracy control by lowrank decomposition + system-level latency control by DVFS</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Method不一定很fancy，但是evaluation效果很好且很全面</li>
+<li><i>“The stringent space, weight, and power constraints seen in such systems impose a major impediment for practical and safe implementation of DNNs, because they have to be latency predictable while ensuring minimum energy consumption and maximum accuracy.”</i> DNN在embedded system的autonomous driving场景下要求高实时性和可靠性。</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/atc20-bateni.pdf">NeuOS: A Latency-Predictable Multi-Dimensional Optimization Framework for DNN-driven Autonomous Systems</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -467,7 +454,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,7 +467,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -516,7 +503,7 @@
 <div class="copyright">
   
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -526,13 +513,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">46k</span>
+    <span title="站点总字数">45k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">42 分钟</span>
+    <span title="站点阅读时长">41 分钟</span>
 
 </div>
         
