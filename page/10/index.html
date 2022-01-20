@@ -203,6 +203,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/undefined.html" class="post-title-link" itemprop="url">如何编写maven插件（重新发布）</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-14 10:55:01" itemprop="dateCreated datePublished" datetime="2020-07-14T10:55:01+08:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-22 00:14:14" itemprop="dateModified" datetime="2021-08-22T00:14:14+08:00">2021-08-22</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>maven作为热门的build system经常被各种Java project采用。有时我们会遇到需要编写自定义maven插件的需求。</p>
+<p>以IDEA为例：首先选择从maven创建一个project，如果勾选create from achetype就会生成模板程序代码（这里以maven-achetype-mojo为例）。项目名称规范是${NAME}-maven-plugin，然后需要选择maven home directory，随后自动生成模板程序代码。</p>
+<h2 id="对maven源的配置"><a href="#对maven源的配置" class="headerlink" title="对maven源的配置"></a>对maven源的配置</h2><p>值得一提的是，初次使用maven会自动下载大量依赖文件，就算有梯子，也可能非常慢。这时就需要在创建project之前先对<code>$&#123;maven_path&#125;/conf/settings.xml</code>进行设置更换国内源。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 对源的配置：增加localRepository，配置mirror url</span><br><span class="line">&lt;localRepository&gt;$&#123;YOUR_MAVEN_REPO_PATH&#125;&lt;/localRepository&gt;</span><br><span class="line">&lt;mirrors&gt;</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">    	&lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">    	&lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">    	&lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">    	&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    </span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="正式开始写maven-project的代码"><a href="#正式开始写maven-project的代码" class="headerlink" title="正式开始写maven project的代码"></a>正式开始写maven project的代码</h2><h3 id="对模板程序pom-xml的修改"><a href="#对模板程序pom-xml的修改" class="headerlink" title="对模板程序pom.xml的修改"></a>对模板程序pom.xml的修改</h3><p>可以看出来maven模板程序的pom.xml配置已经非常老了（比如这个maven-plugin-api还是2.0），这里参考KIWI的一篇博客一通乱改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;$&#123;YOUR_GROUP_ID&#125;&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;$&#123;NAME&#125;-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;maven-plugin&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;name&gt;$&#123;NAME&#125;-mavne-plugin Maven Mojo&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-plugin-api&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.5.2&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven.plugin-tools&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-plugin-annotations&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.5.2&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;maven-plugin-plugin&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.5.2&lt;/version&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Mojo类的规则简要介绍"><a href="#Mojo类的规则简要介绍" class="headerlink" title="Mojo类的规则简要介绍"></a>Mojo类的规则简要介绍</h3><p>Mojo类必须继承AbstractMojo 并实现他的 execute 方法，而 execute 方法其实就是这个插件的入口类。简单介绍注解<code>@Mojo(name = $NAME)</code>，用于定义插件相关信息，以便于在pom.xml里通过<goal>$NAME</goal>的形式显示指定。@Execute()注解则能指定Mojo的执行时机，绑定phase或lifecycle等。</p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>写完了代码，需要mvn clean install（把该插件打包并部署至本地仓库），其他本地maven项目就可以通过pom.xml使用该插件。想要他人也可以使用，需要使用mvn deploy命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">  &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;$&#123;YOUR_GROUP_ID&#125;&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;$&#123;NAME&#125;-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">  &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<p>增加依赖后，可以直接命令行<code>mvn $&#123;NAME&#125;:$&#123;GOAL&#125; [args]</code>的方式调用；也绑定至lifecycle，通过mvn test等命令调用（也可以IDEA右上角maven集成插件手动点击）。</p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/4387.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,93 +388,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/26020.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/26020.html" class="post-title-link" itemprop="url">Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-14 10:41:09" itemprop="dateCreated datePublished" datetime="2020-07-14T10:41:09+08:00">2020-07-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>546</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
-<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -453,7 +459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -512,7 +518,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">46k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

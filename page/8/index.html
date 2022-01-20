@@ -203,6 +203,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/10193.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/10193.html" class="post-title-link" itemprop="url">论文笔记:NeuOS</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-18 15:25:06" itemprop="dateCreated datePublished" datetime="2020-08-18T15:25:06+08:00">2020-08-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>877</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>DNN-driven autonomous Systems optimization (low latency, balance, high accuary)</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>How to optimize resource-constrainted (stringent space, weight, power constraints) DNNs application in software level (application-level + system-level)</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Multi device testing scenarios + multi dnn testing case </p>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><p>Address the challenge of balancing energy at system level and accuracy at application level for DNNs</p>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><p>Appliction-level accuracy control by lowrank decomposition + system-level latency control by DVFS</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Method不一定很fancy，但是evaluation效果很好且很全面</li>
+<li><i>“The stringent space, weight, and power constraints seen in such systems impose a major impediment for practical and safe implementation of DNNs, because they have to be latency predictable while ensuring minimum energy consumption and maximum accuracy.”</i> DNN在embedded system的autonomous driving场景下要求高实时性和可靠性。</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/atc20-bateni.pdf">NeuOS: A Latency-Predictable Multi-Dimensional Optimization Framework for DNN-driven Autonomous Systems</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/61823.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -268,93 +359,6 @@
 <h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a target="_blank" rel="noopener" href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
 <h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a target="_blank" rel="noopener" href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a target="_blank" rel="noopener" href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
 <h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a target="_blank" rel="noopener" href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/34617.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/34617.html" class="post-title-link" itemprop="url">maven的源配置(更新)</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-05 16:23:30" itemprop="dateCreated datePublished" datetime="2020-08-05T16:23:30+08:00">2020-08-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>阿里云云效maven的站点查询 <a target="_blank" rel="noopener" href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
-<ol>
-<li>打开${maven_home}/conf/settings.xml</li>
-<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>转载<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
 
       
     </div>
@@ -443,7 +447,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -502,7 +506,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">46k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

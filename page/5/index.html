@@ -203,6 +203,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/15125.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/15125.html" class="post-title-link" itemprop="url">论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-08 15:53:19" itemprop="dateCreated datePublished" datetime="2020-09-08T15:53:19+08:00">2020-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A heterogeneity-aware cluster scheudling solution for DNN workloads</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
+<li>[主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Placement Optimizations.</li>
+</ol>
+<p>(1) Performance Heterogeneity: 复杂的DNN tasks需要在不同种类processor上执行; 并非越贵的processor越好, 对不同任务的dollar-normalized结果并不和价格正相关<br><i>“Existing schedulers like Gandiva, Tiresias, and Themis do not consider the heterogeneous performance behavior across accelerators.” </i><br>(2) Generality Across Policies: 已有的scheduler与scheduling mechanism紧耦合; 且大部分难以支持复杂的scheduling policy<br>(3) Colocation and Placement Optimizations: 全局调度目标要显示考虑这两项</p>
+<ol start="2">
+<li>现有的scheduler可能导致starvation: 某些task长时间排队得不到执行</li>
+</ol>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Gavel’s key observation是scheduling policy都可以表达为目标是工作完成率的优化问题, 整篇大部分都在围绕一些经典的scheudling goal如何用优化问题来表示</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>设计scheduler时考虑了heterogeneity</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>为了解决Problem 2设计了round-based mechanism, 理论上降低了发生starvation的可能性</li>
+<li>round-based mechanism与scheduling policy解除了耦合, 能够更简单地integrate sophisticated scheduling policy</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>有个用法heterogeneity-aware/heterogeneity-agnostic, 学习了: 可以用xxx-aware/xxx-agnostic来描述自己有的一些点和概括别人没有考虑到这些点。</li>
+<li>space sharing这一块里面, greedy algorithm容易陷入局部最优。因为heterogeneity, <i>“different pairs of DNN applications in practice have vastly different performance when colocated together”</i></li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.09213.pdf">https://arxiv.org/pdf/2008.09213.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/27403.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -306,101 +410,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/7870.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/7870.html" class="post-title-link" itemprop="url">论文笔记:AnDrone</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-08 15:52:22" itemprop="dateCreated datePublished" datetime="2020-09-08T15:52:22+08:00">2020-09-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 11:59:22" itemprop="dateModified" datetime="2021-08-22T11:59:22+08:00">2021-08-22</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>736</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A drone-as-a-service solution -&gt; make drone access in the cloud</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>monotask-&gt;利用率低, restriction较多, 学习成本高：third=party access利用算力或者做其他task</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Intuition: virtual drones on physical drone</li>
-<li>lightweight container (docker?) to implement virtualization; 使用Android System的策略+proxy-based control去控制real-time linux -&gt; task封装至container，部分授权+阻止与physical device的直接交互（飞行控制组件不给第三方授权geofenced，只在特定时刻授权access系统）</li>
-<li>bill: based on energy consumption</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>Contribution: Androne prototype -&gt; runtime performance overhead &lt; 1.5%, 几乎可忽略的energy usage, low-latency performance, meet real-time requirement, virtual drones</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>waypoint: 一些任务只有在此处才能够access系统，具有比continuous task更高的优先级</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Androne: Virtual drone computing in the cloud, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3302424.3303969">https://dl.acm.org/doi/abs/10.1145/3302424.3303969</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -472,7 +481,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -531,7 +540,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">46k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

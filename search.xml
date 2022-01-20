@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>TX2/AGX开发笔记【长期更新】</title>
+    <url>/post/226.html</url>
+    <content><![CDATA[<h1 id="1-19"><a href="#1-19" class="headerlink" title="1.19"></a>1.19</h1><p>今日踩坑：</p>
+<p>yolov3/yolov5 core dumped on TX2</p>
+<p>故障排查:</p>
+<ol>
+<li>pdb侵入式debug发现是import torch发生了core dumped</li>
+<li>直接python3+import torch也发生core dumped</li>
+<li>pip3 install pytorch指定版本error</li>
+</ol>
+<p>此时选择安装conda，由于TX2是arm64架构所以不能装anaconda3而是安装miniconda3</p>
+<p>安装最新版本miniconda3无法正常init会core dumped</p>
+<p><a href="https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped">https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped</a></p>
+<p>要降低miniconda3版本到4.9.2 aarch64</p>
+<p>安装完miniconda3后，继续用pdb debug 发现import cv2也core dumped……. 发现是没有安装arm版本的opencv</p>
+<p>解决办法：用pip安装opencv，并修改环境变量</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">pip --<span class="keyword">default</span>-timeout=<span class="number">100</span> install opencv-python==<span class="number">4.5</span><span class="number">.3</span><span class="number">.56</span></span><br><span class="line">vi ~/.bashrc</span><br><span class="line"><span class="keyword">export</span> OPENBLAS_CORETYPE=ARMV8</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>torch要也要安装arm64架构的，需要按照标准命名规则修改whl文件名称（根据pap425tags.py文件）再通过pip安装。例如将torch-1.6.0-cp36-cp36m-linux_aarch64.whl改成了torch-1.6.0-cp36-abi3-linux_aarch64.whl。需要apt安装一些额外依赖库，才能正常import。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">https:<span class="comment">//forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048</span></span><br><span class="line">wget xxx.whl</span><br><span class="line">mv xxx.whl correct_name.whl</span><br><span class="line">sudo apt-get install libopenblas-base libopenmpi-dev</span><br></pre></td></tr></table></figure>
+
+<p>以上方法全试过了，还是import torch就core dumped😭，EMO了</p>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo+next主题配置之怎么配成我这样</title>
     <url>/post/43164.html</url>
     <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>这篇文用来介绍本站点使用的Hexo+Next主题配置及各种相关的依赖配置。</p>
