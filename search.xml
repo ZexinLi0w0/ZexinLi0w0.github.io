@@ -17,12 +17,13 @@
 <p>要降低miniconda3版本到4.9.2 aarch64</p>
 <p>安装完miniconda3后，继续用pdb debug 发现import cv2也core dumped……. 发现是没有安装arm版本的opencv</p>
 <p>解决办法：用pip安装opencv，并修改环境变量</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">pip --<span class="keyword">default</span>-timeout=<span class="number">100</span> install opencv-python==<span class="number">4.5</span><span class="number">.3</span><span class="number">.56</span></span><br><span class="line">vi ~/.bashrc</span><br><span class="line"><span class="keyword">export</span> OPENBLAS_CORETYPE=ARMV8</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip --default-timeout=100 install opencv-python==4.5.3.56</span><br><span class="line">vi ~/.bashrc</span><br><span class="line">export OPENBLAS_CORETYPE=ARMV8</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 
 <p>torch要也要安装arm64架构的，需要按照标准命名规则修改whl文件名称（根据pap425tags.py文件）再通过pip安装。例如将torch-1.6.0-cp36-cp36m-linux_aarch64.whl改成了torch-1.6.0-cp36-abi3-linux_aarch64.whl。需要apt安装一些额外依赖库，才能正常import。</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">https:<span class="comment">//forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048</span></span><br><span class="line">wget xxx.whl</span><br><span class="line">mv xxx.whl correct_name.whl</span><br><span class="line">sudo apt-get install libopenblas-base libopenmpi-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048</span><br><span class="line">wget xxx.whl</span><br><span class="line">mv xxx.whl correct_name.whl</span><br><span class="line">sudo apt-get install libopenblas-base libopenmpi-dev</span><br></pre></td></tr></table></figure>
 
 <p>以上方法全试过了，还是import torch就core dumped😭，EMO了</p>
+<h1 id="1-20"><a href="#1-20" class="headerlink" title="1.20"></a>1.20</h1><p>换了一个近新的NVIDIA Jetson TX2，拿来配环境。其他什么也没干，划水的一天。</p>
 ]]></content>
   </entry>
   <entry>
