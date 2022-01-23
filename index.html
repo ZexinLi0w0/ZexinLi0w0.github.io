@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-23 11:43:16" itemprop="dateModified" datetime="2022-01-23T11:43:16+08:00">2022-01-23</time>
+                <time title="修改时间：2022-01-23 11:48:51" itemprop="dateModified" datetime="2022-01-23T11:48:51+08:00">2022-01-23</time>
               </span>
 
           <br>
@@ -248,7 +248,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -308,8 +308,8 @@
 <p>经过查询和tensorflow的匹配版本，安装一个CUDNN 7.6</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从官方网站下载 https://developer.download.nvidia.com/compute/redist/cudnn/，官方网站没有cudnn aarch64 distribution，只有通过jetpack下载...但是似乎这块TX2并没有刷jetpack而是使用ubuntu自带系统</span><br></pre></td></tr></table></figure>
 
-<p style="color:red">[TODO]</p> 
-
+<p>到这个位置，这块TX2上没有刷jetpack而是使用ubuntu自带系统，且我只有macbook m1，没法装ubuntu，无奈打出gg。明天尝试使用AGX进行编译。</p>
+<p>[如果能够正常进行编译，需要进行的后续操作]</p>
 <p>拉满电源选项(开到无限制功率模式)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvpmodel -m 0</span><br><span class="line">jetson_clocks</span><br></pre></td></tr></table></figure>
 

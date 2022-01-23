@@ -44,8 +44,8 @@
 <p>经过查询和tensorflow的匹配版本，安装一个CUDNN 7.6</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">从官方网站下载 https://developer.download.nvidia.com/compute/redist/cudnn/，官方网站没有cudnn aarch64 distribution，只有通过jetpack下载...但是似乎这块TX2并没有刷jetpack而是使用ubuntu自带系统</span><br></pre></td></tr></table></figure>
 
-<p style="color:red">[TODO]</p> 
-
+<p>到这个位置，这块TX2上没有刷jetpack而是使用ubuntu自带系统，且我只有macbook m1，没法装ubuntu，无奈打出gg。明天尝试使用AGX进行编译。</p>
+<p>[如果能够正常进行编译，需要进行的后续操作]</p>
 <p>拉满电源选项(开到无限制功率模式)</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvpmodel -m 0</span><br><span class="line">jetson_clocks</span><br></pre></td></tr></table></figure>
 
