@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-24 10:12:16" itemprop="dateModified" datetime="2022-01-24T10:12:16+08:00">2022-01-24</time>
+                <time title="Modified: 2022-01-26 08:59:31" itemprop="dateModified" datetime="2022-01-26T08:59:31+08:00">2022-01-26</time>
               </span>
 
           <br>
@@ -248,14 +248,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.4k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -267,9 +267,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-23"><a href="#1-23" class="headerlink" title="1.23"></a>1.23</h1><p>编译tensorflow</p>
-<p>环境AGX+ubuntu 16.04+CUDA 10.2.300+CUDNN 8.2.1，目标编译tensorflow 2.2</p>
-<p>同1.22: 配置环境变了</p>
+          <h1 id="1-25"><a href="#1-25" class="headerlink" title="1.25"></a>1.25</h1><p>在配置github版本patch后均 搞不定，去查询官方的<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">推荐库版本</a>（这步非常重要，能避免很多坑）。发现对应tensorflow的CUDA/CUDNN版本是10.1/7.6，而当前CUDA/CUDNN版本可能太高了以至于tensorflow不兼容。决定过段时间重新刷机，刷一个低版本的Jetpack进TX2/AGX再尝试编译tensorflow。</p>
+<h1 id="1-24"><a href="#1-24" class="headerlink" title="1.24"></a>1.24</h1><p>继续在AGX上编译tensorflow 2.2</p>
+<p>配置./configure发生错误，打印错误信息发现无法读取cudnn的版本。因为在高版本的CUDA中读取cudnn版本方式变成了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
+<p>因此修改third_party/gpus/find_cuda_config.py文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Line 347</span><br><span class="line">+ header_path, header_version = _find_header(base_paths, &quot;cudnn_version.h&quot;,</span><br><span class="line">- header_path, header_version = _find_header(base_paths, &quot;cudnn.h&quot;,</span><br></pre></td></tr></table></figure>
+
+<p>如此可以正常configure，选项参考<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>。</p>
+<p>但是bazel编译发生报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-23"><a href="#1-23" class="headerlink" title="1.23"></a>1.23</h1><p>编译tensorflow</p>
+<p>环境AGX+ubuntu 18.04+CUDA 10.2.300+CUDNN 8.2.1 (Jetpack 4.6)，目标编译tensorflow 2.2</p>
+<p>同1.22: 能够正常进行到配置前，配置仍然error。</p>
 <h1 id="1-22"><a href="#1-22" class="headerlink" title="1.22"></a>1.22</h1><p>编译tensorflow(参考魔改<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>)</p>
 <p>环境TX2+ubuntu 16.04+CUDA 10.0，目标编译tensorflow 2.2</p>
 <p>配置环境变量</p>
@@ -571,7 +582,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">47k</span>
+    <span title="Symbols count total">48k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
