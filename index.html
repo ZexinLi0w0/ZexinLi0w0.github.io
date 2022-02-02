@@ -240,7 +240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-02 11:12:02" itemprop="dateModified" datetime="2022-02-02T11:12:02-06:00">2022-02-02</time>
+                <time title="Modified: 2022-02-02 11:13:45" itemprop="dateModified" datetime="2022-02-02T11:13:45-06:00">2022-02-02</time>
               </span>
 
           <br>
@@ -269,72 +269,14 @@
 
       
           <h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p>花费几个小时给一块Jetson TX2刷机，具体踩坑记录：<a href="">NVIDIA Jetson TX2刷机教程</a>。</p>
-<h1 id="1-27-1-31"><a href="#1-27-1-31" class="headerlink" title="1.27 - 1.31"></a>1.27 - 1.31</h1><p>什么也没干。</p>
-<h1 id="1-26"><a href="#1-26" class="headerlink" title="1.26"></a>1.26</h1><p>还有一个解决方案，编译一个较新版本的tensorflow 2.x。尝试编译r2.6，果然配置脚本没有出现问题，可以正常识别CUDA和CUDNN。但是编译时出现编译错误。可能是CUDA/CUDNN版本与对应tensorflow不兼容导致的。</p>
-<h1 id="1-25"><a href="#1-25" class="headerlink" title="1.25"></a>1.25</h1><p>在配置github版本patch后均 搞不定，去查询官方的<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">推荐库版本</a>（这步非常重要，能避免很多坑）。发现对应tensorflow的CUDA/CUDNN版本是10.1/7.6，而当前CUDA/CUDNN版本可能太高了以至于tensorflow不兼容。决定过段时间重新刷机，刷一个低版本的Jetpack进TX2/AGX再尝试编译tensorflow。</p>
-<h1 id="1-24"><a href="#1-24" class="headerlink" title="1.24"></a>1.24</h1><p>继续在AGX上编译tensorflow 2.2</p>
-<p>配置./configure发生错误，打印错误信息发现无法读取cudnn的版本。因为在高版本的CUDA中读取cudnn版本方式变成了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
-<p>因此修改third_party/gpus/find_cuda_config.py文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Line 347</span><br><span class="line">+ header_path, header_version = _find_header(base_paths, &quot;cudnn_version.h&quot;,</span><br><span class="line">- header_path, header_version = _find_header(base_paths, &quot;cudnn.h&quot;,</span><br></pre></td></tr></table></figure>
-
-<p>如此可以正常configure，选项参考<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>。</p>
-<p>但是bazel编译发生报错</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-23"><a href="#1-23" class="headerlink" title="1.23"></a>1.23</h1><p>编译tensorflow</p>
-<p>环境AGX+ubuntu 18.04+CUDA 10.2.300+CUDNN 8.2.1 (Jetpack 4.6)，目标编译tensorflow 2.2</p>
-<p>同1.22: 能够正常进行到配置前，配置仍然error。</p>
-<h1 id="1-22"><a href="#1-22" class="headerlink" title="1.22"></a>1.22</h1><p>编译tensorflow(参考魔改<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>)</p>
-<p>环境TX2+ubuntu 16.04+CUDA 10.0，目标编译tensorflow 2.2</p>
-<p>配置环境变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
-
-<p>下载依赖库java和bazel</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-dist.zip</span><br><span class="line">unzip bazel-2.0.0-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel help</span><br></pre></td></tr></table></figure>
-
-<p>增加一些patch确保能够在TX2上进行编译<br>～～～</p>
-<p>设置交换区内存至少4GB(因为按照官方编译会超过8GB内存占用导致编译失败)</p>
-<p>配置编译选项</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
-
-<p>配置中间报python error，找到configure.py打印报错行的log发现可能是CUDNN没安装…..</p>
-<p>经过查询和tensorflow的匹配版本，安装一个CUDNN 7.6</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从官方网站下载 https://developer.download.nvidia.com/compute/redist/cudnn/，官方网站没有cudnn aarch64 distribution，只有通过jetpack下载...但是似乎这块TX2并没有刷jetpack而是使用ubuntu自带系统</span><br></pre></td></tr></table></figure>
-
-<p>到这个位置，这块TX2上没有刷jetpack而是使用ubuntu自带系统，且我只有macbook m1，没法装ubuntu，无奈打出gg。明天尝试使用AGX进行编译。</p>
-<p>[如果能够正常进行编译，需要进行的后续操作]</p>
-<p>拉满电源选项(开到无限制功率模式)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvpmodel -m 0</span><br><span class="line">jetson_clocks</span><br></pre></td></tr></table></figure>
-
-<p>编译</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bazel test --config opt --local_resources 4096,2.0,1.0 //tensorflow/tools/lib_package:libtensorflow_test</span><br><span class="line">bazel build --config opt --local_resources 4096,2.0,1.0 //tensorflow/tools/lib_package:libtensorflow</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-21"><a href="#1-21" class="headerlink" title="1.21"></a>1.21</h1><p>似乎这个近新的TX2上已经完全预备好了miniconda3的环境，版本号为conda 4.9.2。初始化一个python=3.6的conda环境，torch和torchvision需要下载对应python 3.6版本的whl文件：torch版本1.8.0，torchvision版本0.9.0。剩下缺什么conda install什么。</p>
-<p>darknet (yolov3, yolov4, yolov3-tiny, yolov4-tiny): 需要魔改Makefile和一些function来适应CUDA 10.0+CUDNN 7.5， 参考<a target="_blank" rel="noopener" href="https://github.com/ZexinLi0w0/darknet%E3%80%82">https://github.com/ZexinLi0w0/darknet。</a></p>
-<p>yolov5: 直接可用。</p>
-<h1 id="1-20"><a href="#1-20" class="headerlink" title="1.20"></a>1.20</h1><p>换了一个近新的NVIDIA Jetson TX2，拿来配环境。其他什么也没干，划水的一天。</p>
-<h1 id="1-19"><a href="#1-19" class="headerlink" title="1.19"></a>1.19</h1><p>今日踩坑：</p>
-<p>yolov3/yolov5 core dumped on TX2</p>
-<p>故障排查:</p>
-<ol>
-<li>pdb侵入式debug发现是import torch发生了core dumped</li>
-<li>直接python3+import torch也发生core dumped</li>
-<li>pip3 install pytorch指定版本error</li>
-</ol>
-<p>此时选择安装conda，由于TX2是arm64架构所以不能装anaconda3而是安装miniconda3</p>
-<p>安装最新版本miniconda3无法正常init会core dumped</p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped">https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped</a></p>
-<p>要降低miniconda3版本到4.9.2 aarch64</p>
-<p>安装完miniconda3后，继续用pdb debug 发现import cv2也core dumped……. 发现是没有安装arm版本的opencv</p>
-<p>解决办法：用pip安装opencv，并修改环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip --default-timeout=100 install opencv-python==4.5.3.56</span><br><span class="line">vi ~/.bashrc</span><br><span class="line">export OPENBLAS_CORETYPE=ARMV8</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>torch要也要安装arm64架构的，需要按照标准命名规则修改whl文件名称（根据pap425tags.py文件）再通过pip安装。例如将torch-1.6.0-cp36-cp36m-linux_aarch64.whl改成了torch-1.6.0-cp36-abi3-linux_aarch64.whl。需要apt安装一些额外依赖库，才能正常import。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048</span><br><span class="line">wget xxx.whl</span><br><span class="line">mv xxx.whl correct_name.whl</span><br><span class="line">sudo apt-get install libopenblas-base libopenmpi-dev</span><br></pre></td></tr></table></figure>
-
-<p>以上方法全试过了，还是import torch就core dumped😭，EMO了</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/226.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
