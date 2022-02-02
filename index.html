@@ -233,14 +233,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-01-19 01:46:53" itemprop="dateCreated datePublished" datetime="2021-01-19T01:46:53-06:00">2021-01-19</time>
+              <time title="Created: 2021-01-19 15:46:53" itemprop="dateCreated datePublished" datetime="2021-01-19T15:46:53-06:00">2021-01-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-25 18:59:31" itemprop="dateModified" datetime="2022-01-25T18:59:31-06:00">2022-01-25</time>
+                <time title="Modified: 2022-02-02 11:12:02" itemprop="dateModified" datetime="2022-02-02T11:12:02-06:00">2022-02-02</time>
               </span>
 
           <br>
@@ -249,7 +249,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.1k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -268,7 +268,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-25"><a href="#1-25" class="headerlink" title="1.25"></a>1.25</h1><p>在配置github版本patch后均 搞不定，去查询官方的<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">推荐库版本</a>（这步非常重要，能避免很多坑）。发现对应tensorflow的CUDA/CUDNN版本是10.1/7.6，而当前CUDA/CUDNN版本可能太高了以至于tensorflow不兼容。决定过段时间重新刷机，刷一个低版本的Jetpack进TX2/AGX再尝试编译tensorflow。</p>
+          <h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p>花费几个小时给一块Jetson TX2刷机，具体踩坑记录：<a href="">NVIDIA Jetson TX2刷机教程</a>。</p>
+<h1 id="1-27-1-31"><a href="#1-27-1-31" class="headerlink" title="1.27 - 1.31"></a>1.27 - 1.31</h1><p>什么也没干。</p>
+<h1 id="1-26"><a href="#1-26" class="headerlink" title="1.26"></a>1.26</h1><p>还有一个解决方案，编译一个较新版本的tensorflow 2.x。尝试编译r2.6，果然配置脚本没有出现问题，可以正常识别CUDA和CUDNN。但是编译时出现编译错误。可能是CUDA/CUDNN版本与对应tensorflow不兼容导致的。</p>
+<h1 id="1-25"><a href="#1-25" class="headerlink" title="1.25"></a>1.25</h1><p>在配置github版本patch后均 搞不定，去查询官方的<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">推荐库版本</a>（这步非常重要，能避免很多坑）。发现对应tensorflow的CUDA/CUDNN版本是10.1/7.6，而当前CUDA/CUDNN版本可能太高了以至于tensorflow不兼容。决定过段时间重新刷机，刷一个低版本的Jetpack进TX2/AGX再尝试编译tensorflow。</p>
 <h1 id="1-24"><a href="#1-24" class="headerlink" title="1.24"></a>1.24</h1><p>继续在AGX上编译tensorflow 2.2</p>
 <p>配置./configure发生错误，打印错误信息发现无法读取cudnn的版本。因为在高版本的CUDA中读取cudnn版本方式变成了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
