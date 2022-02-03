@@ -3,7 +3,7 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p>花费几个小时给一块Jetson TX2刷机，具体踩坑记录：<a href="">NVIDIA Jetson TX2刷机教程</a>。</p>
+    <content><![CDATA[<h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p>花费几个小时给一块Jetson TX2刷机，具体踩坑记录：<a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a>。</p>
 <span id="more"></span>
 
 <h1 id="1-27-1-31"><a href="#1-27-1-31" class="headerlink" title="1.27 - 1.31"></a>1.27 - 1.31</h1><p>什么也没干。</p>
@@ -72,6 +72,9 @@
 
 <p>以上方法全试过了，还是import torch就core dumped😭，EMO了</p>
 ]]></content>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
   </entry>
   <entry>
     <title>hexo+next主题配置之怎么配成我这样</title>
@@ -151,6 +154,62 @@
       </categories>
       <tags>
         <tag>config</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NVIDIA Jetson开发板刷机教程</title>
+    <url>/post/12cc.html</url>
+    <content><![CDATA[<p>NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍<b>Jetpack 4.6刷机</b>的技术细节。</p>
+<p>此外JetsonHacks提供了官方刷机教学视频，如果看本文还是不清楚一些细节，可以看视频一步步跟着学: <a href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2安装</a> <a href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0安装</a></p>
+<p>老版本的jetpack 3.0刷机教程也可以参考<a href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 完整刷机教程</a>。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li><p>一台带有Intel或AMDx86架构的Ubuntu操作系统的电脑作为host主机 (Jetpack 4.x推荐系统为Ubuntu 18.04)。</p>
+</li>
+<li><p>物理空间：需要至少40G以上的物理空间。Jetpack和Jetpack下载的安装包需要的空间十分庞大。</p>
+</li>
+<li><p>下载Jetpack安装包：申请Nvidia developer账号，在<a href="https://developer.nvidia.com/embedded/jetpack">NVIDIA官方网站</a>根据开发板的型号登录后下载。建议下载当前最新版本Jetpack 4.6。</p>
+</li>
+<li><p>只需要确保host主机能够上网<b style='color:red;'>(开发板没有网络也能刷机)</b>。</p>
+</li>
+<li><p>准备一根Micro-USB的数据线(一般手机充电线即可)，一根HDMI线，一个屏幕。</p>
+</li>
+</ol>
+<h1 id="安装Jetpack"><a href="#安装Jetpack" class="headerlink" title="安装Jetpack"></a>安装Jetpack</h1><ol>
+<li><p>断开开发板电源，断开开发板网线，数据线连接开发板和host主机。双击运行Jetpack 4.6安装包(或者命令行安装)，然后命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sdkmanager # 此处不能使用root</span><br></pre></td></tr></table></figure>
+<p>Nvidia developer账号登录后，进入step 1: 勾选host和target，选择需要刷机的设备类型(如果数据线连接正常，也会自动检测出设备)。</p>
+</li>
+<li><p>进入step 2: 创建2个新文件夹，用于存放下载库文件和target镜像文件。</p>
+</li>
+<li><p>点击继续进入step 3: 进入下载阶段，完成后自动进入install OS阶段。<b style='color:red;'>【注意】此时开发板还是断电状态</b>。</p>
+</li>
+<li><p>Jetpack会自动提示，是否自动刷机(auto flash)/手动刷机(manual flash)。建议选择手动刷机，然后开启强制恢复模式，以TX2为例: </p>
+<p> (a) 保证开发板初始处于断电状态，确保Micro USB线正常连接</p>
+<p> (b) 接通开发板电源，按下power开机，然后迅速按住recovery键不松开，按一下reset键，过2秒松开recovery键</p>
+<p> (c) 此时应该有2个绿灯亮起</p>
+</li>
+<li><p>验证是否处于强制恢复状态，在host命令行输入</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsusb # 如果有Nvidia Corp设备检测到说明正确进入了强制恢复状态，否则重复第4步</span><br></pre></td></tr></table></figure></li>
+<li><p>给开发板连上HDMI线+屏幕，等待开发板的ubuntu系统初始化(配置账号密码)。</p>
+</li>
+<li><p>Jetpack会提示要求选择连接方式+输入账号密码。此时选择使用USB连接，不要修改默认的ip地址，输入开发板的ubuntu系统的账号密码。</p>
+</li>
+<li><p>冗长的等待，等待所有库全部安装完成，进入step 4: 点击exit退出sdkmanger。</p>
+</li>
+</ol>
+<h1 id="进一步配置"><a href="#进一步配置" class="headerlink" title="进一步配置"></a>进一步配置</h1><p>给开发板连接网线并查看ip。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig | grep eth0 -a1</span><br></pre></td></tr></table></figure>
+
+<p>随后可以ssh进行连接和进一步配置。</p>
+<h1 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a>可能的问题</h1><ol>
+<li><p>网络下载太慢<br>更换能过墙+带宽足够的环境。</p>
+</li>
+<li><p>Jetpack报奇怪的错(例如dependencies error)<br>更换纯净的ubuntu 18.04 host，多数是系统问题。不要想着fix这些error，有这时间不如重装/换靠谱的host。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
       </tags>
   </entry>
   <entry>

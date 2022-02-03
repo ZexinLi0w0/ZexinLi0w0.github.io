@@ -204,6 +204,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/18725.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/18725.html" class="post-title-link" itemprop="url">论文笔记:survey</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-28 03:13:22" itemprop="dateCreated datePublished" datetime="2020-09-28T03:13:22-05:00">2020-09-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-21 22:59:22" itemprop="dateModified" datetime="2021-08-21T22:59:22-05:00">2021-08-21</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>8 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A Comprehensive Survey on Energy-Efficient Power Management Techniques</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Survey on how to achieve energy-efficient power manangement on different computing scenarios</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>这是19年最新的相关领域survey，从中寻找一些领域内的线索</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>文中非常看好machine-learning based/deep-learning based method去做power management的前景, 并声称power management本质上是一个NP-hard问题，只能在较小的input情况下有限时间找最优解。(实际应用更多依赖DNN inference) “The study emphasizes that this research can be further extended along with machine learning  and deep learning. Such approaches can be benefificial in deriving optimal system confifigurations for hardware components, software applications, scheduling, computing, networking, databases, operating systems, and other management schemes. The performance of computer systems, their architectures, and power management operations can be carried out in a cost-effffective and eco-friendly manner for the betterment of green IT.”</li>
+<li>“Subsequently, minimization of software energy consumption needs to be primarily considered” [2]</li>
+<li>“A multilevel process control system (MLPCS) was proposed in (9) to select hardware features and hence, synthesis components for energy-effient processes.”<br>“In such cases, knowledge of the expected power consumption and/or performance range would be useful.” [3]</li>
+<li>“A survey on GPU power conservation along with power modeling and profifiling methods was carried out in (12).” [4]</li>
+<li>“In (14), authors explored the frequency scaling rules to build an energy-aware CPU.” [5]</li>
+<li>“On the other hand, the impact of CPU pinning was studied on energy-efficiency and performance interference between a pair of colocated workloads in (15).” [6]</li>
+<li>“It has also been identifified that difffferent software consumes a varying amount of power (21, 22).” [7] [8]</li>
+<li>“Similarly, tool to estimate energy consumption (TEEC) was introduced in (27) to support green software development; it was developed to assist for improvement in the source code. TEEC measured the power consumption by CPU, memory, and disk while executing an application at runtime.” [9] 此处提供了application-level power estimation的工具</li>
+<li>“Maintaining energy proportionality is necessary to control over-heating issues. An intelligent infrastructure, BML was proposed in (18) which was devised with heterogeneous architectures and a scheduling framework to utilize energy segmentation.” [10]<br>“As compared to ARM big.LITTLE multi-core processor architecture (33), which demonstrated relative heterogeneity in terms of computing power and power consumption, BML infrastructure was developed with heterogeneity within its architecture itself.” [11]</li>
+<li>“Using dynamic slack and system utilization concepts, a hybrid approach with Q-learning and different DVFS technologies was proposed in (34).” [12]</li>
+<li>“The scheduling policy and application allocation to appropriate processing core can determine the effectiveness of a heterogeneous architecture (36); such heterogeneous multi-core offer energy-efficient computing. A composite cores architecture (CCA) was used to predict a favorable core confifiguration using machine learning for a multi threaded application” [13]</li>
+<li>“Granular profifiling of HPC applications was proposed in (39) using Running Average Power Limit and adaptive power management systems. The article aimed at optimizing energy utilization and providing optimal power budget (OPB) before scheduling decision.” [14] 可能能够从这篇中参考一些reseravation的思路</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] A Comprehensive Survey on Energy-Efficient Power Management Techniques, <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1877050920308991">https://www.sciencedirect.com/science/article/pii/S1877050920308991</a><br>[2] What do programmers know about software energy consumption?, <a target="_blank" rel="noopener" href="https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf">https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf</a><br>[3] Selection of hardware features and synthesis of multilevel control system components of energy efficiency of production processes, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8365730">https://ieeexplore.ieee.org/document/8365730</a><br>[4] Understanding gpu power: A survey of profiling, modeling, and simulation methods, <a target="_blank" rel="noopener" href="https://www.osti.gov/pages/servlets/purl/1326472">https://www.osti.gov/pages/servlets/purl/1326472</a><br>[5] Energy-efficient CPU frequency control for the Linux system, <a target="_blank" rel="noopener" href="https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system">https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system</a><br>[6] Analyzing the impact of cpu pinning and partial cpu loads on performance and energy efficiency, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7152466">https://ieeexplore.ieee.org/document/7152466</a><br>[7] Towards Green IT Organisations: A Framework for Energy Consumption and Reduction, …<br>[8] Using complete machine simulation for software power estimation: the SoftWatt approach, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/995705">https://ieeexplore.ieee.org/document/995705</a><br>[9] The Impact of Source Code in Software on Power Consumption, <a target="_blank" rel="noopener" href="https://hal.archives-ouvertes.fr/hal-01496266/document">https://hal.archives-ouvertes.fr/hal-01496266/document</a><br>[10] Big, Medium, Little: Reaching Energy Proportionality with Heterogeneous Computing Scheduler, <a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf">https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf</a><br>[11] big.LITTLE Technology: The Future of Mobile Making very high performance available in a mobile envelope without sacrificing energy efficiency. <a target="_blank" rel="noopener" href="https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf">https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf</a><br>[12] Hybrid DVFS Scheduling for Real-Time Systems Based on Reinforcement Learning, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7163527">https://ieeexplore.ieee.org/document/7163527</a><br>[13] Machine Learning-Based Approaches for Energy-Efficiency Prediction and Scheduling in Composite Cores Architectures, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8119201">https://ieeexplore.ieee.org/document/8119201</a><br>[14] Adaptive Power Management for HPC applications, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7508065">https://ieeexplore.ieee.org/document/7508065</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/58289.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -297,106 +396,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/25971.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/25971.html" class="post-title-link" itemprop="url">论文笔记:3Sigma</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-21 03:39:29" itemprop="dateCreated datePublished" datetime="2020-09-21T03:39:29-05:00">2020-09-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-21 22:59:22" itemprop="dateModified" datetime="2021-08-21T22:59:22-05:00">2021-08-21</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Distribution-based cluster scheduling for runtime uncertainty</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Cluster needs accurate running prediction but recent point-estimation based prediction model can lead to 8-17% error which may cause misleading in decision making.<br>  -&gt; recent work uses heuristics or other random methods to eliminates misleading caused by errors in time prediction (治标不治本)<br>  -&gt; Datacenter resources are increasingly heterogeneous, and some jobs behave differently (e.g., complete faster) depend ing upon which machine(s) they are assigned to.<br>  -&gt; heavy-tailed jobs, jobs with deadlines</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>集群上居然没有完善的对runtime历史数据的处理方法！</li>
-<li>“Runtime knowledge” 非常重要</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>Distribution-based data processing for runtime uncertainty -&gt; 不再仅仅使用点估计(history取平均值), 而是采用(a) average, (b) median, (c) rolling (exponentially weighted decay with<br>α = 0.6), (d) average of X recent job runtimes. 然后选取其中最低的normalized mean absolute error (NMAE)的方案</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>针对子问题1，文中采用了distributioned-based history data processing for runtime uncertainty。在cluster环境下可能更加有效，但是其本质还是一个involve更多信息的heuristics(因为集群规模更大), 在task性质短时间内变化较大的情况下, 可能continuing learning based model表现会更好 (New中第一点也考虑了指数衰减的办法来保证数据时效性)</li>
-<li>针对子问题2，文中没有明确指出如何针对其异构性解决问题，OSDI’20在Microsoft集群上有一篇针对异构性的解决方案</li>
-<li>针对子问题3，heavy-tailed job会明显影响SLO(某种意义上影响QoS，可以说成是优化makespan), deadlines也会影响QoS(可以说是embedded environment下的time predictability)</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 3Sigma: Distribution-based cluster scheduling for runtime uncertainty, <a target="_blank" rel="noopener" href="https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf">https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -464,7 +467,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -477,7 +480,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -529,13 +532,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">48k</span>
+    <span title="Symbols count total">49k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:20</span>
+    <span title="Reading time total">1:22</span>
 
 </div>
         
