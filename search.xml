@@ -3,7 +3,9 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p>花费几个小时给一块Jetson TX2刷机，具体踩坑记录：<a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a>。</p>
+    <content><![CDATA[<h1 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h1><p>在TX2上编译tensorflow r2.6，目前没报错。编译成功后出<a href="">NVIDIA Jetson TX2编译tensorflow 2.6教程</a>。</p>
+<h1 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h1><p>什么也没干。</p>
+<h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p>花费几个小时给一块Jetson TX2刷机，具体踩坑记录：<a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a>。</p>
 <span id="more"></span>
 
 <h1 id="1-27-1-31"><a href="#1-27-1-31" class="headerlink" title="1.27 - 1.31"></a>1.27 - 1.31</h1><p>什么也没干。</p>
@@ -72,6 +74,9 @@
 
 <p>以上方法全试过了，还是import torch就core dumped😭，EMO了</p>
 ]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
       <tags>
         <tag>NVIDIA Jetson</tag>
       </tags>
@@ -150,10 +155,10 @@
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a href="https://juejin.im/post/5a92b735f265da4e761fea22">https://juejin.im/post/5a92b735f265da4e761fea22</a><br>[2] <a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a><br>[3] <a href="https://hexo.io/zh-cn/index.html">https://hexo.io/zh-cn/index.html</a><br>[4] <a href="https://extremegtr.github.io/2017/09/27/Customize-NexT-Gemini-theme/">https://extremegtr.github.io/2017/09/27/Customize-NexT-Gemini-theme/</a><br>[5] <a href="https://hexo.io/zh-cn/docs/one-command-deployment.html">https://hexo.io/zh-cn/docs/one-command-deployment.html</a><br>[6] <a href="https://hexo.io/docs/github-pages.html">https://hexo.io/docs/github-pages.html</a><br>[7] <a href="https://hexo.io/plugins/">https://hexo.io/plugins/</a></p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>config</category>
       </categories>
       <tags>
-        <tag>config</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -208,6 +213,9 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
       <tags>
         <tag>NVIDIA Jetson</tag>
       </tags>
@@ -240,10 +248,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] TimeGraph, <a href="http://www.usenix.org/events/atc11/tech/final_files/Kato.pdf">http://www.usenix.org/events/atc11/tech/final_files/Kato.pdf</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>ATC</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:survey</title>
@@ -267,8 +274,11 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] A Comprehensive Survey on Energy-Efficient Power Management Techniques, <a href="https://www.sciencedirect.com/science/article/pii/S1877050920308991">https://www.sciencedirect.com/science/article/pii/S1877050920308991</a><br>[2] What do programmers know about software energy consumption?, <a href="https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf">https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf</a><br>[3] Selection of hardware features and synthesis of multilevel control system components of energy efficiency of production processes, <a href="https://ieeexplore.ieee.org/document/8365730">https://ieeexplore.ieee.org/document/8365730</a><br>[4] Understanding gpu power: A survey of profiling, modeling, and simulation methods, <a href="https://www.osti.gov/pages/servlets/purl/1326472">https://www.osti.gov/pages/servlets/purl/1326472</a><br>[5] Energy-efficient CPU frequency control for the Linux system, <a href="https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system">https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system</a><br>[6] Analyzing the impact of cpu pinning and partial cpu loads on performance and energy efficiency, <a href="https://ieeexplore.ieee.org/document/7152466">https://ieeexplore.ieee.org/document/7152466</a><br>[7] Towards Green IT Organisations: A Framework for Energy Consumption and Reduction, …<br>[8] Using complete machine simulation for software power estimation: the SoftWatt approach, <a href="https://ieeexplore.ieee.org/document/995705">https://ieeexplore.ieee.org/document/995705</a><br>[9] The Impact of Source Code in Software on Power Consumption, <a href="https://hal.archives-ouvertes.fr/hal-01496266/document">https://hal.archives-ouvertes.fr/hal-01496266/document</a><br>[10] Big, Medium, Little: Reaching Energy Proportionality with Heterogeneous Computing Scheduler, <a href="https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf">https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf</a><br>[11] big.LITTLE Technology: The Future of Mobile Making very high performance available in a mobile envelope without sacrificing energy efficiency. <a href="https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf">https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf</a><br>[12] Hybrid DVFS Scheduling for Real-Time Systems Based on Reinforcement Learning, <a href="https://ieeexplore.ieee.org/document/7163527">https://ieeexplore.ieee.org/document/7163527</a><br>[13] Machine Learning-Based Approaches for Energy-Efficiency Prediction and Scheduling in Composite Cores Architectures, <a href="https://ieeexplore.ieee.org/document/8119201">https://ieeexplore.ieee.org/document/8119201</a><br>[14] Adaptive Power Management for HPC applications, <a href="https://ieeexplore.ieee.org/document/7508065">https://ieeexplore.ieee.org/document/7508065</a></p>
 ]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
       <tags>
-        <tag>reading notes</tag>
+        <tag>survey</tag>
       </tags>
   </entry>
   <entry>
@@ -291,10 +301,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] PRIMAL: Power Inference using Machine Learning，<a href="https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf">https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>DAC</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:3Sigma</title>
@@ -315,10 +324,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 3Sigma: Distribution-based cluster scheduling for runtime uncertainty, <a href="https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf">https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>EuroSys</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:Medea</title>
@@ -342,10 +350,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] MEDEA: Scheduling of Long Running Application in Shared Production Clusters, <a href="https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf">https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>Eurosys</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:PredJoule</title>
@@ -373,10 +380,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Predjoule, <a href="https://ieeexplore.ieee.org/document/8603196">https://ieeexplore.ieee.org/document/8603196</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>RTSS</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</title>
@@ -405,10 +411,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, <a href="https://arxiv.org/pdf/2008.09213.pdf">https://arxiv.org/pdf/2008.09213.pdf</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>arXiv</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:Per-ApplicationPowerDelivery</title>
@@ -440,10 +445,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Per-Application Power Delivery, <a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303981">https://dl.acm.org/doi/abs/10.1145/3302424.3303981</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>Eurosys</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:AnDrone</title>
@@ -463,10 +467,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Androne: Virtual drone computing in the cloud, <a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303969">https://dl.acm.org/doi/abs/10.1145/3302424.3303969</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>Eurosys</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:ZygOS</title>
@@ -496,10 +499,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] ZygOS, <a href="https://dl.acm.org/doi/pdf/10.1145/3132747.3132780">https://dl.acm.org/doi/pdf/10.1145/3132747.3132780</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>SOSP</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>论文笔记:Karaoke</title>
@@ -528,10 +530,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Karaoke, <a href="https://www.usenix.org/system/files/osdi18-lazar.pdf">https://www.usenix.org/system/files/osdi18-lazar.pdf</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>OSDI</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>python中使用networkx画图</title>
@@ -549,8 +550,11 @@
 <p><img src="/image/networkx.png" alt="效果图"></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 利用echarts实现有向图可视化,<br><a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/</a><br>[2] AntV, <a href="https://antv.vision/en">https://antv.vision/en</a><br>[3] networkx, <a href="https://www.cnblogs.com/ljhdo/p/10662902.html">https://www.cnblogs.com/ljhdo/p/10662902.html</a><br>[4] networkx tutorial,<br><a href="https://networkx.github.io/documentation/stable/tutorial.html">https://networkx.github.io/documentation/stable/tutorial.html</a></p>
 ]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
       <tags>
-        <tag>coding</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -567,10 +571,9 @@
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a href="https://www.usenix.org/system/files/atc20-bateni.pdf">NeuOS: A Latency-Predictable Multi-Dimensional Optimization Framework for DNN-driven Autonomous Systems</a></p>
 ]]></content>
-      <tags>
-        <tag>reading notes</tag>
-        <tag>ATC</tag>
-      </tags>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>基于maven的test-repo发生build-failure的解决方案</title>
@@ -581,9 +584,11 @@
 <h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
 <h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
 ]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
       <tags>
-        <tag>config</tag>
-        <tag>coding</tag>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -596,8 +601,11 @@
 </ol>
 <p>转载<a href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
 ]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
       <tags>
-        <tag>config</tag>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -631,8 +639,11 @@
 </ol>
 <h2 id="Latex模板"><a href="#Latex模板" class="headerlink" title="Latex模板"></a>Latex模板</h2><p><a href="https://www.overleaf.com/2454561743cmwzvycpggpv">https://www.overleaf.com/2454561743cmwzvycpggpv</a></p>
 ]]></content>
+      <categories>
+        <category>writing</category>
+      </categories>
       <tags>
-        <tag>writing</tag>
+        <tag>journal</tag>
       </tags>
   </entry>
   <entry>
@@ -651,8 +662,11 @@
 
 <p>增加依赖后，可以直接命令行<code>mvn $&#123;NAME&#125;:$&#123;GOAL&#125; [args]</code>的方式调用；也绑定至lifecycle，通过mvn test等命令调用（也可以IDEA右上角maven集成插件手动点击）。</p>
 ]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
       <tags>
-        <tag>coding</tag>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -674,9 +688,11 @@
 
 <p>默认继承方式是：struct是public继承，class是private继承。建议在继承时需要显示地指明修饰符。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B : public A &#123;</span><br><span class="line">	// 建议在继承时需要显示地指明修饰符</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
       <tags>
         <tag>c++</tag>
-        <tag>coding</tag>
       </tags>
   </entry>
   <entry>
@@ -689,8 +705,11 @@
 <h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
 <h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
 ]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
       <tags>
-        <tag>config</tag>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -705,8 +724,8 @@
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># This will only deploy generated files to remote sites! Nedd to backup source by yourself!</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>config</tag>
-      </tags>
+      <categories>
+        <category>config</category>
+      </categories>
   </entry>
 </search>
