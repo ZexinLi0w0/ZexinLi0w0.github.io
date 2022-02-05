@@ -4,6 +4,25 @@
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
     <content><![CDATA[<h1 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h1><p>在TX2上编译tensorflow r2.6，目前没报错。编译成功后出<a href="">NVIDIA Jetson TX2编译tensorflow 2.6教程</a>。</p>
+<p>环境准备: 刷机jetpack 4.6, 其他参考<a href="https://www.tensorflow.org/install/source/">官方编译指南</a>。</p>
+<p>安装apt依赖库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-dev python3-pip</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是python依赖库版本，装错会冲突和import core dumped。装完开一个交互式命令行尝试import这几个包。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">pip3 install -U --user pip</span><br><span class="line">pip3 -V # 应该是21.0以上版本</span><br><span class="line">pip3 install -U protobuf==3.3.0</span><br><span class="line">pip3 install -U wheel</span><br><span class="line">pip3 install -U --user keras_preprocessing --no-deps</span><br><span class="line">pip3 install -U numpy==1.19.4</span><br></pre></td></tr></table></figure>
+
+<p>编译/下载安装bazel，版本号参考.bazelversion, .bazelrc。这里r2.6要求bazel 3.7.2。</p>
+<p>获取源码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.6</span><br></pre></td></tr></table></figure>
+
+<p>挂载交换区，否则可能会内存错误(编译期间使用超过8GB内存) -&gt; Error: c++ compiling error *** Killed</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s # 输出结果中应有priority -1的swap</span><br></pre></td></tr></table></figure>
+<p>或者，直接使用jetsonhack提供的创建swap脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure>
+
+<p>配置/编译</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./config #CUDA那一项输入y，其他全部回车跳过</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=opt //tensorflow/ # 注意设置output_base路径，如果跨盘会导致编译特别慢。默认为~/.cache/</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure>
+
 <h1 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h1><p>什么也没干。</p>
 <h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p>花费几个小时给一块Jetson TX2刷机，具体踩坑记录：<a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a>。</p>
 <span id="more"></span>
