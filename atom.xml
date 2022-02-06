@@ -46,10 +46,11 @@
     <link href="https://zexinli0w0.github.io/post/226.html"/>
     <id>https://zexinli0w0.github.io/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-06T03:04:25.674Z</updated>
+    <updated>2022-02-06T21:13:06.313Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;2-5&quot;&gt;&lt;a href=&quot;#2-5&quot; class=&quot;headerlink&quot; title=&quot;2.5&quot;&gt;&lt;/a&gt;2.5&lt;/h1&gt;&lt;p&gt;在TX2上MAXN+jetso_clocks无限制功率模式，编译大约需要39000s=～11h。正在patch后重新编译tensorflow(关闭arm NUMA)。&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;2-6&quot;&gt;&lt;a href=&quot;#2-6&quot; class=&quot;headerlink&quot; title=&quot;2.6&quot;&gt;&lt;/a&gt;2.6&lt;/h1&gt;&lt;p&gt;在TX2上在patch后重新编译tensorflow(关闭arm NUMA)。踩坑：不能处于root编译，否则会出现编译错误(怀疑是环境变量问题)。&lt;/p&gt;
+&lt;h1 id=&quot;2-5&quot;&gt;&lt;a href=&quot;#2-5&quot; class=&quot;headerlink&quot; title=&quot;2.5&quot;&gt;&lt;/a&gt;2.5&lt;/h1&gt;&lt;p&gt;在TX2上MAXN+jetso_clocks无限制功率模式，编译大约需要39000s=～11h。正在patch后重新编译tensorflow(关闭arm NUMA)。&lt;/p&gt;
 &lt;h1 id=&quot;2-4&quot;&gt;&lt;a href=&quot;#2-4&quot; class=&quot;headerlink&quot; title=&quot;2.4&quot;&gt;&lt;/a&gt;2.4&lt;/h1&gt;&lt;p&gt;在TX2上编译tensorflow r2.6且能够安装成功，但是会报NUMA相关warning并执行卡顿。&lt;a href=&quot;https://forums.developer.nvidia.com/t/numa-error-running-tensorflow-on-jetson-tx2/56119&quot;&gt;相关issue1&lt;/a&gt; &lt;a href=&quot;https://forums.developer.nvidia.com/t/run-tensorflow-1-3-on-tx2-stuck/56073/5&quot;&gt;2&lt;/a&gt; &lt;a href=&quot;https://forums.developer.nvidia.com/t/trying-to-execute-tensorflow-with-gpu-support-on-my-jetson-tx2-but-having-error/67948&quot;&gt;3&lt;/a&gt; &lt;a href=&quot;https://forums.developer.nvidia.com/t/tensorflow-memory-error/52380&quot;&gt;4&lt;/a&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ARM64 does not support NUMA - returning NUMA node zero&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;正在寻求解决办法。&lt;/p&gt;
@@ -85,6 +86,17 @@
 &lt;p&gt;测试&lt;/p&gt;
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt; import tensorflow # 冒烟测试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt; exit()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GPU/mnist测试 https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
+&lt;p&gt;潜在问题&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;pip依赖全部用root配置，否则h5py可能会编译不过&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;编译tensorflow时不能处于root账户, 也不要用sudo。否则会出现local_cuda_not_found的编译错误&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一定要先设置8GB交换区，否则会出现c++ compiling error跟随出现process xx killed&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;需要至少32GB外置储存设备，NVIDIA Jetson TX2/AGX的内置储存不足以支持编译&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&quot;2-2&quot;&gt;&lt;a href=&quot;#2-2&quot; class=&quot;headerlink&quot; title=&quot;2.2&quot;&gt;&lt;/a&gt;2.2&lt;/h1&gt;&lt;p&gt;什么也没干。&lt;/p&gt;
 &lt;h1 id=&quot;2-1&quot;&gt;&lt;a href=&quot;#2-1&quot; class=&quot;headerlink&quot; title=&quot;2.1&quot;&gt;&lt;/a&gt;2.1&lt;/h1&gt;&lt;p&gt;花费几个小时给一块Jetson TX2刷机，具体踩坑记录：&lt;a href=&quot;https://zexinli0w0.github.io/post/12cc.html&quot;&gt;NVIDIA Jetson TX2刷机教程&lt;/a&gt;。&lt;/p&gt;</summary>
     
