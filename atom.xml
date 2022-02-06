@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zexin Li&#39;s Blog</title>
+  <icon>https://zexinli0w0.github.io/icon.png</icon>
+  
+  <link href="https://zexinli0w0.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://zexinli0w0.github.io/"/>
+  <updated>2022-02-04T05:23:35.084Z</updated>
+  <id>https://zexinli0w0.github.io/</id>
+  
+  <author>
+    <name>Zexin Li</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NVIDIA Jetson开发板刷机教程</title>
+    <link href="https://zexinli0w0.github.io/post/12cc.html"/>
+    <id>https://zexinli0w0.github.io/post/12cc.html</id>
+    <published>2022-02-03T00:36:49.000Z</published>
+    <updated>2022-02-04T05:23:35.084Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍&lt;b&gt;Jetpack</summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://zexinli0w0.github.io/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
+    <link href="https://zexinli0w0.github.io/post/226.html"/>
+    <id>https://zexinli0w0.github.io/post/226.html</id>
+    <published>2022-01-19T21:46:53.000Z</published>
+    <updated>2022-02-05T19:43:52.591Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;2-3&quot;&gt;&lt;a href=&quot;#2-3&quot; class=&quot;headerlink&quot; title=&quot;2.3&quot;&gt;&lt;/a&gt;2.3&lt;/h1&gt;&lt;p&gt;在TX2上编译tensorflow r2.6，目前没报错。编译成功后出&lt;a href=&quot;&quot;&gt;NVIDIA Jetson TX2编译tensorflow 2.6教程&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;环境准备: 刷机jetpack 4.6, 其他参考&lt;a href=&quot;https://www.tensorflow.org/install/source/&quot;&gt;tensorflow官方编译指南&lt;/a&gt; &lt;a href=&quot;https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html&quot;&gt;NVIDIA编译tensorflow指南&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;安装apt依赖库&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt install python3-dev python3-pip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;需要注意的是python依赖库版本，装错会冲突和import core dumped。装完开一个交互式命令行尝试import这几个包。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install python3-pip&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo pip3 install -U pip testresources setuptools==49.6.0 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;编译/下载安装bazel，版本号参考.bazelversion, .bazelrc。这里r2.6要求bazel 3.7.2。&lt;/p&gt;
+&lt;p&gt;获取源码&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone https://github.com/tensorflow/tensorflow.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd tensorflow&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout r2.6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;b style=&#39;color: red&#39;&gt;打补丁(patch)&lt;/b&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 因为AGX/TX2不支持NUMA，需要禁用arm NUMA进行相关BUILD&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;挂载交换区，否则可能会内存错误(编译期间使用超过8GB内存) -&amp;gt; Error: c++ compiling error *** Killed&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fallocate -l 8G swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;chmod 600 swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkswap swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo swapon swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;swapon -s # 输出结果中应有priority -1的swap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者，直接使用jetsonhack提供的创建swap脚本&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./createSwapfile.sh -d /experiment -s 8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;配置/编译&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;./config #CUDA那一项输入y，其他全部回车跳过&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=opt //tensorflow/tools/pip_package:build_pip_package # 注意设置output_base路径，如果跨盘会导致编译特别慢。默认为~/.cache/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;安装额外依赖&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip3 install -U --user h5py==3.1.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;安装tensorflow whl&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;测试&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt; import tensorflow # 冒烟测试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt; exit()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GPU/mnist测试 https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;2-2&quot;&gt;&lt;a href=&quot;#2-2&quot; class=&quot;headerlink&quot; title=&quot;2.2&quot;&gt;&lt;/a&gt;2.2&lt;/h1&gt;&lt;p&gt;什么也没干。&lt;/p&gt;
+&lt;h1 id=&quot;2-1&quot;&gt;&lt;a href=&quot;#2-1&quot; class=&quot;headerlink&quot; title=&quot;2.1&quot;&gt;&lt;/a&gt;2.1&lt;/h1&gt;&lt;p&gt;花费几个小时给一块Jetson TX2刷机，具体踩坑记录：&lt;a href=&quot;https://zexinli0w0.github.io/post/12cc.html&quot;&gt;NVIDIA Jetson TX2刷机教程&lt;/a&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://zexinli0w0.github.io/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:TimeGraph</title>
+    <link href="https://zexinli0w0.github.io/post/17147.html"/>
+    <id>https://zexinli0w0.github.io/post/17147.html</id>
+    <published>2020-09-28T21:13:40.000Z</published>
+    <updated>2022-02-04T05:25:11.037Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h3&gt;&lt;p&gt;GPU Scheduling and resource reservation for Real-Time Multi-Tasking Environments&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:survey</title>
+    <link href="https://zexinli0w0.github.io/post/18725.html"/>
+    <id>https://zexinli0w0.github.io/post/18725.html</id>
+    <published>2020-09-28T21:13:22.000Z</published>
+    <updated>2022-02-04T05:25:19.965Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+    <category term="survey" scheme="https://zexinli0w0.github.io/tags/survey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:PRIMAL</title>
+    <link href="https://zexinli0w0.github.io/post/58289.html"/>
+    <id>https://zexinli0w0.github.io/post/58289.html</id>
+    <published>2020-09-21T21:39:41.000Z</published>
+    <updated>2022-02-04T05:25:24.531Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:3Sigma</title>
+    <link href="https://zexinli0w0.github.io/post/25971.html"/>
+    <id>https://zexinli0w0.github.io/post/25971.html</id>
+    <published>2020-09-21T21:39:29.000Z</published>
+    <updated>2022-02-04T05:25:00.924Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:Medea</title>
+    <link href="https://zexinli0w0.github.io/post/38747.html"/>
+    <id>https://zexinli0w0.github.io/post/38747.html</id>
+    <published>2020-09-15T17:46:29.000Z</published>
+    <updated>2022-02-04T05:25:46.754Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:PredJoule</title>
+    <link href="https://zexinli0w0.github.io/post/32931.html"/>
+    <id>https://zexinli0w0.github.io/post/32931.html</id>
+    <published>2020-09-14T21:07:30.000Z</published>
+    <updated>2022-02-04T05:25:33.362Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</title>
+    <link href="https://zexinli0w0.github.io/post/15125.html"/>
+    <id>https://zexinli0w0.github.io/post/15125.html</id>
+    <published>2020-09-08T20:53:19.000Z</published>
+    <updated>2022-02-04T05:25:54.205Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:Per-ApplicationPowerDelivery</title>
+    <link href="https://zexinli0w0.github.io/post/27403.html"/>
+    <id>https://zexinli0w0.github.io/post/27403.html</id>
+    <published>2020-09-08T20:52:59.000Z</published>
+    <updated>2022-02-04T05:25:43.038Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:AnDrone</title>
+    <link href="https://zexinli0w0.github.io/post/7870.html"/>
+    <id>https://zexinli0w0.github.io/post/7870.html</id>
+    <published>2020-09-08T20:52:22.000Z</published>
+    <updated>2022-02-04T05:25:58.034Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:ZygOS</title>
+    <link href="https://zexinli0w0.github.io/post/45382.html"/>
+    <id>https://zexinli0w0.github.io/post/45382.html</id>
+    <published>2020-08-26T22:27:29.000Z</published>
+    <updated>2022-02-04T05:25:07.399Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:Karaoke</title>
+    <link href="https://zexinli0w0.github.io/post/12763.html"/>
+    <id>https://zexinli0w0.github.io/post/12763.html</id>
+    <published>2020-08-26T22:27:03.000Z</published>
+    <updated>2022-02-04T05:25:50.955Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python中使用networkx画图</title>
+    <link href="https://zexinli0w0.github.io/post/2395.html"/>
+    <id>https://zexinli0w0.github.io/post/2395.html</id>
+    <published>2020-08-20T20:16:11.000Z</published>
+    <updated>2022-02-04T05:23:49.184Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;总述&quot;&gt;&lt;a href=&quot;#总述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="coding" scheme="https://zexinli0w0.github.io/categories/coding/"/>
+    
+    
+    <category term="python" scheme="https://zexinli0w0.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文笔记:NeuOS</title>
+    <link href="https://zexinli0w0.github.io/post/10193.html"/>
+    <id>https://zexinli0w0.github.io/post/10193.html</id>
+    <published>2020-08-18T20:25:06.000Z</published>
+    <updated>2022-02-04T05:25:37.492Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于maven的test-repo发生build-failure的解决方案</title>
+    <link href="https://zexinli0w0.github.io/post/61823.html"/>
+    <id>https://zexinli0w0.github.io/post/61823.html</id>
+    <published>2020-08-05T21:45:57.000Z</published>
+    <updated>2022-02-04T05:24:28.696Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;场景描述&quot;&gt;&lt;a href=&quot;#场景描述&quot; class=&quot;headerlink&quot; title=&quot;场景描述&quot;&gt;&lt;/a&gt;场景描述&lt;/h2&gt;&lt;p&gt;因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn</summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="maven" scheme="https://zexinli0w0.github.io/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>maven的源配置(更新)</title>
+    <link href="https://zexinli0w0.github.io/post/34617.html"/>
+    <id>https://zexinli0w0.github.io/post/34617.html</id>
+    <published>2020-08-05T21:23:30.000Z</published>
+    <updated>2022-02-04T05:23:26.550Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;阿里云云效maven的站点查询 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="maven" scheme="https://zexinli0w0.github.io/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Response-Letter的写作</title>
+    <link href="https://zexinli0w0.github.io/post/43019.html"/>
+    <id>https://zexinli0w0.github.io/post/43019.html</id>
+    <published>2020-08-05T21:03:26.000Z</published>
+    <updated>2022-02-04T05:24:08.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Response-Letter是什么&quot;&gt;&lt;a href=&quot;#Response-Letter是什么&quot; class=&quot;headerlink&quot; title=&quot;Response Letter是什么&quot;&gt;&lt;/a&gt;Response</summary>
+        
+      
+    
+    
+    
+    <category term="writing" scheme="https://zexinli0w0.github.io/categories/writing/"/>
+    
+    
+    <category term="journal" scheme="https://zexinli0w0.github.io/tags/journal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo+next主题配置之怎么配成我这样</title>
+    <link href="https://zexinli0w0.github.io/post/43164.html"/>
+    <id>https://zexinli0w0.github.io/post/43164.html</id>
+    <published>2020-07-14T18:18:48.000Z</published>
+    <updated>2022-02-04T05:22:49.102Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;总述&quot;&gt;&lt;a href=&quot;#总述&quot; class=&quot;headerlink&quot; title=&quot;总述&quot;&gt;&lt;/a&gt;总述&lt;/h2&gt;&lt;p&gt;这篇文用来介绍本站点使用的Hexo+Next主题配置及各种相关的依赖配置。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="Hexo" scheme="https://zexinli0w0.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何编写maven插件（重新发布）</title>
+    <link href="https://zexinli0w0.github.io/post/undefined.html"/>
+    <id>https://zexinli0w0.github.io/post/undefined.html</id>
+    <published>2020-07-14T15:55:01.000Z</published>
+    <updated>2022-02-04T05:24:40.450Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;总述&quot;&gt;&lt;a href=&quot;#总述&quot; class=&quot;headerlink&quot; title=&quot;总述&quot;&gt;&lt;/a&gt;总述&lt;/h2&gt;&lt;p&gt;maven作为热门的build system经常被各种Java</summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="maven" scheme="https://zexinli0w0.github.io/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>c++的struct和class（重新发布）</title>
+    <link href="https://zexinli0w0.github.io/post/4387.html"/>
+    <id>https://zexinli0w0.github.io/post/4387.html</id>
+    <published>2020-07-14T15:51:39.000Z</published>
+    <updated>2022-02-04T05:22:47.193Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;总述&quot;&gt;&lt;a href=&quot;#总述&quot; class=&quot;headerlink&quot; title=&quot;总述&quot;&gt;&lt;/a&gt;总述&lt;/h2&gt;&lt;p&gt;在学习c++的时候会遇到一个问题：&lt;strong&gt;什么时候使用struct，什么时候使用class？&lt;/strong&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="coding" scheme="https://zexinli0w0.github.io/categories/coding/"/>
+    
+    
+    <category term="c++" scheme="https://zexinli0w0.github.io/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
+    <link href="https://zexinli0w0.github.io/post/26020.html"/>
+    <id>https://zexinli0w0.github.io/post/26020.html</id>
+    <published>2020-07-14T15:41:09.000Z</published>
+    <updated>2022-02-04T05:23:18.417Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;总述&quot;&gt;&lt;a href=&quot;#总述&quot; class=&quot;headerlink&quot; title=&quot;总述&quot;&gt;&lt;/a&gt;总述&lt;/h2&gt;&lt;p&gt;很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office</summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="Mac" scheme="https://zexinli0w0.github.io/tags/Mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://zexinli0w0.github.io/post/16107.html"/>
+    <id>https://zexinli0w0.github.io/post/16107.html</id>
+    <published>2020-07-10T15:51:39.000Z</published>
+    <updated>2022-02-04T05:22:57.949Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+  </entry>
+  
+</feed>
