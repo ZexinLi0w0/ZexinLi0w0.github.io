@@ -591,7 +591,11 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h1><p>在TX2上编译tensorflow r2.6，目前没报错。编译成功后出<a href="">NVIDIA Jetson TX2编译tensorflow 2.6教程</a>。</p>
+    <content><![CDATA[<h1 id="2-5"><a href="#2-5" class="headerlink" title="2.5"></a>2.5</h1><p>在TX2上MAXN+jetso_clocks无限制功率模式，编译大约需要39000s=～11h。正在patch后重新编译tensorflow(关闭arm NUMA)。</p>
+<h1 id="2-4"><a href="#2-4" class="headerlink" title="2.4"></a>2.4</h1><p>在TX2上编译tensorflow r2.6且能够安装成功，但是会报NUMA相关warning并执行卡顿。<a href="https://forums.developer.nvidia.com/t/numa-error-running-tensorflow-on-jetson-tx2/56119">相关issue1</a> <a href="https://forums.developer.nvidia.com/t/run-tensorflow-1-3-on-tx2-stuck/56073/5">2</a> <a href="https://forums.developer.nvidia.com/t/trying-to-execute-tensorflow-with-gpu-support-on-my-jetson-tx2-but-having-error/67948">3</a> <a href="https://forums.developer.nvidia.com/t/tensorflow-memory-error/52380">4</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ARM64 does not support NUMA - returning NUMA node zero</span><br></pre></td></tr></table></figure>
+<p>正在寻求解决办法。</p>
+<h1 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h1><p>在TX2上编译tensorflow r2.6，目前没报错。编译成功后出<a href="">NVIDIA Jetson TX2编译tensorflow 2.6教程</a>。</p>
 <p>环境准备: 刷机jetpack 4.6, 其他参考<a href="https://www.tensorflow.org/install/source/">tensorflow官方编译指南</a> <a href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA编译tensorflow指南</a>。</p>
 <p>安装apt依赖库</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-dev python3-pip</span><br></pre></td></tr></table></figure>
