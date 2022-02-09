@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-08 17:03:09" itemprop="dateModified" datetime="2022-02-08T17:03:09-06:00">2022-02-08</time>
+                <time title="Modified: 2022-02-09 10:53:44" itemprop="dateModified" datetime="2022-02-09T10:53:44-06:00">2022-02-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,14 +264,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6.3k</span>
+              <span>6.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>10 mins.</span>
+              <span>11 mins.</span>
             </span>
 
         </div>
@@ -283,7 +283,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="2-8"><a href="#2-8" class="headerlink" title="2.8"></a>2.8</h1><p>TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/JanKin_BY/article/details/120441238">https://blog.csdn.net/JanKin_BY/article/details/120441238</a></p>
+          <h1 id="2-9"><a href="#2-9" class="headerlink" title="2.9"></a>2.9</h1><p>TX2 jetpack 4.6 + tensorflow r2.6/r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现一个CPU核心100%占用，GPU 0%占用。回退jetpack版本到4.5.1, 再编译tensorflow r2.4/r2.6仍然有此问题。计划回退jetpack版本到3.3再尝试编译。</p>
+<h1 id="2-8"><a href="#2-8" class="headerlink" title="2.8"></a>2.8</h1><p>TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/JanKin_BY/article/details/120441238">https://blog.csdn.net/JanKin_BY/article/details/120441238</a></p>
 <p><a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20">https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20</a></p>
 <h1 id="2-7"><a href="#2-7" class="headerlink" title="2.7"></a>2.7</h1><p>在AGX上follow以下setting编译tensorflow r2.6，也能编译通过但存在NVIDIA known issue(目前未解决)。正在AGX上编译r2.4。</p>
 <h1 id="2-6"><a href="#2-6" class="headerlink" title="2.6"></a>2.6</h1><p>在TX2上在patch后重新编译tensorflow(关闭arm NUMA)。踩坑：不能处于root编译，否则会出现编译错误(怀疑是环境变量问题)。</p>
@@ -606,13 +607,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">52k</span>
+    <span title="Symbols count total">53k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:27</span>
+    <span title="Reading time total">1:28</span>
 
 </div>
         

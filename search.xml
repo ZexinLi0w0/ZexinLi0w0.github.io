@@ -3,7 +3,8 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="2-8"><a href="#2-8" class="headerlink" title="2.8"></a>2.8</h1><p>TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：<br><a href="https://blog.csdn.net/JanKin_BY/article/details/120441238">https://blog.csdn.net/JanKin_BY/article/details/120441238</a></p>
+    <content><![CDATA[<h1 id="2-9"><a href="#2-9" class="headerlink" title="2.9"></a>2.9</h1><p>TX2 jetpack 4.6 + tensorflow r2.6/r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现一个CPU核心100%占用，GPU 0%占用。回退jetpack版本到4.5.1, 再编译tensorflow r2.4/r2.6仍然有此问题。计划回退jetpack版本到3.3再尝试编译。</p>
+<h1 id="2-8"><a href="#2-8" class="headerlink" title="2.8"></a>2.8</h1><p>TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：<br><a href="https://blog.csdn.net/JanKin_BY/article/details/120441238">https://blog.csdn.net/JanKin_BY/article/details/120441238</a></p>
 <p><a href="https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20">https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20</a></p>
 <h1 id="2-7"><a href="#2-7" class="headerlink" title="2.7"></a>2.7</h1><p>在AGX上follow以下setting编译tensorflow r2.6，也能编译通过但存在NVIDIA known issue(目前未解决)。正在AGX上编译r2.4。</p>
 <h1 id="2-6"><a href="#2-6" class="headerlink" title="2.6"></a>2.6</h1><p>在TX2上在patch后重新编译tensorflow(关闭arm NUMA)。踩坑：不能处于root编译，否则会出现编译错误(怀疑是环境变量问题)。</p>
