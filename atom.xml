@@ -46,10 +46,12 @@
     <link href="https://zexinli0w0.github.io/post/226.html"/>
     <id>https://zexinli0w0.github.io/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-09T16:53:44.792Z</updated>
+    <updated>2022-02-11T02:36:20.443Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;2-9&quot;&gt;&lt;a href=&quot;#2-9&quot; class=&quot;headerlink&quot; title=&quot;2.9&quot;&gt;&lt;/a&gt;2.9&lt;/h1&gt;&lt;p&gt;TX2 jetpack 4.6 + tensorflow r2.6/r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现一个CPU核心100%占用，GPU 0%占用。回退jetpack版本到4.5.1, 再编译tensorflow r2.4/r2.6仍然有此问题。计划回退jetpack版本到3.3再尝试编译。&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;2-11&quot;&gt;&lt;a href=&quot;#2-11&quot; class=&quot;headerlink&quot; title=&quot;2.11&quot;&gt;&lt;/a&gt;2.11&lt;/h1&gt;&lt;p&gt;TODO: 测试 jetpack 3.3 + tensorflow r2.2的运行情况（估计还是有版本问题）。&lt;/p&gt;
+&lt;h1 id=&quot;2-10&quot;&gt;&lt;a href=&quot;#2-10&quot; class=&quot;headerlink&quot; title=&quot;2.10&quot;&gt;&lt;/a&gt;2.10&lt;/h1&gt;&lt;p&gt;休息，什么也没干。&lt;/p&gt;
+&lt;h1 id=&quot;2-9&quot;&gt;&lt;a href=&quot;#2-9&quot; class=&quot;headerlink&quot; title=&quot;2.9&quot;&gt;&lt;/a&gt;2.9&lt;/h1&gt;&lt;p&gt;TX2 jetpack 4.6 + tensorflow r2.6/r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现一个CPU核心100%占用，GPU 0%占用。回退jetpack版本到4.5.1, 再编译tensorflow r2.4/r2.6仍然有此问题。计划回退jetpack版本到3.3再尝试编译。&lt;/p&gt;
 &lt;h1 id=&quot;2-8&quot;&gt;&lt;a href=&quot;#2-8&quot; class=&quot;headerlink&quot; title=&quot;2.8&quot;&gt;&lt;/a&gt;2.8&lt;/h1&gt;&lt;p&gt;TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/JanKin_BY/article/details/120441238&quot;&gt;https://blog.csdn.net/JanKin_BY/article/details/120441238&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20&quot;&gt;https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;2-7&quot;&gt;&lt;a href=&quot;#2-7&quot; class=&quot;headerlink&quot; title=&quot;2.7&quot;&gt;&lt;/a&gt;2.7&lt;/h1&gt;&lt;p&gt;在AGX上follow以下setting编译tensorflow r2.6，也能编译通过但存在NVIDIA known issue(目前未解决)。正在AGX上编译r2.4。&lt;/p&gt;
