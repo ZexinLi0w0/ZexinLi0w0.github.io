@@ -29,7 +29,7 @@
 <meta property="og:description" content="NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库&#x2F;深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍Jetpack 4.6刷机的技术细节。 此外JetsonHacks提供了官方刷机教学视频，如果看本文还是不清楚一些细节，可以看视频一步步跟着学: Jetpack 4.2安装 J">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-03T00:36:49.000Z">
-<meta property="article:modified_time" content="2022-02-04T05:23:35.084Z">
+<meta property="article:modified_time" content="2022-02-11T21:46:36.254Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-03 23:23:35" itemprop="dateModified" datetime="2022-02-03T23:23:35-06:00">2022-02-03</time>
+                <time title="Modified: 2022-02-11 15:46:36" itemprop="dateModified" datetime="2022-02-11T15:46:36-06:00">2022-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,7 +264,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -329,6 +329,9 @@
 <li><p>网络下载太慢<br>更换能过墙+带宽足够的环境。</p>
 </li>
 <li><p>Jetpack报奇怪的错(例如dependencies error)<br>更换纯净的ubuntu 18.04 host，多数是系统问题。不要想着fix这些error，有这时间不如重装/换靠谱的host。</p>
+</li>
+<li><p>有2个CPU核心不工作(性能问题)<br>将/boot/extlinux/exltinux.conf 文件里的<code>isolcpus=1-2</code>修改为<code>isolcpus=</code>，参考<a href="
+https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
 </li>
 </ol>
 
@@ -536,7 +539,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:28</span>
+    <span title="Reading time total">1:29</span>
 
 </div>
         

@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"zexinli0w0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="2.11TODO: 测试 jetpack 3.3 + tensorflow r2.2的运行情况（估计还是有版本问题）。 2.10休息，什么也没干。 2.9TX2 jetpack 4.6 + tensorflow r2.6&#x2F;r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现">
+  <meta name="description" content="总述Q: 什么人需要源码安装tensorflow?  A: 1. tensorflow的开发者(想改进它的代码); 2. 需要指定版本tensorflow但没有下载资源的开发者。仅使用tensorflow API的开发者不需要编译，建议使用NVIDIA官方镜像，或者从官方下载编译好的.whl文件并使用pip安装。 tensorflow 1.x源码安装Jetsonhacks提供了github安装指导">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NVIDIA Jetson系列源码安装tensorflow2.x教程">
 <meta property="og:url" content="https://zexinli0w0.github.io/post/6311.html">
 <meta property="og:site_name" content="Zexin Li&#39;s Blog">
-<meta property="og:description" content="2.11TODO: 测试 jetpack 3.3 + tensorflow r2.2的运行情况（估计还是有版本问题）。 2.10休息，什么也没干。 2.9TX2 jetpack 4.6 + tensorflow r2.6&#x2F;r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现">
+<meta property="og:description" content="总述Q: 什么人需要源码安装tensorflow?  A: 1. tensorflow的开发者(想改进它的代码); 2. 需要指定版本tensorflow但没有下载资源的开发者。仅使用tensorflow API的开发者不需要编译，建议使用NVIDIA官方镜像，或者从官方下载编译好的.whl文件并使用pip安装。 tensorflow 1.x源码安装Jetsonhacks提供了github安装指导">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-11T21:04:57.000Z">
-<meta property="article:modified_time" content="2022-02-11T21:06:04.719Z">
+<meta property="article:modified_time" content="2022-02-11T21:58:38.863Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
@@ -240,7 +240,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-02-11 15:04:57 / Modified: 15:06:04" itemprop="dateCreated datePublished" datetime="2022-02-11T15:04:57-06:00">2022-02-11</time>
+              <time title="Created: 2022-02-11 15:04:57 / Modified: 15:58:38" itemprop="dateCreated datePublished" datetime="2022-02-11T15:04:57-06:00">2022-02-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,14 +258,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.3k</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
+              <span>6 mins.</span>
             </span>
 
         </div>
@@ -277,66 +277,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="2-11"><a href="#2-11" class="headerlink" title="2.11"></a>2.11</h1><p>TODO: 测试 jetpack 3.3 + tensorflow r2.2的运行情况（估计还是有版本问题）。</p>
-<h1 id="2-10"><a href="#2-10" class="headerlink" title="2.10"></a>2.10</h1><p>休息，什么也没干。</p>
-<h1 id="2-9"><a href="#2-9" class="headerlink" title="2.9"></a>2.9</h1><p>TX2 jetpack 4.6 + tensorflow r2.6/r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现一个CPU核心100%占用，GPU 0%占用。回退jetpack版本到4.5.1, 再编译tensorflow r2.4/r2.6仍然有此问题。计划回退jetpack版本到3.3再尝试编译。</p>
-<h1 id="2-8"><a href="#2-8" class="headerlink" title="2.8"></a>2.8</h1><p>TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/JanKin_BY/article/details/120441238">https://blog.csdn.net/JanKin_BY/article/details/120441238</a></p>
-<p><a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20">https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20</a></p>
-<h1 id="2-7"><a href="#2-7" class="headerlink" title="2.7"></a>2.7</h1><p>在AGX上follow以下setting编译tensorflow r2.6，也能编译通过但存在NVIDIA known issue(目前未解决)。正在AGX上编译r2.4。</p>
-<h1 id="2-6"><a href="#2-6" class="headerlink" title="2.6"></a>2.6</h1><p>在TX2上在patch后重新编译tensorflow(关闭arm NUMA)。踩坑：不能处于root编译，否则会出现编译错误(怀疑是环境变量问题)。</p>
-<h1 id="2-5"><a href="#2-5" class="headerlink" title="2.5"></a>2.5</h1><p>在TX2上MAXN+jetso_clocks无限制功率模式，编译大约需要39000s=～11h。正在patch后重新编译tensorflow(关闭arm NUMA)。</p>
-<h1 id="2-4"><a href="#2-4" class="headerlink" title="2.4"></a>2.4</h1><p>在TX2上编译tensorflow r2.6且能够安装成功，但是会报NUMA相关warning并执行卡顿。<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/numa-error-running-tensorflow-on-jetson-tx2/56119">相关issue1</a> <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/run-tensorflow-1-3-on-tx2-stuck/56073/5">2</a> <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/trying-to-execute-tensorflow-with-gpu-support-on-my-jetson-tx2-but-having-error/67948">3</a> <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/tensorflow-memory-error/52380">4</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ARM64 does not support NUMA - returning NUMA node zero</span><br></pre></td></tr></table></figure>
-<p>正在寻求解决办法。</p>
-<h1 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h1><p>在TX2上编译tensorflow r2.6，目前没报错。编译成功后出<a href="">NVIDIA Jetson TX2编译tensorflow 2.6教程</a>。</p>
-<p>环境准备: 刷机jetpack 4.6, 其他参考<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">tensorflow官方编译指南</a> <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA编译tensorflow指南</a>。 注意查询<a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html">Jetpack和tensorflow版本的兼容性</a>，可以发现jetpack 4.6支持tensorflow 2.5/2.6/2.7。虽然编译2.6虽然能编译+安装成功，但是会出现ARM64 NUMA return 0的报错并卡住python进程，<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/arm64-does-not-support-numa-returning-numa-node-zero/193478">原因如下</a>，官方并没有修复这个问题并建议使用tensorflow 2.5。然而，对于r2.5而言，在TX2上会直接发生@local_cuda not found的error，无法编译原因不明（可能需要编译指定版本的CUDA）。</p>
-<p>安装apt依赖库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-dev python3-pip</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是python依赖库版本，装错会冲突和import core dumped。装完开一个交互式命令行尝试import这几个包。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0</span><br></pre></td></tr></table></figure>
-
-<p>下载bazel的jdk依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参考https://docs.bazel.build/versions/main/install-ubuntu.html</span><br><span class="line"># Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"># Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br></pre></td></tr></table></figure>
-
-<p>编译/下载安装bazel，版本号参考.bazelversion, .bazelrc。这里r2.6要求bazel 3.7.2。</p>
-<p>获取源码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.6</span><br></pre></td></tr></table></figure>
-
-<p><b style='color: red'>打补丁(patch)</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 因为AGX/TX2不支持NUMA，需要禁用arm NUMA进行相关BUILD</span><br></pre></td></tr></table></figure>
-
-<p>挂载交换区，否则可能会内存错误(编译期间使用超过8GB内存) -&gt; Error: c++ compiling error *** Killed</p>
+        <h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1><p>Q: 什么人需要源码安装tensorflow? </p>
+<p>A: 1. tensorflow的开发者(想改进它的代码); 2. 需要指定版本tensorflow但没有下载资源的开发者。仅使用tensorflow API的开发者不需要编译，建议使用<b>NVIDIA官方镜像</b>，或者从官方下载<b>编译好的.whl文件</b>并使用pip安装。</p>
+<h1 id="tensorflow-1-x源码安装"><a href="#tensorflow-1-x源码安装" class="headerlink" title="tensorflow 1.x源码安装"></a>tensorflow 1.x源码安装</h1><p>Jetsonhacks提供了<a target="_blank" rel="noopener" href="https://github.com/jetsonhacks/installTensorFlowTX2">github安装指导<a>。</p>
+<h1 id="tensorflow-2-x源码安装"><a href="#tensorflow-2-x源码安装" class="headerlink" title="tensorflow 2.x源码安装"></a>tensorflow 2.x源码安装</h1><p>目前公网基本没有编译2.x的教程，因此需要大量踩坑。遇到问题请查看文末【潜在问题】。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol start="0">
+<li>查询官方指南确定需要安装的版本。<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">tensorflow官方编译指南</a> <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA编译tensorflow指南</a></li>
+</ol>
+<p><b style="color: red">目前经测试可编译+运行: jetpack 3.3 + tensorflow r2.2。</b></p>
+<ol>
+<li><p>正确刷机: 使用NVIDIA官方提供的NVIDIA SDK Manager刷入Jetpack【<a href="https://zexinli0w0.github.io/post/12cc.html">刷机教程</a>】。以TX2为例，目前Jetpack可选版本4.6, 4.5.1, 4.5, 3.3。注意: 4.5+版本CUDA/CUDNN版本较高，可能会出现不兼容情况。</p>
+</li>
+<li><p>安装python依赖库<br>对于jetpack 4.5+</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0</span><br></pre></td></tr></table></figure>
+<p>对于jetpack 3.3</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # 因为pip3已经放弃对python 3.5的支持, 所以不能从apt安装pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>注意: python依赖库版本，装错可能会冲突和import core dumped。装完开一个交互式命令行python3尝试import这几个包。</p>
+<ol start="3">
+<li><p>安装jdk依赖库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参考https://docs.bazel.build/versions/main/install-ubuntu.html</span><br><span class="line"># 对于jetpack 4.5+ Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br><span class="line"># 对于jetpack 3.3 Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li>
+<li><p>安装bazel<br>编译/下载安装bazel，版本号参考.bazelversion</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir bazel-$BAZEL_VERSION</span><br><span class="line">cd bazel-$BAZEL_VERSION</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">unzip bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">rm bazel-bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp /output/bazel /usr/local/bin</span><br><span class="line">bazel version</span><br></pre></td></tr></table></figure></li>
+<li><p>挂载交换区，否则可能会<b>内存错误</b>(编译期间使用超过8GB内存) -&gt; Error: c++ compiling error *** Killed</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s # 输出结果中应有priority -1的swap</span><br></pre></td></tr></table></figure>
 <p>或者，直接使用jetsonhack提供的创建swap脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure>
-
-<p>配置/编译</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./config #CUDA那一项输入y，其他全部回车跳过</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=opt //tensorflow/tools/pip_package:build_pip_package # 注意设置output_base路径，如果跨盘会导致编译特别慢。默认为~/.cache/</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure>
-
-<p>安装额外依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U --user h5py==3.1.0</span><br></pre></td></tr></table></figure>
-
-<p>安装tensorflow whl</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure>
-
-<p>测试</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow # 冒烟测试</span><br><span class="line">&gt;&gt; exit()</span><br><span class="line">GPU/mnist测试 https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure>
-
-<p>潜在问题</p>
-<ol>
-<li><p>pip依赖全部用root配置，否则h5py可能会编译不过</p>
-</li>
-<li><p>编译tensorflow时不能处于root账户, 也不要用sudo。否则会出现local_cuda_not_found的编译错误</p>
-</li>
-<li><p>一定要先设置8GB交换区，否则会出现c++ compiling error跟随出现process xx killed</p>
-</li>
-<li><p>需要至少32GB外置储存设备，NVIDIA Jetson TX2/AGX的内置储存不足以支持编译</p>
-</li>
-<li><p>cannot import name ‘function_pb2’: 不要在tensorflow源代码repo import tensorflow</p>
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h1 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h1><p>什么也没干。</p>
+<h2 id="编译-安装-测试"><a href="#编译-安装-测试" class="headerlink" title="编译/安装/测试"></a>编译/安装/测试</h2><ol>
+<li><p>获取tensorflow源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.2 # 对于jetpack 3.3</span><br></pre></td></tr></table></figure></li>
+<li><p>配置/编译 (编译特别耗时, 在全功率模式下TX2需要大约13h, AGX需要大约6h)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./config #配置正确的python路径，CUDA那一项输入y，其他全部回车跳过</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=noaws --config=cuda //tensorflow/tools/pip_package:build_pip_package # 注意设置output_base路径，如果跨盘会导致编译比不跨盘慢很多。默认为~/.cache/</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure></li>
+<li><p>安装tensorflow .whl</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow # 冒烟测试</span><br><span class="line">&gt;&gt; exit()</span><br><span class="line">GPU/mnist测试 #参考 https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="潜在问题"><a href="#潜在问题" class="headerlink" title="潜在问题"></a>潜在问题</h1><ol>
+<li>pip3安装h5py编译不通过: 全部使用root账户安装pip3依赖库</li>
+<li>local_cuda_not_found的编译错误: 编译tensorflow时不能处于root账户, 也不要用sudo。切换已知可用版本(tensorflowr2.5+jetpack 4.5+版本可能会出现此错误)</li>
+<li>c++ compiling error+cannot write file: 需要至少32GB外置储存设备，NVIDIA Jetson系列的内置储存(通常为32GB)不足以容纳编译tensorflow产生的大量中间文件</li>
+<li>c++ compiling error+process xx killed: 一定要先设置8GB交换区(swap)，否则会出现内存不足错误</li>
+<li>cannot import name ‘function_pb2’: 切换当前目录，不要在tensorflow源代码路径import tensorflow</li>
+<li>能够编译+pip安装，但无法通过测试，执行测试文件卡住: 由于jetpack默认安装的CUDA/CUDNN版本和tensorflow官方推荐版本不匹配，可能会出现类似的兼容性问题。可能的解决方案: (1)使用推荐版本编译 (2)从jetpack下载/编译对应版本的CUDA/CUDNN，再编译tensorflow (3)到<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/">NVIDIA开发者论坛</a>提问，但目前官方也没有很好的解决办法。</li>
+</ol>
 
     </div>
 
@@ -452,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-11"><span class="nav-number">1.</span> <span class="nav-text">2.11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-10"><span class="nav-number">2.</span> <span class="nav-text">2.10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-9"><span class="nav-number">3.</span> <span class="nav-text">2.9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-8"><span class="nav-number">4.</span> <span class="nav-text">2.8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-7"><span class="nav-number">5.</span> <span class="nav-text">2.7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-6"><span class="nav-number">6.</span> <span class="nav-text">2.6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-5"><span class="nav-number">7.</span> <span class="nav-text">2.5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-4"><span class="nav-number">8.</span> <span class="nav-text">2.4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3"><span class="nav-number">9.</span> <span class="nav-text">2.3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2"><span class="nav-number">10.</span> <span class="nav-text">2.2</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">总述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tensorflow-1-x%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">tensorflow 1.x源码安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tensorflow-2-x%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">tensorflow 2.x源码安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91-%E5%AE%89%E8%A3%85-%E6%B5%8B%E8%AF%95"><span class="nav-number">3.2.</span> <span class="nav-text">编译&#x2F;安装&#x2F;测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BD%9C%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">潜在问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -542,7 +527,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:28</span>
+    <span title="Reading time total">1:29</span>
 
 </div>
         
