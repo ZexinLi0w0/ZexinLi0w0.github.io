@@ -6,7 +6,7 @@
   <link href="https://zexinli0w0.github.io/atom.xml" rel="self"/>
   
   <link href="https://zexinli0w0.github.io/"/>
-  <updated>2022-02-04T05:23:35.084Z</updated>
+  <updated>2022-02-11T21:09:54.778Z</updated>
   <id>https://zexinli0w0.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NVIDIA Jetson系列配置踩坑记录</title>
+    <link href="https://zexinli0w0.github.io/post/bfdc.html"/>
+    <id>https://zexinli0w0.github.io/post/bfdc.html</id>
+    <published>2022-02-11T21:09:30.000Z</published>
+    <updated>2022-02-11T21:09:54.778Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://zexinli0w0.github.io/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NVIDIA Jetson系列源码安装tensorflow2.x教程</title>
+    <link href="https://zexinli0w0.github.io/post/6311.html"/>
+    <id>https://zexinli0w0.github.io/post/6311.html</id>
+    <published>2022-02-11T21:04:57.000Z</published>
+    <updated>2022-02-11T21:06:04.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli0w0.github.io/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://zexinli0w0.github.io/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
   
   <entry>
     <title>NVIDIA Jetson开发板刷机教程</title>
@@ -46,70 +96,11 @@
     <link href="https://zexinli0w0.github.io/post/226.html"/>
     <id>https://zexinli0w0.github.io/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-11T02:36:20.443Z</updated>
+    <updated>2022-02-11T21:10:13.436Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;2-11&quot;&gt;&lt;a href=&quot;#2-11&quot; class=&quot;headerlink&quot; title=&quot;2.11&quot;&gt;&lt;/a&gt;2.11&lt;/h1&gt;&lt;p&gt;TODO: 测试 jetpack 3.3 + tensorflow r2.2的运行情况（估计还是有版本问题）。&lt;/p&gt;
-&lt;h1 id=&quot;2-10&quot;&gt;&lt;a href=&quot;#2-10&quot; class=&quot;headerlink&quot; title=&quot;2.10&quot;&gt;&lt;/a&gt;2.10&lt;/h1&gt;&lt;p&gt;休息，什么也没干。&lt;/p&gt;
-&lt;h1 id=&quot;2-9&quot;&gt;&lt;a href=&quot;#2-9&quot; class=&quot;headerlink&quot; title=&quot;2.9&quot;&gt;&lt;/a&gt;2.9&lt;/h1&gt;&lt;p&gt;TX2 jetpack 4.6 + tensorflow r2.6/r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现一个CPU核心100%占用，GPU 0%占用。回退jetpack版本到4.5.1, 再编译tensorflow r2.4/r2.6仍然有此问题。计划回退jetpack版本到3.3再尝试编译。&lt;/p&gt;
-&lt;h1 id=&quot;2-8&quot;&gt;&lt;a href=&quot;#2-8&quot; class=&quot;headerlink&quot; title=&quot;2.8&quot;&gt;&lt;/a&gt;2.8&lt;/h1&gt;&lt;p&gt;TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/JanKin_BY/article/details/120441238&quot;&gt;https://blog.csdn.net/JanKin_BY/article/details/120441238&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20&quot;&gt;https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;2-7&quot;&gt;&lt;a href=&quot;#2-7&quot; class=&quot;headerlink&quot; title=&quot;2.7&quot;&gt;&lt;/a&gt;2.7&lt;/h1&gt;&lt;p&gt;在AGX上follow以下setting编译tensorflow r2.6，也能编译通过但存在NVIDIA known issue(目前未解决)。正在AGX上编译r2.4。&lt;/p&gt;
-&lt;h1 id=&quot;2-6&quot;&gt;&lt;a href=&quot;#2-6&quot; class=&quot;headerlink&quot; title=&quot;2.6&quot;&gt;&lt;/a&gt;2.6&lt;/h1&gt;&lt;p&gt;在TX2上在patch后重新编译tensorflow(关闭arm NUMA)。踩坑：不能处于root编译，否则会出现编译错误(怀疑是环境变量问题)。&lt;/p&gt;
-&lt;h1 id=&quot;2-5&quot;&gt;&lt;a href=&quot;#2-5&quot; class=&quot;headerlink&quot; title=&quot;2.5&quot;&gt;&lt;/a&gt;2.5&lt;/h1&gt;&lt;p&gt;在TX2上MAXN+jetso_clocks无限制功率模式，编译大约需要39000s=～11h。正在patch后重新编译tensorflow(关闭arm NUMA)。&lt;/p&gt;
-&lt;h1 id=&quot;2-4&quot;&gt;&lt;a href=&quot;#2-4&quot; class=&quot;headerlink&quot; title=&quot;2.4&quot;&gt;&lt;/a&gt;2.4&lt;/h1&gt;&lt;p&gt;在TX2上编译tensorflow r2.6且能够安装成功，但是会报NUMA相关warning并执行卡顿。&lt;a href=&quot;https://forums.developer.nvidia.com/t/numa-error-running-tensorflow-on-jetson-tx2/56119&quot;&gt;相关issue1&lt;/a&gt; &lt;a href=&quot;https://forums.developer.nvidia.com/t/run-tensorflow-1-3-on-tx2-stuck/56073/5&quot;&gt;2&lt;/a&gt; &lt;a href=&quot;https://forums.developer.nvidia.com/t/trying-to-execute-tensorflow-with-gpu-support-on-my-jetson-tx2-but-having-error/67948&quot;&gt;3&lt;/a&gt; &lt;a href=&quot;https://forums.developer.nvidia.com/t/tensorflow-memory-error/52380&quot;&gt;4&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ARM64 does not support NUMA - returning NUMA node zero&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;正在寻求解决办法。&lt;/p&gt;
-&lt;h1 id=&quot;2-3&quot;&gt;&lt;a href=&quot;#2-3&quot; class=&quot;headerlink&quot; title=&quot;2.3&quot;&gt;&lt;/a&gt;2.3&lt;/h1&gt;&lt;p&gt;在TX2上编译tensorflow r2.6，目前没报错。编译成功后出&lt;a href=&quot;&quot;&gt;NVIDIA Jetson TX2编译tensorflow 2.6教程&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;环境准备: 刷机jetpack 4.6, 其他参考&lt;a href=&quot;https://www.tensorflow.org/install/source/&quot;&gt;tensorflow官方编译指南&lt;/a&gt; &lt;a href=&quot;https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html&quot;&gt;NVIDIA编译tensorflow指南&lt;/a&gt;。 注意查询&lt;a href=&quot;https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html&quot;&gt;Jetpack和tensorflow版本的兼容性&lt;/a&gt;，可以发现jetpack 4.6支持tensorflow 2.5/2.6/2.7。虽然编译2.6虽然能编译+安装成功，但是会出现ARM64 NUMA return 0的报错并卡住python进程，&lt;a href=&quot;https://forums.developer.nvidia.com/t/arm64-does-not-support-numa-returning-numa-node-zero/193478&quot;&gt;原因如下&lt;/a&gt;，官方并没有修复这个问题并建议使用tensorflow 2.5。然而，对于r2.5而言，在TX2上会直接发生@local_cuda not found的error，无法编译原因不明（可能需要编译指定版本的CUDA）。&lt;/p&gt;
-&lt;p&gt;安装apt依赖库&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt install python3-dev python3-pip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;需要注意的是python依赖库版本，装错会冲突和import core dumped。装完开一个交互式命令行尝试import这几个包。&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install python3-pip&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo pip3 install -U pip testresources setuptools==49.6.0 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;下载bazel的jdk依赖&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;参考https://docs.bazel.build/versions/main/install-ubuntu.html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install openjdk-8-jdk&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install openjdk-11-jdk&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;编译/下载安装bazel，版本号参考.bazelversion, .bazelrc。这里r2.6要求bazel 3.7.2。&lt;/p&gt;
-&lt;p&gt;获取源码&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone https://github.com/tensorflow/tensorflow.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd tensorflow&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git checkout r2.6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;b style=&#39;color: red&#39;&gt;打补丁(patch)&lt;/b&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 因为AGX/TX2不支持NUMA，需要禁用arm NUMA进行相关BUILD&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;挂载交换区，否则可能会内存错误(编译期间使用超过8GB内存) -&amp;gt; Error: c++ compiling error *** Killed&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fallocate -l 8G swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;chmod 600 swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkswap swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo swapon swapfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;swapon -s # 输出结果中应有priority -1的swap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;或者，直接使用jetsonhack提供的创建swap脚本&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./createSwapfile.sh -d /experiment -s 8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;配置/编译&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;./config #CUDA那一项输入y，其他全部回车跳过&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=opt //tensorflow/tools/pip_package:build_pip_package # 注意设置output_base路径，如果跨盘会导致编译特别慢。默认为~/.cache/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;安装额外依赖&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip3 install -U --user h5py==3.1.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;安装tensorflow whl&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;测试&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;python3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt; import tensorflow # 冒烟测试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt; exit()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GPU/mnist测试 https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;潜在问题&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;pip依赖全部用root配置，否则h5py可能会编译不过&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;编译tensorflow时不能处于root账户, 也不要用sudo。否则会出现local_cuda_not_found的编译错误&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一定要先设置8GB交换区，否则会出现c++ compiling error跟随出现process xx killed&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;需要至少32GB外置储存设备，NVIDIA Jetson TX2/AGX的内置储存不足以支持编译&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;cannot import name ‘function_pb2’: 不要在tensorflow源代码repo import tensorflow&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&quot;2-2&quot;&gt;&lt;a href=&quot;#2-2&quot; class=&quot;headerlink&quot; title=&quot;2.2&quot;&gt;&lt;/a&gt;2.2&lt;/h1&gt;&lt;p&gt;什么也没干。&lt;/p&gt;
-&lt;h1 id=&quot;2-1&quot;&gt;&lt;a href=&quot;#2-1&quot; class=&quot;headerlink&quot; title=&quot;2.1&quot;&gt;&lt;/a&gt;2.1&lt;/h1&gt;&lt;p&gt;花费几个小时给一块Jetson TX2刷机，具体踩坑记录：&lt;a href=&quot;https://zexinli0w0.github.io/post/12cc.html&quot;&gt;NVIDIA Jetson TX2刷机教程&lt;/a&gt;。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;2-2-2-11&quot;&gt;&lt;a href=&quot;#2-2-2-11&quot; class=&quot;headerlink&quot; title=&quot;2.2-2.11&quot;&gt;&lt;/a&gt;2.2-2.11&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://zexinli0w0.github.io/post/6311.html&quot;&gt;NVIDIA Jetson系列源码安装tensorflow2.x教程&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;2-1&quot;&gt;&lt;a href=&quot;#2-1&quot; class=&quot;headerlink&quot; title=&quot;2.1&quot;&gt;&lt;/a&gt;2.1&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zexinli0w0.github.io/post/12cc.html&quot;&gt;NVIDIA Jetson TX2刷机教程&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     

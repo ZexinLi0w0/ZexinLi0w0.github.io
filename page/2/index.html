@@ -210,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/12cc.html">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/bfdc.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
@@ -224,7 +224,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/12cc.html" class="post-title-link" itemprop="url">NVIDIA Jetson开发板刷机教程</a>
+            <a href="/post/bfdc.html" class="post-title-link" itemprop="url">NVIDIA Jetson系列配置踩坑记录</a>
         </h2>
 
         <div class="post-meta">
@@ -234,16 +234,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-02-02 18:36:49" itemprop="dateCreated datePublished" datetime="2022-02-02T18:36:49-06:00">2022-02-02</time>
+              <time title="Created: 2022-02-11 15:09:30 / Modified: 15:09:54" itemprop="dateCreated datePublished" datetime="2022-02-11T15:09:30-06:00">2022-02-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-03 23:23:35" itemprop="dateModified" datetime="2022-02-03T23:23:35-06:00">2022-02-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -260,14 +254,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>5 mins.</span>
             </span>
 
         </div>
@@ -279,54 +273,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍<b>Jetpack 4.6刷机</b>的技术细节。</p>
-<p>此外JetsonHacks提供了官方刷机教学视频，如果看本文还是不清楚一些细节，可以看视频一步步跟着学: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2安装</a> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0安装</a></p>
-<p>老版本的jetpack 3.0刷机教程也可以参考<a target="_blank" rel="noopener" href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 完整刷机教程</a>。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
-<li><p>一台带有Intel或AMDx86架构的Ubuntu操作系统的电脑作为host主机 (Jetpack 4.x推荐系统为Ubuntu 18.04)。</p>
-</li>
-<li><p>物理空间：需要至少40G以上的物理空间。Jetpack和Jetpack下载的安装包需要的空间十分庞大。</p>
-</li>
-<li><p>下载Jetpack安装包：申请Nvidia developer账号，在<a target="_blank" rel="noopener" href="https://developer.nvidia.com/embedded/jetpack">NVIDIA官方网站</a>根据开发板的型号登录后下载。建议下载当前最新版本Jetpack 4.6。</p>
-</li>
-<li><p>只需要确保host主机能够上网<b style='color:red;'>(开发板没有网络也能刷机)</b>。</p>
-</li>
-<li><p>准备一根Micro-USB的数据线(一般手机充电线即可)，一根HDMI线，一个屏幕。</p>
-</li>
-</ol>
-<h1 id="安装Jetpack"><a href="#安装Jetpack" class="headerlink" title="安装Jetpack"></a>安装Jetpack</h1><ol>
-<li><p>断开开发板电源，断开开发板网线，数据线连接开发板和host主机。双击运行Jetpack 4.6安装包(或者命令行安装)，然后命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdkmanager # 此处不能使用root</span><br></pre></td></tr></table></figure>
-<p>Nvidia developer账号登录后，进入step 1: 勾选host和target，选择需要刷机的设备类型(如果数据线连接正常，也会自动检测出设备)。</p>
-</li>
-<li><p>进入step 2: 创建2个新文件夹，用于存放下载库文件和target镜像文件。</p>
-</li>
-<li><p>点击继续进入step 3: 进入下载阶段，完成后自动进入install OS阶段。<b style='color:red;'>【注意】此时开发板还是断电状态</b>。</p>
-</li>
-<li><p>Jetpack会自动提示，是否自动刷机(auto flash)/手动刷机(manual flash)。建议选择手动刷机，然后开启强制恢复模式，以TX2为例: </p>
-<p> (a) 保证开发板初始处于断电状态，确保Micro USB线正常连接</p>
-<p> (b) 接通开发板电源，按下power开机，然后迅速按住recovery键不松开，按一下reset键，过2秒松开recovery键</p>
-<p> (c) 此时应该有2个绿灯亮起</p>
-</li>
-<li><p>验证是否处于强制恢复状态，在host命令行输入</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsusb # 如果有Nvidia Corp设备检测到说明正确进入了强制恢复状态，否则重复第4步</span><br></pre></td></tr></table></figure></li>
-<li><p>给开发板连上HDMI线+屏幕，等待开发板的ubuntu系统初始化(配置账号密码)。</p>
-</li>
-<li><p>Jetpack会提示要求选择连接方式+输入账号密码。此时选择使用USB连接，不要修改默认的ip地址，输入开发板的ubuntu系统的账号密码。</p>
-</li>
-<li><p>冗长的等待，等待所有库全部安装完成，进入step 4: 点击exit退出sdkmanger。</p>
-</li>
-</ol>
-<h1 id="进一步配置"><a href="#进一步配置" class="headerlink" title="进一步配置"></a>进一步配置</h1><p>给开发板连接网线并查看ip。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig | grep eth0 -a1</span><br></pre></td></tr></table></figure>
+          <h1 id="1-27-1-31"><a href="#1-27-1-31" class="headerlink" title="1.27 - 1.31"></a>1.27 - 1.31</h1><p>什么也没干。</p>
+<h1 id="1-26"><a href="#1-26" class="headerlink" title="1.26"></a>1.26</h1><p>还有一个解决方案，编译一个较新版本的tensorflow 2.x。尝试编译r2.6，果然配置脚本没有出现问题，可以正常识别CUDA和CUDNN。但是编译时出现编译错误。可能是CUDA/CUDNN版本与对应tensorflow不兼容导致的。</p>
+<h1 id="1-25"><a href="#1-25" class="headerlink" title="1.25"></a>1.25</h1><p>在配置github版本patch后均 搞不定，去查询官方的<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">推荐库版本</a>（这步非常重要，能避免很多坑）。发现对应tensorflow的CUDA/CUDNN版本是10.1/7.6，而当前CUDA/CUDNN版本可能太高了以至于tensorflow不兼容。决定过段时间重新刷机，刷一个低版本的Jetpack进TX2/AGX再尝试编译tensorflow。</p>
+<h1 id="1-24"><a href="#1-24" class="headerlink" title="1.24"></a>1.24</h1><p>继续在AGX上编译tensorflow 2.2</p>
+<p>配置./configure发生错误，打印错误信息发现无法读取cudnn的版本。因为在高版本的CUDA中读取cudnn版本方式变成了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
+<p>因此修改third_party/gpus/find_cuda_config.py文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Line 347</span><br><span class="line">+ header_path, header_version = _find_header(base_paths, &quot;cudnn_version.h&quot;,</span><br><span class="line">- header_path, header_version = _find_header(base_paths, &quot;cudnn.h&quot;,</span><br></pre></td></tr></table></figure>
 
-<p>随后可以ssh进行连接和进一步配置。</p>
-<h1 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a>可能的问题</h1><ol>
-<li><p>网络下载太慢<br>更换能过墙+带宽足够的环境。</p>
-</li>
-<li><p>Jetpack报奇怪的错(例如dependencies error)<br>更换纯净的ubuntu 18.04 host，多数是系统问题。不要想着fix这些error，有这时间不如重装/换靠谱的host。</p>
-</li>
+<p>如此可以正常configure，选项参考<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>。</p>
+<p>但是bazel编译发生报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-23"><a href="#1-23" class="headerlink" title="1.23"></a>1.23</h1><p>编译tensorflow</p>
+<p>环境AGX+ubuntu 18.04+CUDA 10.2.300+CUDNN 8.2.1 (Jetpack 4.6)，目标编译tensorflow 2.2</p>
+<p>同1.22: 能够正常进行到配置前，配置仍然error。</p>
+<h1 id="1-22"><a href="#1-22" class="headerlink" title="1.22"></a>1.22</h1><p>编译tensorflow(参考魔改<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>)</p>
+<p>环境TX2+ubuntu 16.04+CUDA 10.0，目标编译tensorflow 2.2</p>
+<p>配置环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+
+<p>下载依赖库java和bazel</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-dist.zip</span><br><span class="line">unzip bazel-2.0.0-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel help</span><br></pre></td></tr></table></figure>
+
+<p>增加一些patch确保能够在TX2上进行编译<br>～～～</p>
+<p>设置交换区内存至少4GB(因为按照官方编译会超过8GB内存占用导致编译失败)</p>
+<p>配置编译选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+
+<p>配置中间报python error，找到configure.py打印报错行的log发现可能是CUDNN没安装…..</p>
+<p>经过查询和tensorflow的匹配版本，安装一个CUDNN 7.6</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从官方网站下载 https://developer.download.nvidia.com/compute/redist/cudnn/，官方网站没有cudnn aarch64 distribution，只有通过jetpack下载...但是似乎这块TX2并没有刷jetpack而是使用ubuntu自带系统</span><br></pre></td></tr></table></figure>
+
+<p>到这个位置，这块TX2上没有刷jetpack而是使用ubuntu自带系统，且我只有macbook m1，没法装ubuntu，无奈打出gg。明天尝试使用AGX进行编译。</p>
+<p>[如果能够正常进行编译，需要进行的后续操作]</p>
+<p>拉满电源选项(开到无限制功率模式)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvpmodel -m 0</span><br><span class="line">jetson_clocks</span><br></pre></td></tr></table></figure>
+
+<p>编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bazel test --config opt --local_resources 4096,2.0,1.0 //tensorflow/tools/lib_package:libtensorflow_test</span><br><span class="line">bazel build --config opt --local_resources 4096,2.0,1.0 //tensorflow/tools/lib_package:libtensorflow</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-21"><a href="#1-21" class="headerlink" title="1.21"></a>1.21</h1><p>似乎这个近新的TX2上已经完全预备好了miniconda3的环境，版本号为conda 4.9.2。初始化一个python=3.6的conda环境，torch和torchvision需要下载对应python 3.6版本的whl文件：torch版本1.8.0，torchvision版本0.9.0。剩下缺什么conda install什么。</p>
+<p>darknet (yolov3, yolov4, yolov3-tiny, yolov4-tiny): 需要魔改Makefile和一些function来适应CUDA 10.0+CUDNN 7.5， 参考<a target="_blank" rel="noopener" href="https://github.com/ZexinLi0w0/darknet%E3%80%82">https://github.com/ZexinLi0w0/darknet。</a></p>
+<p>yolov5: 直接可用。</p>
+<h1 id="1-20"><a href="#1-20" class="headerlink" title="1.20"></a>1.20</h1><p>换了一个近新的NVIDIA Jetson TX2，拿来配环境。其他什么也没干，划水的一天。</p>
+<h1 id="1-19"><a href="#1-19" class="headerlink" title="1.19"></a>1.19</h1><p>今日踩坑：</p>
+<p>yolov3/yolov5 core dumped on TX2</p>
+<p>故障排查:</p>
+<ol>
+<li>pdb侵入式debug发现是import torch发生了core dumped</li>
+<li>直接python3+import torch也发生core dumped</li>
+<li>pip3 install pytorch指定版本error</li>
 </ol>
+<p>此时选择安装conda，由于TX2是arm64架构所以不能装anaconda3而是安装miniconda3</p>
+<p>安装最新版本miniconda3无法正常init会core dumped</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped">https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped</a></p>
+<p>要降低miniconda3版本到4.9.2 aarch64</p>
+<p>安装完miniconda3后，继续用pdb debug 发现import cv2也core dumped……. 发现是没有安装arm版本的opencv</p>
+<p>解决办法：用pip安装opencv，并修改环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip --default-timeout=100 install opencv-python==4.5.3.56</span><br><span class="line">vi ~/.bashrc</span><br><span class="line">export OPENBLAS_CORETYPE=ARMV8</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>torch要也要安装arm64架构的，需要按照标准命名规则修改whl文件名称（根据pap425tags.py文件）再通过pip安装。例如将torch-1.6.0-cp36-cp36m-linux_aarch64.whl改成了torch-1.6.0-cp36-abi3-linux_aarch64.whl。需要apt安装一些额外依赖库，才能正常import。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048</span><br><span class="line">wget xxx.whl</span><br><span class="line">mv xxx.whl correct_name.whl</span><br><span class="line">sudo apt-get install libopenblas-base libopenmpi-dev</span><br></pre></td></tr></table></figure>
+
+<p>以上方法全试过了，还是import torch就core dumped😭，EMO了</p>
 
       
     </div>
@@ -348,7 +359,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/17147.html">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/6311.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
@@ -362,7 +373,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/17147.html" class="post-title-link" itemprop="url">论文笔记:TimeGraph</a>
+            <a href="/post/6311.html" class="post-title-link" itemprop="url">NVIDIA Jetson系列源码安装tensorflow2.x教程</a>
         </h2>
 
         <div class="post-meta">
@@ -372,23 +383,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-09-28 16:13:40" itemprop="dateCreated datePublished" datetime="2020-09-28T16:13:40-05:00">2020-09-28</time>
+              <time title="Created: 2022-02-11 15:04:57 / Modified: 15:06:04" itemprop="dateCreated datePublished" datetime="2022-02-11T15:04:57-06:00">2022-02-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-03 23:25:11" itemprop="dateModified" datetime="2022-02-03T23:25:11-06:00">2022-02-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
                 </span>
             </span>
 
@@ -398,14 +403,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.9k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
+              <span>5 mins.</span>
             </span>
 
         </div>
@@ -417,15 +422,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>GPU Scheduling and resource reservation for Real-Time Multi-Tasking Environments</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/17147.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h1 id="2-11"><a href="#2-11" class="headerlink" title="2.11"></a>2.11</h1><p>TODO: 测试 jetpack 3.3 + tensorflow r2.2的运行情况（估计还是有版本问题）。</p>
+<h1 id="2-10"><a href="#2-10" class="headerlink" title="2.10"></a>2.10</h1><p>休息，什么也没干。</p>
+<h1 id="2-9"><a href="#2-9" class="headerlink" title="2.9"></a>2.9</h1><p>TX2 jetpack 4.6 + tensorflow r2.6/r2.4均能够编译且能够pip安装。但是python执行时，初始化变量就python进程卡住(此时无法被control + C结束进程，只能kill)。htop观察资源利用率发现一个CPU核心100%占用，GPU 0%占用。回退jetpack版本到4.5.1, 再编译tensorflow r2.4/r2.6仍然有此问题。计划回退jetpack版本到3.3再尝试编译。</p>
+<h1 id="2-8"><a href="#2-8" class="headerlink" title="2.8"></a>2.8</h1><p>TX2刷机后有2个CPU核心不工作(性能问题)，解决方案：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/JanKin_BY/article/details/120441238">https://blog.csdn.net/JanKin_BY/article/details/120441238</a></p>
+<p><a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20">https://forums.developer.nvidia.com/t/two-cores-disabled/48637/20</a></p>
+<h1 id="2-7"><a href="#2-7" class="headerlink" title="2.7"></a>2.7</h1><p>在AGX上follow以下setting编译tensorflow r2.6，也能编译通过但存在NVIDIA known issue(目前未解决)。正在AGX上编译r2.4。</p>
+<h1 id="2-6"><a href="#2-6" class="headerlink" title="2.6"></a>2.6</h1><p>在TX2上在patch后重新编译tensorflow(关闭arm NUMA)。踩坑：不能处于root编译，否则会出现编译错误(怀疑是环境变量问题)。</p>
+<h1 id="2-5"><a href="#2-5" class="headerlink" title="2.5"></a>2.5</h1><p>在TX2上MAXN+jetso_clocks无限制功率模式，编译大约需要39000s=～11h。正在patch后重新编译tensorflow(关闭arm NUMA)。</p>
+<h1 id="2-4"><a href="#2-4" class="headerlink" title="2.4"></a>2.4</h1><p>在TX2上编译tensorflow r2.6且能够安装成功，但是会报NUMA相关warning并执行卡顿。<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/numa-error-running-tensorflow-on-jetson-tx2/56119">相关issue1</a> <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/run-tensorflow-1-3-on-tx2-stuck/56073/5">2</a> <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/trying-to-execute-tensorflow-with-gpu-support-on-my-jetson-tx2-but-having-error/67948">3</a> <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/tensorflow-memory-error/52380">4</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ARM64 does not support NUMA - returning NUMA node zero</span><br></pre></td></tr></table></figure>
+<p>正在寻求解决办法。</p>
+<h1 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h1><p>在TX2上编译tensorflow r2.6，目前没报错。编译成功后出<a href="">NVIDIA Jetson TX2编译tensorflow 2.6教程</a>。</p>
+<p>环境准备: 刷机jetpack 4.6, 其他参考<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">tensorflow官方编译指南</a> <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA编译tensorflow指南</a>。 注意查询<a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html">Jetpack和tensorflow版本的兼容性</a>，可以发现jetpack 4.6支持tensorflow 2.5/2.6/2.7。虽然编译2.6虽然能编译+安装成功，但是会出现ARM64 NUMA return 0的报错并卡住python进程，<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/arm64-does-not-support-numa-returning-numa-node-zero/193478">原因如下</a>，官方并没有修复这个问题并建议使用tensorflow 2.5。然而，对于r2.5而言，在TX2上会直接发生@local_cuda not found的error，无法编译原因不明（可能需要编译指定版本的CUDA）。</p>
+<p>安装apt依赖库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-dev python3-pip</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是python依赖库版本，装错会冲突和import core dumped。装完开一个交互式命令行尝试import这几个包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0</span><br></pre></td></tr></table></figure>
+
+<p>下载bazel的jdk依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参考https://docs.bazel.build/versions/main/install-ubuntu.html</span><br><span class="line"># Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line"># Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br></pre></td></tr></table></figure>
+
+<p>编译/下载安装bazel，版本号参考.bazelversion, .bazelrc。这里r2.6要求bazel 3.7.2。</p>
+<p>获取源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.6</span><br></pre></td></tr></table></figure>
+
+<p><b style='color: red'>打补丁(patch)</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 因为AGX/TX2不支持NUMA，需要禁用arm NUMA进行相关BUILD</span><br></pre></td></tr></table></figure>
+
+<p>挂载交换区，否则可能会内存错误(编译期间使用超过8GB内存) -&gt; Error: c++ compiling error *** Killed</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s # 输出结果中应有priority -1的swap</span><br></pre></td></tr></table></figure>
+<p>或者，直接使用jetsonhack提供的创建swap脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure>
+
+<p>配置/编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./config #CUDA那一项输入y，其他全部回车跳过</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=opt //tensorflow/tools/pip_package:build_pip_package # 注意设置output_base路径，如果跨盘会导致编译特别慢。默认为~/.cache/</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure>
+
+<p>安装额外依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U --user h5py==3.1.0</span><br></pre></td></tr></table></figure>
+
+<p>安装tensorflow whl</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow # 冒烟测试</span><br><span class="line">&gt;&gt; exit()</span><br><span class="line">GPU/mnist测试 https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure>
+
+<p>潜在问题</p>
+<ol>
+<li><p>pip依赖全部用root配置，否则h5py可能会编译不过</p>
+</li>
+<li><p>编译tensorflow时不能处于root账户, 也不要用sudo。否则会出现local_cuda_not_found的编译错误</p>
+</li>
+<li><p>一定要先设置8GB交换区，否则会出现c++ compiling error跟随出现process xx killed</p>
+</li>
+<li><p>需要至少32GB外置储存设备，NVIDIA Jetson TX2/AGX的内置储存不足以支持编译</p>
+</li>
+<li><p>cannot import name ‘function_pb2’: 不要在tensorflow源代码repo import tensorflow</p>
+</li>
+</ol>
+<h1 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h1><p>什么也没干。</p>
+
       
     </div>
 
@@ -445,7 +502,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -513,7 +570,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

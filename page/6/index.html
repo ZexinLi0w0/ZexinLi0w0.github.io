@@ -210,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/27403.html">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/32931.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
@@ -224,7 +224,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/27403.html" class="post-title-link" itemprop="url">论文笔记:Per-ApplicationPowerDelivery</a>
+            <a href="/post/32931.html" class="post-title-link" itemprop="url">论文笔记:PredJoule</a>
         </h2>
 
         <div class="post-meta">
@@ -235,14 +235,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-08 15:52:59" itemprop="dateCreated datePublished" datetime="2020-09-08T15:52:59-05:00">2020-09-08</time>
+              <time title="Created: 2020-09-14 16:07:30" itemprop="dateCreated datePublished" datetime="2020-09-14T16:07:30-05:00">2020-09-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-03 23:25:43" itemprop="dateModified" datetime="2022-02-03T23:25:43-06:00">2022-02-03</time>
+                <time title="Modified: 2022-02-03 23:25:33" itemprop="dateModified" datetime="2022-02-03T23:25:33-06:00">2022-02-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,14 +260,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.7k</span>
+              <span>909</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -279,32 +279,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>在有power cap的情况下，对per application进行power distribute。</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>如何不影响性能的情况下降低功耗 power/energy<br><i>we focus on the problem of differential power delivery: how can and should a system allocate different amounts of power to different applications to effect prioritization and isolation?</i> 系统应该如何为不同的应用程序分配不同数量的功率以实现优先级划分和隔离？</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>类似文章套路都会在Introduction位置做一个很简单有力的初步的motivate example</li>
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Timing-predictable energy optimization framework for DNN workloads.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Timing-predictablity and energy should be considered in running DNN workloads.<br>DNN workloads needs to be provided timing predictablity while minimized energy.</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Motivation是DNN应当做细粒度的配置,而不是当黑盒;DVFS与performance不完全一致</p>
+<ol>
+<li>learning-based strategy: 基于历史记录去调优config</li>
+<li>New的第一条对应motivation 1</li>
+<li>引入不确定度：max(Norm(Power) / Norm(Latency))，在提升power的时候倾向选择不确定性低的，在降低power的时候倾向选择不确定性高的</li>
 </ol>
 <h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>server级别的power distribution较少，大多数都是在cluster做；本文把一些embedded system上的power constraint搬到了server上</li>
+<li>layer-based consideration -&gt; DNN的特点，可以分层去考虑；不同层级有不同的特性</li>
+<li>learning-based strategy -&gt; 区别于已有的offline benchmarking 更加practical</li>
 </ol>
 <h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>Evaluation强：有一个motivate example之后做了一个相对强的case study，然后由此引出policy design &amp; implementation</li>
+<li>evaluation的diversity体现得很好：一个同类复现，一个最大化frequency策略，一个系统自带高performance策略，一个系统自带低energy策略</li>
+<li>Evaluation的figure 9感觉特别强：原因应该是实现得好，避免了一些expensive file I/O + efficient reverse history</li>
 </ol>
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>已有的解决方案dynamic voltage and frequency scaling(DVFS), running average power limit(RAVL): </li>
-<li>1 DVFS: 有global和individual(可能只有部分处理器支持)可选</li>
-<li>2 RAVL: 把处理器分为若干部分，每个部分单独加power cap；可能会导致所有core被锁定至同一频率(“RAVL+global DVFS” -&gt; “all cores are throttled to the same frequecny”) -&gt; 出现priority和power不匹配的问题</li>
-<li>Conclusion: </li>
-<li>1 硬件水平上能够实现每个core的不同功率水平，但是policies are not yet available. </li>
-<li>2 文中提出power shares, frequency shares, performance shares 三个基于priority的policy。目前frequency shares表现最稳定，效果最好。理论上power shares最容易实现，但是需要预先知道application对应需要多少能量(不一定applicable)</li>
-<li>文中可以改进的地方:</li>
-<li>1 文中target了1个RAVL可能会出现的bad case: 在power cap比较低的情况下，power distribution不合理导致高优先级任务无法获得足够资源执行，尤其在high-priority low-demand(HPLD)和low-priority high-demand(LPHD)情况下会出现bad case。</li>
-<li>2 文中不考虑scheduler的问题(直接使用系统自定义的scheduler)，然而明确指出可以做power-aware scheduler而没有去做</li>
-<li>3 文中没有考虑real-time policy的问题，假设全部任务是concurrently执行</li>
-<li>4 文中没有考虑saturation的问题，即可能出现增加power也不会继续提升performance的情况(此现象在PredJoule中有提到并用Uncertainty来解决)。文中的policy在进行re-distribute时直接采用min-funding revocation policy，直接将saturated application从mix中移除再重新run distribute function</li>
-<li>5 文中提出的power shares policy本质还是priority-based policy，可能会出现low-priority task的starvation，文中没有设计合适的解决方案应对这个问题</li>
+<li>没有做DVFS相关，文中把DVFS排除到design之外，strategy是随机选择的。</li>
+<li>没有定量地分析不同layer的不确定性趋势（文中提到可能和data input size有关）</li>
+<li>learning-based method可能依赖于一个较好的解, 收敛速度不是很快</li>
 </ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Per-Application Power Delivery, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3302424.3303981">https://dl.acm.org/doi/abs/10.1145/3302424.3303981</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Predjoule, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8603196">https://ieeexplore.ieee.org/document/8603196</a></p>
 
       
     </div>
@@ -326,7 +322,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/7870.html">
+    <link itemprop="mainEntityOfPage" href="https://zexinli0w0.github.io/post/15125.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
@@ -340,7 +336,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/7870.html" class="post-title-link" itemprop="url">论文笔记:AnDrone</a>
+            <a href="/post/15125.html" class="post-title-link" itemprop="url">论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</a>
         </h2>
 
         <div class="post-meta">
@@ -351,14 +347,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-08 15:52:22" itemprop="dateCreated datePublished" datetime="2020-09-08T15:52:22-05:00">2020-09-08</time>
+              <time title="Created: 2020-09-08 15:53:19" itemprop="dateCreated datePublished" datetime="2020-09-08T15:53:19-05:00">2020-09-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-03 23:25:58" itemprop="dateModified" datetime="2022-02-03T23:25:58-06:00">2022-02-03</time>
+                <time title="Modified: 2022-02-03 23:25:54" itemprop="dateModified" datetime="2022-02-03T23:25:54-06:00">2022-02-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -376,14 +372,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>736</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -395,20 +391,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A drone-as-a-service solution -&gt; make drone access in the cloud</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>monotask-&gt;利用率低, restriction较多, 学习成本高：third=party access利用算力或者做其他task</p>
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A heterogeneity-aware cluster scheudling solution for DNN workloads</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
+<li>[主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Placement Optimizations.</li>
+</ol>
+<p>(1) Performance Heterogeneity: 复杂的DNN tasks需要在不同种类processor上执行; 并非越贵的processor越好, 对不同任务的dollar-normalized结果并不和价格正相关<br><i>“Existing schedulers like Gandiva, Tiresias, and Themis do not consider the heterogeneous performance behavior across accelerators.” </i><br>(2) Generality Across Policies: 已有的scheduler与scheduling mechanism紧耦合; 且大部分难以支持复杂的scheduling policy<br>(3) Colocation and Placement Optimizations: 全局调度目标要显示考虑这两项</p>
+<ol start="2">
+<li>现有的scheduler可能导致starvation: 某些task长时间排队得不到执行</li>
+</ol>
 <h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Intuition: virtual drones on physical drone</li>
-<li>lightweight container (docker?) to implement virtualization; 使用Android System的策略+proxy-based control去控制real-time linux -&gt; task封装至container，部分授权+阻止与physical device的直接交互（飞行控制组件不给第三方授权geofenced，只在特定时刻授权access系统）</li>
-<li>bill: based on energy consumption</li>
+<li>Gavel’s key observation是scheduling policy都可以表达为目标是工作完成率的优化问题, 整篇大部分都在围绕一些经典的scheudling goal如何用优化问题来表示</li>
 </ol>
 <h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>Contribution: Androne prototype -&gt; runtime performance overhead &lt; 1.5%, 几乎可忽略的energy usage, low-latency performance, meet real-time requirement, virtual drones</li>
+<li>设计scheduler时考虑了heterogeneity</li>
 </ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>waypoint: 一些任务只有在此处才能够access系统，具有比continuous task更高的优先级</li>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>为了解决Problem 2设计了round-based mechanism, 理论上降低了发生starvation的可能性</li>
+<li>round-based mechanism与scheduling policy解除了耦合, 能够更简单地integrate sophisticated scheduling policy</li>
 </ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Androne: Virtual drone computing in the cloud, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3302424.3303969">https://dl.acm.org/doi/abs/10.1145/3302424.3303969</a></p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>有个用法heterogeneity-aware/heterogeneity-agnostic, 学习了: 可以用xxx-aware/xxx-agnostic来描述自己有的一些点和概括别人没有考虑到这些点。</li>
+<li>space sharing这一块里面, greedy algorithm容易陷入局部最优。因为heterogeneity, <i>“different pairs of DNN applications in practice have vastly different performance when colocated together”</i></li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.09213.pdf">https://arxiv.org/pdf/2008.09213.pdf</a></p>
 
       
     </div>
@@ -429,7 +434,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -497,7 +502,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
