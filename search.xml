@@ -3,7 +3,8 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="2-2-2-11"><a href="#2-2-2-11" class="headerlink" title="2.2-2.11"></a>2.2-2.11</h1><p><a href="http://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson系列源码安装tensorflow2.x教程</a></p>
+    <content><![CDATA[<h1 id="2-12"><a href="#2-12" class="headerlink" title="2.12"></a>2.12</h1><p>执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl</p>
+<h1 id="2-2-2-11"><a href="#2-2-2-11" class="headerlink" title="2.2-2.11"></a>2.2-2.11</h1><p><a href="http://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson系列源码安装tensorflow2.x教程</a></p>
 <h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p><a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a></p>
 <span id="more"></span>
 <h1 id="1-19-1-31"><a href="#1-19-1-31" class="headerlink" title="1.19-1.31"></a>1.19-1.31</h1><p><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson系列配置踩坑记录</a></p>
