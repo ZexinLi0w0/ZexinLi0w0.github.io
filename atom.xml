@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Zexin Li&#39;s Blog</title>
   <icon>https://zexinli0w0.github.io/icon.png</icon>
-  
+  <subtitle>Please keep honest, open, patient, happy and visionary.</subtitle>
   <link href="https://zexinli0w0.github.io/atom.xml" rel="self"/>
   
   <link href="https://zexinli0w0.github.io/"/>
@@ -96,12 +96,16 @@
     <link href="https://zexinli0w0.github.io/post/226.html"/>
     <id>https://zexinli0w0.github.io/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-13T04:24:06.256Z</updated>
+    <updated>2022-02-14T01:15:53.670Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;2-12&quot;&gt;&lt;a href=&quot;#2-12&quot; class=&quot;headerlink&quot; title=&quot;2.12&quot;&gt;&lt;/a&gt;2.12&lt;/h1&gt;&lt;p&gt;执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl&lt;/p&gt;
-&lt;h1 id=&quot;2-2-2-11&quot;&gt;&lt;a href=&quot;#2-2-2-11&quot; class=&quot;headerlink&quot; title=&quot;2.2-2.11&quot;&gt;&lt;/a&gt;2.2-2.11&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://zexinli0w0.github.io/post/6311.html&quot;&gt;NVIDIA Jetson系列源码安装tensorflow2.x教程&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;2-1&quot;&gt;&lt;a href=&quot;#2-1&quot; class=&quot;headerlink&quot; title=&quot;2.1&quot;&gt;&lt;/a&gt;2.1&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zexinli0w0.github.io/post/12cc.html&quot;&gt;NVIDIA Jetson TX2刷机教程&lt;/a&gt;&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
     
     
     

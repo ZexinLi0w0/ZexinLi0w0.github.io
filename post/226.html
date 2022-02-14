@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"zexinli0w0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="2.12执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl 2.2-2.11NVIDIA Jetson系列源码安">
+  <meta name="description" content="2.13什么也没干 2.12执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl 历史记录NVIDIA Jetso">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NVIDIA Jetson TX2&#x2F;AGX开发笔记【长期更新】">
 <meta property="og:url" content="https://zexinli0w0.github.io/post/226.html">
 <meta property="og:site_name" content="Zexin Li&#39;s Blog">
-<meta property="og:description" content="2.12执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl 2.2-2.11NVIDIA Jetson系列源码安">
+<meta property="og:description" content="2.13什么也没干 2.12执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl 历史记录NVIDIA Jetso">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-19T21:46:53.000Z">
-<meta property="article:modified_time" content="2022-02-13T04:24:06.256Z">
+<meta property="article:modified_time" content="2022-02-14T01:15:53.670Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
@@ -111,6 +111,7 @@
       <h1 class="site-title">Zexin Li's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
+      <p class="site-subtitle" itemprop="description">Please keep honest, open, patient, happy and visionary.</p>
   </div>
 
   <div class="site-nav-right">
@@ -220,7 +221,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
       <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Research and Development Notes">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -250,7 +251,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-12 22:24:06" itemprop="dateModified" datetime="2022-02-12T22:24:06-06:00">2022-02-12</time>
+                <time title="Modified: 2022-02-13 19:15:53" itemprop="dateModified" datetime="2022-02-13T19:15:53-06:00">2022-02-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +269,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>259</span>
+              <span>252</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -287,11 +288,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="2-12"><a href="#2-12" class="headerlink" title="2.12"></a>2.12</h1><p>执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl</p>
-<h1 id="2-2-2-11"><a href="#2-2-2-11" class="headerlink" title="2.2-2.11"></a>2.2-2.11</h1><p><a href="http://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson系列源码安装tensorflow2.x教程</a></p>
-<h1 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h1><p><a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a></p>
-<span id="more"></span>
-<h1 id="1-19-1-31"><a href="#1-19-1-31" class="headerlink" title="1.19-1.31"></a>1.19-1.31</h1><p><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson系列配置踩坑记录</a></p>
+        <h1 id="2-13"><a href="#2-13" class="headerlink" title="2.13"></a>2.13</h1><p>什么也没干</p>
+<h1 id="2-12"><a href="#2-12" class="headerlink" title="2.12"></a>2.12</h1><p>执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl</p>
+<h1 id="历史记录"><a href="#历史记录" class="headerlink" title="历史记录"></a>历史记录</h1><p><a href="http://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson系列源码安装tensorflow2.x教程</a><br><a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson系列配置踩坑记录</a></p>
 
     </div>
 
@@ -407,7 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-12"><span class="nav-number">1.</span> <span class="nav-text">2.12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-2-11"><span class="nav-number">2.</span> <span class="nav-text">2.2-2.11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-1"><span class="nav-number">3.</span> <span class="nav-text">2.1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-19-1-31"><span class="nav-number">4.</span> <span class="nav-text">1.19-1.31</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-13"><span class="nav-number">1.</span> <span class="nav-text">2.13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-12"><span class="nav-number">2.</span> <span class="nav-text">2.12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">历史记录</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -416,7 +415,7 @@
     <img class="site-author-image" itemprop="image" alt="Zexin Li"
       src="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
   <p class="site-author-name" itemprop="name">Zexin Li</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">Research and Development Notes</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
