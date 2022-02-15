@@ -3,7 +3,9 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="2-13"><a href="#2-13" class="headerlink" title="2.13"></a>2.13</h1><p>什么也没干</p>
+    <content><![CDATA[<h1 id="2-14"><a href="#2-14" class="headerlink" title="2.14"></a>2.14</h1><p>jetpack 3.3 + Archiconda python3.6 + 编译tensorflow r2.2</p>
+<p>理论上能够在jetpack 4.6的python 3.6上安装【还未测试】</p>
+<h1 id="2-13"><a href="#2-13" class="headerlink" title="2.13"></a>2.13</h1><p>什么也没干</p>
 <h1 id="2-12"><a href="#2-12" class="headerlink" title="2.12"></a>2.12</h1><p>执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl</p>
 <h1 id="历史记录"><a href="#历史记录" class="headerlink" title="历史记录"></a>历史记录</h1><p><a href="http://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson系列源码安装tensorflow2.x教程</a><br><a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson系列配置踩坑记录</a></p>
 ]]></content>
