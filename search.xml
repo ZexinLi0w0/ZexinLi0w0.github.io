@@ -3,14 +3,16 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX开发笔记【长期更新】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="2-18"><a href="#2-18" class="headerlink" title="2.18"></a>2.18</h1><p>TODO: 研究下怎么安装cuda9.0+cudnn7.0到jetpack4.6的AGX上(不刷机)。(应该只要把文件拷贝过去做一个软链接？)</p>
+    <content><![CDATA[<h1 id="历史记录"><a href="#历史记录" class="headerlink" title="历史记录"></a>历史记录</h1><p><a href="http://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson系列源码安装tensorflow2.x教程</a><br><a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson系列配置踩坑记录</a></p>
+<p>TODO: tensorflow project C/G hierarchical split</p>
+<h1 id="2-19"><a href="#2-19" class="headerlink" title="2.19"></a>2.19</h1><p>TODO: ResNet split+unified m, tscutting.</p>
+<h1 id="2-18"><a href="#2-18" class="headerlink" title="2.18"></a>2.18</h1><p>研究下怎么安装cuda9.0+cudnn7.0到jetpack4.6的AGX。<br>解决方案: 把cuda/cudnn文件夹拷贝过去+做软链接。</p>
 <h1 id="2-16-2-17"><a href="#2-16-2-17" class="headerlink" title="2.16-2.17"></a>2.16-2.17</h1><p>什么都没做</p>
 <h1 id="2-15"><a href="#2-15" class="headerlink" title="2.15"></a>2.15</h1><p>测试有runtime error: “CUDA driver version is insufficient for CUDA runtime version”。发现原因是我安装了个cuda10.2+cudnn7.0，这两者会冲突。重新链接cuda9.0+cudnn7.0编译，一切就正常了。</p>
 <h1 id="2-14"><a href="#2-14" class="headerlink" title="2.14"></a>2.14</h1><p>jetpack 3.3 + Archiconda python3.6 + 编译tensorflow r2.2</p>
 <p>理论上能够在jetpack 4.6的python 3.6上安装【还未测试】</p>
 <h1 id="2-13"><a href="#2-13" class="headerlink" title="2.13"></a>2.13</h1><p>什么也没干</p>
 <h1 id="2-12"><a href="#2-12" class="headerlink" title="2.12"></a>2.12</h1><p>执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl</p>
-<h1 id="历史记录"><a href="#历史记录" class="headerlink" title="历史记录"></a>历史记录</h1><p><a href="http://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson系列源码安装tensorflow2.x教程</a><br><a href="https://zexinli0w0.github.io/post/12cc.html">NVIDIA Jetson TX2刷机教程</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson系列配置踩坑记录</a></p>
 ]]></content>
       <categories>
         <category>config</category>
