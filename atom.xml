@@ -6,7 +6,7 @@
   <link href="https://zexinli0w0.github.io/atom.xml" rel="self"/>
   
   <link href="https://zexinli0w0.github.io/"/>
-  <updated>2022-02-11T21:09:54.778Z</updated>
+  <updated>2022-02-19T22:31:14.239Z</updated>
   <id>https://zexinli0w0.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文笔记</title>
+    <link href="https://zexinli0w0.github.io/post/c9b8.html"/>
+    <id>https://zexinli0w0.github.io/post/c9b8.html</id>
+    <published>2022-02-19T22:24:09.000Z</published>
+    <updated>2022-02-19T22:31:14.239Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="reading notes" scheme="https://zexinli0w0.github.io/categories/reading-notes/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>NVIDIA Jetson系列配置踩坑记录</title>
@@ -96,7 +119,7 @@
     <link href="https://zexinli0w0.github.io/post/226.html"/>
     <id>https://zexinli0w0.github.io/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-19T01:40:47.976Z</updated>
+    <updated>2022-02-19T18:13:43.341Z</updated>
     
     
       
@@ -493,7 +516,7 @@
     <link href="https://zexinli0w0.github.io/post/43164.html"/>
     <id>https://zexinli0w0.github.io/post/43164.html</id>
     <published>2020-07-14T18:18:48.000Z</published>
-    <updated>2022-02-04T05:22:49.102Z</updated>
+    <updated>2022-02-19T22:23:56.027Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;总述&quot;&gt;&lt;a href=&quot;#总述&quot; class=&quot;headerlink&quot; title=&quot;总述&quot;&gt;&lt;/a&gt;总述&lt;/h2&gt;&lt;p&gt;这篇文用来介绍本站点使用的Hexo+Next主题配置及各种相关的依赖配置。&lt;/p&gt;</summary>
