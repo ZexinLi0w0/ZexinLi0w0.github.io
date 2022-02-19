@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zexinli0w0.github.io/about/index.html</loc>
+    
+    <lastmod>2022-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zexinli0w0.github.io/post/c9b8.html</loc>
     
     <lastmod>2022-02-19</lastmod>
@@ -41,15 +50,6 @@
     <loc>https://zexinli0w0.github.io/post/6311.html</loc>
     
     <lastmod>2022-02-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zexinli0w0.github.io/about/index.html</loc>
-    
-    <lastmod>2022-02-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
