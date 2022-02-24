@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zexinli.com/post/226.html</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zexinli.com/post/6311.html</loc>
+    
+    <lastmod>2022-02-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zexinli.com/about/index.html</loc>
     
     <lastmod>2022-02-21</lastmod>
@@ -20,15 +38,6 @@
   </url>
   
   <url>
-    <loc>https://zexinli.com/post/226.html</loc>
-    
-    <lastmod>2022-02-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zexinli.com/post/c9b8.html</loc>
     
     <lastmod>2022-02-19</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://zexinli.com/post/43164.html</loc>
-    
-    <lastmod>2022-02-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zexinli.com/post/6311.html</loc>
     
     <lastmod>2022-02-19</lastmod>
     
@@ -274,7 +274,7 @@
 
   <url>
     <loc>https://zexinli.com/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -282,56 +282,56 @@
   
   <url>
     <loc>https://zexinli.com/tags/Mac/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/tags/NVIDIA-Jetson/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/tags/journal/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/tags/c/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/tags/Hexo/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/tags/maven/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/tags/python/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/tags/survey/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -340,28 +340,28 @@
   
   <url>
     <loc>https://zexinli.com/categories/config/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/categories/writing/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/categories/coding/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zexinli.com/categories/reading-notes/</loc>
-    <lastmod>2022-02-23</lastmod>
+    <lastmod>2022-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
