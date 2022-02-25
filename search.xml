@@ -13,7 +13,8 @@
     <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
     <url>/post/226.html</url>
     <content><![CDATA[<h1 id="历史记录"><a href="#历史记录" class="headerlink" title="历史记录"></a>历史记录</h1><p><a href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit configuration</a></p>
-<p>TODO: tensorflow project C/G hierarchical split</p>
+<p>TODO: tensorflow project</p>
+<h1 id="2-24"><a href="#2-24" class="headerlink" title="2.24"></a>2.24</h1><p>Run small size experiments with different settings.</p>
 <h1 id="2-21-2-23"><a href="#2-21-2-23" class="headerlink" title="2.21-2.23"></a>2.21-2.23</h1><p>Do nothing.</p>
 <h1 id="2-20"><a href="#2-20" class="headerlink" title="2.20"></a>2.20</h1><p>Multiple simple test</p>
 <h1 id="2-19"><a href="#2-19" class="headerlink" title="2.19"></a>2.19</h1><p>Initialize tensorflow project</p>
