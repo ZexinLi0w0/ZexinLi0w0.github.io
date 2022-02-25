@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zexinli.com/post/226.html</loc>
+    <loc>https://zexinli.com/post/bfdc.html</loc>
+    
+    <lastmod>2022-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zexinli.com/post/12cc.html</loc>
     
     <lastmod>2022-02-25</lastmod>
     
@@ -13,7 +22,25 @@
   <url>
     <loc>https://zexinli.com/post/6311.html</loc>
     
-    <lastmod>2022-02-24</lastmod>
+    <lastmod>2022-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zexinli.com/post/c9b8.html</loc>
+    
+    <lastmod>2022-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zexinli.com/post/226.html</loc>
+    
+    <lastmod>2022-02-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -38,36 +65,9 @@
   </url>
   
   <url>
-    <loc>https://zexinli.com/post/c9b8.html</loc>
-    
-    <lastmod>2022-02-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zexinli.com/post/43164.html</loc>
     
     <lastmod>2022-02-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zexinli.com/post/12cc.html</loc>
-    
-    <lastmod>2022-02-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zexinli.com/post/bfdc.html</loc>
-    
-    <lastmod>2022-02-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -309,6 +309,13 @@
   </url>
   
   <url>
+    <loc>https://zexinli.com/tags/Hexo/</loc>
+    <lastmod>2022-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zexinli.com/tags/maven/</loc>
     <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -317,13 +324,6 @@
   
   <url>
     <loc>https://zexinli.com/tags/python/</loc>
-    <lastmod>2022-02-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zexinli.com/tags/Hexo/</loc>
     <lastmod>2022-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"zexinli.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.27 - 1.31什么也没干。 1.26还有一个解决方案，编译一个较新版本的tensorflow 2.x。尝试编译r2.6，果然配置脚本没有出现问题，可以正常识别CUDA和CUDNN。但是编译时出现编译错误。可能是CUDA&#x2F;CUDNN版本与对应tensorflow不兼容导致的。 1.25在配置github版本patch后均 搞不定，去查询官方的推荐库版本（这步非常重要，能避免很多坑）。发现对应">
+  <meta name="description" content="Refer link:NVIDIA Jetson install tensorflow 2.x from source code Flash NVIDIA Jetson TX2 (very detailed)Official Tensorflow build guidanceHow to configure before building tensorflow 01&#x2F;27-01&#x2F;31 Do not">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NVIDIA Jetson系列配置踩坑记录">
+<meta property="og:title" content="NVIDIA Jetson development kit configuration【R&amp;D Notes for 01&#x2F;2022】">
 <meta property="og:url" content="https://zexinli.com/post/bfdc.html">
 <meta property="og:site_name" content="Zexin Li&#39;s Blog">
-<meta property="og:description" content="1.27 - 1.31什么也没干。 1.26还有一个解决方案，编译一个较新版本的tensorflow 2.x。尝试编译r2.6，果然配置脚本没有出现问题，可以正常识别CUDA和CUDNN。但是编译时出现编译错误。可能是CUDA&#x2F;CUDNN版本与对应tensorflow不兼容导致的。 1.25在配置github版本patch后均 搞不定，去查询官方的推荐库版本（这步非常重要，能避免很多坑）。发现对应">
+<meta property="og:description" content="Refer link:NVIDIA Jetson install tensorflow 2.x from source code Flash NVIDIA Jetson TX2 (very detailed)Official Tensorflow build guidanceHow to configure before building tensorflow 01&#x2F;27-01&#x2F;31 Do not">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-11T21:09:30.000Z">
-<meta property="article:modified_time" content="2022-02-11T21:09:54.778Z">
+<meta property="article:modified_time" content="2022-02-25T20:35:53.353Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>NVIDIA Jetson系列配置踩坑记录 | Zexin Li's Blog</title>
+  <title>NVIDIA Jetson development kit configuration【R&D Notes for 01/2022】 | Zexin Li's Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41KZDJT9R1"></script>
     <script>
@@ -236,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          NVIDIA Jetson系列配置踩坑记录
+          NVIDIA Jetson development kit configuration【R&D Notes for 01/2022】
         </h1>
 
         <div class="post-meta">
@@ -246,10 +246,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-02-11 15:09:30 / Modified: 15:09:54" itemprop="dateCreated datePublished" datetime="2022-02-11T15:09:30-06:00">2022-02-11</time>
+              <time title="Created: 2022-02-11 15:09:30" itemprop="dateCreated datePublished" datetime="2022-02-11T15:09:30-06:00">2022-02-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-25 14:35:53" itemprop="dateModified" datetime="2022-02-25T14:35:53-06:00">2022-02-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -266,14 +272,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.2k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -285,71 +291,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-27-1-31"><a href="#1-27-1-31" class="headerlink" title="1.27 - 1.31"></a>1.27 - 1.31</h1><p>什么也没干。</p>
-<h1 id="1-26"><a href="#1-26" class="headerlink" title="1.26"></a>1.26</h1><p>还有一个解决方案，编译一个较新版本的tensorflow 2.x。尝试编译r2.6，果然配置脚本没有出现问题，可以正常识别CUDA和CUDNN。但是编译时出现编译错误。可能是CUDA/CUDNN版本与对应tensorflow不兼容导致的。</p>
-<h1 id="1-25"><a href="#1-25" class="headerlink" title="1.25"></a>1.25</h1><p>在配置github版本patch后均 搞不定，去查询官方的<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">推荐库版本</a>（这步非常重要，能避免很多坑）。发现对应tensorflow的CUDA/CUDNN版本是10.1/7.6，而当前CUDA/CUDNN版本可能太高了以至于tensorflow不兼容。决定过段时间重新刷机，刷一个低版本的Jetpack进TX2/AGX再尝试编译tensorflow。</p>
-<h1 id="1-24"><a href="#1-24" class="headerlink" title="1.24"></a>1.24</h1><p>继续在AGX上编译tensorflow 2.2</p>
-<p>配置./configure发生错误，打印错误信息发现无法读取cudnn的版本。因为在高版本的CUDA中读取cudnn版本方式变成了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
-<p>因此修改third_party/gpus/find_cuda_config.py文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Line 347</span><br><span class="line">+ header_path, header_version = _find_header(base_paths, &quot;cudnn_version.h&quot;,</span><br><span class="line">- header_path, header_version = _find_header(base_paths, &quot;cudnn.h&quot;,</span><br></pre></td></tr></table></figure>
-
-<p>如此可以正常configure，选项参考<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>。</p>
-<p>但是bazel编译发生报错</p>
+        <p>Refer link:<br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">Official Tensorflow build guidance</a><br><a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">How to configure before building tensorflow</a></p>
+<p><b>01/27-01/31</b> Do nothing.<br><b>01/24-01/26</b> Build tensorflow r2.2 on AGX.<br>Don’t use cuDNN 8.x, o.w. will meet errors while executing <code>./configure</code> (cannot correctly compile even hardcode cuDNN 8.x and get following error) since cuDNN 7.x has different structure from cuDNN 8.x, and tensorflow r2.2 cannot correctly recognize cuDNN 8.x.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-23"><a href="#1-23" class="headerlink" title="1.23"></a>1.23</h1><p>编译tensorflow</p>
-<p>环境AGX+ubuntu 18.04+CUDA 10.2.300+CUDNN 8.2.1 (Jetpack 4.6)，目标编译tensorflow 2.2</p>
-<p>同1.22: 能够正常进行到配置前，配置仍然error。</p>
-<h1 id="1-22"><a href="#1-22" class="headerlink" title="1.22"></a>1.22</h1><p>编译tensorflow(参考魔改<a target="_blank" rel="noopener" href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">这篇blog</a>)</p>
-<p>环境TX2+ubuntu 16.04+CUDA 10.0，目标编译tensorflow 2.2</p>
-<p>配置环境变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
-
-<p>下载依赖库java和bazel</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openjdk-8-jdk</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-dist.zip</span><br><span class="line">unzip bazel-2.0.0-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel help</span><br></pre></td></tr></table></figure>
-
-<p>增加一些patch确保能够在TX2上进行编译<br>～～～</p>
-<p>设置交换区内存至少4GB(因为按照官方编译会超过8GB内存占用导致编译失败)</p>
-<p>配置编译选项</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
-
-<p>配置中间报python error，找到configure.py打印报错行的log发现可能是CUDNN没安装…..</p>
-<p>经过查询和tensorflow的匹配版本，安装一个CUDNN 7.6</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从官方网站下载 https://developer.download.nvidia.com/compute/redist/cudnn/，官方网站没有cudnn aarch64 distribution，只有通过jetpack下载...但是似乎这块TX2并没有刷jetpack而是使用ubuntu自带系统</span><br></pre></td></tr></table></figure>
-
-<p>到这个位置，这块TX2上没有刷jetpack而是使用ubuntu自带系统，且我只有macbook m1，没法装ubuntu，无奈打出gg。明天尝试使用AGX进行编译。</p>
-<p>[如果能够正常进行编译，需要进行的后续操作]</p>
-<p>拉满电源选项(开到无限制功率模式)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvpmodel -m 0</span><br><span class="line">jetson_clocks</span><br></pre></td></tr></table></figure>
-
-<p>编译</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bazel test --config opt --local_resources 4096,2.0,1.0 //tensorflow/tools/lib_package:libtensorflow_test</span><br><span class="line">bazel build --config opt --local_resources 4096,2.0,1.0 //tensorflow/tools/lib_package:libtensorflow</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-21"><a href="#1-21" class="headerlink" title="1.21"></a>1.21</h1><p>似乎这个近新的TX2上已经完全预备好了miniconda3的环境，版本号为conda 4.9.2。初始化一个python=3.6的conda环境，torch和torchvision需要下载对应python 3.6版本的whl文件：torch版本1.8.0，torchvision版本0.9.0。剩下缺什么conda install什么。</p>
-<p>darknet (yolov3, yolov4, yolov3-tiny, yolov4-tiny): 需要魔改Makefile和一些function来适应CUDA 10.0+CUDNN 7.5， 参考<a target="_blank" rel="noopener" href="https://github.com/ZexinLi0w0/darknet%E3%80%82">https://github.com/ZexinLi0w0/darknet。</a></p>
-<p>yolov5: 直接可用。</p>
-<h1 id="1-20"><a href="#1-20" class="headerlink" title="1.20"></a>1.20</h1><p>换了一个近新的NVIDIA Jetson TX2，拿来配环境。其他什么也没干，划水的一天。</p>
-<h1 id="1-19"><a href="#1-19" class="headerlink" title="1.19"></a>1.19</h1><p>今日踩坑：</p>
-<p>yolov3/yolov5 core dumped on TX2</p>
-<p>故障排查:</p>
+<p><b>01/22-01/25</b> Build tensorflow on NVIDIA Jetson TX2 from source.<br>Brief steps:</p>
 <ol>
-<li>pdb侵入式debug发现是import torch发生了core dumped</li>
-<li>直接python3+import torch也发生core dumped</li>
-<li>pip3 install pytorch指定版本error</li>
+<li>Environemt Variables</li>
+<li>Dependencies</li>
+<li>Set the swap area memory to at least 4GB</li>
+<li><code>./configure</code></li>
+<li>switch to MAXN power mode with activating jetson_clocks</li>
+<li>building with bazel (better using backend process)</li>
 </ol>
-<p>此时选择安装conda，由于TX2是arm64架构所以不能装anaconda3而是安装miniconda3</p>
-<p>安装最新版本miniconda3无法正常init会core dumped</p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped">https://stackoverflow.com/questions/68099000/conda-init-illegal-instruction-core-dumped</a></p>
-<p>要降低miniconda3版本到4.9.2 aarch64</p>
-<p>安装完miniconda3后，继续用pdb debug 发现import cv2也core dumped……. 发现是没有安装arm版本的opencv</p>
-<p>解决办法：用pip安装opencv，并修改环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip --default-timeout=100 install opencv-python==4.5.3.56</span><br><span class="line">vi ~/.bashrc</span><br><span class="line">export OPENBLAS_CORETYPE=ARMV8</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>torch要也要安装arm64架构的，需要按照标准命名规则修改whl文件名称（根据pap425tags.py文件）再通过pip安装。例如将torch-1.6.0-cp36-cp36m-linux_aarch64.whl改成了torch-1.6.0-cp36-abi3-linux_aarch64.whl。需要apt安装一些额外依赖库，才能正常import。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048</span><br><span class="line">wget xxx.whl</span><br><span class="line">mv xxx.whl correct_name.whl</span><br><span class="line">sudo apt-get install libopenblas-base libopenmpi-dev</span><br></pre></td></tr></table></figure>
-
-<p>以上方法全试过了，还是import torch就core dumped😭，EMO了</p>
+<p><b>01/19-01/21</b> Install conda on NVIDIA Jetson TX2<br>Brief steps:</p>
+<ol>
+<li>Download proper version of Archiconda (Archiconda3) which is conda for aarch64. (it seems that cannot install PyTorch/Tensorflow)</li>
+<li>Install</li>
+<li>Add Archiconda to environment variables (better on ~/.bashrc)</li>
+<li>Others the same as Anaconda (Anaconda3) on x86</li>
+</ol>
 
     </div>
 
@@ -363,10 +323,10 @@
       <div class="popular-posts-title"><a href="/post/226.html" rel="bookmark">NVIDIA Jetson TX2/AGX R&D Notes 【Continuous Updates】</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/6311.html" rel="bookmark">NVIDIA Jetson系列源码安装tensorflow2.x教程</a></div>
+      <div class="popular-posts-title"><a href="/post/6311.html" rel="bookmark">NVIDIA Jetson install tensorflow 2.x from source code</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/12cc.html" rel="bookmark">NVIDIA Jetson开发板刷机教程</a></div>
+      <div class="popular-posts-title"><a href="/post/12cc.html" rel="bookmark">Flash NVIDIA Jetson TX2 (very detailed)</a></div>
     </li>
   </ul>
 
@@ -379,7 +339,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://zexinli.com/post/bfdc.html" title="NVIDIA Jetson系列配置踩坑记录">https://zexinli.com/post/bfdc.html</a>
+    <a href="https://zexinli.com/post/bfdc.html" title="NVIDIA Jetson development kit configuration【R&amp;D Notes for 01&#x2F;2022】">https://zexinli.com/post/bfdc.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -400,12 +360,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/6311.html" rel="prev" title="NVIDIA Jetson系列源码安装tensorflow2.x教程">
-      <i class="fa fa-chevron-left"></i> NVIDIA Jetson系列源码安装tensorflow2.x教程
+    <a href="/post/6311.html" rel="prev" title="NVIDIA Jetson install tensorflow 2.x from source code">
+      <i class="fa fa-chevron-left"></i> NVIDIA Jetson install tensorflow 2.x from source code
     </a></div>
       <div class="post-nav-item">
-    <a href="/post/c9b8.html" rel="next" title="论文笔记">
-      论文笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/post/c9b8.html" rel="next" title="Paper Notes">
+      Paper Notes <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -465,7 +425,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-27-1-31"><span class="nav-number">1.</span> <span class="nav-text">1.27 - 1.31</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-26"><span class="nav-number">2.</span> <span class="nav-text">1.26</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-25"><span class="nav-number">3.</span> <span class="nav-text">1.25</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-24"><span class="nav-number">4.</span> <span class="nav-text">1.24</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-23"><span class="nav-number">5.</span> <span class="nav-text">1.23</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-22"><span class="nav-number">6.</span> <span class="nav-text">1.22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-21"><span class="nav-number">7.</span> <span class="nav-text">1.21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-20"><span class="nav-number">8.</span> <span class="nav-text">1.20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-19"><span class="nav-number">9.</span> <span class="nav-text">1.19</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -551,13 +510,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">52k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:30</span>
+    <span title="Reading time total">1:27</span>
 
 </div>
         

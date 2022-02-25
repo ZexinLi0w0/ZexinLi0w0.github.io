@@ -6,7 +6,7 @@
   <link href="https://zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://zexinli.com/"/>
-  <updated>2022-02-19T22:31:14.239Z</updated>
+  <updated>2022-02-25T20:17:09.599Z</updated>
   <id>https://zexinli.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>论文笔记</title>
+    <title>Paper Notes</title>
     <link href="https://zexinli.com/post/c9b8.html"/>
     <id>https://zexinli.com/post/c9b8.html</id>
     <published>2022-02-19T22:24:09.000Z</published>
-    <updated>2022-02-19T22:31:14.239Z</updated>
+    <updated>2022-02-25T20:17:09.599Z</updated>
     
     
       
@@ -40,11 +40,11 @@
   </entry>
   
   <entry>
-    <title>NVIDIA Jetson系列配置踩坑记录</title>
+    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
     <link href="https://zexinli.com/post/bfdc.html"/>
     <id>https://zexinli.com/post/bfdc.html</id>
     <published>2022-02-11T21:09:30.000Z</published>
-    <updated>2022-02-11T21:09:54.778Z</updated>
+    <updated>2022-02-25T20:35:53.353Z</updated>
     
     
       
@@ -65,11 +65,11 @@
   </entry>
   
   <entry>
-    <title>NVIDIA Jetson系列源码安装tensorflow2.x教程</title>
+    <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
     <link href="https://zexinli.com/post/6311.html"/>
     <id>https://zexinli.com/post/6311.html</id>
     <published>2022-02-11T21:04:57.000Z</published>
-    <updated>2022-02-24T17:15:33.638Z</updated>
+    <updated>2022-02-25T20:17:59.230Z</updated>
     
     
       
@@ -90,11 +90,11 @@
   </entry>
   
   <entry>
-    <title>NVIDIA Jetson开发板刷机教程</title>
+    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
     <link href="https://zexinli.com/post/12cc.html"/>
     <id>https://zexinli.com/post/12cc.html</id>
     <published>2022-02-03T00:36:49.000Z</published>
-    <updated>2022-02-11T21:46:36.254Z</updated>
+    <updated>2022-02-25T20:18:07.771Z</updated>
     
     
       
@@ -119,7 +119,7 @@
     <link href="https://zexinli.com/post/226.html"/>
     <id>https://zexinli.com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-25T01:24:37.635Z</updated>
+    <updated>2022-02-25T20:15:42.902Z</updated>
     
     
       
