@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"zexinli.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="HistoryNVIDIA Jetson install tensorflow 2.x from source code Flash NVIDIA Jetson TX2 (very detailed)NVIDIA Jetson development kit configuration TODO: tensorflow project 02&#x2F;202202&#x2F;25 TODO: Run small si">
+  <meta name="description" content="History[zh] NVIDIA Jetson install tensorflow 2.x from source code[zh] Flash NVIDIA Jetson TX2 (very detailed)NVIDIA Jetson development kit【R&amp;D Notes for 01&#x2F;2022】 TODO: [en] NVIDIA Jetson install t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NVIDIA Jetson TX2&#x2F;AGX R&amp;D Notes 【Continuous Updates】">
 <meta property="og:url" content="https://zexinli.com/post/226.html">
 <meta property="og:site_name" content="Zexin Li&#39;s Blog">
-<meta property="og:description" content="HistoryNVIDIA Jetson install tensorflow 2.x from source code Flash NVIDIA Jetson TX2 (very detailed)NVIDIA Jetson development kit configuration TODO: tensorflow project 02&#x2F;202202&#x2F;25 TODO: Run small si">
+<meta property="og:description" content="History[zh] NVIDIA Jetson install tensorflow 2.x from source code[zh] Flash NVIDIA Jetson TX2 (very detailed)NVIDIA Jetson development kit【R&amp;D Notes for 01&#x2F;2022】 TODO: [en] NVIDIA Jetson install t">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-19T21:46:53.000Z">
-<meta property="article:modified_time" content="2022-02-25T20:15:42.902Z">
+<meta property="article:modified_time" content="2022-02-26T06:09:33.714Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
@@ -258,7 +258,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-25 14:15:42" itemprop="dateModified" datetime="2022-02-25T14:15:42-06:00">2022-02-25</time>
+                <time title="Modified: 2022-02-26 00:09:33" itemprop="dateModified" datetime="2022-02-26T00:09:33-06:00">2022-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +276,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>327</span>
+              <span>640</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -295,9 +295,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit configuration</a></p>
-<p>TODO: tensorflow project</p>
-<h1 id="02-2022"><a href="#02-2022" class="headerlink" title="02/2022"></a>02/2022</h1><p>02/25 TODO: Run small size experiments with different settings.<br>02/24 Do nothing.<br>02/23 Do nothing.<br>02/22 Do nothing.<br>02/21 Do nothing.<br>02/20 Multiple simple test.<br>02/19 Initialize tensorflow project.</p>
+        <h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a></p>
+<p>TODO: [en] NVIDIA Jetson install tensorflow 2.x from source code<br>TODO: [en] Flash NVIDIA Jetson TX2 (very detailed)<br>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】<br>Doing: tensorflow project</p>
+<h1 id="02-2022"><a href="#02-2022" class="headerlink" title="02/2022"></a>02/2022</h1><p>02/26 TODO: Run small size experiments with different settings.<br>TODO: Fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/25 Tried but fail to fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/24 Do nothing.<br>02/23 Do nothing.<br>02/22 Do nothing.<br>02/21 Do nothing.<br>02/20 Multiple simple test.<br>02/19 Initialize tensorflow project.</p>
 
     </div>
 

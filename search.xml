@@ -12,9 +12,9 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit configuration</a></p>
-<p>TODO: tensorflow project</p>
-<h1 id="02-2022"><a href="#02-2022" class="headerlink" title="02/2022"></a>02/2022</h1><p>02/25 TODO: Run small size experiments with different settings.<br>02/24 Do nothing.<br>02/23 Do nothing.<br>02/22 Do nothing.<br>02/21 Do nothing.<br>02/20 Multiple simple test.<br>02/19 Initialize tensorflow project.</p>
+    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a></p>
+<p>TODO: [en] NVIDIA Jetson install tensorflow 2.x from source code<br>TODO: [en] Flash NVIDIA Jetson TX2 (very detailed)<br>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】<br>Doing: tensorflow project</p>
+<h1 id="02-2022"><a href="#02-2022" class="headerlink" title="02/2022"></a>02/2022</h1><p>02/26 TODO: Run small size experiments with different settings.<br>TODO: Fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/25 Tried but fail to fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/24 Do nothing.<br>02/23 Do nothing.<br>02/22 Do nothing.<br>02/21 Do nothing.<br>02/20 Multiple simple test.<br>02/19 Initialize tensorflow project.</p>
 ]]></content>
       <categories>
         <category>config</category>
