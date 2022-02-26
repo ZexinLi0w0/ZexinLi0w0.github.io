@@ -6,7 +6,7 @@
   <link href="https://zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://zexinli.com/"/>
-  <updated>2022-02-25T20:17:09.599Z</updated>
+  <updated>2022-02-26T19:43:25.402Z</updated>
   <id>https://zexinli.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
+    <link href="https://zexinli.com/post/cc0b.html"/>
+    <id>https://zexinli.com/post/cc0b.html</id>
+    <published>2022-02-26T19:08:17.000Z</published>
+    <updated>2022-02-26T19:43:25.402Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli.com/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
   
   <entry>
     <title>Paper Notes</title>
@@ -65,11 +90,11 @@
   </entry>
   
   <entry>
-    <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
+    <title>NVIDIA Jetson从源码安装tensorflow 2.x</title>
     <link href="https://zexinli.com/post/6311.html"/>
     <id>https://zexinli.com/post/6311.html</id>
     <published>2022-02-11T21:04:57.000Z</published>
-    <updated>2022-02-25T20:17:59.230Z</updated>
+    <updated>2022-02-26T19:46:35.064Z</updated>
     
     
       
@@ -90,11 +115,11 @@
   </entry>
   
   <entry>
-    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
+    <title>NVIDIA Jetson开发套件刷机教程</title>
     <link href="https://zexinli.com/post/12cc.html"/>
     <id>https://zexinli.com/post/12cc.html</id>
     <published>2022-02-03T00:36:49.000Z</published>
-    <updated>2022-02-25T20:18:07.771Z</updated>
+    <updated>2022-02-26T19:47:01.079Z</updated>
     
     
       
@@ -119,7 +144,7 @@
     <link href="https://zexinli.com/post/226.html"/>
     <id>https://zexinli.com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-26T06:09:33.714Z</updated>
+    <updated>2022-02-26T19:47:47.391Z</updated>
     
     
       

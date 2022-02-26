@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"zexinli.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="History[zh] NVIDIA Jetson install tensorflow 2.x from source code[zh] Flash NVIDIA Jetson TX2 (very detailed)NVIDIA Jetson development kit【R&amp;D Notes for 01&#x2F;2022】 TODO: [en] NVIDIA Jetson install t">
+  <meta name="description" content="HistoryNVIDIA Jetson development kit【R&amp;D Notes for 01&#x2F;2022】Flash NVIDIA Jetson TX2 (very detailed)[zh] NVIDIA Jetson install tensorflow 2.x from source code[zh] Flash NVIDIA Jetson TX2 (very detai">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NVIDIA Jetson TX2&#x2F;AGX R&amp;D Notes 【Continuous Updates】">
 <meta property="og:url" content="https://zexinli.com/post/226.html">
 <meta property="og:site_name" content="Zexin Li&#39;s Blog">
-<meta property="og:description" content="History[zh] NVIDIA Jetson install tensorflow 2.x from source code[zh] Flash NVIDIA Jetson TX2 (very detailed)NVIDIA Jetson development kit【R&amp;D Notes for 01&#x2F;2022】 TODO: [en] NVIDIA Jetson install t">
+<meta property="og:description" content="HistoryNVIDIA Jetson development kit【R&amp;D Notes for 01&#x2F;2022】Flash NVIDIA Jetson TX2 (very detailed)[zh] NVIDIA Jetson install tensorflow 2.x from source code[zh] Flash NVIDIA Jetson TX2 (very detai">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-19T21:46:53.000Z">
-<meta property="article:modified_time" content="2022-02-26T06:09:33.714Z">
+<meta property="article:modified_time" content="2022-02-26T19:47:47.391Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
@@ -258,7 +258,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-26 00:09:33" itemprop="dateModified" datetime="2022-02-26T00:09:33-06:00">2022-02-26</time>
+                <time title="Modified: 2022-02-26 13:47:47" itemprop="dateModified" datetime="2022-02-26T13:47:47-06:00">2022-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +276,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>640</span>
+              <span>631</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -295,8 +295,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a></p>
-<p>TODO: [en] NVIDIA Jetson install tensorflow 2.x from source code<br>TODO: [en] Flash NVIDIA Jetson TX2 (very detailed)<br>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】<br>Doing: tensorflow project</p>
+        <h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
+<p>TODO: [en] NVIDIA Jetson install tensorflow 2.x from source code<br>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】<br>Doing: tensorflow project</p>
 <h1 id="02-2022"><a href="#02-2022" class="headerlink" title="02/2022"></a>02/2022</h1><p>02/26 TODO: Run small size experiments with different settings.<br>TODO: Fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/25 Tried but fail to fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/24 Do nothing.<br>02/23 Do nothing.<br>02/22 Do nothing.<br>02/21 Do nothing.<br>02/20 Multiple simple test.<br>02/19 Initialize tensorflow project.</p>
 
     </div>
@@ -308,13 +308,16 @@
   <div class="popular-posts-header">Related Posts</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/cc0b.html" rel="bookmark">Flash NVIDIA Jetson TX2 (very detailed)</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/post/bfdc.html" rel="bookmark">NVIDIA Jetson development kit configuration【R&D Notes for 01/2022】</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/6311.html" rel="bookmark">NVIDIA Jetson install tensorflow 2.x from source code</a></div>
+      <div class="popular-posts-title"><a href="/post/6311.html" rel="bookmark">NVIDIA Jetson从源码安装tensorflow 2.x</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/12cc.html" rel="bookmark">Flash NVIDIA Jetson TX2 (very detailed)</a></div>
+      <div class="popular-posts-title"><a href="/post/12cc.html" rel="bookmark">NVIDIA Jetson开发套件刷机教程</a></div>
     </li>
   </ul>
 
@@ -352,8 +355,8 @@
       <i class="fa fa-chevron-left"></i> 论文笔记:TimeGraph
     </a></div>
       <div class="post-nav-item">
-    <a href="/post/12cc.html" rel="next" title="Flash NVIDIA Jetson TX2 (very detailed)">
-      Flash NVIDIA Jetson TX2 (very detailed) <i class="fa fa-chevron-right"></i>
+    <a href="/post/12cc.html" rel="next" title="NVIDIA Jetson开发套件刷机教程">
+      NVIDIA Jetson开发套件刷机教程 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -429,7 +432,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -452,7 +455,7 @@
         <a href="https://github.com/ZexinLi0w0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZexinLi0w0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="/zexin.li@utdalls.edu" title="E-Mail → zexin.li@utdalls.edu"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="mailto:zexin.li@utdalls.edu" title="E-Mail → mailto:zexin.li@utdalls.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
         <a href="https://scholar.google.com/citations?user=iHt-2zwAAAAJ" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;iHt-2zwAAAAJ" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
@@ -499,13 +502,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">52k</span>
+    <span title="Symbols count total">55k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:27</span>
+    <span title="Reading time total">1:32</span>
 
 </div>
         

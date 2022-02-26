@@ -12,9 +12,44 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a></p>
-<p>TODO: [en] NVIDIA Jetson install tensorflow 2.x from source code<br>TODO: [en] Flash NVIDIA Jetson TX2 (very detailed)<br>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】<br>Doing: tensorflow project</p>
+    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a><br><a href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
+<p>TODO: [en] NVIDIA Jetson install tensorflow 2.x from source code<br>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】<br>Doing: tensorflow project</p>
 <h1 id="02-2022"><a href="#02-2022" class="headerlink" title="02/2022"></a>02/2022</h1><p>02/26 TODO: Run small size experiments with different settings.<br>TODO: Fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/25 Tried but fail to fix performance bug of tensorflow 2.x extreme slow initialization.<br>02/24 Do nothing.<br>02/23 Do nothing.<br>02/22 Do nothing.<br>02/21 Do nothing.<br>02/20 Multiple simple test.<br>02/19 Initialize tensorflow project.</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
+    <url>/post/cc0b.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>NVIDIA Jetson Development Toolkit is based on arm64 architecure. Correpsondingly, many system libraries/deep learning libraries cannot be found&amp;intalled easily (compared to x86 platform). To solve such dependencies problem once and for all, NVIDIA offers official flashing tool (Jetpack). This article focuses on the technical details of <b>Jetpack 4.6 flashing</b>.</p>
+<p>JetsonHacks offers official flashing turorial videos corresponding to different versions (<a href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2 installation</a> <a href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0 installation</a>) which may have some differences but similar to Jetpack 4.6. For older version (e.g., Jetpack 3.0), please ref to <a href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 Flashing Tutorial</a>。</p>
+<h1 id="Prequisite"><a href="#Prequisite" class="headerlink" title="Prequisite"></a>Prequisite</h1><ol>
+<li>Host machine: An PC/laptop with Intel/AMDx86 architeture and Ubuntu 18.04 installed, can be connected to <b style='color:red;'>network</b>.</li>
+<li>Physical disk: &gt;40GB available.</li>
+<li>Installing Jetpack package: apply for NVIDIA developer account, then download Jetpack (newest version 4.6 is recommend) aat <a href="https://developer.nvidia.com/embedded/jetpack">NVIDIA</a> based on board hardware model.</li>
+<li>A Mirco-USB data cable, an HDMI cable, one screen, mouse and keyboard.</li>
+</ol>
+<h1 id="Installing-Jetpack"><a href="#Installing-Jetpack" class="headerlink" title="Installing Jetpack"></a>Installing Jetpack</h1><ol>
+<li>Disconnect the development board, disconnect the development board network cable, and connect the development board and host computer with the data cable. Double-click to run the Jetpack 4.6 installer (or command line install), then type in command: <code>sdkmanager</code> (make sure don’t use root here). After login NVIDIA developer account, tick host and target, select device hardware manually.</li>
+<li>Create 2 new folders to store libraries files and targets image files.</li>
+<li>Begin downloading and wait patiently to install OS (<b style='color:red;'>[Note]The development board is still powered off at this time</b>)</li>
+<li>Sdkmanger will notify whether (auto flash)/(manual flash). Select (manual flash) and switch the board to <b>Recovery Mode</b>, for instance (Jetson TX2):<br>(a) Ensure that the development board is initially in a power-off state and that the Micro USB cable is properly connected<br>(b) Power on the development board, press power to boot, then quickly press and hold the recovery key without releasing, press the reset key, and release the recovery key after 2 seconds<br>(c) At this point there should be 2 green lights on</li>
+<li>To verify that you are in the forced recovery state, type in the host command: <code>lsusb</code>. If <code>Nvidia Corp</code> is in device list then success, o.w. back to do step (4) again.</li>
+<li>Connect the HDMI cable + screen to the development board. Then click <code>flash</code> on sdkmanager.</li>
+<li>Wait patiently for the development board to initialize the ubuntu system (configure the account password). Sdkmanager will ask to choose the connection method + enter your account password. In this case, choose to use the <code>USB connection</code> with <code>default ip address</code>, and enter the account/password of the ubuntu system of the development board.</li>
+<li>Wait patiently for long time until all libraries installed. Click <code>exit</code> to quit sdkmanager.</li>
+</ol>
+<h1 id="Further-Configuration"><a href="#Further-Configuration" class="headerlink" title="Further Configuration"></a>Further Configuration</h1><p>Connect the development board and check IP address with <code>ifconfig | grep eth0 -a1</code>. Then it can be accessed by ssh and configure as normal Ubuntu.</p>
+<h1 id="Potential-Problems-and-Solutions"><a href="#Potential-Problems-and-Solutions" class="headerlink" title="Potential Problems and Solutions"></a>Potential Problems and Solutions</h1><ol>
+<li>Slow downloading:<br>Replace the networking environment that can bypass firewall (GFW) and has sufficient bandwidth.</li>
+<li>Strange issues in installing process reported by sdkmanager(e.g., dependencies error)<br>Replace the host machine with <b>clean</b>Ubuntu 18.04, most of these kinds of problems are due to system configuration conflicts, which are very difficult to locate and fix.</li>
+<li>Performance bugs (Some CPU cores on board are idle)<br>rewrite /boot/extlinux/exltinux.conf <code>isolcpus=1-2</code> to <code>isolcpus=</code> (ref to <a href="https://blog.csdn.net/JanKin_BY/article/details/120441238">Performance bug solution to TX2</a>.</li>
+</ol>
 ]]></content>
       <categories>
         <category>config</category>
@@ -54,7 +89,7 @@
       </tags>
   </entry>
   <entry>
-    <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
+    <title>NVIDIA Jetson从源码安装tensorflow 2.x</title>
     <url>/post/6311.html</url>
     <content><![CDATA[<h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1><p>Q: 什么人需要源码安装tensorflow? </p>
 <p>A: 1. tensorflow的开发者(想改进它的代码); 2. 需要指定版本tensorflow但没有下载资源的开发者。仅使用tensorflow API的开发者不需要编译，建议使用<b>NVIDIA官方镜像</b>，或者从官方下载<b>编译好的.whl文件</b>并使用pip安装。</p>
@@ -113,7 +148,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
+    <title>NVIDIA Jetson开发套件刷机教程</title>
     <url>/post/12cc.html</url>
     <content><![CDATA[<p>NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍<b>Jetpack 4.6刷机</b>的技术细节。</p>
 <p>此外JetsonHacks提供了官方刷机教学视频，如果看本文还是不清楚一些细节，可以看视频一步步跟着学: <a href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2安装</a> <a href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0安装</a></p>
