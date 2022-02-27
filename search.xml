@@ -24,6 +24,12 @@
       </tags>
   </entry>
   <entry>
+    <title>Leetcode Contest</title>
+    <url>/post/1564.html</url>
+    <content><![CDATA[<h1 id="Weekly-Contest-282"><a href="#Weekly-Contest-282" class="headerlink" title="Weekly Contest 282"></a>Weekly Contest 282</h1><p>3828 / 15143 = 25.28%<br>Finish Time: 1:35:40<br>Q1: 0:02:36 -&gt; easy loop<br>Q2: 0:05:17 -&gt; map<br>Q3: 1:10:40 (5 errors) -&gt; modified binary search<br>Q4: N/A -&gt; dynamic programming</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
     <url>/post/cc0b.html</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>NVIDIA Jetson Development Toolkit is based on arm64 architecure. Correpsondingly, many system libraries/deep learning libraries cannot be found&amp;intalled easily (compared to x86 platform). To solve such dependencies problem once and for all, NVIDIA offers official flashing tool (Jetpack). This article focuses on the technical details of <b>Jetpack 4.6 flashing</b>.</p>

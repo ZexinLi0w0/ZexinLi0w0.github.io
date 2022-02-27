@@ -6,7 +6,7 @@
   <link href="https://zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://zexinli.com/"/>
-  <updated>2022-02-26T19:43:25.402Z</updated>
+  <updated>2022-02-27T04:35:44.617Z</updated>
   <id>https://zexinli.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode Contest</title>
+    <link href="https://zexinli.com/post/1564.html"/>
+    <id>https://zexinli.com/post/1564.html</id>
+    <published>2022-02-27T04:30:34.000Z</published>
+    <updated>2022-02-27T04:35:44.617Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
