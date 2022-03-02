@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"zexinli.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="ContentAboutA heterogeneity-aware cluster scheudling solution for DNN workloads Problem [主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Pla">
+  <meta name="description" content="SynopsisQ: Who needs install tensorflow from source code?A: 1. tensorflow developer (or anyone want to improve it); 2. developers who need a specific version of tensorflow but don’t have the resources">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads">
-<meta property="og:url" content="https://zexinli.com/post/15125.html">
+<meta property="og:title" content="NVIDIA Jetson install tensorflow 2.x from source code">
+<meta property="og:url" content="https://zexinli.com/post/ec04.html">
 <meta property="og:site_name" content="Zexin Li&#39;s Blog">
-<meta property="og:description" content="ContentAboutA heterogeneity-aware cluster scheudling solution for DNN workloads Problem [主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Pla">
+<meta property="og:description" content="SynopsisQ: Who needs install tensorflow from source code?A: 1. tensorflow developer (or anyone want to improve it); 2. developers who need a specific version of tensorflow but don’t have the resources">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-08T20:53:19.000Z">
-<meta property="article:modified_time" content="2022-02-04T05:25:54.205Z">
+<meta property="article:published_time" content="2022-02-28T21:17:22.000Z">
+<meta property="article:modified_time" content="2022-03-01T19:47:37.907Z">
 <meta property="article:author" content="Zexin Li">
-<meta property="article:tag" content="research,NVIDIA,C++,Linux">
+<meta property="article:tag" content="NVIDIA Jetson">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://zexinli.com/post/15125.html">
+<link rel="canonical" href="https://zexinli.com/post/ec04.html">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads | Zexin Li's Blog</title>
+  <title>NVIDIA Jetson install tensorflow 2.x from source code | Zexin Li's Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41KZDJT9R1"></script>
     <script>
@@ -223,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/15125.html">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/ec04.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
@@ -236,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads
+          NVIDIA Jetson install tensorflow 2.x from source code
         </h1>
 
         <div class="post-meta">
@@ -247,14 +247,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-09-08 15:53:19" itemprop="dateCreated datePublished" datetime="2020-09-08T15:53:19-05:00">2020-09-08</time>
+              <time title="Created: 2022-02-28 15:17:22" itemprop="dateCreated datePublished" datetime="2022-02-28T15:17:22-06:00">2022-02-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-03 23:25:54" itemprop="dateModified" datetime="2022-02-03T23:25:54-06:00">2022-02-03</time>
+                <time title="Modified: 2022-03-01 13:47:37" itemprop="dateModified" datetime="2022-03-01T13:47:37-06:00">2022-03-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,7 +262,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
                 </span>
             </span>
 
@@ -272,14 +272,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
+              <span>5.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>9 mins.</span>
             </span>
 
         </div>
@@ -291,29 +291,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A heterogeneity-aware cluster scheudling solution for DNN workloads</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
-<li>[主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Placement Optimizations.</li>
+        <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Q: Who needs install tensorflow from source code?<br>A: 1. tensorflow developer (or anyone want to improve it); 2. developers who need a specific version of tensorflow but don’t have the resources to download itds. <b style="color: red">Note: only using tensorflow API are not required to building from source, suggested to use <b>NVIDIA offcial tensorflow image</b>, or download <b>built .whl file</b> and install from pip.</b></p>
+<h1 id="Install-Tensorflow-1-x-from-Source-Code"><a href="#Install-Tensorflow-1-x-from-Source-Code" class="headerlink" title="Install Tensorflow 1.x from Source Code"></a>Install Tensorflow 1.x from Source Code</h1><p>Jetsonhacks offers <a target="_blank" rel="noopener" href="https://github.com/jetsonhacks/installTensorFlowTX2">github installation guidance<a>。</p>
+<h1 id="Install-Tensorflow-2-x-from-Source-Code"><a href="#Install-Tensorflow-2-x-from-Source-Code" class="headerlink" title="Install Tensorflow 2.x from Source Code"></a>Install Tensorflow 2.x from Source Code</h1><p>Currently nearly no concrete instructions for building Tensorflow 2.x from source. If have any problem, please see the below section: [Potential Problem].</p>
+<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol start="0">
+<li>Read official guidance to check the target version.<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">tensorflow official guidance</a> <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA building tensorflow official guidance</a><br><b style="color: red">Currently can build/run: jetpack 3.3 (python 3.5/3.6) + CUDA 10.2/9.0 + CUDNN 7.1 + tensorflow r2.2.</b></li>
+<li>Flash the board correctly (begin from clean os): Use NVIDIA offcial SDKmanager to install Jetpack【<a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html">How to flash Jetson board</a>】. For instance, TX2 supports Jetpack version 4.6, 4.5.1, 4.5, 3.3. Note: 4.5+version may result in CUDA/CUDNN imcompatible.</li>
+<li>Install python dependencies<br>For jetpack 4.5+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0</span><br></pre></td></tr></table></figure>
+For jetpack 3.3<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # 因为pip3已经放弃对python 3.5的支持, 所以不能从apt安装pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure>
+Note: python dependenceis may conflict and result in <code>import core dumped</code>. Best check by a reactive python3 by importing these dependencies.</li>
+<li>Install JDK dependencies<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ref to &lt;a href=&quot;https://docs.bazel.build/versions/main/install-ubuntu.html&quot;&gt;link&lt;/a&gt;</span><br><span class="line"># For jetpack 4.5+ Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br><span class="line"># For jetpack 3.3 Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li>
+<li>Install bazel<br>Build bazel，the version refers to .bazelversion on <code>/tensorflow</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir bazel-$BAZEL_VERSION</span><br><span class="line">cd bazel-$BAZEL_VERSION</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">unzip bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">rm bazel-bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel version</span><br></pre></td></tr></table></figure></li>
+<li>Enable swap for board with less than 16GB memory<br>o.w., may result in <b>OOM error</b> -&gt; Error: c++ compiling error *** Killed<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s</span><br></pre></td></tr></table></figure>
+Or directly use the script offered by jetsonhack<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>(1) Performance Heterogeneity: 复杂的DNN tasks需要在不同种类processor上执行; 并非越贵的processor越好, 对不同任务的dollar-normalized结果并不和价格正相关<br><i>“Existing schedulers like Gandiva, Tiresias, and Themis do not consider the heterogeneous performance behavior across accelerators.” </i><br>(2) Generality Across Policies: 已有的scheduler与scheduling mechanism紧耦合; 且大部分难以支持复杂的scheduling policy<br>(3) Colocation and Placement Optimizations: 全局调度目标要显示考虑这两项</p>
-<ol start="2">
-<li>现有的scheduler可能导致starvation: 某些task长时间排队得不到执行</li>
+<h2 id="Compilation-Installation-Testing"><a href="#Compilation-Installation-Testing" class="headerlink" title="Compilation/Installation/Testing"></a>Compilation/Installation/Testing</h2><ol>
+<li>Get source code<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.2 # 对于jetpack 3.3</span><br></pre></td></tr></table></figure></li>
+<li>Configuration/Compilation<br>Note: very time consuming, best with an disconnection prevention session (e.g. tmux)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Configure correct path of python interpreter，enable CUDA</span><br><span class="line">./configure</span><br><span class="line"># Set output_base path (default is ~/.cache/), o.w. cross-disk will cause compilation to be much slower than without cross-disk</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=noaws --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure></li>
+<li>Install tensorflow .whl<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure></li>
+<li>Testing<br>Smoking Test<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow</span><br><span class="line">&gt;&gt; exit()</span><br></pre></td></tr></table></figure>
+GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Refer to two files under https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Gavel’s key observation是scheduling policy都可以表达为目标是工作完成率的优化问题, 整篇大部分都在围绕一些经典的scheudling goal如何用优化问题来表示</li>
+<h1 id="Potential-Problem"><a href="#Potential-Problem" class="headerlink" title="Potential Problem"></a>Potential Problem</h1><ol>
+<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
+<li>local_cuda_not_found: switch to verified known version in the above.</li>
+<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
+<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
+<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
+<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
+<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
+<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
+<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
 </ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>设计scheduler时考虑了heterogeneity</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>为了解决Problem 2设计了round-based mechanism, 理论上降低了发生starvation的可能性</li>
-<li>round-based mechanism与scheduling policy解除了耦合, 能够更简单地integrate sophisticated scheduling policy</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>有个用法heterogeneity-aware/heterogeneity-agnostic, 学习了: 可以用xxx-aware/xxx-agnostic来描述自己有的一些点和概括别人没有考虑到这些点。</li>
-<li>space sharing这一块里面, greedy algorithm容易陷入局部最优。因为heterogeneity, <i>“different pairs of DNN applications in practice have vastly different performance when colocated together”</i></li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.09213.pdf">https://arxiv.org/pdf/2008.09213.pdf</a></p>
 
     </div>
 
@@ -321,6 +331,24 @@
     
     
       
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/226.html" rel="bookmark">NVIDIA Jetson TX2/AGX R&D Notes 【Continuous Updates】</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/cc0b.html" rel="bookmark">Flash NVIDIA Jetson TX2 (very detailed)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/bfdc.html" rel="bookmark">NVIDIA Jetson development kit configuration【R&D Notes for 01/2022】</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/6311.html" rel="bookmark">NVIDIA Jetson从源码安装tensorflow 2.x</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/12cc.html" rel="bookmark">NVIDIA Jetson开发套件刷机教程</a></div>
+    </li>
+  </ul>
 
         
 
@@ -331,7 +359,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://zexinli.com/post/15125.html" title="论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads">https://zexinli.com/post/15125.html</a>
+    <a href="https://zexinli.com/post/ec04.html" title="NVIDIA Jetson install tensorflow 2.x from source code">https://zexinli.com/post/ec04.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -341,6 +369,10 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/NVIDIA-Jetson/" rel="tag"><i class="fa fa-tag"></i> NVIDIA Jetson</a>
+          </div>
 
         
 
@@ -348,13 +380,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/27403.html" rel="prev" title="论文笔记:Per-ApplicationPowerDelivery">
-      <i class="fa fa-chevron-left"></i> 论文笔记:Per-ApplicationPowerDelivery
+    <a href="/post/1564.html" rel="prev" title="Leetcode Contest">
+      <i class="fa fa-chevron-left"></i> Leetcode Contest
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/32931.html" rel="next" title="论文笔记:PredJoule">
-      论文笔记:PredJoule <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -413,7 +442,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Content"><span class="nav-number">1.</span> <span class="nav-text">Content</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#About"><span class="nav-number">1.1.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem"><span class="nav-number">1.2.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interesting"><span class="nav-number">1.3.</span> <span class="nav-text">Interesting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#New"><span class="nav-number">1.4.</span> <span class="nav-text">New</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neat"><span class="nav-number">1.5.</span> <span class="nav-text">Neat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">2.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Synopsis"><span class="nav-number">1.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Tensorflow-1-x-from-Source-Code"><span class="nav-number">2.</span> <span class="nav-text">Install Tensorflow 1.x from Source Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Tensorflow-2-x-from-Source-Code"><span class="nav-number">3.</span> <span class="nav-text">Install Tensorflow 2.x from Source Code</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prerequisite"><span class="nav-number">3.1.</span> <span class="nav-text">Prerequisite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compilation-Installation-Testing"><span class="nav-number">3.2.</span> <span class="nav-text">Compilation&#x2F;Installation&#x2F;Testing</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Potential-Problem"><span class="nav-number">4.</span> <span class="nav-text">Potential Problem</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

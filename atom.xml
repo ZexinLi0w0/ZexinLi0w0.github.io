@@ -6,7 +6,7 @@
   <link href="https://zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://zexinli.com/"/>
-  <updated>2022-02-27T04:35:44.617Z</updated>
+  <updated>2022-03-01T19:47:37.907Z</updated>
   <id>https://zexinli.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
+    <link href="https://zexinli.com/post/ec04.html"/>
+    <id>https://zexinli.com/post/ec04.html</id>
+    <published>2022-02-28T21:17:22.000Z</published>
+    <updated>2022-03-01T19:47:37.907Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli.com/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode Contest</title>
@@ -42,7 +67,7 @@
     <link href="https://zexinli.com/post/cc0b.html"/>
     <id>https://zexinli.com/post/cc0b.html</id>
     <published>2022-02-26T19:08:17.000Z</published>
-    <updated>2022-02-26T19:43:25.402Z</updated>
+    <updated>2022-02-28T21:20:06.817Z</updated>
     
     
       
@@ -115,7 +140,7 @@
     <link href="https://zexinli.com/post/6311.html"/>
     <id>https://zexinli.com/post/6311.html</id>
     <published>2022-02-11T21:04:57.000Z</published>
-    <updated>2022-02-26T19:46:35.064Z</updated>
+    <updated>2022-03-01T19:47:39.888Z</updated>
     
     
       
@@ -165,7 +190,7 @@
     <link href="https://zexinli.com/post/226.html"/>
     <id>https://zexinli.com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-02-26T19:47:47.391Z</updated>
+    <updated>2022-02-28T21:51:14.490Z</updated>
     
     
       
