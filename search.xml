@@ -163,6 +163,36 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
       </tags>
   </entry>
   <entry>
+    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
+    <url>/post/bfdc.html</url>
+    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://www.tensorflow.org/install/source/">Official Tensorflow build guidance</a><br><a href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">How to configure before building tensorflow</a></p>
+<p><b>01/27-01/31</b> Do nothing.<br><b>01/24-01/26</b> Build tensorflow r2.2 on AGX.<br>Don’t use cuDNN 8.x, o.w. will meet errors while executing <code>./configure</code> (cannot correctly compile even hardcode cuDNN 8.x and get following error) since cuDNN 7.x has different structure from cuDNN 8.x, and tensorflow r2.2 cannot correctly recognize cuDNN 8.x.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
+<p><b>01/22-01/25</b> Build tensorflow on NVIDIA Jetson TX2 from source.<br>Brief steps:</p>
+<ol>
+<li>Environemt Variables</li>
+<li>Dependencies</li>
+<li>Set the swap area memory to at least 4GB</li>
+<li><code>./configure</code></li>
+<li>switch to MAXN power mode with activating jetson_clocks</li>
+<li>building with bazel (better using backend process)</li>
+</ol>
+<p><b>01/19-01/21</b> Install conda on NVIDIA Jetson TX2<br>Brief steps:</p>
+<ol>
+<li>Download proper version of Archiconda (Archiconda3) which is conda for aarch64. (it seems that cannot install PyTorch/Tensorflow)</li>
+<li>Install</li>
+<li>Add Archiconda to environment variables (better on ~/.bashrc)</li>
+<li>Others the same as Anaconda (Anaconda3) on x86</li>
+</ol>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NVIDIA Jetson开发套件刷机教程</title>
     <url>/post/12cc.html</url>
     <content><![CDATA[<p>NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍<b>Jetpack 4.6刷机</b>的技术细节。</p>
@@ -215,36 +245,6 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <li><p>有2个CPU核心不工作(性能问题)<br>将/boot/extlinux/exltinux.conf 文件里的<code>isolcpus=1-2</code>修改为<code>isolcpus=</code>，参考<a href="
 https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
 </li>
-</ol>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
-    <url>/post/bfdc.html</url>
-    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://www.tensorflow.org/install/source/">Official Tensorflow build guidance</a><br><a href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">How to configure before building tensorflow</a></p>
-<p><b>01/27-01/31</b> Do nothing.<br><b>01/24-01/26</b> Build tensorflow r2.2 on AGX.<br>Don’t use cuDNN 8.x, o.w. will meet errors while executing <code>./configure</code> (cannot correctly compile even hardcode cuDNN 8.x and get following error) since cuDNN 7.x has different structure from cuDNN 8.x, and tensorflow r2.2 cannot correctly recognize cuDNN 8.x.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
-<p><b>01/22-01/25</b> Build tensorflow on NVIDIA Jetson TX2 from source.<br>Brief steps:</p>
-<ol>
-<li>Environemt Variables</li>
-<li>Dependencies</li>
-<li>Set the swap area memory to at least 4GB</li>
-<li><code>./configure</code></li>
-<li>switch to MAXN power mode with activating jetson_clocks</li>
-<li>building with bazel (better using backend process)</li>
-</ol>
-<p><b>01/19-01/21</b> Install conda on NVIDIA Jetson TX2<br>Brief steps:</p>
-<ol>
-<li>Download proper version of Archiconda (Archiconda3) which is conda for aarch64. (it seems that cannot install PyTorch/Tensorflow)</li>
-<li>Install</li>
-<li>Add Archiconda to environment variables (better on ~/.bashrc)</li>
-<li>Others the same as Anaconda (Anaconda3) on x86</li>
 </ol>
 ]]></content>
       <categories>
@@ -641,6 +641,24 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </categories>
   </entry>
   <entry>
+    <title>论文笔记:NeuOS</title>
+    <url>/post/10193.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>DNN-driven autonomous Systems optimization (low latency, balance, high accuary)</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>How to optimize resource-constrainted (stringent space, weight, power constraints) DNNs application in software level (application-level + system-level)</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Multi device testing scenarios + multi dnn testing case </p>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><p>Address the challenge of balancing energy at system level and accuracy at application level for DNNs</p>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><p>Appliction-level accuracy control by lowrank decomposition + system-level latency control by DVFS</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Method不一定很fancy，但是evaluation效果很好且很全面</li>
+<li><i>“The stringent space, weight, and power constraints seen in such systems impose a major impediment for practical and safe implementation of DNNs, because they have to be latency predictable while ensuring minimum energy consumption and maximum accuracy.”</i> DNN在embedded system的autonomous driving场景下要求高实时性和可靠性。</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a href="https://www.usenix.org/system/files/atc20-bateni.pdf">NeuOS: A Latency-Predictable Multi-Dimensional Optimization Framework for DNN-driven Autonomous Systems</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
     <title>论文笔记:PRIMAL</title>
     <url>/post/58289.html</url>
     <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Power Inference using Machine Learning</p>
@@ -659,24 +677,6 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
 <li>可以考虑在加速问题上采用machine-learning model</li>
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] PRIMAL: Power Inference using Machine Learning，<a href="https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf">https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:NeuOS</title>
-    <url>/post/10193.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>DNN-driven autonomous Systems optimization (low latency, balance, high accuary)</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>How to optimize resource-constrainted (stringent space, weight, power constraints) DNNs application in software level (application-level + system-level)</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Multi device testing scenarios + multi dnn testing case </p>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><p>Address the challenge of balancing energy at system level and accuracy at application level for DNNs</p>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><p>Appliction-level accuracy control by lowrank decomposition + system-level latency control by DVFS</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>Method不一定很fancy，但是evaluation效果很好且很全面</li>
-<li><i>“The stringent space, weight, and power constraints seen in such systems impose a major impediment for practical and safe implementation of DNNs, because they have to be latency predictable while ensuring minimum energy consumption and maximum accuracy.”</i> DNN在embedded system的autonomous driving场景下要求高实时性和可靠性。</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a href="https://www.usenix.org/system/files/atc20-bateni.pdf">NeuOS: A Latency-Predictable Multi-Dimensional Optimization Framework for DNN-driven Autonomous Systems</a></p>
 ]]></content>
       <categories>
         <category>reading notes</category>
