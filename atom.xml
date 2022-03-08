@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Zexin Li&#39;s Blog</title>
+  <title>Zexin Li</title>
   <icon>https://zexinli.com/icon.png</icon>
   <subtitle>Please keep honest, open, patient, happy and visionary.</subtitle>
   <link href="https://zexinli.com/atom.xml" rel="self"/>
