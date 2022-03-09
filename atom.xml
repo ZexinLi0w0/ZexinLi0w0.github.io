@@ -6,7 +6,7 @@
   <link href="https://zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://zexinli.com/"/>
-  <updated>2022-03-04T03:35:05.480Z</updated>
+  <updated>2022-03-09T05:21:32.699Z</updated>
   <id>https://zexinli.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tensorflow issues &amp; solution</title>
+    <link href="https://zexinli.com/post/dbaf.html"/>
+    <id>https://zexinli.com/post/dbaf.html</id>
+    <published>2022-03-09T05:11:38.000Z</published>
+    <updated>2022-03-09T05:21:32.699Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://zexinli.com/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
   
   <entry>
     <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 02/2022】</title>
@@ -215,7 +240,7 @@
     <link href="https://zexinli.com/post/226.html"/>
     <id>https://zexinli.com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-03-09T04:48:40.458Z</updated>
+    <updated>2022-03-09T05:22:25.230Z</updated>
     
     
       
