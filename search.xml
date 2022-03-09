@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Paper Notes</title>
-    <url>/post/c9b8.html</url>
-    <content><![CDATA[<p>TODO: moving from zh to en.<br><a href="https://zexinli0w0.github.io/post/25971.html">paper notes: 3Sigma</a><br><a href="https://zexinli0w0.github.io/post/10193.html">paper notes: NeuOS</a><br><a href="https://zexinli0w0.github.io/post/12763.html">paper notes: Karaoke</a><br><a href="https://zexinli0w0.github.io/post/45382.html">paper notes: ZygOS</a><br><a href="https://zexinli0w0.github.io/post/7870.html">paper notes: AnDrone</a><br><a href="https://zexinli0w0.github.io/post/15125.html">paper notes: Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</a><br><a href="https://zexinli0w0.github.io/post/27403.html">paper notes: Per-ApplicationPowerDelivery</a><br><a href="https://zexinli0w0.github.io/post/32931.html">paper notes: PredJoule</a><br><a href="https://zexinli0w0.github.io/post/38747.html">paper notes: Medea</a><br><a href="https://zexinli0w0.github.io/post/58289.html">paper notes: PRIMAL</a><br><a href="https://zexinli0w0.github.io/post/18725.html">paper notes: MLsurvey</a><br><a href="https://zexinli0w0.github.io/post/17147.html">paper notes: TimeGraph</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
     <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
     <url>/post/226.html</url>
     <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/f426.html">NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a><br><a href="https://zexinli0w0.github.io/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
@@ -22,6 +13,15 @@
       <tags>
         <tag>NVIDIA Jetson</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Paper Notes</title>
+    <url>/post/c9b8.html</url>
+    <content><![CDATA[<p>TODO: moving from zh to en.<br><a href="https://zexinli0w0.github.io/post/25971.html">paper notes: 3Sigma</a><br><a href="https://zexinli0w0.github.io/post/10193.html">paper notes: NeuOS</a><br><a href="https://zexinli0w0.github.io/post/12763.html">paper notes: Karaoke</a><br><a href="https://zexinli0w0.github.io/post/45382.html">paper notes: ZygOS</a><br><a href="https://zexinli0w0.github.io/post/7870.html">paper notes: AnDrone</a><br><a href="https://zexinli0w0.github.io/post/15125.html">paper notes: Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</a><br><a href="https://zexinli0w0.github.io/post/27403.html">paper notes: Per-ApplicationPowerDelivery</a><br><a href="https://zexinli0w0.github.io/post/32931.html">paper notes: PredJoule</a><br><a href="https://zexinli0w0.github.io/post/38747.html">paper notes: Medea</a><br><a href="https://zexinli0w0.github.io/post/58289.html">paper notes: PRIMAL</a><br><a href="https://zexinli0w0.github.io/post/18725.html">paper notes: MLsurvey</a><br><a href="https://zexinli0w0.github.io/post/17147.html">paper notes: TimeGraph</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
   </entry>
   <entry>
     <title>Tensorflow issues &amp; solution</title>
