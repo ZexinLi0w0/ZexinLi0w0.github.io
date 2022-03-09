@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -220,7 +220,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/f426.html">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/18725.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
@@ -234,7 +234,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/f426.html" class="post-title-link" itemprop="url">NVIDIA Jetson development kit configuration【R&D Notes for 02/2022】</a>
+            <a href="/post/18725.html" class="post-title-link" itemprop="url">论文笔记:survey</a>
         </h2>
 
         <div class="post-meta">
@@ -244,17 +244,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-03-03 21:27:47 / Modified: 21:35:05" itemprop="dateCreated datePublished" datetime="2022-03-03T21:27:47-06:00">2022-03-03</time>
+              <time title="Created: 2020-09-28 16:13:22" itemprop="dateCreated datePublished" datetime="2020-09-28T16:13:22-05:00">2020-09-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:19" itemprop="dateModified" datetime="2022-02-03T23:25:19-06:00">2022-02-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
                 </span>
             </span>
 
@@ -264,14 +270,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>313</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>8 mins.</span>
             </span>
 
         </div>
@@ -283,8 +289,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Refer link:<br><a href="https://zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code </a></p>
-<p><b>02/01-02/18</b> Configure Tensorflow r2.2 on NVIDIA Jetson board for Python 3.5 and 3.6.<br><b>02/19-02/24</b> Run simple test on Tensorflow.<br><b>02/25-02/28</b> Small size experiments with different settings. Fix performance bug of Tensorflow 2.x extreme slow intialization (see the refer link ‘Potential Problem’ Q10).</p>
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A Comprehensive Survey on Energy-Efficient Power Management Techniques</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Survey on how to achieve energy-efficient power manangement on different computing scenarios</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>这是19年最新的相关领域survey，从中寻找一些领域内的线索</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>文中非常看好machine-learning based/deep-learning based method去做power management的前景, 并声称power management本质上是一个NP-hard问题，只能在较小的input情况下有限时间找最优解。(实际应用更多依赖DNN inference) “The study emphasizes that this research can be further extended along with machine learning  and deep learning. Such approaches can be benefificial in deriving optimal system confifigurations for hardware components, software applications, scheduling, computing, networking, databases, operating systems, and other management schemes. The performance of computer systems, their architectures, and power management operations can be carried out in a cost-effffective and eco-friendly manner for the betterment of green IT.”</li>
+<li>“Subsequently, minimization of software energy consumption needs to be primarily considered” [2]</li>
+<li>“A multilevel process control system (MLPCS) was proposed in (9) to select hardware features and hence, synthesis components for energy-effient processes.”<br>“In such cases, knowledge of the expected power consumption and/or performance range would be useful.” [3]</li>
+<li>“A survey on GPU power conservation along with power modeling and profifiling methods was carried out in (12).” [4]</li>
+<li>“In (14), authors explored the frequency scaling rules to build an energy-aware CPU.” [5]</li>
+<li>“On the other hand, the impact of CPU pinning was studied on energy-efficiency and performance interference between a pair of colocated workloads in (15).” [6]</li>
+<li>“It has also been identifified that difffferent software consumes a varying amount of power (21, 22).” [7] [8]</li>
+<li>“Similarly, tool to estimate energy consumption (TEEC) was introduced in (27) to support green software development; it was developed to assist for improvement in the source code. TEEC measured the power consumption by CPU, memory, and disk while executing an application at runtime.” [9] 此处提供了application-level power estimation的工具</li>
+<li>“Maintaining energy proportionality is necessary to control over-heating issues. An intelligent infrastructure, BML was proposed in (18) which was devised with heterogeneous architectures and a scheduling framework to utilize energy segmentation.” [10]<br>“As compared to ARM big.LITTLE multi-core processor architecture (33), which demonstrated relative heterogeneity in terms of computing power and power consumption, BML infrastructure was developed with heterogeneity within its architecture itself.” [11]</li>
+<li>“Using dynamic slack and system utilization concepts, a hybrid approach with Q-learning and different DVFS technologies was proposed in (34).” [12]</li>
+<li>“The scheduling policy and application allocation to appropriate processing core can determine the effectiveness of a heterogeneous architecture (36); such heterogeneous multi-core offer energy-efficient computing. A composite cores architecture (CCA) was used to predict a favorable core confifiguration using machine learning for a multi threaded application” [13]</li>
+<li>“Granular profifiling of HPC applications was proposed in (39) using Running Average Power Limit and adaptive power management systems. The article aimed at optimizing energy utilization and providing optimal power budget (OPB) before scheduling decision.” [14] 可能能够从这篇中参考一些reseravation的思路</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] A Comprehensive Survey on Energy-Efficient Power Management Techniques, <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1877050920308991">https://www.sciencedirect.com/science/article/pii/S1877050920308991</a><br>[2] What do programmers know about software energy consumption?, <a target="_blank" rel="noopener" href="https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf">https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf</a><br>[3] Selection of hardware features and synthesis of multilevel control system components of energy efficiency of production processes, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8365730">https://ieeexplore.ieee.org/document/8365730</a><br>[4] Understanding gpu power: A survey of profiling, modeling, and simulation methods, <a target="_blank" rel="noopener" href="https://www.osti.gov/pages/servlets/purl/1326472">https://www.osti.gov/pages/servlets/purl/1326472</a><br>[5] Energy-efficient CPU frequency control for the Linux system, <a target="_blank" rel="noopener" href="https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system">https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system</a><br>[6] Analyzing the impact of cpu pinning and partial cpu loads on performance and energy efficiency, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7152466">https://ieeexplore.ieee.org/document/7152466</a><br>[7] Towards Green IT Organisations: A Framework for Energy Consumption and Reduction, …<br>[8] Using complete machine simulation for software power estimation: the SoftWatt approach, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/995705">https://ieeexplore.ieee.org/document/995705</a><br>[9] The Impact of Source Code in Software on Power Consumption, <a target="_blank" rel="noopener" href="https://hal.archives-ouvertes.fr/hal-01496266/document">https://hal.archives-ouvertes.fr/hal-01496266/document</a><br>[10] Big, Medium, Little: Reaching Energy Proportionality with Heterogeneous Computing Scheduler, <a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf">https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf</a><br>[11] big.LITTLE Technology: The Future of Mobile Making very high performance available in a mobile envelope without sacrificing energy efficiency. <a target="_blank" rel="noopener" href="https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf">https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf</a><br>[12] Hybrid DVFS Scheduling for Real-Time Systems Based on Reinforcement Learning, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7163527">https://ieeexplore.ieee.org/document/7163527</a><br>[13] Machine Learning-Based Approaches for Energy-Efficiency Prediction and Scheduling in Composite Cores Architectures, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8119201">https://ieeexplore.ieee.org/document/8119201</a><br>[14] Adaptive Power Management for HPC applications, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7508065">https://ieeexplore.ieee.org/document/7508065</a></p>
 
       
     </div>
@@ -306,7 +328,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/ec04.html">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/58289.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
@@ -320,7 +342,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/post/ec04.html" class="post-title-link" itemprop="url">NVIDIA Jetson install tensorflow 2.x from source code</a>
+            <a href="/post/58289.html" class="post-title-link" itemprop="url">论文笔记:PRIMAL</a>
         </h2>
 
         <div class="post-meta">
@@ -331,14 +353,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-02-28 15:17:22" itemprop="dateCreated datePublished" datetime="2022-02-28T15:17:22-06:00">2022-02-28</time>
+              <time title="Created: 2020-09-21 16:39:41" itemprop="dateCreated datePublished" datetime="2020-09-21T16:39:41-05:00">2020-09-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-01 13:47:37" itemprop="dateModified" datetime="2022-03-01T13:47:37-06:00">2022-03-01</time>
+                <time title="Modified: 2022-02-03 23:25:24" itemprop="dateModified" datetime="2022-02-03T23:25:24-06:00">2022-02-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -346,7 +368,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
                 </span>
             </span>
 
@@ -356,14 +378,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.6k</span>
+              <span>570</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>9 mins.</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -375,39 +397,907 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Q: Who needs install tensorflow from source code?<br>A: 1. tensorflow developer (or anyone want to improve it); 2. developers who need a specific version of tensorflow but don’t have the resources to download itds. <b style="color: red">Note: only using tensorflow API are not required to building from source, suggested to use <b>NVIDIA offcial tensorflow image</b>, or download <b>built .whl file</b> and install from pip.</b></p>
-<h1 id="Install-Tensorflow-1-x-from-Source-Code"><a href="#Install-Tensorflow-1-x-from-Source-Code" class="headerlink" title="Install Tensorflow 1.x from Source Code"></a>Install Tensorflow 1.x from Source Code</h1><p>Jetsonhacks offers <a target="_blank" rel="noopener" href="https://github.com/jetsonhacks/installTensorFlowTX2">github installation guidance<a>。</p>
-<h1 id="Install-Tensorflow-2-x-from-Source-Code"><a href="#Install-Tensorflow-2-x-from-Source-Code" class="headerlink" title="Install Tensorflow 2.x from Source Code"></a>Install Tensorflow 2.x from Source Code</h1><p>Currently nearly no concrete instructions for building Tensorflow 2.x from source. If have any problem, please see the below section: [Potential Problem].</p>
-<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol start="0">
-<li>Read official guidance to check the target version.<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">tensorflow official guidance</a> <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA building tensorflow official guidance</a><br><b style="color: red">Currently can build/run: jetpack 3.3 (python 3.5/3.6) + CUDA 10.2/9.0 + CUDNN 7.1 + tensorflow r2.2.</b></li>
-<li>Flash the board correctly (begin from clean os): Use NVIDIA offcial SDKmanager to install Jetpack【<a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html">How to flash Jetson board</a>】. For instance, TX2 supports Jetpack version 4.6, 4.5.1, 4.5, 3.3. Note: 4.5+version may result in CUDA/CUDNN imcompatible.</li>
-<li>Install python dependencies<br>For jetpack 4.5+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0</span><br></pre></td></tr></table></figure>
-For jetpack 3.3<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # 因为pip3已经放弃对python 3.5的支持, 所以不能从apt安装pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure>
-Note: python dependenceis may conflict and result in <code>import core dumped</code>. Best check by a reactive python3 by importing these dependencies.</li>
-<li>Install JDK dependencies<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ref to &lt;a href=&quot;https://docs.bazel.build/versions/main/install-ubuntu.html&quot;&gt;link&lt;/a&gt;</span><br><span class="line"># For jetpack 4.5+ Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br><span class="line"># For jetpack 3.3 Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li>
-<li>Install bazel<br>Build bazel，the version refers to .bazelversion on <code>/tensorflow</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir bazel-$BAZEL_VERSION</span><br><span class="line">cd bazel-$BAZEL_VERSION</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">unzip bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">rm bazel-bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel version</span><br></pre></td></tr></table></figure></li>
-<li>Enable swap for board with less than 16GB memory<br>o.w., may result in <b>OOM error</b> -&gt; Error: c++ compiling error *** Killed<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s</span><br></pre></td></tr></table></figure>
-Or directly use the script offered by jetsonhack<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure></li>
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Power Inference using Machine Learning</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>传统方案下的power inference的overhead较大，对复杂model的power analysis要求很长时间的offline analysis</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>文中找出了overhead最大的传统方案下的模块，并且使用machine-learning based method进行替代，达到了up to 50x speed up的效果</li>
 </ol>
-<h2 id="Compilation-Installation-Testing"><a href="#Compilation-Installation-Testing" class="headerlink" title="Compilation/Installation/Testing"></a>Compilation/Installation/Testing</h2><ol>
-<li>Get source code<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.2 # 对于jetpack 3.3</span><br></pre></td></tr></table></figure></li>
-<li>Configuration/Compilation<br>Note: very time consuming, best with an disconnection prevention session (e.g. tmux)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Configure correct path of python interpreter，enable CUDA</span><br><span class="line">./configure</span><br><span class="line"># Set output_base path (default is ~/.cache/), o.w. cross-disk will cause compilation to be much slower than without cross-disk</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=noaws --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure></li>
-<li>Install tensorflow .whl<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure></li>
-<li>Testing<br>Smoking Test<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow</span><br><span class="line">&gt;&gt; exit()</span><br></pre></td></tr></table></figure>
-GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Refer to two files under https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure></li>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>machine-learning based method</li>
 </ol>
-<h1 id="Potential-Problem"><a href="#Potential-Problem" class="headerlink" title="Potential Problem"></a>Potential Problem</h1><ol>
-<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
-<li>local_cuda_not_found: switch to verified known version in the above.</li>
-<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
-<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
-<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
-<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
-<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
-<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
-<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
-<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>文中做了对比实验，选用较简单的multi-layper perception (MLP)和更复杂的CNN; MLP能达到50x speed up但预测准确率偏低, CNN大约30x，准确率更高</li>
+<li>和NVIDIA商用模型进行了比较，有一定实用可能性</li>
 </ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>可以考虑在加速问题上采用machine-learning model</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] PRIMAL: Power Inference using Machine Learning，<a target="_blank" rel="noopener" href="https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf">https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/25971.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/25971.html" class="post-title-link" itemprop="url">论文笔记:3Sigma</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-21 16:39:29" itemprop="dateCreated datePublished" datetime="2020-09-21T16:39:29-05:00">2020-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:00" itemprop="dateModified" datetime="2022-02-03T23:25:00-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Distribution-based cluster scheduling for runtime uncertainty</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Cluster needs accurate running prediction but recent point-estimation based prediction model can lead to 8-17% error which may cause misleading in decision making.<br>  -&gt; recent work uses heuristics or other random methods to eliminates misleading caused by errors in time prediction (治标不治本)<br>  -&gt; Datacenter resources are increasingly heterogeneous, and some jobs behave differently (e.g., complete faster) depend ing upon which machine(s) they are assigned to.<br>  -&gt; heavy-tailed jobs, jobs with deadlines</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>集群上居然没有完善的对runtime历史数据的处理方法！</li>
+<li>“Runtime knowledge” 非常重要</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>Distribution-based data processing for runtime uncertainty -&gt; 不再仅仅使用点估计(history取平均值), 而是采用(a) average, (b) median, (c) rolling (exponentially weighted decay with<br>α = 0.6), (d) average of X recent job runtimes. 然后选取其中最低的normalized mean absolute error (NMAE)的方案</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>针对子问题1，文中采用了distributioned-based history data processing for runtime uncertainty。在cluster环境下可能更加有效，但是其本质还是一个involve更多信息的heuristics(因为集群规模更大), 在task性质短时间内变化较大的情况下, 可能continuing learning based model表现会更好 (New中第一点也考虑了指数衰减的办法来保证数据时效性)</li>
+<li>针对子问题2，文中没有明确指出如何针对其异构性解决问题，OSDI’20在Microsoft集群上有一篇针对异构性的解决方案</li>
+<li>针对子问题3，heavy-tailed job会明显影响SLO(某种意义上影响QoS，可以说成是优化makespan), deadlines也会影响QoS(可以说是embedded environment下的time predictability)</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 3Sigma: Distribution-based cluster scheduling for runtime uncertainty, <a target="_blank" rel="noopener" href="https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf">https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/38747.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/38747.html" class="post-title-link" itemprop="url">论文笔记:Medea</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-15 12:46:29" itemprop="dateCreated datePublished" datetime="2020-09-15T12:46:29-05:00">2020-09-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:46" itemprop="dateModified" datetime="2022-02-03T23:25:46-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Scheduling of long running application in shared production clusters.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Contrained scheduling optimization. (long running applications, in cluster)</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>文中对一系列workload作定义为long running applications(LRA): streaming systems, interactive data-intensive applications, latency-sensitive applications, machine learning frameworks(DNN workloads) -&gt; 区别于传统的task-based applications</li>
+<li>Two-scheduler design:思路是区分LRA和task-based applications，LRA采用integer linear program(ILP)去当作online optimization problem来解决(ILP要太长时间情形下就会采用heuristic-based scheduling); task-based applications采用传统的task-based scheduler。全局优化目标是minimize constraint violations, miminize resource fragmentation, balance node load, minimize number of machines used。<br>“Using an optimization-based algorithm for high-quality placement of LRAs with constraints, and a traditional scheduler for placing task-based jobs with low scheduling latency.”</li>
+<li></li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>xxx</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>考虑了很多现实场景下存在的问题，比如unavaible machines</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Microsoft发的，选了6个cluster做case study，在400+ node的集群上做evaluation</li>
+<li>Evaluation发现纯ILP的方案latency很大(远大于现有解决方案J-KUBE)</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] MEDEA: Scheduling of Long Running Application in Shared Production Clusters, <a target="_blank" rel="noopener" href="https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf">https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/32931.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/32931.html" class="post-title-link" itemprop="url">论文笔记:PredJoule</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-14 16:07:30" itemprop="dateCreated datePublished" datetime="2020-09-14T16:07:30-05:00">2020-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:33" itemprop="dateModified" datetime="2022-02-03T23:25:33-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>909</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Timing-predictable energy optimization framework for DNN workloads.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Timing-predictablity and energy should be considered in running DNN workloads.<br>DNN workloads needs to be provided timing predictablity while minimized energy.</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Motivation是DNN应当做细粒度的配置,而不是当黑盒;DVFS与performance不完全一致</p>
+<ol>
+<li>learning-based strategy: 基于历史记录去调优config</li>
+<li>New的第一条对应motivation 1</li>
+<li>引入不确定度：max(Norm(Power) / Norm(Latency))，在提升power的时候倾向选择不确定性低的，在降低power的时候倾向选择不确定性高的</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>layer-based consideration -&gt; DNN的特点，可以分层去考虑；不同层级有不同的特性</li>
+<li>learning-based strategy -&gt; 区别于已有的offline benchmarking 更加practical</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>evaluation的diversity体现得很好：一个同类复现，一个最大化frequency策略，一个系统自带高performance策略，一个系统自带低energy策略</li>
+<li>Evaluation的figure 9感觉特别强：原因应该是实现得好，避免了一些expensive file I/O + efficient reverse history</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>没有做DVFS相关，文中把DVFS排除到design之外，strategy是随机选择的。</li>
+<li>没有定量地分析不同layer的不确定性趋势（文中提到可能和data input size有关）</li>
+<li>learning-based method可能依赖于一个较好的解, 收敛速度不是很快</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Predjoule, <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8603196">https://ieeexplore.ieee.org/document/8603196</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/15125.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/15125.html" class="post-title-link" itemprop="url">论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-08 15:53:19" itemprop="dateCreated datePublished" datetime="2020-09-08T15:53:19-05:00">2020-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:54" itemprop="dateModified" datetime="2022-02-03T23:25:54-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A heterogeneity-aware cluster scheudling solution for DNN workloads</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
+<li>[主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Placement Optimizations.</li>
+</ol>
+<p>(1) Performance Heterogeneity: 复杂的DNN tasks需要在不同种类processor上执行; 并非越贵的processor越好, 对不同任务的dollar-normalized结果并不和价格正相关<br><i>“Existing schedulers like Gandiva, Tiresias, and Themis do not consider the heterogeneous performance behavior across accelerators.” </i><br>(2) Generality Across Policies: 已有的scheduler与scheduling mechanism紧耦合; 且大部分难以支持复杂的scheduling policy<br>(3) Colocation and Placement Optimizations: 全局调度目标要显示考虑这两项</p>
+<ol start="2">
+<li>现有的scheduler可能导致starvation: 某些task长时间排队得不到执行</li>
+</ol>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Gavel’s key observation是scheduling policy都可以表达为目标是工作完成率的优化问题, 整篇大部分都在围绕一些经典的scheudling goal如何用优化问题来表示</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>设计scheduler时考虑了heterogeneity</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>为了解决Problem 2设计了round-based mechanism, 理论上降低了发生starvation的可能性</li>
+<li>round-based mechanism与scheduling policy解除了耦合, 能够更简单地integrate sophisticated scheduling policy</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>有个用法heterogeneity-aware/heterogeneity-agnostic, 学习了: 可以用xxx-aware/xxx-agnostic来描述自己有的一些点和概括别人没有考虑到这些点。</li>
+<li>space sharing这一块里面, greedy algorithm容易陷入局部最优。因为heterogeneity, <i>“different pairs of DNN applications in practice have vastly different performance when colocated together”</i></li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.09213.pdf">https://arxiv.org/pdf/2008.09213.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/27403.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/27403.html" class="post-title-link" itemprop="url">论文笔记:Per-ApplicationPowerDelivery</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-08 15:52:59" itemprop="dateCreated datePublished" datetime="2020-09-08T15:52:59-05:00">2020-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:43" itemprop="dateModified" datetime="2022-02-03T23:25:43-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>在有power cap的情况下，对per application进行power distribute。</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>如何不影响性能的情况下降低功耗 power/energy<br><i>we focus on the problem of differential power delivery: how can and should a system allocate different amounts of power to different applications to effect prioritization and isolation?</i> 系统应该如何为不同的应用程序分配不同数量的功率以实现优先级划分和隔离？</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>类似文章套路都会在Introduction位置做一个很简单有力的初步的motivate example</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>server级别的power distribution较少，大多数都是在cluster做；本文把一些embedded system上的power constraint搬到了server上</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>Evaluation强：有一个motivate example之后做了一个相对强的case study，然后由此引出policy design &amp; implementation</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>已有的解决方案dynamic voltage and frequency scaling(DVFS), running average power limit(RAVL): </li>
+<li>1 DVFS: 有global和individual(可能只有部分处理器支持)可选</li>
+<li>2 RAVL: 把处理器分为若干部分，每个部分单独加power cap；可能会导致所有core被锁定至同一频率(“RAVL+global DVFS” -&gt; “all cores are throttled to the same frequecny”) -&gt; 出现priority和power不匹配的问题</li>
+<li>Conclusion: </li>
+<li>1 硬件水平上能够实现每个core的不同功率水平，但是policies are not yet available. </li>
+<li>2 文中提出power shares, frequency shares, performance shares 三个基于priority的policy。目前frequency shares表现最稳定，效果最好。理论上power shares最容易实现，但是需要预先知道application对应需要多少能量(不一定applicable)</li>
+<li>文中可以改进的地方:</li>
+<li>1 文中target了1个RAVL可能会出现的bad case: 在power cap比较低的情况下，power distribution不合理导致高优先级任务无法获得足够资源执行，尤其在high-priority low-demand(HPLD)和low-priority high-demand(LPHD)情况下会出现bad case。</li>
+<li>2 文中不考虑scheduler的问题(直接使用系统自定义的scheduler)，然而明确指出可以做power-aware scheduler而没有去做</li>
+<li>3 文中没有考虑real-time policy的问题，假设全部任务是concurrently执行</li>
+<li>4 文中没有考虑saturation的问题，即可能出现增加power也不会继续提升performance的情况(此现象在PredJoule中有提到并用Uncertainty来解决)。文中的policy在进行re-distribute时直接采用min-funding revocation policy，直接将saturated application从mix中移除再重新run distribute function</li>
+<li>5 文中提出的power shares policy本质还是priority-based policy，可能会出现low-priority task的starvation，文中没有设计合适的解决方案应对这个问题</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Per-Application Power Delivery, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3302424.3303981">https://dl.acm.org/doi/abs/10.1145/3302424.3303981</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/7870.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/7870.html" class="post-title-link" itemprop="url">论文笔记:AnDrone</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-08 15:52:22" itemprop="dateCreated datePublished" datetime="2020-09-08T15:52:22-05:00">2020-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:58" itemprop="dateModified" datetime="2022-02-03T23:25:58-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>736</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A drone-as-a-service solution -&gt; make drone access in the cloud</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>monotask-&gt;利用率低, restriction较多, 学习成本高：third=party access利用算力或者做其他task</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Intuition: virtual drones on physical drone</li>
+<li>lightweight container (docker?) to implement virtualization; 使用Android System的策略+proxy-based control去控制real-time linux -&gt; task封装至container，部分授权+阻止与physical device的直接交互（飞行控制组件不给第三方授权geofenced，只在特定时刻授权access系统）</li>
+<li>bill: based on energy consumption</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>Contribution: Androne prototype -&gt; runtime performance overhead &lt; 1.5%, 几乎可忽略的energy usage, low-latency performance, meet real-time requirement, virtual drones</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>waypoint: 一些任务只有在此处才能够access系统，具有比continuous task更高的优先级</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Androne: Virtual drone computing in the cloud, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3302424.3303969">https://dl.acm.org/doi/abs/10.1145/3302424.3303969</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/45382.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/45382.html" class="post-title-link" itemprop="url">论文笔记:ZygOS</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-26 17:27:29" itemprop="dateCreated datePublished" datetime="2020-08-26T17:27:29-05:00">2020-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:07" itemprop="dateModified" datetime="2022-02-03T23:25:07-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>The efficient scheduling on multicore systems of very fine-grain networked tasks (typical building lock of online data-intensive applications) -&gt; (can be also considered as in-memory services). To deliver high throughput for tail latency service-level objectives that are a small multiple of the task size.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
+<li>场景：高并发，与面向用户的SLO(根据tail latency来定义)配合使用的应用程序。SLO通常伴随data-intensive call，相对的仅需要几微秒的user-execution time。<br>high concurrent, with user-facing SLO (defined in terms  of tail latency) applications. SLO of data service must consider long tail of the latency distributions of requests, meanwhile, individual task sizes often require only a handful of µs of user-level execution time. </li>
+<li>如果仅使用conventional OS (i.e., typically Linux) -&gt; suffers high overheads for µs-scale tasks; more spcialized kernel-bypass approach improves throughput substantially (through sweeping simplifications such as separation of control from the dataplane execution, polling, run-to-completion, and synchronization-free, flow-consistent mapping of requests to cores).</li>
+<li>简化设计导致了(a) the dataplane is not a work conserving scheduler; (b) the dataplane suffers from head-of-line blocking</li>
+</ol>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li> 2012年就有这个对于problem 1理论上的解答(a) single-queue, multiple-processor models deliver lower tail latency than parallel single-queue, single-processor models (-&gt; 文中做了study去验证正确性) (b) FCFS delivers the best tail latency for low-dispersion tasks while processor sharing delivers superior results in high dispersion service time distributions</li>
+<li>架构上分为3层: (a) a lower networking layer which runs in strict isolated on each core; (b) a middle shuffle layer which allows idle cores to aggressively steal pending events; (c) an upper execution layer which exposes a commutative API to applications for scalability. <strong>Shuffle layer eliminates head-of-line-blocking while also offering strong ordering semantics of events associated with the same connection.</strong></li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>To solve problem 2, this paper present ZygOS, a new approach to system software optimized for µs-scale, in-memory computing.</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>Just enough queuing theory: (个人感觉比较像是networking里采用的窗口探测，正好赋予congestion windows = bandwidth 能够避免高重传率也能够最大化throughput)</li>
+<li>System design: (a) designed for current-generation datacenter architectures; (b) build a robust, multi-core, work-conserving scheduler free of head-of-line blocking for event-driven apps; (c) provide clean, ordering semantics of task-stealing operations to multi-threaded apps when handling back-to-back events for the same socket; (d) <strong>minimally degrade</strong> the throughput of short tasks when compared with state-of-the-art, shared-nothing dataplanes. (这里paper直接自己提可能的弊端，并在设计中尽量削减这个问题的影响)</li>
+<li>Intermediate buffering and IPIs are used to eliminate head-of-line blocking (-&gt;FCFS的一个典型弊端). 在system architecture design中体现为middle shuffle layer中的shuffle queue (a single-producer, multiple-consumer queue which contains the list of ready connections originating from a given core)可以做到atomically stealing tasks</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>3个Microsoft-EPFL, Switzerland的工业界paper</li>
+<li>Implementation和Evaluation非常强：真的造了个OS（不是prototype），而且效果不错。</li>
+<li>可解释性强: paper里evaluation有明显效果还为效果提升做了解释，<i>“The speedup over Linux is explained by the use of many dataplane implementation principles in ZYGOS. The speedup over IX is explained by ZYGOS’swork-conservingscheduler,whichrebalancestasks to deliver consistently low tail latency nearly up to the point of saturation.”</i></li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] ZygOS, <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/3132747.3132780">https://dl.acm.org/doi/pdf/10.1145/3132747.3132780</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zexinli.com/post/12763.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/12763.html" class="post-title-link" itemprop="url">论文笔记:Karaoke</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-26 17:27:03" itemprop="dateCreated datePublished" datetime="2020-08-26T17:27:03-05:00">2020-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-03 23:25:50" itemprop="dateModified" datetime="2022-02-03T23:25:50-06:00">2022-02-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>913</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A low-latency metadata-private communication solutions to distributed private messaging.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Performance problems:</p>
+<ol>
+<li><i>Differential privacy re-quires continuously adding noise messages, which leadsto high overheads.</i> -&gt; solution: optimistic indistinguishability 我认为此方案牺牲了一部分安全性来大幅度降低overhead，但是有补救方案（可以准确检测是否发生了信息泄露）</li>
+<li><i>Generating sufficient noise in a distributed system wheresome nodes may be malicious.</i> -&gt; solution: efficient noise verification</li>
+</ol>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Solve latency problem for distributed private messaging.</li>
+<li>Evaluation is perfect. The latency in the paper is 10x improvement than previous work.</li>
+<li>Private analysis of the Karaoke’s design </li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>…（背景知识不了解，没看出来）</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>…（背景知识不了解，没看出来）</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Evaluation的结果很全面且特别强</li>
+<li><i>As a result, achieving privacy re-quires the use of expensive zero-knowledge proofs (e.g.,verifiable  shuffles)  to  ensure  that  an  adversary  cannotdrop messages</i>解释了传统解决problem 2的方案的弊端-&gt;会导致明显的CPU overhead</li>
+<li>略读感觉更偏向于安全方向</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Karaoke, <a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/osdi18-lazar.pdf">https://www.usenix.org/system/files/osdi18-lazar.pdf</a></p>
 
       
     </div>
@@ -428,7 +1318,7 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="gutter"><pre>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
