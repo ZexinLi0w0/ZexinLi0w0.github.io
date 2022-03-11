@@ -4,8 +4,8 @@
     <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
     <url>/post/226.html</url>
     <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/f426.html">NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a><br><a href="https://zexinli0w0.github.io/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
-<p>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 03/2022】<br>TODO: Manaully install CUDA/CUDNN on NVIDIA Jetson Development Kit<br>Doing: tensorflow project</p>
-<h1 id="Simple-R-amp-D-Notes"><a href="#Simple-R-amp-D-Notes" class="headerlink" title="Simple R&amp;D Notes"></a>Simple R&amp;D Notes</h1><p>03/08 Fix some performance &amp; configuration bugs, run small experiment sets.<br>03/01-03/07 Do nothing.</p>
+<p>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 03/2022】<br>Doing: tensorflow project</p>
+<h1 id="Simple-R-amp-D-Notes"><a href="#Simple-R-amp-D-Notes" class="headerlink" title="Simple R&amp;D Notes"></a>Simple R&amp;D Notes</h1><p>03/09 Run small exps on TX2.<br>03/08 Fix some performance &amp; configuration bugs, run small experiments on AGX.<br>03/01-03/07 Do nothing.</p>
 ]]></content>
       <categories>
         <category>config</category>
