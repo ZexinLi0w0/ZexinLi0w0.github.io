@@ -69,10 +69,13 @@
 <h1 id="Install-Tensorflow-1-x-from-Source-Code"><a href="#Install-Tensorflow-1-x-from-Source-Code" class="headerlink" title="Install Tensorflow 1.x from Source Code"></a>Install Tensorflow 1.x from Source Code</h1><p>Jetsonhacks offers <a href="https://github.com/jetsonhacks/installTensorFlowTX2">github installation guidance<a>。</p>
 <h1 id="Install-Tensorflow-2-x-from-Source-Code"><a href="#Install-Tensorflow-2-x-from-Source-Code" class="headerlink" title="Install Tensorflow 2.x from Source Code"></a>Install Tensorflow 2.x from Source Code</h1><p>Currently nearly no concrete instructions for building Tensorflow 2.x from source. If have any problem, please see the below section: [Potential Problem].</p>
 <h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol start="0">
-<li>Read official guidance to check the target version.<a href="https://www.tensorflow.org/install/source/">tensorflow official guidance</a> <a href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA building tensorflow official guidance</a><br><b style="color: red">Currently can build/run: jetpack 3.3 (python 3.5/3.6) + CUDA 10.2/9.0 + CUDNN 7.1 + tensorflow r2.2.</b></li>
+<li>Read official guidance to check the target version.<a href="https://www.tensorflow.org/install/source/">tensorflow official guidance</a> <a href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA building tensorflow official guidance</a><br><b style="color: red">Currently can build/run: </li>
+<li>Jetpack 3.3 (python 3.5/3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
+<li>Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
+<li>(recommended)Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 8.2 + tensorflow r2.4。</b></li>
 <li>Flash the board correctly (begin from clean os): Use NVIDIA offcial SDKmanager to install Jetpack【<a href="https://zexinli0w0.github.io/post/12cc.html">How to flash Jetson board</a>】. For instance, TX2 supports Jetpack version 4.6, 4.5.1, 4.5, 3.3. Note: 4.5+version may result in CUDA/CUDNN imcompatible.</li>
 <li>Install python dependencies<br>For jetpack 4.5+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.18.5 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==2.10.0</span><br></pre></td></tr></table></figure>
-For jetpack 3.3<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # 因为pip3已经放弃对python 3.5的支持, 所以不能从apt安装pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure>
+For jetpack 3.3<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # pip3 has abandoned python 3.5 support, cannot use apt to install python3.5 pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure>
 Note: python dependenceis may conflict and result in <code>import core dumped</code>. Best check by a reactive python3 by importing these dependencies. One common feasible solution is to downgrade numpy to 1.18.5.</li>
 <li>Install JDK dependencies<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ref to &lt;a href=&quot;https://docs.bazel.build/versions/main/install-ubuntu.html&quot;&gt;link&lt;/a&gt;</span><br><span class="line"># For jetpack 4.5+ Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br><span class="line"># For jetpack 3.3 Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li>
 <li>Install bazel<br>Build bazel，the version refers to .bazelversion on <code>/tensorflow</code><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir bazel-$BAZEL_VERSION</span><br><span class="line">cd bazel-$BAZEL_VERSION</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">unzip bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">rm bazel-bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel version</span><br></pre></td></tr></table></figure></li>
@@ -97,6 +100,8 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
 <li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
 <li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
+<li>import numpy/tensorflow core dumped: Downgrade numpy&lt;=1.18.5</li>
+<li>h5py installing stucks and cannot be successfully compiled, error ‘Cython is not installed’ with Cython installed: Downgrade numpy&lt;=1.18.5</li>
 </ol>
 ]]></content>
       <categories>
@@ -187,8 +192,14 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol start="0">
 <li>查询官方指南确定需要安装的版本。<a href="https://www.tensorflow.org/install/source/">tensorflow官方编译指南</a> <a href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA编译tensorflow指南</a></li>
 </ol>
-<p><b style="color: red">目前经测试可编译+运行: jetpack 3.3 (python 3.5/3.6) + CUDA 10.2/9.0 + CUDNN 7.1 + tensorflow r2.2。</b></p>
+<p><b style="color: red">目前经测试可编译+运行: </p>
 <ol>
+<li><p>Jetpack 3.3 (python 3.5/3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</p>
+</li>
+<li><p>Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</p>
+</li>
+<li><p>(推荐)Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 8.2 + tensorflow r2.4。</b></p>
+</li>
 <li><p>正确刷机: 使用NVIDIA官方提供的NVIDIA SDK Manager刷入Jetpack【<a href="https://zexinli0w0.github.io/post/12cc.html">刷机教程</a>】。以TX2为例，目前Jetpack可选版本4.6, 4.5.1, 4.5, 3.3。注意: 4.5+版本CUDA/CUDNN版本较高，可能会出现不兼容情况。</p>
 </li>
 <li><p>安装python依赖库<br>对于jetpack 4.5+</p>
@@ -228,6 +239,8 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”。手动安装了个cuda10.2+cudnn7.0，这两者会冲突。重新链接cuda9.0+cudnn7.0编译，一切就正常了。</li>
 <li>执行长时间python tensorflow脚本后，可能会出现再执行tensorflow脚本就出现CUDA_UNKNOWN_ERROR并异常退出情况。猜测可能是tensorflow自身的bug或者内存问题。解决方案：重新启动，pip uninstall tensorflow; pip install tensorflow-xxx.whl</li>
 <li>tensorflow启动GPU需要非常久（例如在TX2上启动ResNet50的训练需要加载20min以上）: 设置环境变量<code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code></li>
+<li>import numpy/tensorflow 出现core dumped: 降级numpy版本&lt;=1.18.5</li>
+<li>h5py安装编译很长时间，持续无法编译通过，虽然Cython已经安装，但报错类似’Cython is not installed’: 降级numpy版本&lt;=1.18.5</li>
 </ol>
 ]]></content>
       <categories>
