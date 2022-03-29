@@ -52,7 +52,7 @@
   <entry>
     <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 02/2022】</title>
     <url>/post/f426.html</url>
-    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code </a></p>
+    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code </a></p>
 <p><b>02/01-02/18</b> Configure Tensorflow r2.2 on NVIDIA Jetson board for Python 3.5 and 3.6.<br><b>02/19-02/24</b> Run simple test on Tensorflow.<br><b>02/25-02/28</b> Small size experiments with different settings. Fix performance bug of Tensorflow 2.x extreme slow intialization (see the refer link ‘Potential Problem’ Q10).</p>
 ]]></content>
       <categories>

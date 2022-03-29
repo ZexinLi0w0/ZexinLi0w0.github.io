@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Zexin Li</title>
-  <icon>https://blog.zexinli.com/icon.png</icon>
+  <icon>https://blog..com/icon.png</icon>
   <subtitle>Please keep honest, open, patient, happy and visionary.</subtitle>
-  <link href="https://blog.zexinli.com/atom.xml" rel="self"/>
+  <link href="https://blog..com/atom.xml" rel="self"/>
   
-  <link href="https://blog.zexinli.com/"/>
+  <link href="https://blog..com/"/>
   <updated>2022-03-09T05:21:32.699Z</updated>
-  <id>https://blog.zexinli.com/</id>
+  <id>https://blog..com/</id>
   
   <author>
     <name>Zexin Li</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Tensorflow issues &amp; solution</title>
-    <link href="https://blog.zexinli.com/post/dbaf.html"/>
-    <id>https://blog.zexinli.com/post/dbaf.html</id>
+    <link href="https://blog..com/post/dbaf.html"/>
+    <id>https://blog..com/post/dbaf.html</id>
     <published>2022-03-09T05:11:38.000Z</published>
     <updated>2022-03-09T05:21:32.699Z</updated>
     
@@ -34,19 +34,19 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 02/2022】</title>
-    <link href="https://blog.zexinli.com/post/f426.html"/>
-    <id>https://blog.zexinli.com/post/f426.html</id>
+    <link href="https://blog..com/post/f426.html"/>
+    <id>https://blog..com/post/f426.html</id>
     <published>2022-03-04T03:27:47.000Z</published>
-    <updated>2022-03-04T03:35:05.480Z</updated>
+    <updated>2022-03-29T17:22:38.097Z</updated>
     
     
       
@@ -59,17 +59,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
-    <link href="https://blog.zexinli.com/post/ec04.html"/>
-    <id>https://blog.zexinli.com/post/ec04.html</id>
+    <link href="https://blog..com/post/ec04.html"/>
+    <id>https://blog..com/post/ec04.html</id>
     <published>2022-02-28T21:17:22.000Z</published>
     <updated>2022-03-26T03:07:53.263Z</updated>
     
@@ -84,17 +84,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode Contest</title>
-    <link href="https://blog.zexinli.com/post/1564.html"/>
-    <id>https://blog.zexinli.com/post/1564.html</id>
+    <link href="https://blog..com/post/1564.html"/>
+    <id>https://blog..com/post/1564.html</id>
     <published>2022-02-27T04:30:34.000Z</published>
     <updated>2022-03-27T22:31:47.671Z</updated>
     
@@ -114,8 +114,8 @@
   
   <entry>
     <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
-    <link href="https://blog.zexinli.com/post/cc0b.html"/>
-    <id>https://blog.zexinli.com/post/cc0b.html</id>
+    <link href="https://blog..com/post/cc0b.html"/>
+    <id>https://blog..com/post/cc0b.html</id>
     <published>2022-02-26T19:08:17.000Z</published>
     <updated>2022-02-28T21:20:06.817Z</updated>
     
@@ -130,17 +130,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>Paper Notes</title>
-    <link href="https://blog.zexinli.com/post/c9b8.html"/>
-    <id>https://blog.zexinli.com/post/c9b8.html</id>
+    <link href="https://blog..com/post/c9b8.html"/>
+    <id>https://blog..com/post/c9b8.html</id>
     <published>2022-02-19T22:24:09.000Z</published>
     <updated>2022-03-09T16:50:25.409Z</updated>
     
@@ -155,15 +155,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
-    <link href="https://blog.zexinli.com/post/bfdc.html"/>
-    <id>https://blog.zexinli.com/post/bfdc.html</id>
+    <link href="https://blog..com/post/bfdc.html"/>
+    <id>https://blog..com/post/bfdc.html</id>
     <published>2022-02-11T21:09:30.000Z</published>
     <updated>2022-02-25T20:35:53.353Z</updated>
     
@@ -178,17 +178,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>NVIDIA Jetson从源码安装tensorflow 2.x</title>
-    <link href="https://blog.zexinli.com/post/6311.html"/>
-    <id>https://blog.zexinli.com/post/6311.html</id>
+    <link href="https://blog..com/post/6311.html"/>
+    <id>https://blog..com/post/6311.html</id>
     <published>2022-02-11T21:04:57.000Z</published>
     <updated>2022-03-26T03:07:56.546Z</updated>
     
@@ -203,17 +203,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>NVIDIA Jetson开发套件刷机教程</title>
-    <link href="https://blog.zexinli.com/post/12cc.html"/>
-    <id>https://blog.zexinli.com/post/12cc.html</id>
+    <link href="https://blog..com/post/12cc.html"/>
+    <id>https://blog..com/post/12cc.html</id>
     <published>2022-02-03T00:36:49.000Z</published>
     <updated>2022-02-26T19:47:01.079Z</updated>
     
@@ -228,17 +228,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
-    <link href="https://blog.zexinli.com/post/226.html"/>
-    <id>https://blog.zexinli.com/post/226.html</id>
+    <link href="https://blog..com/post/226.html"/>
+    <id>https://blog..com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
     <updated>2022-03-18T17:13:17.328Z</updated>
     
@@ -253,17 +253,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    <category term="NVIDIA Jetson" scheme="https://blog..com/tags/NVIDIA-Jetson/"/>
     
   </entry>
   
   <entry>
     <title>论文笔记:TimeGraph</title>
-    <link href="https://blog.zexinli.com/post/17147.html"/>
-    <id>https://blog.zexinli.com/post/17147.html</id>
+    <link href="https://blog..com/post/17147.html"/>
+    <id>https://blog..com/post/17147.html</id>
     <published>2020-09-28T21:13:40.000Z</published>
     <updated>2022-02-04T05:25:11.037Z</updated>
     
@@ -272,15 +272,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:survey</title>
-    <link href="https://blog.zexinli.com/post/18725.html"/>
-    <id>https://blog.zexinli.com/post/18725.html</id>
+    <link href="https://blog..com/post/18725.html"/>
+    <id>https://blog..com/post/18725.html</id>
     <published>2020-09-28T21:13:22.000Z</published>
     <updated>2022-02-04T05:25:19.965Z</updated>
     
@@ -295,17 +295,17 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
-    <category term="survey" scheme="https://blog.zexinli.com/tags/survey/"/>
+    <category term="survey" scheme="https://blog..com/tags/survey/"/>
     
   </entry>
   
   <entry>
     <title>论文笔记:PRIMAL</title>
-    <link href="https://blog.zexinli.com/post/58289.html"/>
-    <id>https://blog.zexinli.com/post/58289.html</id>
+    <link href="https://blog..com/post/58289.html"/>
+    <id>https://blog..com/post/58289.html</id>
     <published>2020-09-21T21:39:41.000Z</published>
     <updated>2022-02-04T05:25:24.531Z</updated>
     
@@ -320,15 +320,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:3Sigma</title>
-    <link href="https://blog.zexinli.com/post/25971.html"/>
-    <id>https://blog.zexinli.com/post/25971.html</id>
+    <link href="https://blog..com/post/25971.html"/>
+    <id>https://blog..com/post/25971.html</id>
     <published>2020-09-21T21:39:29.000Z</published>
     <updated>2022-02-04T05:25:00.924Z</updated>
     
@@ -343,15 +343,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:Medea</title>
-    <link href="https://blog.zexinli.com/post/38747.html"/>
-    <id>https://blog.zexinli.com/post/38747.html</id>
+    <link href="https://blog..com/post/38747.html"/>
+    <id>https://blog..com/post/38747.html</id>
     <published>2020-09-15T17:46:29.000Z</published>
     <updated>2022-02-04T05:25:46.754Z</updated>
     
@@ -366,15 +366,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:PredJoule</title>
-    <link href="https://blog.zexinli.com/post/32931.html"/>
-    <id>https://blog.zexinli.com/post/32931.html</id>
+    <link href="https://blog..com/post/32931.html"/>
+    <id>https://blog..com/post/32931.html</id>
     <published>2020-09-14T21:07:30.000Z</published>
     <updated>2022-02-04T05:25:33.362Z</updated>
     
@@ -389,15 +389,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</title>
-    <link href="https://blog.zexinli.com/post/15125.html"/>
-    <id>https://blog.zexinli.com/post/15125.html</id>
+    <link href="https://blog..com/post/15125.html"/>
+    <id>https://blog..com/post/15125.html</id>
     <published>2020-09-08T20:53:19.000Z</published>
     <updated>2022-02-04T05:25:54.205Z</updated>
     
@@ -412,15 +412,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:Per-ApplicationPowerDelivery</title>
-    <link href="https://blog.zexinli.com/post/27403.html"/>
-    <id>https://blog.zexinli.com/post/27403.html</id>
+    <link href="https://blog..com/post/27403.html"/>
+    <id>https://blog..com/post/27403.html</id>
     <published>2020-09-08T20:52:59.000Z</published>
     <updated>2022-02-04T05:25:43.038Z</updated>
     
@@ -435,15 +435,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:AnDrone</title>
-    <link href="https://blog.zexinli.com/post/7870.html"/>
-    <id>https://blog.zexinli.com/post/7870.html</id>
+    <link href="https://blog..com/post/7870.html"/>
+    <id>https://blog..com/post/7870.html</id>
     <published>2020-09-08T20:52:22.000Z</published>
     <updated>2022-02-04T05:25:58.034Z</updated>
     
@@ -458,15 +458,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:ZygOS</title>
-    <link href="https://blog.zexinli.com/post/45382.html"/>
-    <id>https://blog.zexinli.com/post/45382.html</id>
+    <link href="https://blog..com/post/45382.html"/>
+    <id>https://blog..com/post/45382.html</id>
     <published>2020-08-26T22:27:29.000Z</published>
     <updated>2022-02-04T05:25:07.399Z</updated>
     
@@ -481,15 +481,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>论文笔记:Karaoke</title>
-    <link href="https://blog.zexinli.com/post/12763.html"/>
-    <id>https://blog.zexinli.com/post/12763.html</id>
+    <link href="https://blog..com/post/12763.html"/>
+    <id>https://blog..com/post/12763.html</id>
     <published>2020-08-26T22:27:03.000Z</published>
     <updated>2022-02-04T05:25:50.955Z</updated>
     
@@ -504,15 +504,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>python中使用networkx画图</title>
-    <link href="https://blog.zexinli.com/post/2395.html"/>
-    <id>https://blog.zexinli.com/post/2395.html</id>
+    <link href="https://blog..com/post/2395.html"/>
+    <id>https://blog..com/post/2395.html</id>
     <published>2020-08-20T20:16:11.000Z</published>
     <updated>2022-02-04T05:23:49.184Z</updated>
     
@@ -527,17 +527,17 @@
     
     
     
-    <category term="coding" scheme="https://blog.zexinli.com/categories/coding/"/>
+    <category term="coding" scheme="https://blog..com/categories/coding/"/>
     
     
-    <category term="python" scheme="https://blog.zexinli.com/tags/python/"/>
+    <category term="python" scheme="https://blog..com/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>论文笔记:NeuOS</title>
-    <link href="https://blog.zexinli.com/post/10193.html"/>
-    <id>https://blog.zexinli.com/post/10193.html</id>
+    <link href="https://blog..com/post/10193.html"/>
+    <id>https://blog..com/post/10193.html</id>
     <published>2020-08-18T20:25:06.000Z</published>
     <updated>2022-02-04T05:25:37.492Z</updated>
     
@@ -552,15 +552,15 @@
     
     
     
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
+    <category term="reading notes" scheme="https://blog..com/categories/reading-notes/"/>
     
     
   </entry>
   
   <entry>
     <title>基于maven的test-repo发生build-failure的解决方案</title>
-    <link href="https://blog.zexinli.com/post/61823.html"/>
-    <id>https://blog.zexinli.com/post/61823.html</id>
+    <link href="https://blog..com/post/61823.html"/>
+    <id>https://blog..com/post/61823.html</id>
     <published>2020-08-05T21:45:57.000Z</published>
     <updated>2022-02-04T05:24:28.696Z</updated>
     
@@ -575,17 +575,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="maven" scheme="https://blog.zexinli.com/tags/maven/"/>
+    <category term="maven" scheme="https://blog..com/tags/maven/"/>
     
   </entry>
   
   <entry>
     <title>maven的源配置(更新)</title>
-    <link href="https://blog.zexinli.com/post/34617.html"/>
-    <id>https://blog.zexinli.com/post/34617.html</id>
+    <link href="https://blog..com/post/34617.html"/>
+    <id>https://blog..com/post/34617.html</id>
     <published>2020-08-05T21:23:30.000Z</published>
     <updated>2022-02-04T05:23:26.550Z</updated>
     
@@ -600,17 +600,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="maven" scheme="https://blog.zexinli.com/tags/maven/"/>
+    <category term="maven" scheme="https://blog..com/tags/maven/"/>
     
   </entry>
   
   <entry>
     <title>Response-Letter的写作</title>
-    <link href="https://blog.zexinli.com/post/43019.html"/>
-    <id>https://blog.zexinli.com/post/43019.html</id>
+    <link href="https://blog..com/post/43019.html"/>
+    <id>https://blog..com/post/43019.html</id>
     <published>2020-08-05T21:03:26.000Z</published>
     <updated>2022-02-04T05:24:08.265Z</updated>
     
@@ -625,17 +625,17 @@
     
     
     
-    <category term="writing" scheme="https://blog.zexinli.com/categories/writing/"/>
+    <category term="writing" scheme="https://blog..com/categories/writing/"/>
     
     
-    <category term="journal" scheme="https://blog.zexinli.com/tags/journal/"/>
+    <category term="journal" scheme="https://blog..com/tags/journal/"/>
     
   </entry>
   
   <entry>
     <title>hexo+next主题配置之怎么配成我这样</title>
-    <link href="https://blog.zexinli.com/post/43164.html"/>
-    <id>https://blog.zexinli.com/post/43164.html</id>
+    <link href="https://blog..com/post/43164.html"/>
+    <id>https://blog..com/post/43164.html</id>
     <published>2020-07-14T18:18:48.000Z</published>
     <updated>2022-02-19T22:23:56.027Z</updated>
     
@@ -644,17 +644,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="Hexo" scheme="https://blog.zexinli.com/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://blog..com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>如何编写maven插件（重新发布）</title>
-    <link href="https://blog.zexinli.com/post/undefined.html"/>
-    <id>https://blog.zexinli.com/post/undefined.html</id>
+    <link href="https://blog..com/post/undefined.html"/>
+    <id>https://blog..com/post/undefined.html</id>
     <published>2020-07-14T15:55:01.000Z</published>
     <updated>2022-02-04T05:24:40.450Z</updated>
     
@@ -669,17 +669,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="maven" scheme="https://blog.zexinli.com/tags/maven/"/>
+    <category term="maven" scheme="https://blog..com/tags/maven/"/>
     
   </entry>
   
   <entry>
     <title>c++的struct和class（重新发布）</title>
-    <link href="https://blog.zexinli.com/post/4387.html"/>
-    <id>https://blog.zexinli.com/post/4387.html</id>
+    <link href="https://blog..com/post/4387.html"/>
+    <id>https://blog..com/post/4387.html</id>
     <published>2020-07-14T15:51:39.000Z</published>
     <updated>2022-02-04T05:22:47.193Z</updated>
     
@@ -694,17 +694,17 @@
     
     
     
-    <category term="coding" scheme="https://blog.zexinli.com/categories/coding/"/>
+    <category term="coding" scheme="https://blog..com/categories/coding/"/>
     
     
-    <category term="c++" scheme="https://blog.zexinli.com/tags/c/"/>
+    <category term="c++" scheme="https://blog..com/tags/c/"/>
     
   </entry>
   
   <entry>
     <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
-    <link href="https://blog.zexinli.com/post/26020.html"/>
-    <id>https://blog.zexinli.com/post/26020.html</id>
+    <link href="https://blog..com/post/26020.html"/>
+    <id>https://blog..com/post/26020.html</id>
     <published>2020-07-14T15:41:09.000Z</published>
     <updated>2022-02-04T05:23:18.417Z</updated>
     
@@ -719,17 +719,17 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
-    <category term="Mac" scheme="https://blog.zexinli.com/tags/Mac/"/>
+    <category term="Mac" scheme="https://blog..com/tags/Mac/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://blog.zexinli.com/post/16107.html"/>
-    <id>https://blog.zexinli.com/post/16107.html</id>
+    <link href="https://blog..com/post/16107.html"/>
+    <id>https://blog..com/post/16107.html</id>
     <published>2020-07-10T15:51:39.000Z</published>
     <updated>2022-02-04T05:22:57.949Z</updated>
     
@@ -744,7 +744,7 @@
     
     
     
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    <category term="config" scheme="https://blog..com/categories/config/"/>
     
     
   </entry>
