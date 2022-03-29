@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
-    <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/f426.html">NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a><br><a href="https://zexinli0w0.github.io/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
-<p>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 03/2022】<br>Doing: tensorflow project</p>
-<h1 id="Simple-R-amp-D-Notes"><a href="#Simple-R-amp-D-Notes" class="headerlink" title="Simple R&amp;D Notes"></a>Simple R&amp;D Notes</h1><p>03/09 Run small exps on TX2.<br>03/08 Fix some performance &amp; configuration bugs, run small experiments on AGX.<br>03/01-03/07 Do nothing.</p>
+    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
+    <url>/post/cc0b.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>NVIDIA Jetson Development Toolkit is based on arm64 architecure. Correpsondingly, many system libraries/deep learning libraries cannot be found&amp;intalled easily (compared to x86 platform). To solve such dependencies problem once and for all, NVIDIA offers official flashing tool (Jetpack). This article focuses on the technical details of <b>Jetpack 4.6 flashing</b>.</p>
+<p>JetsonHacks offers official flashing turorial videos corresponding to different versions (<a href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2 installation</a> <a href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0 installation</a>) which may have some differences but similar to Jetpack 4.6. For older version (e.g., Jetpack 3.0), please ref to <a href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 Flashing Tutorial</a>。</p>
+<h1 id="Prequisite"><a href="#Prequisite" class="headerlink" title="Prequisite"></a>Prequisite</h1><ol>
+<li>Host machine: An PC/laptop with Intel/AMDx86 architeture and Ubuntu 18.04 installed, can be connected to <b style='color:red;'>network</b>.</li>
+<li>Physical disk: &gt;40GB available.</li>
+<li>Installing Jetpack package: apply for NVIDIA developer account, then download Jetpack (newest version 4.6 is recommend) aat <a href="https://developer.nvidia.com/embedded/jetpack">NVIDIA</a> based on board hardware model.</li>
+<li>A Mirco-USB data cable, an HDMI cable, one screen, mouse and keyboard.</li>
+</ol>
+<h1 id="Installing-Jetpack"><a href="#Installing-Jetpack" class="headerlink" title="Installing Jetpack"></a>Installing Jetpack</h1><ol>
+<li>Disconnect the development board, disconnect the development board network cable, and connect the development board and host computer with the data cable. Double-click to run the Jetpack 4.6 installer (or command line install), then type in command: <code>sdkmanager</code> (make sure don’t use root here). After login NVIDIA developer account, tick host and target, select device hardware manually.</li>
+<li>Create 2 new folders to store libraries files and targets image files.</li>
+<li>Begin downloading and wait patiently to install OS (<b style='color:red;'>[Note]The development board is still powered off at this time</b>)</li>
+<li>Sdkmanger will notify whether (auto flash)/(manual flash). Select (manual flash) and switch the board to <b>Recovery Mode</b>, for instance (Jetson TX2):<br>(a) Ensure that the development board is initially in a power-off state and that the Micro USB cable is properly connected<br>(b) Power on the development board, press power to boot, then quickly press and hold the recovery key without releasing, press the reset key, and release the recovery key after 2 seconds<br>(c) At this point there should be 2 green lights on</li>
+<li>To verify that you are in the forced recovery state, type in the host command: <code>lsusb</code>. If <code>Nvidia Corp</code> is in device list then success, o.w. back to do step (4) again.</li>
+<li>Connect the HDMI cable + screen to the development board. Then click <code>flash</code> on sdkmanager.</li>
+<li>Wait patiently for the development board to initialize the ubuntu system (configure the account password). Sdkmanager will ask to choose the connection method + enter your account password. In this case, choose to use the <code>USB connection</code> with <code>default ip address</code>, and enter the account/password of the ubuntu system of the development board.</li>
+<li>Wait patiently for long time until all libraries installed. Click <code>exit</code> to quit sdkmanager.</li>
+</ol>
+<h1 id="Further-Configuration"><a href="#Further-Configuration" class="headerlink" title="Further Configuration"></a>Further Configuration</h1><p>Connect the development board and check IP address with <code>ifconfig | grep eth0 -a1</code>. Then it can be accessed by ssh and configure as normal Ubuntu.</p>
+<h1 id="Potential-Problems-and-Solutions"><a href="#Potential-Problems-and-Solutions" class="headerlink" title="Potential Problems and Solutions"></a>Potential Problems and Solutions</h1><ol>
+<li>Slow downloading:<br>Replace the networking environment that can bypass firewall (GFW) and has sufficient bandwidth.</li>
+<li>Strange issues in installing process reported by sdkmanager(e.g., dependencies error)<br>Replace the host machine with <b>clean</b>Ubuntu 18.04, most of these kinds of problems are due to system configuration conflicts, which are very difficult to locate and fix.</li>
+<li>Performance bugs (Some CPU cores on board are idle)<br>rewrite /boot/extlinux/exltinux.conf <code>isolcpus=1-2</code> to <code>isolcpus=</code> (ref to <a href="https://blog.csdn.net/JanKin_BY/article/details/120441238">Performance bug solution to TX2</a>.</li>
+</ol>
 ]]></content>
       <categories>
         <category>config</category>
@@ -15,38 +36,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Paper Notes</title>
-    <url>/post/c9b8.html</url>
-    <content><![CDATA[<p>TODO: moving from zh to en.<br><a href="https://zexinli0w0.github.io/post/25971.html">paper notes: 3Sigma</a><br><a href="https://zexinli0w0.github.io/post/10193.html">paper notes: NeuOS</a><br><a href="https://zexinli0w0.github.io/post/12763.html">paper notes: Karaoke</a><br><a href="https://zexinli0w0.github.io/post/45382.html">paper notes: ZygOS</a><br><a href="https://zexinli0w0.github.io/post/7870.html">paper notes: AnDrone</a><br><a href="https://zexinli0w0.github.io/post/15125.html">paper notes: Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</a><br><a href="https://zexinli0w0.github.io/post/27403.html">paper notes: Per-ApplicationPowerDelivery</a><br><a href="https://zexinli0w0.github.io/post/32931.html">paper notes: PredJoule</a><br><a href="https://zexinli0w0.github.io/post/38747.html">paper notes: Medea</a><br><a href="https://zexinli0w0.github.io/post/58289.html">paper notes: PRIMAL</a><br><a href="https://zexinli0w0.github.io/post/18725.html">paper notes: MLsurvey</a><br><a href="https://zexinli0w0.github.io/post/17147.html">paper notes: TimeGraph</a></p>
+    <title>Leetcode Contest</title>
+    <url>/post/1564.html</url>
+    <content><![CDATA[<h1 id="Weekly-Contest-286"><a href="#Weekly-Contest-286" class="headerlink" title="Weekly Contest 286"></a>Weekly Contest 286</h1><p>2766 / 21339 = 12.96%<br>Finish Time: 1:10:21<br>Q1: 0:06:04 -&gt; easy loop (take too much time)<br>Q2: 0:12:41 -&gt; greedy<br>Q3: 1:10:21 -&gt; modified binary search (slow implementation)<br>Q4: N/A -&gt; dynamic programming</p>
+<h1 id="Weekly-Contest-282"><a href="#Weekly-Contest-282" class="headerlink" title="Weekly Contest 282"></a>Weekly Contest 282</h1><p>3828 / 15143 = 25.28%<br>Finish Time: 1:35:40<br>Q1: 0:02:36 -&gt; easy loop<br>Q2: 0:05:17 -&gt; map<br>Q3: 1:10:40 (5 errors) -&gt; modified binary search<br>Q4: N/A -&gt; dynamic programming</p>
 ]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
   </entry>
   <entry>
-    <title>Tensorflow issues &amp; solution</title>
-    <url>/post/dbaf.html</url>
-    <content><![CDATA[<h1 id="Problem-on-NVIDIA-Jetson-Development-Kit"><a href="#Problem-on-NVIDIA-Jetson-Development-Kit" class="headerlink" title="Problem on NVIDIA Jetson Development Kit"></a>Problem on NVIDIA Jetson Development Kit</h1><ol start="0">
-<li>Refer enviroment variables:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_CPP_MIN_VLOG_LEVEL&#x27;] = &#x27;1&#x27; # Low level of Tensorflow, if need locating bugs, raise it up to 10.</span><br><span class="line">os.environ[&#x27;CUDA_CACHE_MAXSIZE&#x27;] = &quot;2147483648&quot; # Enable CUDA_CACHE to avoid multiple long-last JIT compiling.</span><br><span class="line">os.environ[&#x27;TF_FORCE_GPU_ALLOW_GROWTH&#x27;] = &#x27;true&#x27; # Avoid allocating all memory rapidly in one process.</span><br><span class="line">os.environ[&#x27;TF_FORCE_UNIFIED_MEMORY&#x27;] = &#x27;1&#x27; # Use unified memory to reduce data transfer time.</span><br><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27; # Boost performance by disable GPU_GARBAGE_COLLCETION, enable only when meeting OOM.</span><br></pre></td></tr></table></figure></li>
-<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
-<li>local_cuda_not_found: switch to verified known version in the above.</li>
-<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
-<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
-<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
-<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
-<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
-<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
-<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
-<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
-<li>When using unified memory, display ‘NvMapReserveOp 0x80000001 failed [22]’: limit Tensorflow allocating memory.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">config = ConfigProto()</span><br><span class="line">config.gpu_options.per_process_gpu_memory_fraction = 0.2 # or other small values less than 1.0</span><br><span class="line">config.gpu_options.experimental.use_unified_memory= True</span><br><span class="line">with tf.compat.v1.Session(config=config) as s:</span><br><span class="line">    your_program</span><br></pre></td></tr></table></figure></li>
-<li>Performance bug: <code>W tensorflow/core/common_runtime/bfc_allocator.cc:311] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you&#39;d like to disable this feature.</code>: define enviroment variables<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27;</span><br></pre></td></tr></table></figure></li>
-</ol>
+    <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
+    <url>/post/26020.html</url>
+    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
+<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
 ]]></content>
       <categories>
         <category>config</category>
       </categories>
       <tags>
-        <tag>NVIDIA Jetson</tag>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -102,78 +112,6 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
 <li>import numpy/tensorflow core dumped: Downgrade numpy&lt;=1.18.5</li>
 <li>h5py installing stucks and cannot be successfully compiled, error ‘Cython is not installed’ with Cython installed: Downgrade numpy&lt;=1.18.5</li>
-</ol>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Leetcode Contest</title>
-    <url>/post/1564.html</url>
-    <content><![CDATA[<h1 id="Weekly-Contest-286"><a href="#Weekly-Contest-286" class="headerlink" title="Weekly Contest 286"></a>Weekly Contest 286</h1><p>2766 / 21339 = 12.96%<br>Finish Time: 1:10:21<br>Q1: 0:06:04 -&gt; easy loop (take too much time)<br>Q2: 0:12:41 -&gt; greedy<br>Q3: 1:10:21 -&gt; modified binary search (slow implementation)<br>Q4: N/A -&gt; dynamic programming</p>
-<h1 id="Weekly-Contest-282"><a href="#Weekly-Contest-282" class="headerlink" title="Weekly Contest 282"></a>Weekly Contest 282</h1><p>3828 / 15143 = 25.28%<br>Finish Time: 1:35:40<br>Q1: 0:02:36 -&gt; easy loop<br>Q2: 0:05:17 -&gt; map<br>Q3: 1:10:40 (5 errors) -&gt; modified binary search<br>Q4: N/A -&gt; dynamic programming</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
-    <url>/post/cc0b.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>NVIDIA Jetson Development Toolkit is based on arm64 architecure. Correpsondingly, many system libraries/deep learning libraries cannot be found&amp;intalled easily (compared to x86 platform). To solve such dependencies problem once and for all, NVIDIA offers official flashing tool (Jetpack). This article focuses on the technical details of <b>Jetpack 4.6 flashing</b>.</p>
-<p>JetsonHacks offers official flashing turorial videos corresponding to different versions (<a href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2 installation</a> <a href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0 installation</a>) which may have some differences but similar to Jetpack 4.6. For older version (e.g., Jetpack 3.0), please ref to <a href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 Flashing Tutorial</a>。</p>
-<h1 id="Prequisite"><a href="#Prequisite" class="headerlink" title="Prequisite"></a>Prequisite</h1><ol>
-<li>Host machine: An PC/laptop with Intel/AMDx86 architeture and Ubuntu 18.04 installed, can be connected to <b style='color:red;'>network</b>.</li>
-<li>Physical disk: &gt;40GB available.</li>
-<li>Installing Jetpack package: apply for NVIDIA developer account, then download Jetpack (newest version 4.6 is recommend) aat <a href="https://developer.nvidia.com/embedded/jetpack">NVIDIA</a> based on board hardware model.</li>
-<li>A Mirco-USB data cable, an HDMI cable, one screen, mouse and keyboard.</li>
-</ol>
-<h1 id="Installing-Jetpack"><a href="#Installing-Jetpack" class="headerlink" title="Installing Jetpack"></a>Installing Jetpack</h1><ol>
-<li>Disconnect the development board, disconnect the development board network cable, and connect the development board and host computer with the data cable. Double-click to run the Jetpack 4.6 installer (or command line install), then type in command: <code>sdkmanager</code> (make sure don’t use root here). After login NVIDIA developer account, tick host and target, select device hardware manually.</li>
-<li>Create 2 new folders to store libraries files and targets image files.</li>
-<li>Begin downloading and wait patiently to install OS (<b style='color:red;'>[Note]The development board is still powered off at this time</b>)</li>
-<li>Sdkmanger will notify whether (auto flash)/(manual flash). Select (manual flash) and switch the board to <b>Recovery Mode</b>, for instance (Jetson TX2):<br>(a) Ensure that the development board is initially in a power-off state and that the Micro USB cable is properly connected<br>(b) Power on the development board, press power to boot, then quickly press and hold the recovery key without releasing, press the reset key, and release the recovery key after 2 seconds<br>(c) At this point there should be 2 green lights on</li>
-<li>To verify that you are in the forced recovery state, type in the host command: <code>lsusb</code>. If <code>Nvidia Corp</code> is in device list then success, o.w. back to do step (4) again.</li>
-<li>Connect the HDMI cable + screen to the development board. Then click <code>flash</code> on sdkmanager.</li>
-<li>Wait patiently for the development board to initialize the ubuntu system (configure the account password). Sdkmanager will ask to choose the connection method + enter your account password. In this case, choose to use the <code>USB connection</code> with <code>default ip address</code>, and enter the account/password of the ubuntu system of the development board.</li>
-<li>Wait patiently for long time until all libraries installed. Click <code>exit</code> to quit sdkmanager.</li>
-</ol>
-<h1 id="Further-Configuration"><a href="#Further-Configuration" class="headerlink" title="Further Configuration"></a>Further Configuration</h1><p>Connect the development board and check IP address with <code>ifconfig | grep eth0 -a1</code>. Then it can be accessed by ssh and configure as normal Ubuntu.</p>
-<h1 id="Potential-Problems-and-Solutions"><a href="#Potential-Problems-and-Solutions" class="headerlink" title="Potential Problems and Solutions"></a>Potential Problems and Solutions</h1><ol>
-<li>Slow downloading:<br>Replace the networking environment that can bypass firewall (GFW) and has sufficient bandwidth.</li>
-<li>Strange issues in installing process reported by sdkmanager(e.g., dependencies error)<br>Replace the host machine with <b>clean</b>Ubuntu 18.04, most of these kinds of problems are due to system configuration conflicts, which are very difficult to locate and fix.</li>
-<li>Performance bugs (Some CPU cores on board are idle)<br>rewrite /boot/extlinux/exltinux.conf <code>isolcpus=1-2</code> to <code>isolcpus=</code> (ref to <a href="https://blog.csdn.net/JanKin_BY/article/details/120441238">Performance bug solution to TX2</a>.</li>
-</ol>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
-    <url>/post/bfdc.html</url>
-    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://www.tensorflow.org/install/source/">Official Tensorflow build guidance</a><br><a href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">How to configure before building tensorflow</a></p>
-<p><b>01/27-01/31</b> Do nothing.<br><b>01/24-01/26</b> Build tensorflow r2.2 on AGX.<br>Don’t use cuDNN 8.x, o.w. will meet errors while executing <code>./configure</code> (cannot correctly compile even hardcode cuDNN 8.x and get following error) since cuDNN 7.x has different structure from cuDNN 8.x, and tensorflow r2.2 cannot correctly recognize cuDNN 8.x.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
-<p><b>01/22-01/25</b> Build tensorflow on NVIDIA Jetson TX2 from source.<br>Brief steps:</p>
-<ol>
-<li>Environemt Variables</li>
-<li>Dependencies</li>
-<li>Set the swap area memory to at least 4GB</li>
-<li><code>./configure</code></li>
-<li>switch to MAXN power mode with activating jetson_clocks</li>
-<li>building with bazel (better using backend process)</li>
-</ol>
-<p><b>01/19-01/21</b> Install conda on NVIDIA Jetson TX2<br>Brief steps:</p>
-<ol>
-<li>Download proper version of Archiconda (Archiconda3) which is conda for aarch64. (it seems that cannot install PyTorch/Tensorflow)</li>
-<li>Install</li>
-<li>Add Archiconda to environment variables (better on ~/.bashrc)</li>
-<li>Others the same as Anaconda (Anaconda3) on x86</li>
 </ol>
 ]]></content>
       <categories>
@@ -314,391 +252,33 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </tags>
   </entry>
   <entry>
-    <title>论文笔记:TimeGraph</title>
-    <url>/post/17147.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>GPU Scheduling and resource reservation for Real-Time Multi-Tasking Environments</p>
-<span id="more"></span>
-
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Recent GPU scheudling policy behaves badly in real-time multi-tasking environments:<br>    1. Scheduler for CPU puts current highest-priority tasks into the waiting queue -&gt; low overhead, but cannot permit semantic correctness of priority (may cause priority inversion),things go worse in overloaded case.)<br>    2. No reservation works together with the scheduler on GPU side.</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Scheduling and resource reservation in future user-interface</li>
-<li>Real-time constraints and multi-tasking environments</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>Propose 2 priority-based scheduling policies for GPU scheduling: Predictable-response-time (PRT), High-throughtput (HT)</li>
-<li>Propose 2 resource reservation policies for GPU based on budget/replenishment(a widely used mechanism in real-time system): Posterior enforcemnet(PE), Apriori enforcement(AE) </li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>Event-based scheudling -&gt; much lower overhead than tick-based scheduling<br>PredJoule在layer boundry makes decisions也是event-based</li>
-<li>reservations中PE的overhead小，但priority inversion概率更高; AE存在overhead更大的可能性，且predicted running time测不准的问题(文中是细粒度的scheudling)，且对于粗粒度的scheduling(layer-based scheduling)，runtime更加难以预测</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>文中提到”protect import GPU workloads from performance interference”, performance interference可能的原因是priority inversion, overhead(context switch, scheduling本身消耗)。(可以尝试power profiling去验证，应该有现成的工具)</li>
-<li>文中采用event-based scheduling(CPU要向GPU sumbit一次GPU command group称为一个event), 但对于layer-based这种采用event-based是否过于粗粒度?</li>
-<li>文中不考虑preempt, 假定GPU commands都是non-preemptable (实际layer-based也没有考虑，考虑此项会使得context switch消耗增加且设计更加复杂)</li>
-<li>budget/replenishment可能存在问题: 如果feed单个消耗很大的任务(E&gt;budget)，可能会导致该任务被block/starvation: 可以采取random/heuristic的办法使scheduler带有一定随机性，具有从bad case中自我恢复的能力; 另外是否预测准确也会影响reservation效果(文中假定了预测100%准确) -&gt; (3Sigma那篇提到集群上predicted runtime不准会大幅度影响scheduling效果问题)</li>
-<li>future-work中提到”mapping application-level specifications, such as frame-rates into priority and reservation properties at OS level”，可能在设计DNN specific scheduler的priority可以考虑</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] TimeGraph, <a href="http://www.usenix.org/events/atc11/tech/final_files/Kato.pdf">http://www.usenix.org/events/atc11/tech/final_files/Kato.pdf</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:survey</title>
-    <url>/post/18725.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A Comprehensive Survey on Energy-Efficient Power Management Techniques</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Survey on how to achieve energy-efficient power manangement on different computing scenarios</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>这是19年最新的相关领域survey，从中寻找一些领域内的线索</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>文中非常看好machine-learning based/deep-learning based method去做power management的前景, 并声称power management本质上是一个NP-hard问题，只能在较小的input情况下有限时间找最优解。(实际应用更多依赖DNN inference) “The study emphasizes that this research can be further extended along with machine learning  and deep learning. Such approaches can be benefificial in deriving optimal system confifigurations for hardware components, software applications, scheduling, computing, networking, databases, operating systems, and other management schemes. The performance of computer systems, their architectures, and power management operations can be carried out in a cost-effffective and eco-friendly manner for the betterment of green IT.”</li>
-<li>“Subsequently, minimization of software energy consumption needs to be primarily considered” [2]</li>
-<li>“A multilevel process control system (MLPCS) was proposed in (9) to select hardware features and hence, synthesis components for energy-effient processes.”<br>“In such cases, knowledge of the expected power consumption and/or performance range would be useful.” [3]</li>
-<li>“A survey on GPU power conservation along with power modeling and profifiling methods was carried out in (12).” [4]</li>
-<li>“In (14), authors explored the frequency scaling rules to build an energy-aware CPU.” [5]</li>
-<li>“On the other hand, the impact of CPU pinning was studied on energy-efficiency and performance interference between a pair of colocated workloads in (15).” [6]</li>
-<li>“It has also been identifified that difffferent software consumes a varying amount of power (21, 22).” [7] [8]</li>
-<li>“Similarly, tool to estimate energy consumption (TEEC) was introduced in (27) to support green software development; it was developed to assist for improvement in the source code. TEEC measured the power consumption by CPU, memory, and disk while executing an application at runtime.” [9] 此处提供了application-level power estimation的工具</li>
-<li>“Maintaining energy proportionality is necessary to control over-heating issues. An intelligent infrastructure, BML was proposed in (18) which was devised with heterogeneous architectures and a scheduling framework to utilize energy segmentation.” [10]<br>“As compared to ARM big.LITTLE multi-core processor architecture (33), which demonstrated relative heterogeneity in terms of computing power and power consumption, BML infrastructure was developed with heterogeneity within its architecture itself.” [11]</li>
-<li>“Using dynamic slack and system utilization concepts, a hybrid approach with Q-learning and different DVFS technologies was proposed in (34).” [12]</li>
-<li>“The scheduling policy and application allocation to appropriate processing core can determine the effectiveness of a heterogeneous architecture (36); such heterogeneous multi-core offer energy-efficient computing. A composite cores architecture (CCA) was used to predict a favorable core confifiguration using machine learning for a multi threaded application” [13]</li>
-<li>“Granular profifiling of HPC applications was proposed in (39) using Running Average Power Limit and adaptive power management systems. The article aimed at optimizing energy utilization and providing optimal power budget (OPB) before scheduling decision.” [14] 可能能够从这篇中参考一些reseravation的思路</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] A Comprehensive Survey on Energy-Efficient Power Management Techniques, <a href="https://www.sciencedirect.com/science/article/pii/S1877050920308991">https://www.sciencedirect.com/science/article/pii/S1877050920308991</a><br>[2] What do programmers know about software energy consumption?, <a href="https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf">https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf</a><br>[3] Selection of hardware features and synthesis of multilevel control system components of energy efficiency of production processes, <a href="https://ieeexplore.ieee.org/document/8365730">https://ieeexplore.ieee.org/document/8365730</a><br>[4] Understanding gpu power: A survey of profiling, modeling, and simulation methods, <a href="https://www.osti.gov/pages/servlets/purl/1326472">https://www.osti.gov/pages/servlets/purl/1326472</a><br>[5] Energy-efficient CPU frequency control for the Linux system, <a href="https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system">https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system</a><br>[6] Analyzing the impact of cpu pinning and partial cpu loads on performance and energy efficiency, <a href="https://ieeexplore.ieee.org/document/7152466">https://ieeexplore.ieee.org/document/7152466</a><br>[7] Towards Green IT Organisations: A Framework for Energy Consumption and Reduction, …<br>[8] Using complete machine simulation for software power estimation: the SoftWatt approach, <a href="https://ieeexplore.ieee.org/document/995705">https://ieeexplore.ieee.org/document/995705</a><br>[9] The Impact of Source Code in Software on Power Consumption, <a href="https://hal.archives-ouvertes.fr/hal-01496266/document">https://hal.archives-ouvertes.fr/hal-01496266/document</a><br>[10] Big, Medium, Little: Reaching Energy Proportionality with Heterogeneous Computing Scheduler, <a href="https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf">https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf</a><br>[11] big.LITTLE Technology: The Future of Mobile Making very high performance available in a mobile envelope without sacrificing energy efficiency. <a href="https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf">https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf</a><br>[12] Hybrid DVFS Scheduling for Real-Time Systems Based on Reinforcement Learning, <a href="https://ieeexplore.ieee.org/document/7163527">https://ieeexplore.ieee.org/document/7163527</a><br>[13] Machine Learning-Based Approaches for Energy-Efficiency Prediction and Scheduling in Composite Cores Architectures, <a href="https://ieeexplore.ieee.org/document/8119201">https://ieeexplore.ieee.org/document/8119201</a><br>[14] Adaptive Power Management for HPC applications, <a href="https://ieeexplore.ieee.org/document/7508065">https://ieeexplore.ieee.org/document/7508065</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-      <tags>
-        <tag>survey</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>论文笔记:PRIMAL</title>
-    <url>/post/58289.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Power Inference using Machine Learning</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>传统方案下的power inference的overhead较大，对复杂model的power analysis要求很长时间的offline analysis</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>文中找出了overhead最大的传统方案下的模块，并且使用machine-learning based method进行替代，达到了up to 50x speed up的效果</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>machine-learning based method</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>文中做了对比实验，选用较简单的multi-layper perception (MLP)和更复杂的CNN; MLP能达到50x speed up但预测准确率偏低, CNN大约30x，准确率更高</li>
-<li>和NVIDIA商用模型进行了比较，有一定实用可能性</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>可以考虑在加速问题上采用machine-learning model</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] PRIMAL: Power Inference using Machine Learning，<a href="https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf">https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:3Sigma</title>
-    <url>/post/25971.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Distribution-based cluster scheduling for runtime uncertainty</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Cluster needs accurate running prediction but recent point-estimation based prediction model can lead to 8-17% error which may cause misleading in decision making.<br>  -&gt; recent work uses heuristics or other random methods to eliminates misleading caused by errors in time prediction (治标不治本)<br>  -&gt; Datacenter resources are increasingly heterogeneous, and some jobs behave differently (e.g., complete faster) depend ing upon which machine(s) they are assigned to.<br>  -&gt; heavy-tailed jobs, jobs with deadlines</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>集群上居然没有完善的对runtime历史数据的处理方法！</li>
-<li>“Runtime knowledge” 非常重要</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>Distribution-based data processing for runtime uncertainty -&gt; 不再仅仅使用点估计(history取平均值), 而是采用(a) average, (b) median, (c) rolling (exponentially weighted decay with<br>α = 0.6), (d) average of X recent job runtimes. 然后选取其中最低的normalized mean absolute error (NMAE)的方案</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>针对子问题1，文中采用了distributioned-based history data processing for runtime uncertainty。在cluster环境下可能更加有效，但是其本质还是一个involve更多信息的heuristics(因为集群规模更大), 在task性质短时间内变化较大的情况下, 可能continuing learning based model表现会更好 (New中第一点也考虑了指数衰减的办法来保证数据时效性)</li>
-<li>针对子问题2，文中没有明确指出如何针对其异构性解决问题，OSDI’20在Microsoft集群上有一篇针对异构性的解决方案</li>
-<li>针对子问题3，heavy-tailed job会明显影响SLO(某种意义上影响QoS，可以说成是优化makespan), deadlines也会影响QoS(可以说是embedded environment下的time predictability)</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 3Sigma: Distribution-based cluster scheduling for runtime uncertainty, <a href="https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf">https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:Medea</title>
-    <url>/post/38747.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Scheduling of long running application in shared production clusters.</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Contrained scheduling optimization. (long running applications, in cluster)</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>文中对一系列workload作定义为long running applications(LRA): streaming systems, interactive data-intensive applications, latency-sensitive applications, machine learning frameworks(DNN workloads) -&gt; 区别于传统的task-based applications</li>
-<li>Two-scheduler design:思路是区分LRA和task-based applications，LRA采用integer linear program(ILP)去当作online optimization problem来解决(ILP要太长时间情形下就会采用heuristic-based scheduling); task-based applications采用传统的task-based scheduler。全局优化目标是minimize constraint violations, miminize resource fragmentation, balance node load, minimize number of machines used。<br>“Using an optimization-based algorithm for high-quality placement of LRAs with constraints, and a traditional scheduler for placing task-based jobs with low scheduling latency.”</li>
-<li></li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>xxx</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>考虑了很多现实场景下存在的问题，比如unavaible machines</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>Microsoft发的，选了6个cluster做case study，在400+ node的集群上做evaluation</li>
-<li>Evaluation发现纯ILP的方案latency很大(远大于现有解决方案J-KUBE)</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] MEDEA: Scheduling of Long Running Application in Shared Production Clusters, <a href="https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf">https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:PredJoule</title>
-    <url>/post/32931.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Timing-predictable energy optimization framework for DNN workloads.</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Timing-predictablity and energy should be considered in running DNN workloads.<br>DNN workloads needs to be provided timing predictablity while minimized energy.</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Motivation是DNN应当做细粒度的配置,而不是当黑盒;DVFS与performance不完全一致</p>
+    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
+    <url>/post/bfdc.html</url>
+    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://www.tensorflow.org/install/source/">Official Tensorflow build guidance</a><br><a href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">How to configure before building tensorflow</a></p>
+<p><b>01/27-01/31</b> Do nothing.<br><b>01/24-01/26</b> Build tensorflow r2.2 on AGX.<br>Don’t use cuDNN 8.x, o.w. will meet errors while executing <code>./configure</code> (cannot correctly compile even hardcode cuDNN 8.x and get following error) since cuDNN 7.x has different structure from cuDNN 8.x, and tensorflow r2.2 cannot correctly recognize cuDNN 8.x.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
+<p><b>01/22-01/25</b> Build tensorflow on NVIDIA Jetson TX2 from source.<br>Brief steps:</p>
 <ol>
-<li>learning-based strategy: 基于历史记录去调优config</li>
-<li>New的第一条对应motivation 1</li>
-<li>引入不确定度：max(Norm(Power) / Norm(Latency))，在提升power的时候倾向选择不确定性低的，在降低power的时候倾向选择不确定性高的</li>
+<li>Environemt Variables</li>
+<li>Dependencies</li>
+<li>Set the swap area memory to at least 4GB</li>
+<li><code>./configure</code></li>
+<li>switch to MAXN power mode with activating jetson_clocks</li>
+<li>building with bazel (better using backend process)</li>
 </ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>layer-based consideration -&gt; DNN的特点，可以分层去考虑；不同层级有不同的特性</li>
-<li>learning-based strategy -&gt; 区别于已有的offline benchmarking 更加practical</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>evaluation的diversity体现得很好：一个同类复现，一个最大化frequency策略，一个系统自带高performance策略，一个系统自带低energy策略</li>
-<li>Evaluation的figure 9感觉特别强：原因应该是实现得好，避免了一些expensive file I/O + efficient reverse history</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>没有做DVFS相关，文中把DVFS排除到design之外，strategy是随机选择的。</li>
-<li>没有定量地分析不同layer的不确定性趋势（文中提到可能和data input size有关）</li>
-<li>learning-based method可能依赖于一个较好的解, 收敛速度不是很快</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Predjoule, <a href="https://ieeexplore.ieee.org/document/8603196">https://ieeexplore.ieee.org/document/8603196</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</title>
-    <url>/post/15125.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A heterogeneity-aware cluster scheudling solution for DNN workloads</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
-<li>[主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Placement Optimizations.</li>
-</ol>
-<p>(1) Performance Heterogeneity: 复杂的DNN tasks需要在不同种类processor上执行; 并非越贵的processor越好, 对不同任务的dollar-normalized结果并不和价格正相关<br><i>“Existing schedulers like Gandiva, Tiresias, and Themis do not consider the heterogeneous performance behavior across accelerators.” </i><br>(2) Generality Across Policies: 已有的scheduler与scheduling mechanism紧耦合; 且大部分难以支持复杂的scheduling policy<br>(3) Colocation and Placement Optimizations: 全局调度目标要显示考虑这两项</p>
-<ol start="2">
-<li>现有的scheduler可能导致starvation: 某些task长时间排队得不到执行</li>
-</ol>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Gavel’s key observation是scheduling policy都可以表达为目标是工作完成率的优化问题, 整篇大部分都在围绕一些经典的scheudling goal如何用优化问题来表示</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>设计scheduler时考虑了heterogeneity</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>为了解决Problem 2设计了round-based mechanism, 理论上降低了发生starvation的可能性</li>
-<li>round-based mechanism与scheduling policy解除了耦合, 能够更简单地integrate sophisticated scheduling policy</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>有个用法heterogeneity-aware/heterogeneity-agnostic, 学习了: 可以用xxx-aware/xxx-agnostic来描述自己有的一些点和概括别人没有考虑到这些点。</li>
-<li>space sharing这一块里面, greedy algorithm容易陷入局部最优。因为heterogeneity, <i>“different pairs of DNN applications in practice have vastly different performance when colocated together”</i></li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, <a href="https://arxiv.org/pdf/2008.09213.pdf">https://arxiv.org/pdf/2008.09213.pdf</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:Per-ApplicationPowerDelivery</title>
-    <url>/post/27403.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>在有power cap的情况下，对per application进行power distribute。</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>如何不影响性能的情况下降低功耗 power/energy<br><i>we focus on the problem of differential power delivery: how can and should a system allocate different amounts of power to different applications to effect prioritization and isolation?</i> 系统应该如何为不同的应用程序分配不同数量的功率以实现优先级划分和隔离？</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>类似文章套路都会在Introduction位置做一个很简单有力的初步的motivate example</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>server级别的power distribution较少，大多数都是在cluster做；本文把一些embedded system上的power constraint搬到了server上</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>Evaluation强：有一个motivate example之后做了一个相对强的case study，然后由此引出policy design &amp; implementation</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>已有的解决方案dynamic voltage and frequency scaling(DVFS), running average power limit(RAVL): </li>
-<li>1 DVFS: 有global和individual(可能只有部分处理器支持)可选</li>
-<li>2 RAVL: 把处理器分为若干部分，每个部分单独加power cap；可能会导致所有core被锁定至同一频率(“RAVL+global DVFS” -&gt; “all cores are throttled to the same frequecny”) -&gt; 出现priority和power不匹配的问题</li>
-<li>Conclusion: </li>
-<li>1 硬件水平上能够实现每个core的不同功率水平，但是policies are not yet available. </li>
-<li>2 文中提出power shares, frequency shares, performance shares 三个基于priority的policy。目前frequency shares表现最稳定，效果最好。理论上power shares最容易实现，但是需要预先知道application对应需要多少能量(不一定applicable)</li>
-<li>文中可以改进的地方:</li>
-<li>1 文中target了1个RAVL可能会出现的bad case: 在power cap比较低的情况下，power distribution不合理导致高优先级任务无法获得足够资源执行，尤其在high-priority low-demand(HPLD)和low-priority high-demand(LPHD)情况下会出现bad case。</li>
-<li>2 文中不考虑scheduler的问题(直接使用系统自定义的scheduler)，然而明确指出可以做power-aware scheduler而没有去做</li>
-<li>3 文中没有考虑real-time policy的问题，假设全部任务是concurrently执行</li>
-<li>4 文中没有考虑saturation的问题，即可能出现增加power也不会继续提升performance的情况(此现象在PredJoule中有提到并用Uncertainty来解决)。文中的policy在进行re-distribute时直接采用min-funding revocation policy，直接将saturated application从mix中移除再重新run distribute function</li>
-<li>5 文中提出的power shares policy本质还是priority-based policy，可能会出现low-priority task的starvation，文中没有设计合适的解决方案应对这个问题</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Per-Application Power Delivery, <a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303981">https://dl.acm.org/doi/abs/10.1145/3302424.3303981</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:AnDrone</title>
-    <url>/post/7870.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A drone-as-a-service solution -&gt; make drone access in the cloud</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>monotask-&gt;利用率低, restriction较多, 学习成本高：third=party access利用算力或者做其他task</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Intuition: virtual drones on physical drone</li>
-<li>lightweight container (docker?) to implement virtualization; 使用Android System的策略+proxy-based control去控制real-time linux -&gt; task封装至container，部分授权+阻止与physical device的直接交互（飞行控制组件不给第三方授权geofenced，只在特定时刻授权access系统）</li>
-<li>bill: based on energy consumption</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>Contribution: Androne prototype -&gt; runtime performance overhead &lt; 1.5%, 几乎可忽略的energy usage, low-latency performance, meet real-time requirement, virtual drones</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>waypoint: 一些任务只有在此处才能够access系统，具有比continuous task更高的优先级</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Androne: Virtual drone computing in the cloud, <a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303969">https://dl.acm.org/doi/abs/10.1145/3302424.3303969</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:ZygOS</title>
-    <url>/post/45382.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>The efficient scheduling on multicore systems of very fine-grain networked tasks (typical building lock of online data-intensive applications) -&gt; (can be also considered as in-memory services). To deliver high throughput for tail latency service-level objectives that are a small multiple of the task size.</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
-<li>场景：高并发，与面向用户的SLO(根据tail latency来定义)配合使用的应用程序。SLO通常伴随data-intensive call，相对的仅需要几微秒的user-execution time。<br>high concurrent, with user-facing SLO (defined in terms  of tail latency) applications. SLO of data service must consider long tail of the latency distributions of requests, meanwhile, individual task sizes often require only a handful of µs of user-level execution time. </li>
-<li>如果仅使用conventional OS (i.e., typically Linux) -&gt; suffers high overheads for µs-scale tasks; more spcialized kernel-bypass approach improves throughput substantially (through sweeping simplifications such as separation of control from the dataplane execution, polling, run-to-completion, and synchronization-free, flow-consistent mapping of requests to cores).</li>
-<li>简化设计导致了(a) the dataplane is not a work conserving scheduler; (b) the dataplane suffers from head-of-line blocking</li>
-</ol>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li> 2012年就有这个对于problem 1理论上的解答(a) single-queue, multiple-processor models deliver lower tail latency than parallel single-queue, single-processor models (-&gt; 文中做了study去验证正确性) (b) FCFS delivers the best tail latency for low-dispersion tasks while processor sharing delivers superior results in high dispersion service time distributions</li>
-<li>架构上分为3层: (a) a lower networking layer which runs in strict isolated on each core; (b) a middle shuffle layer which allows idle cores to aggressively steal pending events; (c) an upper execution layer which exposes a commutative API to applications for scalability. <strong>Shuffle layer eliminates head-of-line-blocking while also offering strong ordering semantics of events associated with the same connection.</strong></li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>To solve problem 2, this paper present ZygOS, a new approach to system software optimized for µs-scale, in-memory computing.</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>Just enough queuing theory: (个人感觉比较像是networking里采用的窗口探测，正好赋予congestion windows = bandwidth 能够避免高重传率也能够最大化throughput)</li>
-<li>System design: (a) designed for current-generation datacenter architectures; (b) build a robust, multi-core, work-conserving scheduler free of head-of-line blocking for event-driven apps; (c) provide clean, ordering semantics of task-stealing operations to multi-threaded apps when handling back-to-back events for the same socket; (d) <strong>minimally degrade</strong> the throughput of short tasks when compared with state-of-the-art, shared-nothing dataplanes. (这里paper直接自己提可能的弊端，并在设计中尽量削减这个问题的影响)</li>
-<li>Intermediate buffering and IPIs are used to eliminate head-of-line blocking (-&gt;FCFS的一个典型弊端). 在system architecture design中体现为middle shuffle layer中的shuffle queue (a single-producer, multiple-consumer queue which contains the list of ready connections originating from a given core)可以做到atomically stealing tasks</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>3个Microsoft-EPFL, Switzerland的工业界paper</li>
-<li>Implementation和Evaluation非常强：真的造了个OS（不是prototype），而且效果不错。</li>
-<li>可解释性强: paper里evaluation有明显效果还为效果提升做了解释，<i>“The speedup over Linux is explained by the use of many dataplane implementation principles in ZYGOS. The speedup over IX is explained by ZYGOS’swork-conservingscheduler,whichrebalancestasks to deliver consistently low tail latency nearly up to the point of saturation.”</i></li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] ZygOS, <a href="https://dl.acm.org/doi/pdf/10.1145/3132747.3132780">https://dl.acm.org/doi/pdf/10.1145/3132747.3132780</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>论文笔记:Karaoke</title>
-    <url>/post/12763.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A low-latency metadata-private communication solutions to distributed private messaging.</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Performance problems:</p>
+<p><b>01/19-01/21</b> Install conda on NVIDIA Jetson TX2<br>Brief steps:</p>
 <ol>
-<li><i>Differential privacy re-quires continuously adding noise messages, which leadsto high overheads.</i> -&gt; solution: optimistic indistinguishability 我认为此方案牺牲了一部分安全性来大幅度降低overhead，但是有补救方案（可以准确检测是否发生了信息泄露）</li>
-<li><i>Generating sufficient noise in a distributed system wheresome nodes may be malicious.</i> -&gt; solution: efficient noise verification</li>
+<li>Download proper version of Archiconda (Archiconda3) which is conda for aarch64. (it seems that cannot install PyTorch/Tensorflow)</li>
+<li>Install</li>
+<li>Add Archiconda to environment variables (better on ~/.bashrc)</li>
+<li>Others the same as Anaconda (Anaconda3) on x86</li>
 </ol>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>Solve latency problem for distributed private messaging.</li>
-<li>Evaluation is perfect. The latency in the paper is 10x improvement than previous work.</li>
-<li>Private analysis of the Karaoke’s design </li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>…（背景知识不了解，没看出来）</li>
-</ol>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
-<li>…（背景知识不了解，没看出来）</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>Evaluation的结果很全面且特别强</li>
-<li><i>As a result, achieving privacy re-quires the use of expensive zero-knowledge proofs (e.g.,verifiable  shuffles)  to  ensure  that  an  adversary  cannotdrop messages</i>解释了传统解决problem 2的方案的弊端-&gt;会导致明显的CPU overhead</li>
-<li>略读感觉更偏向于安全方向</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Karaoke, <a href="https://www.usenix.org/system/files/osdi18-lazar.pdf">https://www.usenix.org/system/files/osdi18-lazar.pdf</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>python中使用networkx画图</title>
-    <url>/post/2395.html</url>
-    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>今天被问了一个问题：如何把复杂的调用树可视化？</p>
-<p>首先，这个问题可以被归结为：如何实现有向图的可视化。</p>
-<p>当然，答案有很多种。可选的简单地解决方案可能是<a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">基于echarts的在线的生成工具</a> [1]，或是<a href="https://antv.vision/en">Ant V</a> [2]此类专用于画图的框架。本文主要介绍使用python中的networkx宏包作图。</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>python 2.7.17: 依赖库为matplotlib, networkx</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install matplotlib</span><br><span class="line">pip install networkx</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import networkx as nx</span><br><span class="line"></span><br><span class="line">G=nx.DiGraph()</span><br><span class="line">list=[(1,2),(1,3),(2,4),(&quot;source&quot;,&quot;end&quot;)]</span><br><span class="line">G.add_edges_from(list)</span><br><span class="line">nx.draw(G,with_labels=True)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>具体的nerworkx用法参见<a href="https://www.cnblogs.com/ljhdo/p/10662902.html">已有博客</a> [3]或者<a href="https://networkx.github.io/documentation/stable/tutorial.html">networkx官方文档</a> [4]，此处不再赘述。</p>
-<p>值得一提的是，虽然python编码相对方便，但是画图的速度远不及基于JavaScript的各种框架。<code>nx.draw(G,with_labels=True)</code>这一行的执行速度非常慢，即使图中只有不超过10个节点也花了近半分钟进行生成。如果需要实时性高的生成，建议使用前文中的[1][2]或类似框架。</p>
-<p><img src="/image/networkx.png" alt="效果图"></p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 利用echarts实现有向图可视化,<br><a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/</a><br>[2] AntV, <a href="https://antv.vision/en">https://antv.vision/en</a><br>[3] networkx, <a href="https://www.cnblogs.com/ljhdo/p/10662902.html">https://www.cnblogs.com/ljhdo/p/10662902.html</a><br>[4] networkx tutorial,<br><a href="https://networkx.github.io/documentation/stable/tutorial.html">https://networkx.github.io/documentation/stable/tutorial.html</a></p>
-]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>论文笔记:NeuOS</title>
-    <url>/post/10193.html</url>
-    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>DNN-driven autonomous Systems optimization (low latency, balance, high accuary)</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>How to optimize resource-constrainted (stringent space, weight, power constraints) DNNs application in software level (application-level + system-level)</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Multi device testing scenarios + multi dnn testing case </p>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><p>Address the challenge of balancing energy at system level and accuracy at application level for DNNs</p>
-<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><p>Appliction-level accuracy control by lowrank decomposition + system-level latency control by DVFS</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>Method不一定很fancy，但是evaluation效果很好且很全面</li>
-<li><i>“The stringent space, weight, and power constraints seen in such systems impose a major impediment for practical and safe implementation of DNNs, because they have to be latency predictable while ensuring minimum energy consumption and maximum accuracy.”</i> DNN在embedded system的autonomous driving场景下要求高实时性和可靠性。</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a href="https://www.usenix.org/system/files/atc20-bateni.pdf">NeuOS: A Latency-Predictable Multi-Dimensional Optimization Framework for DNN-driven Autonomous Systems</a></p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>基于maven的test-repo发生build-failure的解决方案</title>
-    <url>/post/61823.html</url>
-    <content><![CDATA[<h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn compile等操作。有时会发生BUILD FAILURES。本文描述几个详细的案例及解决方案，供以后遇到类似情况参考。</p>
-<h2 id="HikariCP"><a href="#HikariCP" class="headerlink" title="HikariCP"></a>HikariCP</h2><p>project地址：<a href="https://github.com/brettwooldridge/HikariCP.git">https://github.com/brettwooldridge/HikariCP.git</a><br>表现：某个test异常卡顿（OSGI这个test），出现HTTPS 501问题，然后该test fail导致BUILD FAILURES。<br>分析：查找发现HTTPS 501的原因是默认没有使用https的central源，在2020年1月后强制使用https，否则就会报501错误。在更换maven源之后仍然没有解决这个问题。<br>解决方案：在pom.xml的surefire configuration里配置exclude该test，问题解决（基本不影响执行时间）。</p>
-<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
-<h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
-<h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
 ]]></content>
       <categories>
         <category>config</category>
       </categories>
       <tags>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>maven的源配置(更新)</title>
-    <url>/post/34617.html</url>
-    <content><![CDATA[<p>阿里云云效maven的站点查询 <a href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
-<ol>
-<li>打开${maven_home}/conf/settings.xml</li>
-<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>转载<a href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
+        <tag>NVIDIA Jetson</tag>
       </tags>
   </entry>
   <entry>
@@ -738,6 +318,88 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       <tags>
         <tag>journal</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
+    <url>/post/226.html</url>
+    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/f426.html">NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a><br><a href="https://zexinli0w0.github.io/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
+<p>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 03/2022】<br>Doing: tensorflow project</p>
+<h1 id="Simple-R-amp-D-Notes"><a href="#Simple-R-amp-D-Notes" class="headerlink" title="Simple R&amp;D Notes"></a>Simple R&amp;D Notes</h1><p>03/09 Run small exps on TX2.<br>03/08 Fix some performance &amp; configuration bugs, run small experiments on AGX.<br>03/01-03/07 Do nothing.</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tensorflow issues &amp; solution</title>
+    <url>/post/dbaf.html</url>
+    <content><![CDATA[<h1 id="Problem-on-NVIDIA-Jetson-Development-Kit"><a href="#Problem-on-NVIDIA-Jetson-Development-Kit" class="headerlink" title="Problem on NVIDIA Jetson Development Kit"></a>Problem on NVIDIA Jetson Development Kit</h1><ol start="0">
+<li>Refer enviroment variables:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_CPP_MIN_VLOG_LEVEL&#x27;] = &#x27;1&#x27; # Low level of Tensorflow, if need locating bugs, raise it up to 10.</span><br><span class="line">os.environ[&#x27;CUDA_CACHE_MAXSIZE&#x27;] = &quot;2147483648&quot; # Enable CUDA_CACHE to avoid multiple long-last JIT compiling.</span><br><span class="line">os.environ[&#x27;TF_FORCE_GPU_ALLOW_GROWTH&#x27;] = &#x27;true&#x27; # Avoid allocating all memory rapidly in one process.</span><br><span class="line">os.environ[&#x27;TF_FORCE_UNIFIED_MEMORY&#x27;] = &#x27;1&#x27; # Use unified memory to reduce data transfer time.</span><br><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27; # Boost performance by disable GPU_GARBAGE_COLLCETION, enable only when meeting OOM.</span><br></pre></td></tr></table></figure></li>
+<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
+<li>local_cuda_not_found: switch to verified known version in the above.</li>
+<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
+<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
+<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
+<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
+<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
+<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
+<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
+<li>When using unified memory, display ‘NvMapReserveOp 0x80000001 failed [22]’: limit Tensorflow allocating memory.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">config = ConfigProto()</span><br><span class="line">config.gpu_options.per_process_gpu_memory_fraction = 0.2 # or other small values less than 1.0</span><br><span class="line">config.gpu_options.experimental.use_unified_memory= True</span><br><span class="line">with tf.compat.v1.Session(config=config) as s:</span><br><span class="line">    your_program</span><br></pre></td></tr></table></figure></li>
+<li>Performance bug: <code>W tensorflow/core/common_runtime/bfc_allocator.cc:311] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you&#39;d like to disable this feature.</code>: define enviroment variables<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>c++的struct和class（重新发布）</title>
+    <url>/post/4387.html</url>
+    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>在学习c++的时候会遇到一个问题：<strong>什么时候使用struct，什么时候使用class？</strong></p>
+<h2 id="C的struct"><a href="#C的struct" class="headerlink" title="C的struct"></a>C的struct</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct tag &#123; </span><br><span class="line">    member1;</span><br><span class="line">    member2; </span><br><span class="line">    member3;  </span><br><span class="line">    ...</span><br><span class="line">&#125; variable;</span><br></pre></td></tr></table></figure>
+
+<p><strong>tag</strong> 是结构体标签。<br><strong>member</strong> 是标准的变量定义，比如 int i; 或者 float f; 或者其他有效的变量定义。<br><strong>variable</strong> 结构变量，定义在结构的末尾，最后一个分号之前，可以指定一个或多个结构变量。<br>一般情况下，上述三个变量至少要出现2个。</p>
+<p>struct不能给内部变量初始化。<br>值得一提的是，在C中struct是用来封装数据的(<strong>member</strong>可以包含一个或多个基本数据类型，也可以包含其它结构体)，但是其中不能够有成员函数。</p>
+<p>想要C语言中的struct中包含成员函数，只能通过函数指针去替代成员函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">  </span><br><span class="line">void test(int input) &#123;</span><br><span class="line">        printf(&quot;%d&quot;,input);</span><br><span class="line">&#125;</span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void (*func)(int);</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func = &amp;test;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-的struct"><a href="#C-的struct" class="headerlink" title="C++的struct"></a>C++的struct</h2><h3 id="C-的struct和class的关联"><a href="#C-的struct和class的关联" class="headerlink" title="C++的struct和class的关联"></a>C++的struct和class的关联</h3><p>回到正题，c++中继承了在c语言中的用法，但是又做了改进：可以包含成员函数。从可实现功能上来看，struct和class基本上没有什么区别了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void func(int input) &#123;</span><br><span class="line">                printf(&quot;%d&quot;,input);</span><br><span class="line">        &#125;;</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 令人疑惑的是，在mac环境下居然这段代码用gcc编译也通过了，还能正常运行。</span><br><span class="line">// 应当在ubuntu环境下是不能编译通过的。</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-的struct和class的区别"><a href="#C-的struct和class的区别" class="headerlink" title="C++的struct和class的区别"></a>C++的struct和class的区别</h3><p>默认修饰符：struct是public，class是private。以下的代码从逻辑上是等价的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B &#123;</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>默认继承方式是：struct是public继承，class是private继承。建议在继承时需要显示地指明修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B : public A &#123;</span><br><span class="line">	// 建议在继承时需要显示地指明修饰符</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/post/16107.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>On windows, add “npx” prefix.</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo new draft <span class="string">&quot;New draft&quot;</span></span><br><span class="line">$ hexo publish <span class="string">&quot;New draft&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
+
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># This will only deploy generated files to remote sites! Nedd to backup source by yourself!</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
   </entry>
   <entry>
     <title>hexo+next主题配置之怎么配成我这样</title>
@@ -820,6 +482,62 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </tags>
   </entry>
   <entry>
+    <title>maven的源配置(更新)</title>
+    <url>/post/34617.html</url>
+    <content><![CDATA[<p>阿里云云效maven的站点查询 <a href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
+<ol>
+<li>打开${maven_home}/conf/settings.xml</li>
+<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>转载<a href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python中使用networkx画图</title>
+    <url>/post/2395.html</url>
+    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>今天被问了一个问题：如何把复杂的调用树可视化？</p>
+<p>首先，这个问题可以被归结为：如何实现有向图的可视化。</p>
+<p>当然，答案有很多种。可选的简单地解决方案可能是<a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">基于echarts的在线的生成工具</a> [1]，或是<a href="https://antv.vision/en">Ant V</a> [2]此类专用于画图的框架。本文主要介绍使用python中的networkx宏包作图。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>python 2.7.17: 依赖库为matplotlib, networkx</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install matplotlib</span><br><span class="line">pip install networkx</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import networkx as nx</span><br><span class="line"></span><br><span class="line">G=nx.DiGraph()</span><br><span class="line">list=[(1,2),(1,3),(2,4),(&quot;source&quot;,&quot;end&quot;)]</span><br><span class="line">G.add_edges_from(list)</span><br><span class="line">nx.draw(G,with_labels=True)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>具体的nerworkx用法参见<a href="https://www.cnblogs.com/ljhdo/p/10662902.html">已有博客</a> [3]或者<a href="https://networkx.github.io/documentation/stable/tutorial.html">networkx官方文档</a> [4]，此处不再赘述。</p>
+<p>值得一提的是，虽然python编码相对方便，但是画图的速度远不及基于JavaScript的各种框架。<code>nx.draw(G,with_labels=True)</code>这一行的执行速度非常慢，即使图中只有不超过10个节点也花了近半分钟进行生成。如果需要实时性高的生成，建议使用前文中的[1][2]或类似框架。</p>
+<p><img src="/image/networkx.png" alt="效果图"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 利用echarts实现有向图可视化,<br><a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/</a><br>[2] AntV, <a href="https://antv.vision/en">https://antv.vision/en</a><br>[3] networkx, <a href="https://www.cnblogs.com/ljhdo/p/10662902.html">https://www.cnblogs.com/ljhdo/p/10662902.html</a><br>[4] networkx tutorial,<br><a href="https://networkx.github.io/documentation/stable/tutorial.html">https://networkx.github.io/documentation/stable/tutorial.html</a></p>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于maven的test-repo发生build-failure的解决方案</title>
+    <url>/post/61823.html</url>
+    <content><![CDATA[<h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn compile等操作。有时会发生BUILD FAILURES。本文描述几个详细的案例及解决方案，供以后遇到类似情况参考。</p>
+<h2 id="HikariCP"><a href="#HikariCP" class="headerlink" title="HikariCP"></a>HikariCP</h2><p>project地址：<a href="https://github.com/brettwooldridge/HikariCP.git">https://github.com/brettwooldridge/HikariCP.git</a><br>表现：某个test异常卡顿（OSGI这个test），出现HTTPS 501问题，然后该test fail导致BUILD FAILURES。<br>分析：查找发现HTTPS 501的原因是默认没有使用https的central源，在2020年1月后强制使用https，否则就会报501错误。在更换maven源之后仍然没有解决这个问题。<br>解决方案：在pom.xml的surefire configuration里配置exclude该test，问题解决（基本不影响执行时间）。</p>
+<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
+<h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
+<h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何编写maven插件（重新发布）</title>
     <url>/post/undefined.html</url>
     <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>maven作为热门的build system经常被各种Java project采用。有时我们会遇到需要编写自定义maven插件的需求。</p>
@@ -843,62 +561,344 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </tags>
   </entry>
   <entry>
-    <title>c++的struct和class（重新发布）</title>
-    <url>/post/4387.html</url>
-    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>在学习c++的时候会遇到一个问题：<strong>什么时候使用struct，什么时候使用class？</strong></p>
-<h2 id="C的struct"><a href="#C的struct" class="headerlink" title="C的struct"></a>C的struct</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct tag &#123; </span><br><span class="line">    member1;</span><br><span class="line">    member2; </span><br><span class="line">    member3;  </span><br><span class="line">    ...</span><br><span class="line">&#125; variable;</span><br></pre></td></tr></table></figure>
-
-<p><strong>tag</strong> 是结构体标签。<br><strong>member</strong> 是标准的变量定义，比如 int i; 或者 float f; 或者其他有效的变量定义。<br><strong>variable</strong> 结构变量，定义在结构的末尾，最后一个分号之前，可以指定一个或多个结构变量。<br>一般情况下，上述三个变量至少要出现2个。</p>
-<p>struct不能给内部变量初始化。<br>值得一提的是，在C中struct是用来封装数据的(<strong>member</strong>可以包含一个或多个基本数据类型，也可以包含其它结构体)，但是其中不能够有成员函数。</p>
-<p>想要C语言中的struct中包含成员函数，只能通过函数指针去替代成员函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">  </span><br><span class="line">void test(int input) &#123;</span><br><span class="line">        printf(&quot;%d&quot;,input);</span><br><span class="line">&#125;</span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void (*func)(int);</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func = &amp;test;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="C-的struct"><a href="#C-的struct" class="headerlink" title="C++的struct"></a>C++的struct</h2><h3 id="C-的struct和class的关联"><a href="#C-的struct和class的关联" class="headerlink" title="C++的struct和class的关联"></a>C++的struct和class的关联</h3><p>回到正题，c++中继承了在c语言中的用法，但是又做了改进：可以包含成员函数。从可实现功能上来看，struct和class基本上没有什么区别了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void func(int input) &#123;</span><br><span class="line">                printf(&quot;%d&quot;,input);</span><br><span class="line">        &#125;;</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 令人疑惑的是，在mac环境下居然这段代码用gcc编译也通过了，还能正常运行。</span><br><span class="line">// 应当在ubuntu环境下是不能编译通过的。</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-的struct和class的区别"><a href="#C-的struct和class的区别" class="headerlink" title="C++的struct和class的区别"></a>C++的struct和class的区别</h3><p>默认修饰符：struct是public，class是private。以下的代码从逻辑上是等价的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B &#123;</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>默认继承方式是：struct是public继承，class是private继承。建议在继承时需要显示地指明修饰符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B : public A &#123;</span><br><span class="line">	// 建议在继承时需要显示地指明修饰符</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
-    <url>/post/26020.html</url>
-    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
-<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
+    <title>论文笔记:3Sigma</title>
+    <url>/post/25971.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Distribution-based cluster scheduling for runtime uncertainty</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Cluster needs accurate running prediction but recent point-estimation based prediction model can lead to 8-17% error which may cause misleading in decision making.<br>  -&gt; recent work uses heuristics or other random methods to eliminates misleading caused by errors in time prediction (治标不治本)<br>  -&gt; Datacenter resources are increasingly heterogeneous, and some jobs behave differently (e.g., complete faster) depend ing upon which machine(s) they are assigned to.<br>  -&gt; heavy-tailed jobs, jobs with deadlines</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>集群上居然没有完善的对runtime历史数据的处理方法！</li>
+<li>“Runtime knowledge” 非常重要</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>Distribution-based data processing for runtime uncertainty -&gt; 不再仅仅使用点估计(history取平均值), 而是采用(a) average, (b) median, (c) rolling (exponentially weighted decay with<br>α = 0.6), (d) average of X recent job runtimes. 然后选取其中最低的normalized mean absolute error (NMAE)的方案</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>针对子问题1，文中采用了distributioned-based history data processing for runtime uncertainty。在cluster环境下可能更加有效，但是其本质还是一个involve更多信息的heuristics(因为集群规模更大), 在task性质短时间内变化较大的情况下, 可能continuing learning based model表现会更好 (New中第一点也考虑了指数衰减的办法来保证数据时效性)</li>
+<li>针对子问题2，文中没有明确指出如何针对其异构性解决问题，OSDI’20在Microsoft集群上有一篇针对异构性的解决方案</li>
+<li>针对子问题3，heavy-tailed job会明显影响SLO(某种意义上影响QoS，可以说成是优化makespan), deadlines也会影响QoS(可以说是embedded environment下的time predictability)</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 3Sigma: Distribution-based cluster scheduling for runtime uncertainty, <a href="https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf">https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf</a></p>
 ]]></content>
       <categories>
-        <category>config</category>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:AnDrone</title>
+    <url>/post/7870.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A drone-as-a-service solution -&gt; make drone access in the cloud</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>monotask-&gt;利用率低, restriction较多, 学习成本高：third=party access利用算力或者做其他task</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Intuition: virtual drones on physical drone</li>
+<li>lightweight container (docker?) to implement virtualization; 使用Android System的策略+proxy-based control去控制real-time linux -&gt; task封装至container，部分授权+阻止与physical device的直接交互（飞行控制组件不给第三方授权geofenced，只在特定时刻授权access系统）</li>
+<li>bill: based on energy consumption</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>Contribution: Androne prototype -&gt; runtime performance overhead &lt; 1.5%, 几乎可忽略的energy usage, low-latency performance, meet real-time requirement, virtual drones</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>waypoint: 一些任务只有在此处才能够access系统，具有比continuous task更高的优先级</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Androne: Virtual drone computing in the cloud, <a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303969">https://dl.acm.org/doi/abs/10.1145/3302424.3303969</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:Karaoke</title>
+    <url>/post/12763.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A low-latency metadata-private communication solutions to distributed private messaging.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Performance problems:</p>
+<ol>
+<li><i>Differential privacy re-quires continuously adding noise messages, which leadsto high overheads.</i> -&gt; solution: optimistic indistinguishability 我认为此方案牺牲了一部分安全性来大幅度降低overhead，但是有补救方案（可以准确检测是否发生了信息泄露）</li>
+<li><i>Generating sufficient noise in a distributed system wheresome nodes may be malicious.</i> -&gt; solution: efficient noise verification</li>
+</ol>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Solve latency problem for distributed private messaging.</li>
+<li>Evaluation is perfect. The latency in the paper is 10x improvement than previous work.</li>
+<li>Private analysis of the Karaoke’s design </li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>…（背景知识不了解，没看出来）</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>…（背景知识不了解，没看出来）</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Evaluation的结果很全面且特别强</li>
+<li><i>As a result, achieving privacy re-quires the use of expensive zero-knowledge proofs (e.g.,verifiable  shuffles)  to  ensure  that  an  adversary  cannotdrop messages</i>解释了传统解决problem 2的方案的弊端-&gt;会导致明显的CPU overhead</li>
+<li>略读感觉更偏向于安全方向</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Karaoke, <a href="https://www.usenix.org/system/files/osdi18-lazar.pdf">https://www.usenix.org/system/files/osdi18-lazar.pdf</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</title>
+    <url>/post/15125.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A heterogeneity-aware cluster scheudling solution for DNN workloads</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
+<li>[主要问题]现有的scheduler很多没有考虑heterogeneity: Performance Heterogeneity, Generality Across Policies, Colocation and Placement Optimizations.</li>
+</ol>
+<p>(1) Performance Heterogeneity: 复杂的DNN tasks需要在不同种类processor上执行; 并非越贵的processor越好, 对不同任务的dollar-normalized结果并不和价格正相关<br><i>“Existing schedulers like Gandiva, Tiresias, and Themis do not consider the heterogeneous performance behavior across accelerators.” </i><br>(2) Generality Across Policies: 已有的scheduler与scheduling mechanism紧耦合; 且大部分难以支持复杂的scheduling policy<br>(3) Colocation and Placement Optimizations: 全局调度目标要显示考虑这两项</p>
+<ol start="2">
+<li>现有的scheduler可能导致starvation: 某些task长时间排队得不到执行</li>
+</ol>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Gavel’s key observation是scheduling policy都可以表达为目标是工作完成率的优化问题, 整篇大部分都在围绕一些经典的scheudling goal如何用优化问题来表示</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>设计scheduler时考虑了heterogeneity</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>为了解决Problem 2设计了round-based mechanism, 理论上降低了发生starvation的可能性</li>
+<li>round-based mechanism与scheduling policy解除了耦合, 能够更简单地integrate sophisticated scheduling policy</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>有个用法heterogeneity-aware/heterogeneity-agnostic, 学习了: 可以用xxx-aware/xxx-agnostic来描述自己有的一些点和概括别人没有考虑到这些点。</li>
+<li>space sharing这一块里面, greedy algorithm容易陷入局部最优。因为heterogeneity, <i>“different pairs of DNN applications in practice have vastly different performance when colocated together”</i></li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Heterogeneity-Aware Cluster Scheduling Policies for Deep Learning Workloads, <a href="https://arxiv.org/pdf/2008.09213.pdf">https://arxiv.org/pdf/2008.09213.pdf</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:Medea</title>
+    <url>/post/38747.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Scheduling of long running application in shared production clusters.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Contrained scheduling optimization. (long running applications, in cluster)</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>文中对一系列workload作定义为long running applications(LRA): streaming systems, interactive data-intensive applications, latency-sensitive applications, machine learning frameworks(DNN workloads) -&gt; 区别于传统的task-based applications</li>
+<li>Two-scheduler design:思路是区分LRA和task-based applications，LRA采用integer linear program(ILP)去当作online optimization problem来解决(ILP要太长时间情形下就会采用heuristic-based scheduling); task-based applications采用传统的task-based scheduler。全局优化目标是minimize constraint violations, miminize resource fragmentation, balance node load, minimize number of machines used。<br>“Using an optimization-based algorithm for high-quality placement of LRAs with constraints, and a traditional scheduler for placing task-based jobs with low scheduling latency.”</li>
+<li></li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>xxx</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>考虑了很多现实场景下存在的问题，比如unavaible machines</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Microsoft发的，选了6个cluster做case study，在400+ node的集群上做evaluation</li>
+<li>Evaluation发现纯ILP的方案latency很大(远大于现有解决方案J-KUBE)</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] MEDEA: Scheduling of Long Running Application in Shared Production Clusters, <a href="https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf">https://www.doc.ic.ac.uk/~pg1712/static/papers/MEDEA_EuroSys18.pdf</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:NeuOS</title>
+    <url>/post/10193.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>DNN-driven autonomous Systems optimization (low latency, balance, high accuary)</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>How to optimize resource-constrainted (stringent space, weight, power constraints) DNNs application in software level (application-level + system-level)</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Multi device testing scenarios + multi dnn testing case </p>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><p>Address the challenge of balancing energy at system level and accuracy at application level for DNNs</p>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><p>Appliction-level accuracy control by lowrank decomposition + system-level latency control by DVFS</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>Method不一定很fancy，但是evaluation效果很好且很全面</li>
+<li><i>“The stringent space, weight, and power constraints seen in such systems impose a major impediment for practical and safe implementation of DNNs, because they have to be latency predictable while ensuring minimum energy consumption and maximum accuracy.”</i> DNN在embedded system的autonomous driving场景下要求高实时性和可靠性。</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a href="https://www.usenix.org/system/files/atc20-bateni.pdf">NeuOS: A Latency-Predictable Multi-Dimensional Optimization Framework for DNN-driven Autonomous Systems</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:PRIMAL</title>
+    <url>/post/58289.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Power Inference using Machine Learning</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>传统方案下的power inference的overhead较大，对复杂model的power analysis要求很长时间的offline analysis</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>文中找出了overhead最大的传统方案下的模块，并且使用machine-learning based method进行替代，达到了up to 50x speed up的效果</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>machine-learning based method</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>文中做了对比实验，选用较简单的multi-layper perception (MLP)和更复杂的CNN; MLP能达到50x speed up但预测准确率偏低, CNN大约30x，准确率更高</li>
+<li>和NVIDIA商用模型进行了比较，有一定实用可能性</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>可以考虑在加速问题上采用machine-learning model</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] PRIMAL: Power Inference using Machine Learning，<a href="https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf">https://research.nvidia.com/sites/default/files/pubs/2019-06_PRIMAL%3A-Power-Inference//24_1_Zhou_PRIMAL.pdf</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:Per-ApplicationPowerDelivery</title>
+    <url>/post/27403.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>在有power cap的情况下，对per application进行power distribute。</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>如何不影响性能的情况下降低功耗 power/energy<br><i>we focus on the problem of differential power delivery: how can and should a system allocate different amounts of power to different applications to effect prioritization and isolation?</i> 系统应该如何为不同的应用程序分配不同数量的功率以实现优先级划分和隔离？</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>类似文章套路都会在Introduction位置做一个很简单有力的初步的motivate example</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>server级别的power distribution较少，大多数都是在cluster做；本文把一些embedded system上的power constraint搬到了server上</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>Evaluation强：有一个motivate example之后做了一个相对强的case study，然后由此引出policy design &amp; implementation</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>已有的解决方案dynamic voltage and frequency scaling(DVFS), running average power limit(RAVL): </li>
+<li>1 DVFS: 有global和individual(可能只有部分处理器支持)可选</li>
+<li>2 RAVL: 把处理器分为若干部分，每个部分单独加power cap；可能会导致所有core被锁定至同一频率(“RAVL+global DVFS” -&gt; “all cores are throttled to the same frequecny”) -&gt; 出现priority和power不匹配的问题</li>
+<li>Conclusion: </li>
+<li>1 硬件水平上能够实现每个core的不同功率水平，但是policies are not yet available. </li>
+<li>2 文中提出power shares, frequency shares, performance shares 三个基于priority的policy。目前frequency shares表现最稳定，效果最好。理论上power shares最容易实现，但是需要预先知道application对应需要多少能量(不一定applicable)</li>
+<li>文中可以改进的地方:</li>
+<li>1 文中target了1个RAVL可能会出现的bad case: 在power cap比较低的情况下，power distribution不合理导致高优先级任务无法获得足够资源执行，尤其在high-priority low-demand(HPLD)和low-priority high-demand(LPHD)情况下会出现bad case。</li>
+<li>2 文中不考虑scheduler的问题(直接使用系统自定义的scheduler)，然而明确指出可以做power-aware scheduler而没有去做</li>
+<li>3 文中没有考虑real-time policy的问题，假设全部任务是concurrently执行</li>
+<li>4 文中没有考虑saturation的问题，即可能出现增加power也不会继续提升performance的情况(此现象在PredJoule中有提到并用Uncertainty来解决)。文中的policy在进行re-distribute时直接采用min-funding revocation policy，直接将saturated application从mix中移除再重新run distribute function</li>
+<li>5 文中提出的power shares policy本质还是priority-based policy，可能会出现low-priority task的starvation，文中没有设计合适的解决方案应对这个问题</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Per-Application Power Delivery, <a href="https://dl.acm.org/doi/abs/10.1145/3302424.3303981">https://dl.acm.org/doi/abs/10.1145/3302424.3303981</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:PredJoule</title>
+    <url>/post/32931.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Timing-predictable energy optimization framework for DNN workloads.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Timing-predictablity and energy should be considered in running DNN workloads.<br>DNN workloads needs to be provided timing predictablity while minimized energy.</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>Motivation是DNN应当做细粒度的配置,而不是当黑盒;DVFS与performance不完全一致</p>
+<ol>
+<li>learning-based strategy: 基于历史记录去调优config</li>
+<li>New的第一条对应motivation 1</li>
+<li>引入不确定度：max(Norm(Power) / Norm(Latency))，在提升power的时候倾向选择不确定性低的，在降低power的时候倾向选择不确定性高的</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>layer-based consideration -&gt; DNN的特点，可以分层去考虑；不同层级有不同的特性</li>
+<li>learning-based strategy -&gt; 区别于已有的offline benchmarking 更加practical</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>evaluation的diversity体现得很好：一个同类复现，一个最大化frequency策略，一个系统自带高performance策略，一个系统自带低energy策略</li>
+<li>Evaluation的figure 9感觉特别强：原因应该是实现得好，避免了一些expensive file I/O + efficient reverse history</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>没有做DVFS相关，文中把DVFS排除到design之外，strategy是随机选择的。</li>
+<li>没有定量地分析不同layer的不确定性趋势（文中提到可能和data input size有关）</li>
+<li>learning-based method可能依赖于一个较好的解, 收敛速度不是很快</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] Predjoule, <a href="https://ieeexplore.ieee.org/document/8603196">https://ieeexplore.ieee.org/document/8603196</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:TimeGraph</title>
+    <url>/post/17147.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>GPU Scheduling and resource reservation for Real-Time Multi-Tasking Environments</p>
+<span id="more"></span>
+
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Recent GPU scheudling policy behaves badly in real-time multi-tasking environments:<br>    1. Scheduler for CPU puts current highest-priority tasks into the waiting queue -&gt; low overhead, but cannot permit semantic correctness of priority (may cause priority inversion),things go worse in overloaded case.)<br>    2. No reservation works together with the scheduler on GPU side.</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li>Scheduling and resource reservation in future user-interface</li>
+<li>Real-time constraints and multi-tasking environments</li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>Propose 2 priority-based scheduling policies for GPU scheduling: Predictable-response-time (PRT), High-throughtput (HT)</li>
+<li>Propose 2 resource reservation policies for GPU based on budget/replenishment(a widely used mechanism in real-time system): Posterior enforcemnet(PE), Apriori enforcement(AE) </li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>Event-based scheudling -&gt; much lower overhead than tick-based scheduling<br>PredJoule在layer boundry makes decisions也是event-based</li>
+<li>reservations中PE的overhead小，但priority inversion概率更高; AE存在overhead更大的可能性，且predicted running time测不准的问题(文中是细粒度的scheudling)，且对于粗粒度的scheduling(layer-based scheduling)，runtime更加难以预测</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>文中提到”protect import GPU workloads from performance interference”, performance interference可能的原因是priority inversion, overhead(context switch, scheduling本身消耗)。(可以尝试power profiling去验证，应该有现成的工具)</li>
+<li>文中采用event-based scheduling(CPU要向GPU sumbit一次GPU command group称为一个event), 但对于layer-based这种采用event-based是否过于粗粒度?</li>
+<li>文中不考虑preempt, 假定GPU commands都是non-preemptable (实际layer-based也没有考虑，考虑此项会使得context switch消耗增加且设计更加复杂)</li>
+<li>budget/replenishment可能存在问题: 如果feed单个消耗很大的任务(E&gt;budget)，可能会导致该任务被block/starvation: 可以采取random/heuristic的办法使scheduler带有一定随机性，具有从bad case中自我恢复的能力; 另外是否预测准确也会影响reservation效果(文中假定了预测100%准确) -&gt; (3Sigma那篇提到集群上predicted runtime不准会大幅度影响scheduling效果问题)</li>
+<li>future-work中提到”mapping application-level specifications, such as frame-rates into priority and reservation properties at OS level”，可能在设计DNN specific scheduler的priority可以考虑</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] TimeGraph, <a href="http://www.usenix.org/events/atc11/tech/final_files/Kato.pdf">http://www.usenix.org/events/atc11/tech/final_files/Kato.pdf</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:ZygOS</title>
+    <url>/post/45382.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>The efficient scheduling on multicore systems of very fine-grain networked tasks (typical building lock of online data-intensive applications) -&gt; (can be also considered as in-memory services). To deliver high throughput for tail latency service-level objectives that are a small multiple of the task size.</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><ol>
+<li>场景：高并发，与面向用户的SLO(根据tail latency来定义)配合使用的应用程序。SLO通常伴随data-intensive call，相对的仅需要几微秒的user-execution time。<br>high concurrent, with user-facing SLO (defined in terms  of tail latency) applications. SLO of data service must consider long tail of the latency distributions of requests, meanwhile, individual task sizes often require only a handful of µs of user-level execution time. </li>
+<li>如果仅使用conventional OS (i.e., typically Linux) -&gt; suffers high overheads for µs-scale tasks; more spcialized kernel-bypass approach improves throughput substantially (through sweeping simplifications such as separation of control from the dataplane execution, polling, run-to-completion, and synchronization-free, flow-consistent mapping of requests to cores).</li>
+<li>简化设计导致了(a) the dataplane is not a work conserving scheduler; (b) the dataplane suffers from head-of-line blocking</li>
+</ol>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
+<li> 2012年就有这个对于problem 1理论上的解答(a) single-queue, multiple-processor models deliver lower tail latency than parallel single-queue, single-processor models (-&gt; 文中做了study去验证正确性) (b) FCFS delivers the best tail latency for low-dispersion tasks while processor sharing delivers superior results in high dispersion service time distributions</li>
+<li>架构上分为3层: (a) a lower networking layer which runs in strict isolated on each core; (b) a middle shuffle layer which allows idle cores to aggressively steal pending events; (c) an upper execution layer which exposes a commutative API to applications for scalability. <strong>Shuffle layer eliminates head-of-line-blocking while also offering strong ordering semantics of events associated with the same connection.</strong></li>
+</ol>
+<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
+<li>To solve problem 2, this paper present ZygOS, a new approach to system software optimized for µs-scale, in-memory computing.</li>
+</ol>
+<h3 id="Neat"><a href="#Neat" class="headerlink" title="Neat"></a>Neat</h3><ol>
+<li>Just enough queuing theory: (个人感觉比较像是networking里采用的窗口探测，正好赋予congestion windows = bandwidth 能够避免高重传率也能够最大化throughput)</li>
+<li>System design: (a) designed for current-generation datacenter architectures; (b) build a robust, multi-core, work-conserving scheduler free of head-of-line blocking for event-driven apps; (c) provide clean, ordering semantics of task-stealing operations to multi-threaded apps when handling back-to-back events for the same socket; (d) <strong>minimally degrade</strong> the throughput of short tasks when compared with state-of-the-art, shared-nothing dataplanes. (这里paper直接自己提可能的弊端，并在设计中尽量削减这个问题的影响)</li>
+<li>Intermediate buffering and IPIs are used to eliminate head-of-line blocking (-&gt;FCFS的一个典型弊端). 在system architecture design中体现为middle shuffle layer中的shuffle queue (a single-producer, multiple-consumer queue which contains the list of ready connections originating from a given core)可以做到atomically stealing tasks</li>
+</ol>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>3个Microsoft-EPFL, Switzerland的工业界paper</li>
+<li>Implementation和Evaluation非常强：真的造了个OS（不是prototype），而且效果不错。</li>
+<li>可解释性强: paper里evaluation有明显效果还为效果提升做了解释，<i>“The speedup over Linux is explained by the use of many dataplane implementation principles in ZYGOS. The speedup over IX is explained by ZYGOS’swork-conservingscheduler,whichrebalancestasks to deliver consistently low tail latency nearly up to the point of saturation.”</i></li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] ZygOS, <a href="https://dl.acm.org/doi/pdf/10.1145/3132747.3132780">https://dl.acm.org/doi/pdf/10.1145/3132747.3132780</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文笔记:survey</title>
+    <url>/post/18725.html</url>
+    <content><![CDATA[<h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>A Comprehensive Survey on Energy-Efficient Power Management Techniques</p>
+<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Survey on how to achieve energy-efficient power manangement on different computing scenarios</p>
+<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><p>这是19年最新的相关领域survey，从中寻找一些领域内的线索</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
+<li>文中非常看好machine-learning based/deep-learning based method去做power management的前景, 并声称power management本质上是一个NP-hard问题，只能在较小的input情况下有限时间找最优解。(实际应用更多依赖DNN inference) “The study emphasizes that this research can be further extended along with machine learning  and deep learning. Such approaches can be benefificial in deriving optimal system confifigurations for hardware components, software applications, scheduling, computing, networking, databases, operating systems, and other management schemes. The performance of computer systems, their architectures, and power management operations can be carried out in a cost-effffective and eco-friendly manner for the betterment of green IT.”</li>
+<li>“Subsequently, minimization of software energy consumption needs to be primarily considered” [2]</li>
+<li>“A multilevel process control system (MLPCS) was proposed in (9) to select hardware features and hence, synthesis components for energy-effient processes.”<br>“In such cases, knowledge of the expected power consumption and/or performance range would be useful.” [3]</li>
+<li>“A survey on GPU power conservation along with power modeling and profifiling methods was carried out in (12).” [4]</li>
+<li>“In (14), authors explored the frequency scaling rules to build an energy-aware CPU.” [5]</li>
+<li>“On the other hand, the impact of CPU pinning was studied on energy-efficiency and performance interference between a pair of colocated workloads in (15).” [6]</li>
+<li>“It has also been identifified that difffferent software consumes a varying amount of power (21, 22).” [7] [8]</li>
+<li>“Similarly, tool to estimate energy consumption (TEEC) was introduced in (27) to support green software development; it was developed to assist for improvement in the source code. TEEC measured the power consumption by CPU, memory, and disk while executing an application at runtime.” [9] 此处提供了application-level power estimation的工具</li>
+<li>“Maintaining energy proportionality is necessary to control over-heating issues. An intelligent infrastructure, BML was proposed in (18) which was devised with heterogeneous architectures and a scheduling framework to utilize energy segmentation.” [10]<br>“As compared to ARM big.LITTLE multi-core processor architecture (33), which demonstrated relative heterogeneity in terms of computing power and power consumption, BML infrastructure was developed with heterogeneity within its architecture itself.” [11]</li>
+<li>“Using dynamic slack and system utilization concepts, a hybrid approach with Q-learning and different DVFS technologies was proposed in (34).” [12]</li>
+<li>“The scheduling policy and application allocation to appropriate processing core can determine the effectiveness of a heterogeneous architecture (36); such heterogeneous multi-core offer energy-efficient computing. A composite cores architecture (CCA) was used to predict a favorable core confifiguration using machine learning for a multi threaded application” [13]</li>
+<li>“Granular profifiling of HPC applications was proposed in (39) using Running Average Power Limit and adaptive power management systems. The article aimed at optimizing energy utilization and providing optimal power budget (OPB) before scheduling decision.” [14] 可能能够从这篇中参考一些reseravation的思路</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] A Comprehensive Survey on Energy-Efficient Power Management Techniques, <a href="https://www.sciencedirect.com/science/article/pii/S1877050920308991">https://www.sciencedirect.com/science/article/pii/S1877050920308991</a><br>[2] What do programmers know about software energy consumption?, <a href="https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf">https://sail.cs.queensu.ca/Downloads/IEEESoftware2016_WhatDoProgrammersKnowAboutSoftwareEnergyConsumption.pdf</a><br>[3] Selection of hardware features and synthesis of multilevel control system components of energy efficiency of production processes, <a href="https://ieeexplore.ieee.org/document/8365730">https://ieeexplore.ieee.org/document/8365730</a><br>[4] Understanding gpu power: A survey of profiling, modeling, and simulation methods, <a href="https://www.osti.gov/pages/servlets/purl/1326472">https://www.osti.gov/pages/servlets/purl/1326472</a><br>[5] Energy-efficient CPU frequency control for the Linux system, <a href="https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system">https://www.academia.edu/11870430/Energy_efficient_CPU_frequency_control_for_the_Linux_system</a><br>[6] Analyzing the impact of cpu pinning and partial cpu loads on performance and energy efficiency, <a href="https://ieeexplore.ieee.org/document/7152466">https://ieeexplore.ieee.org/document/7152466</a><br>[7] Towards Green IT Organisations: A Framework for Energy Consumption and Reduction, …<br>[8] Using complete machine simulation for software power estimation: the SoftWatt approach, <a href="https://ieeexplore.ieee.org/document/995705">https://ieeexplore.ieee.org/document/995705</a><br>[9] The Impact of Source Code in Software on Power Consumption, <a href="https://hal.archives-ouvertes.fr/hal-01496266/document">https://hal.archives-ouvertes.fr/hal-01496266/document</a><br>[10] Big, Medium, Little: Reaching Energy Proportionality with Heterogeneous Computing Scheduler, <a href="https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf">https://pdfs.semanticscholar.org/8daf/2637eb28d69c20f96f899353c7f6354b8eb9.pdf</a><br>[11] big.LITTLE Technology: The Future of Mobile Making very high performance available in a mobile envelope without sacrificing energy efficiency. <a href="https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf">https://img.hexus.net/v2/press_releases/arm/big.LITTLE.Whitepaper.pdf</a><br>[12] Hybrid DVFS Scheduling for Real-Time Systems Based on Reinforcement Learning, <a href="https://ieeexplore.ieee.org/document/7163527">https://ieeexplore.ieee.org/document/7163527</a><br>[13] Machine Learning-Based Approaches for Energy-Efficiency Prediction and Scheduling in Composite Cores Architectures, <a href="https://ieeexplore.ieee.org/document/8119201">https://ieeexplore.ieee.org/document/8119201</a><br>[14] Adaptive Power Management for HPC applications, <a href="https://ieeexplore.ieee.org/document/7508065">https://ieeexplore.ieee.org/document/7508065</a></p>
+]]></content>
+      <categories>
+        <category>reading notes</category>
       </categories>
       <tags>
-        <tag>Mac</tag>
+        <tag>survey</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/post/16107.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>On windows, add “npx” prefix.</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo new draft <span class="string">&quot;New draft&quot;</span></span><br><span class="line">$ hexo publish <span class="string">&quot;New draft&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
-
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># This will only deploy generated files to remote sites! Nedd to backup source by yourself!</span></span><br></pre></td></tr></table></figure>]]></content>
+    <title>Paper Notes</title>
+    <url>/post/c9b8.html</url>
+    <content><![CDATA[<p>TODO: moving from zh to en.<br><a href="https://zexinli0w0.github.io/post/25971.html">paper notes: 3Sigma</a><br><a href="https://zexinli0w0.github.io/post/10193.html">paper notes: NeuOS</a><br><a href="https://zexinli0w0.github.io/post/12763.html">paper notes: Karaoke</a><br><a href="https://zexinli0w0.github.io/post/45382.html">paper notes: ZygOS</a><br><a href="https://zexinli0w0.github.io/post/7870.html">paper notes: AnDrone</a><br><a href="https://zexinli0w0.github.io/post/15125.html">paper notes: Heterogeneity-AwareClusterSchedulingPoliciesforDeepLearningWorkloads</a><br><a href="https://zexinli0w0.github.io/post/27403.html">paper notes: Per-ApplicationPowerDelivery</a><br><a href="https://zexinli0w0.github.io/post/32931.html">paper notes: PredJoule</a><br><a href="https://zexinli0w0.github.io/post/38747.html">paper notes: Medea</a><br><a href="https://zexinli0w0.github.io/post/58289.html">paper notes: PRIMAL</a><br><a href="https://zexinli0w0.github.io/post/18725.html">paper notes: MLsurvey</a><br><a href="https://zexinli0w0.github.io/post/17147.html">paper notes: TimeGraph</a></p>
+]]></content>
       <categories>
-        <category>config</category>
+        <category>reading notes</category>
       </categories>
   </entry>
 </search>
