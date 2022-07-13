@@ -3,9 +3,7 @@
   <entry>
     <title>NVIDIA Jetson TX2/AGX R&amp;D Notes 【Continuous Updates】</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/2527.html">NVIDIA Jetson development kit【R&amp;D Notes for 03/2022】</a><br><a href="https://zexinli0w0.github.io/post/f426.html">NVIDIA Jetson development kit【R&amp;D Notes for 02/2022】</a><br><a href="https://zexinli0w0.github.io/post/bfdc.html">NVIDIA Jetson development kit【R&amp;D Notes for 01/2022】</a><br><a href="https://zexinli0w0.github.io/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
-<p>TODO: NVIDIA Jetson development kit【R&amp;D Notes for 04/2022】<br>Doing: tensorflow project</p>
-<h1 id="Simple-R-amp-D-Notes"><a href="#Simple-R-amp-D-Notes" class="headerlink" title="Simple R&amp;D Notes"></a>Simple R&amp;D Notes</h1><p>04/01 Change configurations of exps on AGX.</p>
+    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://zexinli0w0.github.io/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2 (very detailed)</a></p>
 ]]></content>
       <categories>
         <category>config</category>
@@ -22,12 +20,6 @@
       <categories>
         <category>reading notes</category>
       </categories>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson development kit R&amp;D Notes for 03/2022</title>
-    <url>/post/2527.html</url>
-    <content><![CDATA[<h1 id="Simple-R-amp-D-Notes"><a href="#Simple-R-amp-D-Notes" class="headerlink" title="Simple R&amp;D Notes"></a>Simple R&amp;D Notes</h1><p>03/21-03/31 Run exps on AGX with another version of Tensorflow (r2.4).<br>03/10-03/20 Run exps on AGX on another benchmark.<br>03/09 Run small exps on TX2.<br>03/08 Fix some performance &amp; configuration bugs, run small experiments on AGX.<br>03/01-03/07 Do nothing.</p>
-]]></content>
   </entry>
   <entry>
     <title>Tensorflow issues &amp; solution</title>
@@ -47,19 +39,6 @@
 <li>When using unified memory, display ‘NvMapReserveOp 0x80000001 failed [22]’: limit Tensorflow allocating memory.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">config = ConfigProto()</span><br><span class="line">config.gpu_options.per_process_gpu_memory_fraction = 0.2 # or other small values less than 1.0</span><br><span class="line">config.gpu_options.experimental.use_unified_memory= True</span><br><span class="line">with tf.compat.v1.Session(config=config) as s:</span><br><span class="line">    your_program</span><br></pre></td></tr></table></figure></li>
 <li>Performance bug: <code>W tensorflow/core/common_runtime/bfc_allocator.cc:311] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you&#39;d like to disable this feature.</code>: define enviroment variables<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27;</span><br></pre></td></tr></table></figure></li>
 </ol>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 02/2022】</title>
-    <url>/post/f426.html</url>
-    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code </a></p>
-<p><b>02/01-02/18</b> Configure Tensorflow r2.2 on NVIDIA Jetson board for Python 3.5 and 3.6.<br><b>02/19-02/24</b> Run simple test on Tensorflow.<br><b>02/25-02/28</b> Small size experiments with different settings. Fix performance bug of Tensorflow 2.x extreme slow intialization (see the refer link ‘Potential Problem’ Q10).</p>
 ]]></content>
       <categories>
         <category>config</category>
@@ -152,36 +131,6 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <li>Slow downloading:<br>Replace the networking environment that can bypass firewall (GFW) and has sufficient bandwidth.</li>
 <li>Strange issues in installing process reported by sdkmanager(e.g., dependencies error)<br>Replace the host machine with <b>clean</b>Ubuntu 18.04, most of these kinds of problems are due to system configuration conflicts, which are very difficult to locate and fix.</li>
 <li>Performance bugs (Some CPU cores on board are idle)<br>rewrite /boot/extlinux/exltinux.conf <code>isolcpus=1-2</code> to <code>isolcpus=</code> (ref to <a href="https://blog.csdn.net/JanKin_BY/article/details/120441238">Performance bug solution to TX2</a>.</li>
-</ol>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
-    <url>/post/bfdc.html</url>
-    <content><![CDATA[<p>Refer link:<br><a href="https://zexinli0w0.github.io/post/6311.html">NVIDIA Jetson install tensorflow 2.x from source code </a><br><a href="https://zexinli0w0.github.io/post/12cc.html">Flash NVIDIA Jetson TX2 (very detailed)</a><br><a href="https://www.tensorflow.org/install/source/">Official Tensorflow build guidance</a><br><a href="http://liuxiao.org/2018/12/tx2-tensorflow-1-12-%E5%9C%A8-jetson-tx2-%E4%B8%8A%E7%9A%84%E7%BC%96%E8%AF%91/">How to configure before building tensorflow</a></p>
-<p><b>01/27-01/31</b> Do nothing.<br><b>01/24-01/26</b> Build tensorflow r2.2 on AGX.<br>Don’t use cuDNN 8.x, o.w. will meet errors while executing <code>./configure</code> (cannot correctly compile even hardcode cuDNN 8.x and get following error) since cuDNN 7.x has different structure from cuDNN 8.x, and tensorflow r2.2 cannot correctly recognize cuDNN 8.x.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ERROR: An error occurred during the fetch of repository &#x27;local_config_cuda&#x27;:</span><br></pre></td></tr></table></figure>
-<p><b>01/22-01/25</b> Build tensorflow on NVIDIA Jetson TX2 from source.<br>Brief steps:</p>
-<ol>
-<li>Environemt Variables</li>
-<li>Dependencies</li>
-<li>Set the swap area memory to at least 4GB</li>
-<li><code>./configure</code></li>
-<li>switch to MAXN power mode with activating jetson_clocks</li>
-<li>building with bazel (better using backend process)</li>
-</ol>
-<p><b>01/19-01/21</b> Install conda on NVIDIA Jetson TX2<br>Brief steps:</p>
-<ol>
-<li>Download proper version of Archiconda (Archiconda3) which is conda for aarch64. (it seems that cannot install PyTorch/Tensorflow)</li>
-<li>Install</li>
-<li>Add Archiconda to environment variables (better on ~/.bashrc)</li>
-<li>Others the same as Anaconda (Anaconda3) on x86</li>
 </ol>
 ]]></content>
       <categories>

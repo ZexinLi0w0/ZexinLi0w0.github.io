@@ -6,7 +6,7 @@
   <link href="https://blog.zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zexinli.com/"/>
-  <updated>2022-04-01T19:37:27.962Z</updated>
+  <updated>2022-03-09T05:21:32.699Z</updated>
   <id>https://blog.zexinli.com/</id>
   
   <author>
@@ -17,57 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>NVIDIA Jetson development kit R&amp;D Notes for 03/2022</title>
-    <link href="https://blog.zexinli.com/post/2527.html"/>
-    <id>https://blog.zexinli.com/post/2527.html</id>
-    <published>2022-04-01T19:36:31.000Z</published>
-    <updated>2022-04-01T19:37:27.962Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Tensorflow issues &amp; solution</title>
     <link href="https://blog.zexinli.com/post/dbaf.html"/>
     <id>https://blog.zexinli.com/post/dbaf.html</id>
     <published>2022-03-09T05:11:38.000Z</published>
     <updated>2022-03-09T05:21:32.699Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
-    
-    
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 02/2022】</title>
-    <link href="https://blog.zexinli.com/post/f426.html"/>
-    <id>https://blog.zexinli.com/post/f426.html</id>
-    <published>2022-03-04T03:27:47.000Z</published>
-    <updated>2022-03-29T17:22:38.097Z</updated>
     
     
       
@@ -182,31 +136,6 @@
   </entry>
   
   <entry>
-    <title>NVIDIA Jetson development kit configuration【R&amp;D Notes for 01/2022】</title>
-    <link href="https://blog.zexinli.com/post/bfdc.html"/>
-    <id>https://blog.zexinli.com/post/bfdc.html</id>
-    <published>2022-02-11T21:09:30.000Z</published>
-    <updated>2022-02-25T20:35:53.353Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
-    
-    
-    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
-    
-  </entry>
-  
-  <entry>
     <title>NVIDIA Jetson从源码安装tensorflow 2.x</title>
     <link href="https://blog.zexinli.com/post/6311.html"/>
     <id>https://blog.zexinli.com/post/6311.html</id>
@@ -261,7 +190,7 @@
     <link href="https://blog.zexinli.com/post/226.html"/>
     <id>https://blog.zexinli.com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-04-01T19:37:49.599Z</updated>
+    <updated>2022-07-13T02:16:39.019Z</updated>
     
     
       
