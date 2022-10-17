@@ -22,6 +22,27 @@
       </categories>
   </entry>
   <entry>
+    <title>CUDA reinstallment</title>
+    <url>/post/a961.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Save your PC/server in CUDA driver crashed down.</p>
+<h1 id="Prequisite"><a href="#Prequisite" class="headerlink" title="Prequisite"></a>Prequisite</h1><ol>
+<li>Host machine: A PC/laptop/server with Intel/AMDx86 architeture and Ubuntu installed, can be connected to <b style='color:red;'>network</b>.</li>
+<li>Physical disk: &gt;10GB available.</li>
+<li>sudo</li>
+</ol>
+<h1 id="Remove-old-driver"><a href="#Remove-old-driver" class="headerlink" title="Remove old driver"></a>Remove old driver</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt purge nvidia*</span><br><span class="line">sudo apt purge cuda*</span><br><span class="line">sudo apt clean</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h1 id="Follow-instructions-in-NVIDIA-official-website"><a href="#Follow-instructions-in-NVIDIA-official-website" class="headerlink" title="Follow instructions in NVIDIA official website"></a>Follow instructions in NVIDIA official website</h1><p>For example: <a href="https://developer.nvidia.com/cuda-downloads">NVIDIA</a></p>
+<h1 id="Reboot-and-configure-environmental-variables"><a href="#Reboot-and-configure-environmental-variables" class="headerlink" title="Reboot and configure environmental variables"></a>Reboot and configure environmental variables</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo reboot</span><br><span class="line">export PATH=/usr/local/cuda/bin:$PATH</span><br><span class="line"># or write into ~/.bashrc</span><br><span class="line">nvcc --version</span><br><span class="line"># check nvcc for verfication</span><br></pre></td></tr></table></figure>
+
+<h1 id="Download-cuDNN-package-and-copy-them-into-CUDA-PATH"><a href="#Download-cuDNN-package-and-copy-them-into-CUDA-PATH" class="headerlink" title="Download cuDNN package and copy them into CUDA PATH"></a>Download cuDNN package and copy them into CUDA PATH</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget ...</span><br><span class="line">sudo dpkg -i ...</span><br><span class="line">ls | grep cudnn | xargs -I&#123;&#125; sudo cp &#123;&#125; /usr/local/cuda/include</span><br><span class="line">ls | grep cudnn | xargs -I&#123;&#125; sudo cp &#123;&#125; /usr/local/cuda/lib64</span><br></pre></td></tr></table></figure>
+
+<h1 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -r /usr/src/cudnn_samples_v8/ ~</span><br><span class="line">cd cudnn_samples_v8/</span><br><span class="line">cd mnistCUDNN/</span><br><span class="line">make</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Tensorflow issues &amp; solution</title>
     <url>/post/dbaf.html</url>
     <content><![CDATA[<h1 id="Problem-on-NVIDIA-Jetson-Development-Kit"><a href="#Problem-on-NVIDIA-Jetson-Development-Kit" class="headerlink" title="Problem on NVIDIA Jetson Development Kit"></a>Problem on NVIDIA Jetson Development Kit</h1><ol start="0">
