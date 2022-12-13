@@ -23,20 +23,18 @@
     var CONFIG = {"hostname":"blog.zexinli.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":false,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="ContentAboutDistribution-based cluster scheduling for runtime uncertainty ProblemCluster needs accurate running prediction but recent point-estimation based prediction model can lead to 8-17% error wh">
-<meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记:3Sigma">
-<meta property="og:url" content="https://blog.zexinli.com/post/25971.html">
+  <meta name="description" content="R&amp;D Notes">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zexin Li">
+<meta property="og:url" content="https://blog.zexinli.com/archives/2022/12/index.html">
 <meta property="og:site_name" content="Zexin Li">
-<meta property="og:description" content="ContentAboutDistribution-based cluster scheduling for runtime uncertainty ProblemCluster needs accurate running prediction but recent point-estimation based prediction model can lead to 8-17% error wh">
+<meta property="og:description" content="R&amp;D Notes">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-21T21:39:29.000Z">
-<meta property="article:modified_time" content="2022-02-04T05:25:00.924Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="research,NVIDIA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.zexinli.com/post/25971.html">
+<link rel="canonical" href="https://blog.zexinli.com/archives/2022/12/">
 
 
 <script id="page-configurations">
@@ -44,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>论文笔记:3Sigma | Zexin Li</title>
+  <title>Archive | Zexin Li</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-41KZDJT9R1"></script>
     <script>
@@ -211,143 +209,51 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content archive">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/25971.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="R&D Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          论文笔记:3Sigma
-        </h1>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-21 16:39:29" itemprop="dateCreated datePublished" datetime="2020-09-21T16:39:29-05:00">2020-09-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-03 23:25:00" itemprop="dateModified" datetime="2022-02-03T23:25:00-06:00">2022-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/reading-notes/" itemprop="url" rel="index"><span itemprop="name">reading notes</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        
+        <span class="collection-header">OK! 31 posts in total. Keep on posting.</span>
+      </div>
 
       
-        <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><h3 id="About"><a href="#About" class="headerlink" title="About"></a>About</h3><p>Distribution-based cluster scheduling for runtime uncertainty</p>
-<h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Cluster needs accurate running prediction but recent point-estimation based prediction model can lead to 8-17% error which may cause misleading in decision making.<br>  -&gt; recent work uses heuristics or other random methods to eliminates misleading caused by errors in time prediction (治标不治本)<br>  -&gt; Datacenter resources are increasingly heterogeneous, and some jobs behave differently (e.g., complete faster) depend ing upon which machine(s) they are assigned to.<br>  -&gt; heavy-tailed jobs, jobs with deadlines</p>
-<h3 id="Interesting"><a href="#Interesting" class="headerlink" title="Interesting"></a>Interesting</h3><ol>
-<li>集群上居然没有完善的对runtime历史数据的处理方法！</li>
-<li>“Runtime knowledge” 非常重要</li>
-</ol>
-<h3 id="New"><a href="#New" class="headerlink" title="New"></a>New</h3><ol>
-<li>Distribution-based data processing for runtime uncertainty -&gt; 不再仅仅使用点估计(history取平均值), 而是采用(a) average, (b) median, (c) rolling (exponentially weighted decay with<br>α = 0.6), (d) average of X recent job runtimes. 然后选取其中最低的normalized mean absolute error (NMAE)的方案</li>
-</ol>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ol>
-<li>针对子问题1，文中采用了distributioned-based history data processing for runtime uncertainty。在cluster环境下可能更加有效，但是其本质还是一个involve更多信息的heuristics(因为集群规模更大), 在task性质短时间内变化较大的情况下, 可能continuing learning based model表现会更好 (New中第一点也考虑了指数衰减的办法来保证数据时效性)</li>
-<li>针对子问题2，文中没有明确指出如何针对其异构性解决问题，OSDI’20在Microsoft集群上有一篇针对异构性的解决方案</li>
-<li>针对子问题3，heavy-tailed job会明显影响SLO(某种意义上影响QoS，可以说成是优化makespan), deadlines也会影响QoS(可以说是embedded environment下的time predictability)</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 3Sigma: Distribution-based cluster scheduling for runtime uncertainty, <a target="_blank" rel="noopener" href="https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf">https://www.pdl.cmu.edu/PDL-FTP/CloudComputing/eurosys18-final49.pdf</a></p>
-
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
     </div>
 
-    
-    
-    
-      
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-        
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2022-12-13T10:04:49-06:00"
+              content="2022-12-13">
+          12-13
+        </time>
+      </div>
 
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Zexin Li
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://blog.zexinli.com/post/25971.html" title="论文笔记:3Sigma">https://blog.zexinli.com/post/25971.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
-</div>
+      <div class="post-title">
+          <a class="post-title-link" href="/post/31eb.html" itemprop="url">
+            <span itemprop="name">Save your Ubuntu from black/purple screen</span>
+          </a>
+      </div>
 
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/post/38747.html" rel="prev" title="论文笔记:Medea">
-      <i class="fa fa-chevron-left"></i> 论文笔记:Medea
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/post/58289.html" rel="next" title="论文笔记:PRIMAL">
-      论文笔记:PRIMAL <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
@@ -400,7 +306,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Content"><span class="nav-number">1.</span> <span class="nav-text">Content</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#About"><span class="nav-number">1.1.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem"><span class="nav-number">1.2.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interesting"><span class="nav-number">1.3.</span> <span class="nav-text">Interesting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#New"><span class="nav-number">1.4.</span> <span class="nav-text">New</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">2.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

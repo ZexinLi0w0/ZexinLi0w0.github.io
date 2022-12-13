@@ -22,6 +22,25 @@
       </categories>
   </entry>
   <entry>
+    <title>Save your Ubuntu from black/purple screen</title>
+    <url>/post/31eb.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Save your Ubuntu PC/server from black/purple screen.</p>
+<h1 id="Checklists-Hardware-check"><a href="#Checklists-Hardware-check" class="headerlink" title="Checklists [Hardware check]"></a>Checklists [Hardware check]</h1><ol>
+<li>Restart and press [F2/F6/F8/F10], try to get into BIOS. Check CPU/Memory are in good status.</li>
+<li>Try to remove the HDMI/DP cable from GPU and connect it to the motherboard and reboot. If you could get into system without problem now, The possible reason is that the recovery mode temporarily disabled the GPU, and then a normal reboot will re-enable the GPU.</li>
+</ol>
+<h1 id="Checklists-Software-check"><a href="#Checklists-Software-check" class="headerlink" title="Checklists [Software check]"></a>Checklists [Software check]</h1><ol>
+<li>Select Boot Ubuntu in BIOS.</li>
+<li>Press [Esc] and [e] to enter grub while booting. (if you could see grub).</li>
+<li>use arrow keys to select [Advanced Mode] and press [e] to edit configuration.</li>
+<li>use the arrow keys to locate the end of the line that starts with<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;linux /boot/vmlinuz***&quot;</span><br></pre></td></tr></table></figure>
+type <code>nomodeset</code> to make that line to temporarily disable GPU driver.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;... ro quiet sqlash nomodeset ...&quot;</span><br></pre></td></tr></table></figure></li>
+<li>Fix GPU driver or something else when get into the systems, then reboot can solve the problem.</li>
+</ol>
+<h1 id="Last-Hope"><a href="#Last-Hope" class="headerlink" title="Last Hope"></a>Last Hope</h1><p>If the above methods still don’t save your Ubuntu, locating exactly what went wrong and fixing it is expected to be difficult. Probably the most efficient solution is to reinstall Ubuntu (using with caution ONLY and backing up your data).</p>
+]]></content>
+  </entry>
+  <entry>
     <title>CUDA reinstallment</title>
     <url>/post/a961.html</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Save your PC/server in CUDA driver crashed down.</p>
