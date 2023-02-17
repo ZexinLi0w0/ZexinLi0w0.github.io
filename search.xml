@@ -13,15 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Paper Notes</title>
-    <url>/post/c9b8.html</url>
-    <content><![CDATA[<p>TODO: adversarial machine learning.<br>TODO: robotics.</p>
-]]></content>
-      <categories>
-        <category>reading notes</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Jetson install GPU PyTorch</title>
     <url>/post/160b.html</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyTorch running on NVIDIA Jetson.</p>

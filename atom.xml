@@ -203,29 +203,6 @@
   </entry>
   
   <entry>
-    <title>Paper Notes</title>
-    <link href="https://blog.zexinli.com/post/c9b8.html"/>
-    <id>https://blog.zexinli.com/post/c9b8.html</id>
-    <published>2022-02-19T22:24:09.000Z</published>
-    <updated>2022-11-16T19:53:45.357Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>NVIDIA Jetson从源码安装tensorflow 2.x</title>
     <link href="https://blog.zexinli.com/post/6311.html"/>
     <id>https://blog.zexinli.com/post/6311.html</id>
