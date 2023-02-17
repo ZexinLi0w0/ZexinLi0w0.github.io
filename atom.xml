@@ -46,49 +46,7 @@
     <link href="https://blog.zexinli.com/post/2ef9.html"/>
     <id>https://blog.zexinli.com/post/2ef9.html</id>
     <published>2022-12-15T00:57:53.000Z</published>
-    <updated>2022-12-15T03:03:28.447Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Save your Ubuntu from black/purple screen</title>
-    <link href="https://blog.zexinli.com/post/31eb.html"/>
-    <id>https://blog.zexinli.com/post/31eb.html</id>
-    <published>2022-12-13T16:04:49.000Z</published>
-    <updated>2022-12-14T03:55:03.713Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CUDA reinstallment</title>
-    <link href="https://blog.zexinli.com/post/a961.html"/>
-    <id>https://blog.zexinli.com/post/a961.html</id>
-    <published>2022-10-17T13:50:20.000Z</published>
-    <updated>2022-11-16T19:50:33.863Z</updated>
+    <updated>2023-02-17T00:51:11.798Z</updated>
     
     
       
@@ -103,6 +61,58 @@
     
     <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
     
+    
+    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Save your Ubuntu from black/purple screen</title>
+    <link href="https://blog.zexinli.com/post/31eb.html"/>
+    <id>https://blog.zexinli.com/post/31eb.html</id>
+    <published>2022-12-13T16:04:49.000Z</published>
+    <updated>2023-02-17T00:55:17.299Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.zexinli.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CUDA reinstallment</title>
+    <link href="https://blog.zexinli.com/post/a961.html"/>
+    <id>https://blog.zexinli.com/post/a961.html</id>
+    <published>2022-10-17T13:50:20.000Z</published>
+    <updated>2023-02-17T00:52:39.282Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.zexinli.com/tags/Linux/"/>
     
   </entry>
   
@@ -161,7 +171,7 @@
     <link href="https://blog.zexinli.com/post/1564.html"/>
     <id>https://blog.zexinli.com/post/1564.html</id>
     <published>2022-02-27T04:30:34.000Z</published>
-    <updated>2022-07-17T05:02:01.633Z</updated>
+    <updated>2023-02-17T00:54:50.897Z</updated>
     
     
       
@@ -174,6 +184,12 @@
     
     
     
+    <category term="coding" scheme="https://blog.zexinli.com/categories/coding/"/>
+    
+    
+    <category term="c++" scheme="https://blog.zexinli.com/tags/c/"/>
+    
+    <category term="python" scheme="https://blog.zexinli.com/tags/python/"/>
     
   </entry>
   
@@ -282,7 +298,7 @@
     <link href="https://blog.zexinli.com/post/17147.html"/>
     <id>https://blog.zexinli.com/post/17147.html</id>
     <published>2020-09-28T21:13:40.000Z</published>
-    <updated>2022-02-04T05:25:11.037Z</updated>
+    <updated>2023-02-17T00:56:34.289Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;h3 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h3&gt;&lt;p&gt;GPU Scheduling and resource reservation for Real-Time Multi-Tasking Environments&lt;/p&gt;</summary>
@@ -292,6 +308,8 @@
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
     
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
+    
   </entry>
   
   <entry>
@@ -299,7 +317,7 @@
     <link href="https://blog.zexinli.com/post/18725.html"/>
     <id>https://blog.zexinli.com/post/18725.html</id>
     <published>2020-09-28T21:13:22.000Z</published>
-    <updated>2022-02-04T05:25:19.965Z</updated>
+    <updated>2023-02-17T00:56:34.294Z</updated>
     
     
       
@@ -314,6 +332,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
     <category term="survey" scheme="https://blog.zexinli.com/tags/survey/"/>
     
@@ -324,7 +344,7 @@
     <link href="https://blog.zexinli.com/post/58289.html"/>
     <id>https://blog.zexinli.com/post/58289.html</id>
     <published>2020-09-21T21:39:41.000Z</published>
-    <updated>2022-02-04T05:25:24.531Z</updated>
+    <updated>2023-02-17T00:56:34.299Z</updated>
     
     
       
@@ -339,6 +359,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -347,7 +369,7 @@
     <link href="https://blog.zexinli.com/post/25971.html"/>
     <id>https://blog.zexinli.com/post/25971.html</id>
     <published>2020-09-21T21:39:29.000Z</published>
-    <updated>2022-02-04T05:25:00.924Z</updated>
+    <updated>2023-02-17T00:56:34.296Z</updated>
     
     
       
@@ -362,6 +384,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -370,7 +394,7 @@
     <link href="https://blog.zexinli.com/post/38747.html"/>
     <id>https://blog.zexinli.com/post/38747.html</id>
     <published>2020-09-15T17:46:29.000Z</published>
-    <updated>2022-02-04T05:25:46.754Z</updated>
+    <updated>2023-02-17T00:56:34.285Z</updated>
     
     
       
@@ -385,6 +409,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -393,7 +419,7 @@
     <link href="https://blog.zexinli.com/post/32931.html"/>
     <id>https://blog.zexinli.com/post/32931.html</id>
     <published>2020-09-14T21:07:30.000Z</published>
-    <updated>2022-02-04T05:25:33.362Z</updated>
+    <updated>2023-02-17T00:56:34.290Z</updated>
     
     
       
@@ -408,6 +434,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -416,7 +444,7 @@
     <link href="https://blog.zexinli.com/post/15125.html"/>
     <id>https://blog.zexinli.com/post/15125.html</id>
     <published>2020-09-08T20:53:19.000Z</published>
-    <updated>2022-02-04T05:25:54.205Z</updated>
+    <updated>2023-02-17T00:56:34.291Z</updated>
     
     
       
@@ -431,6 +459,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -439,7 +469,7 @@
     <link href="https://blog.zexinli.com/post/27403.html"/>
     <id>https://blog.zexinli.com/post/27403.html</id>
     <published>2020-09-08T20:52:59.000Z</published>
-    <updated>2022-02-04T05:25:43.038Z</updated>
+    <updated>2023-02-17T00:56:34.298Z</updated>
     
     
       
@@ -454,6 +484,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -462,7 +494,7 @@
     <link href="https://blog.zexinli.com/post/7870.html"/>
     <id>https://blog.zexinli.com/post/7870.html</id>
     <published>2020-09-08T20:52:22.000Z</published>
-    <updated>2022-02-04T05:25:58.034Z</updated>
+    <updated>2023-02-17T00:56:34.287Z</updated>
     
     
       
@@ -477,6 +509,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -485,7 +519,7 @@
     <link href="https://blog.zexinli.com/post/45382.html"/>
     <id>https://blog.zexinli.com/post/45382.html</id>
     <published>2020-08-26T22:27:29.000Z</published>
-    <updated>2022-02-04T05:25:07.399Z</updated>
+    <updated>2023-02-17T00:56:34.302Z</updated>
     
     
       
@@ -500,6 +534,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -508,7 +544,7 @@
     <link href="https://blog.zexinli.com/post/12763.html"/>
     <id>https://blog.zexinli.com/post/12763.html</id>
     <published>2020-08-26T22:27:03.000Z</published>
-    <updated>2022-02-04T05:25:50.955Z</updated>
+    <updated>2023-02-17T00:56:34.293Z</updated>
     
     
       
@@ -523,6 +559,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -556,7 +594,7 @@
     <link href="https://blog.zexinli.com/post/10193.html"/>
     <id>https://blog.zexinli.com/post/10193.html</id>
     <published>2020-08-18T20:25:06.000Z</published>
-    <updated>2022-02-04T05:25:37.492Z</updated>
+    <updated>2023-02-17T00:56:34.282Z</updated>
     
     
       
@@ -571,6 +609,8 @@
     
     <category term="reading notes" scheme="https://blog.zexinli.com/categories/reading-notes/"/>
     
+    
+    <category term="OS" scheme="https://blog.zexinli.com/tags/OS/"/>
     
   </entry>
   
@@ -748,7 +788,7 @@
     <link href="https://blog.zexinli.com/post/16107.html"/>
     <id>https://blog.zexinli.com/post/16107.html</id>
     <published>2020-07-10T15:51:39.000Z</published>
-    <updated>2022-02-04T05:22:57.949Z</updated>
+    <updated>2023-02-17T00:53:24.310Z</updated>
     
     
       
@@ -763,6 +803,8 @@
     
     <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
     
+    
+    <category term="Hexo" scheme="https://blog.zexinli.com/tags/Hexo/"/>
     
   </entry>
   
