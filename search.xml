@@ -710,7 +710,7 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
 
 <p>具体的nerworkx用法参见<a href="https://www.cnblogs.com/ljhdo/p/10662902.html">已有博客</a> [3]或者<a href="https://networkx.github.io/documentation/stable/tutorial.html">networkx官方文档</a> [4]，此处不再赘述。</p>
 <p>值得一提的是，虽然python编码相对方便，但是画图的速度远不及基于JavaScript的各种框架。<code>nx.draw(G,with_labels=True)</code>这一行的执行速度非常慢，即使图中只有不超过10个节点也花了近半分钟进行生成。如果需要实时性高的生成，建议使用前文中的[1][2]或类似框架。</p>
-<p><img src="/image/networkx.png" alt="效果图"></p>
+<p><img data-src="/image/networkx.png" alt="效果图"></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 利用echarts实现有向图可视化,<br><a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/</a><br>[2] AntV, <a href="https://antv.vision/en">https://antv.vision/en</a><br>[3] networkx, <a href="https://www.cnblogs.com/ljhdo/p/10662902.html">https://www.cnblogs.com/ljhdo/p/10662902.html</a><br>[4] networkx tutorial,<br><a href="https://networkx.github.io/documentation/stable/tutorial.html">https://networkx.github.io/documentation/stable/tutorial.html</a></p>
 ]]></content>
       <categories>
