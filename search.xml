@@ -87,6 +87,7 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
 
 <h1 id="Download-cuDNN-package-and-copy-them-into-CUDA-PATH"><a href="#Download-cuDNN-package-and-copy-them-into-CUDA-PATH" class="headerlink" title="Download cuDNN package and copy them into CUDA PATH"></a>Download cuDNN package and copy them into CUDA PATH</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget ...</span><br><span class="line">sudo dpkg -i ...</span><br><span class="line">ls | grep cudnn | xargs -I&#123;&#125; sudo cp &#123;&#125; /usr/local/cuda/include</span><br><span class="line">ls | grep cudnn | xargs -I&#123;&#125; sudo cp &#123;&#125; /usr/local/cuda/lib64</span><br></pre></td></tr></table></figure>
 
+<p>Or goes to NVIDIA Official Site to download: <a href="https://developer.nvidia.com/cudnn">https://developer.nvidia.com/cudnn</a></p>
 <h1 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libfreeimage3 libfreeimage-dev # install dependencies</span><br><span class="line">cp -r /usr/src/cudnn_samples_v8/ ~</span><br><span class="line">cd cudnn_samples_v8/</span><br><span class="line">cd mnistCUDNN/</span><br><span class="line">make</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>config</category>

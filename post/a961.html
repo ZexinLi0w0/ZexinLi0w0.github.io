@@ -31,7 +31,7 @@
 <meta property="og:description" content="SynopsisSave your PC&#x2F;server in CUDA driver crashed down. Prequisite Host machine: A PC&#x2F;laptop&#x2F;server with Intel&#x2F;AMDx86 architeture and Ubuntu installed, can be connected to network. Physical disk: &amp;gt">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-17T13:50:20.000Z">
-<meta property="article:modified_time" content="2023-02-17T00:52:39.282Z">
+<meta property="article:modified_time" content="2023-04-06T01:03:20.954Z">
 <meta property="article:author" content="Zexin Li">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -249,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-02-16 18:52:39" itemprop="dateModified" datetime="2023-02-16T18:52:39-06:00">2023-02-16</time>
+                <time title="Modified: 2023-04-05 20:03:20" itemprop="dateModified" datetime="2023-04-05T20:03:20-05:00">2023-04-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,14 +267,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>870</span>
+              <span>941</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -299,6 +299,7 @@
 
 <h1 id="Download-cuDNN-package-and-copy-them-into-CUDA-PATH"><a href="#Download-cuDNN-package-and-copy-them-into-CUDA-PATH" class="headerlink" title="Download cuDNN package and copy them into CUDA PATH"></a>Download cuDNN package and copy them into CUDA PATH</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget ...</span><br><span class="line">sudo dpkg -i ...</span><br><span class="line">ls | grep cudnn | xargs -I&#123;&#125; sudo cp &#123;&#125; /usr/local/cuda/include</span><br><span class="line">ls | grep cudnn | xargs -I&#123;&#125; sudo cp &#123;&#125; /usr/local/cuda/lib64</span><br></pre></td></tr></table></figure>
 
+<p>Or goes to NVIDIA Official Site to download: <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn">https://developer.nvidia.com/cudnn</a></p>
 <h1 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libfreeimage3 libfreeimage-dev # install dependencies</span><br><span class="line">cp -r /usr/src/cudnn_samples_v8/ ~</span><br><span class="line">cd cudnn_samples_v8/</span><br><span class="line">cd mnistCUDNN/</span><br><span class="line">make</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -506,13 +507,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">67k</span>
+    <span title="Symbols count total">68k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:52</span>
+    <span title="Reading time total">1:53</span>
 
 </div>
         
