@@ -42,11 +42,11 @@
   </entry>
   
   <entry>
-    <title>Configure a same virtual environment on server as Jetson Pack (py36+torch1.8.0)</title>
+    <title>Configure a same virtual environment on server as Jetson</title>
     <link href="https://blog.zexinli.com/post/2ef9.html"/>
     <id>https://blog.zexinli.com/post/2ef9.html</id>
     <published>2022-12-15T00:57:53.000Z</published>
-    <updated>2023-02-17T00:51:11.798Z</updated>
+    <updated>2023-04-14T06:15:41.332Z</updated>
     
     
       
@@ -194,11 +194,11 @@
   </entry>
   
   <entry>
-    <title>Flash NVIDIA Jetson TX2 (very detailed)</title>
+    <title>Flash NVIDIA Jetson TX2</title>
     <link href="https://blog.zexinli.com/post/cc0b.html"/>
     <id>https://blog.zexinli.com/post/cc0b.html</id>
     <published>2022-02-26T19:08:17.000Z</published>
-    <updated>2022-02-28T21:20:06.817Z</updated>
+    <updated>2023-04-14T06:13:09.778Z</updated>
     
     
       
@@ -248,7 +248,7 @@
     <link href="https://blog.zexinli.com/post/12cc.html"/>
     <id>https://blog.zexinli.com/post/12cc.html</id>
     <published>2022-02-03T00:36:49.000Z</published>
-    <updated>2022-02-26T19:47:01.079Z</updated>
+    <updated>2023-04-14T06:11:53.228Z</updated>
     
     
       
@@ -269,11 +269,11 @@
   </entry>
   
   <entry>
-    <title>NVIDIA Jetson TX2/AGX R&amp;D Notes</title>
+    <title>NVIDIA Jetson R&amp;D Notes</title>
     <link href="https://blog.zexinli.com/post/226.html"/>
     <id>https://blog.zexinli.com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2022-11-16T19:53:35.125Z</updated>
+    <updated>2023-04-14T06:13:23.429Z</updated>
     
     
       
