@@ -6,7 +6,7 @@
   <link href="https://blog.zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zexinli.com/"/>
-  <updated>2023-04-10T00:04:07.576Z</updated>
+  <updated>2023-04-14T06:24:04.627Z</updated>
   <id>https://blog.zexinli.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jetson install GPU TensorFlow</title>
+    <link href="https://blog.zexinli.com/post/70a3.html"/>
+    <id>https://blog.zexinli.com/post/70a3.html</id>
+    <published>2023-04-14T04:20:23.000Z</published>
+    <updated>2023-04-14T06:24:04.627Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
   
   <entry>
     <title>Jetson install GPU PyTorch</title>
