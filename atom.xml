@@ -6,7 +6,7 @@
   <link href="https://blog.zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zexinli.com/"/>
-  <updated>2023-04-14T06:24:04.627Z</updated>
+  <updated>2023-06-20T05:21:33.470Z</updated>
   <id>https://blog.zexinli.com/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jetson Change Swap Memory</title>
+    <link href="https://blog.zexinli.com/post/a8e8.html"/>
+    <id>https://blog.zexinli.com/post/a8e8.html</id>
+    <published>2023-06-20T03:20:38.000Z</published>
+    <updated>2023-06-20T05:21:33.470Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jetson Set HuggingFace Cache</title>
+    <link href="https://blog.zexinli.com/post/e092.html"/>
+    <id>https://blog.zexinli.com/post/e092.html</id>
+    <published>2023-06-20T03:20:04.000Z</published>
+    <updated>2023-06-20T05:21:38.989Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jetson Mount NVME</title>
+    <link href="https://blog.zexinli.com/post/4817.html"/>
+    <id>https://blog.zexinli.com/post/4817.html</id>
+    <published>2023-06-20T03:19:53.000Z</published>
+    <updated>2023-06-20T05:21:37.270Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="config" scheme="https://blog.zexinli.com/categories/config/"/>
+    
+    
+    <category term="NVIDIA Jetson" scheme="https://blog.zexinli.com/tags/NVIDIA-Jetson/"/>
+    
+  </entry>
   
   <entry>
     <title>Jetson install GPU TensorFlow</title>
@@ -298,7 +373,7 @@
     <link href="https://blog.zexinli.com/post/226.html"/>
     <id>https://blog.zexinli.com/post/226.html</id>
     <published>2022-01-19T21:46:53.000Z</published>
-    <updated>2023-04-17T18:08:26.957Z</updated>
+    <updated>2023-06-20T05:23:42.035Z</updated>
     
     
       

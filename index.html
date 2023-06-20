@@ -251,7 +251,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-17 13:08:26" itemprop="dateModified" datetime="2023-04-17T13:08:26-05:00">2023-04-17</time>
+                <time title="Modified: 2023-06-20 00:23:42" itemprop="dateModified" datetime="2023-06-20T00:23:42-05:00">2023-06-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>324</span>
+              <span>390</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -288,7 +288,280 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a target="_blank" rel="noopener" href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
+          <h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a target="_blank" rel="noopener" href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/a8e8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/a8e8.html" class="post-title-link" itemprop="url">Jetson Change Swap Memory</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-19 22:20:38" itemprop="dateCreated datePublished" datetime="2023-06-19T22:20:38-05:00">2023-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-06-20 00:21:33" itemprop="dateModified" datetime="2023-06-20T00:21:33-05:00">2023-06-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>9</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>TODO soon.</p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/e092.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/e092.html" class="post-title-link" itemprop="url">Jetson Set HuggingFace Cache</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-19 22:20:04" itemprop="dateCreated datePublished" datetime="2023-06-19T22:20:04-05:00">2023-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-06-20 00:21:38" itemprop="dateModified" datetime="2023-06-20T00:21:38-05:00">2023-06-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>9</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>TODO soon.</p>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/4817.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/4817.html" class="post-title-link" itemprop="url">Jetson Mount NVME</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-19 22:19:53" itemprop="dateCreated datePublished" datetime="2023-06-19T22:19:53-05:00">2023-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-06-20 00:21:37" itemprop="dateModified" datetime="2023-06-20T00:21:37-05:00">2023-06-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>9</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>TODO soon.</p>
 
       
     </div>
@@ -907,343 +1180,6 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/ec04.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="R&D Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/ec04.html" class="post-title-link" itemprop="url">NVIDIA Jetson install tensorflow 2.x from source code</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-02-28 15:17:22" itemprop="dateCreated datePublished" datetime="2022-02-28T15:17:22-06:00">2022-02-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-25 22:07:53" itemprop="dateModified" datetime="2022-03-25T22:07:53-05:00">2022-03-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>10 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Q: Who needs install tensorflow from source code?<br>A: 1. tensorflow developer (or anyone want to improve it); 2. developers who need a specific version of tensorflow but don’t have the resources to download itds. <b style="color: red">Note: only using tensorflow API are not required to building from source, suggested to use <b>NVIDIA offcial tensorflow image</b>, or download <b>built .whl file</b> and install from pip.</b></p>
-<h1 id="Install-Tensorflow-1-x-from-Source-Code"><a href="#Install-Tensorflow-1-x-from-Source-Code" class="headerlink" title="Install Tensorflow 1.x from Source Code"></a>Install Tensorflow 1.x from Source Code</h1><p>Jetsonhacks offers <a target="_blank" rel="noopener" href="https://github.com/jetsonhacks/installTensorFlowTX2">github installation guidance<a>。</p>
-<h1 id="Install-Tensorflow-2-x-from-Source-Code"><a href="#Install-Tensorflow-2-x-from-Source-Code" class="headerlink" title="Install Tensorflow 2.x from Source Code"></a>Install Tensorflow 2.x from Source Code</h1><p>Currently nearly no concrete instructions for building Tensorflow 2.x from source. If have any problem, please see the below section: [Potential Problem].</p>
-<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol start="0">
-<li>Read official guidance to check the target version.<a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/source/">tensorflow official guidance</a> <a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA building tensorflow official guidance</a><br><b style="color: red">Currently can build/run: </li>
-<li>Jetpack 3.3 (python 3.5/3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
-<li>Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
-<li>(recommended)Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 8.2 + tensorflow r2.4。</b></li>
-<li>Flash the board correctly (begin from clean os): Use NVIDIA offcial SDKmanager to install Jetpack【<a target="_blank" rel="noopener" href="https://zexinli0w0.github.io/post/12cc.html">How to flash Jetson board</a>】. For instance, TX2 supports Jetpack version 4.6, 4.5.1, 4.5, 3.3. Note: 4.5+version may result in CUDA/CUDNN imcompatible.</li>
-<li>Install python dependencies<br>For jetpack 4.5+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.18.5 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==2.10.0</span><br></pre></td></tr></table></figure>
-For jetpack 3.3<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # pip3 has abandoned python 3.5 support, cannot use apt to install python3.5 pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure>
-Note: python dependenceis may conflict and result in <code>import core dumped</code>. Best check by a reactive python3 by importing these dependencies. One common feasible solution is to downgrade numpy to 1.18.5.</li>
-<li>Install JDK dependencies<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ref to &lt;a href=&quot;https://docs.bazel.build/versions/main/install-ubuntu.html&quot;&gt;link&lt;/a&gt;</span><br><span class="line"># For jetpack 4.5+ Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br><span class="line"># For jetpack 3.3 Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li>
-<li>Install bazel<br>Build bazel，the version refers to .bazelversion on <code>/tensorflow</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir bazel-$BAZEL_VERSION</span><br><span class="line">cd bazel-$BAZEL_VERSION</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">unzip bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">rm bazel-bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel version</span><br></pre></td></tr></table></figure></li>
-<li>Enable swap for board with less than 16GB memory<br>o.w., may result in <b>OOM error</b> -&gt; Error: c++ compiling error *** Killed<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s</span><br></pre></td></tr></table></figure>
-Or directly use the script offered by jetsonhack<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Compilation-Installation-Testing"><a href="#Compilation-Installation-Testing" class="headerlink" title="Compilation/Installation/Testing"></a>Compilation/Installation/Testing</h2><ol>
-<li>Get source code<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.2 # 对于jetpack 3.3</span><br></pre></td></tr></table></figure></li>
-<li>Configuration/Compilation<br>Note: very time consuming, best with an disconnection prevention session (e.g. tmux)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Configure correct path of python interpreter，enable CUDA</span><br><span class="line">./configure</span><br><span class="line"># Set output_base path (default is ~/.cache/), o.w. cross-disk will cause compilation to be much slower than without cross-disk</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=noaws --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure></li>
-<li>Install tensorflow .whl<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure></li>
-<li>Testing<br>Smoking Test<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow</span><br><span class="line">&gt;&gt; exit()</span><br></pre></td></tr></table></figure>
-GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Refer to two files under https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Potential-Problem"><a href="#Potential-Problem" class="headerlink" title="Potential Problem"></a>Potential Problem</h1><ol>
-<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
-<li>local_cuda_not_found: switch to verified known version in the above.</li>
-<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
-<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
-<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
-<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
-<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
-<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
-<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
-<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
-<li>import numpy/tensorflow core dumped: Downgrade numpy&lt;=1.18.5</li>
-<li>h5py installing stucks and cannot be successfully compiled, error ‘Cython is not installed’ with Cython installed: Downgrade numpy&lt;=1.18.5</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/1564.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="R&D Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/1564.html" class="post-title-link" itemprop="url">Leetcode Contest</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-02-26 22:30:34" itemprop="dateCreated datePublished" datetime="2022-02-26T22:30:34-06:00">2022-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-02-16 18:54:50" itemprop="dateModified" datetime="2023-02-16T18:54:50-06:00">2023-02-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>965</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Weekly-Contest-301"><a href="#Weekly-Contest-301" class="headerlink" title="Weekly Contest 301"></a>Weekly Contest 301</h1><p>Congratulations to 4A!<br>2909 / 24327 = 11.96%<br>Finish Time: 1:03:06<br>Q1: 0:03:38 -&gt; easy loop<br>Q2: 0:15:22 -&gt; greedy and map<br>Q3: 0:57:14 -&gt; greedy and map (use python) (take too much time)<br>Q4: 1:03:06 -&gt; very straightforward math</p>
-<h1 id="Weekly-Contest-301-1"><a href="#Weekly-Contest-301-1" class="headerlink" title="Weekly Contest 301"></a>Weekly Contest 301</h1><p>5742 / 23561 = 24.37%<br>Finish Time: 1:26:18<br>Q1: 0:10:42 -&gt; easy greedy (take too much time)<br>Q2: 0:27:39 -&gt; priority queue (take too much time)<br>Q3: 1:16:18 (2 erros) -&gt; crash car problem<br>Q4: N/A -&gt; dynamic programming</p>
-<h1 id="Weekly-Contest-286"><a href="#Weekly-Contest-286" class="headerlink" title="Weekly Contest 286"></a>Weekly Contest 286</h1><p>2766 / 21339 = 12.96%<br>Finish Time: 1:10:21<br>Q1: 0:06:04 -&gt; easy loop (take too much time)<br>Q2: 0:12:41 -&gt; greedy<br>Q3: 1:10:21 -&gt; modified binary search (slow implementation)<br>Q4: N/A -&gt; dynamic programming</p>
-<h1 id="Weekly-Contest-283"><a href="#Weekly-Contest-283" class="headerlink" title="Weekly Contest 283"></a>Weekly Contest 283</h1><p>5044 / 19916 = 25.33%<br>Finish Time: 1:09:06<br>Q1: 0:10:51 -&gt; easy loop (1 bug)<br>Q2: 0:17:31 -&gt; easy loop + map<br>Q3: 0:44:06 -&gt; binary search (4 bugs) (long long error)<br>Q4L N/A -&gt; Trie tree or easy math</p>
-<h1 id="Weekly-Contest-282"><a href="#Weekly-Contest-282" class="headerlink" title="Weekly Contest 282"></a>Weekly Contest 282</h1><p>3828 / 15143 = 25.28%<br>Finish Time: 1:35:40<br>Q1: 0:02:36 -&gt; easy loop<br>Q2: 0:05:17 -&gt; map<br>Q3: 1:10:40 (5 errors) -&gt; modified binary search<br>Q4: N/A -&gt; dynamic programming</p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/cc0b.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="R&D Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/cc0b.html" class="post-title-link" itemprop="url">Flash NVIDIA Jetson TX2</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-02-26 13:08:17" itemprop="dateCreated datePublished" datetime="2022-02-26T13:08:17-06:00">2022-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-14 01:13:09" itemprop="dateModified" datetime="2023-04-14T01:13:09-05:00">2023-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>NVIDIA Jetson Development Toolkit is based on arm64 architecure. Correpsondingly, many system libraries/deep learning libraries cannot be found&amp;intalled easily (compared to x86 platform). To solve such dependencies problem once and for all, NVIDIA offers official flashing tool (Jetpack). This article focuses on the technical details of <b>Jetpack 4.6 flashing</b>.</p>
-<p>JetsonHacks offers official flashing turorial videos corresponding to different versions (<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2 installation</a> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0 installation</a>) which may have some differences but similar to Jetpack 4.6. For older version (e.g., Jetpack 3.0), please ref to <a target="_blank" rel="noopener" href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 Flashing Tutorial</a>。</p>
-<h1 id="Prequisite"><a href="#Prequisite" class="headerlink" title="Prequisite"></a>Prequisite</h1><ol>
-<li>Host machine: An PC/laptop with Intel/AMDx86 architeture and Ubuntu 18.04 installed, can be connected to <b style='color:red;'>network</b>.</li>
-<li>Physical disk: &gt;40GB available.</li>
-<li>Installing Jetpack package: apply for NVIDIA developer account, then download Jetpack (newest version 4.6 is recommend) aat <a target="_blank" rel="noopener" href="https://developer.nvidia.com/embedded/jetpack">NVIDIA</a> based on board hardware model.</li>
-<li>A Mirco-USB data cable, an HDMI cable, one screen, mouse and keyboard.</li>
-</ol>
-<h1 id="Installing-Jetpack"><a href="#Installing-Jetpack" class="headerlink" title="Installing Jetpack"></a>Installing Jetpack</h1><ol>
-<li>Disconnect the development board, disconnect the development board network cable, and connect the development board and host computer with the data cable. Double-click to run the Jetpack 4.6 installer (or command line install), then type in command: <code>sdkmanager</code> (make sure don’t use root here). After login NVIDIA developer account, tick host and target, select device hardware manually.</li>
-<li>Create 2 new folders to store libraries files and targets image files.</li>
-<li>Begin downloading and wait patiently to install OS (<b style='color:red;'>[Note]The development board is still powered off at this time</b>)</li>
-<li>Sdkmanger will notify whether (auto flash)/(manual flash). Select (manual flash) and switch the board to <b>Recovery Mode</b>, for instance (Jetson TX2):<br>(a) Ensure that the development board is initially in a power-off state and that the Micro USB cable is properly connected<br>(b) Power on the development board, press power to boot, then quickly press and hold the recovery key without releasing, press the reset key, and release the recovery key after 2 seconds<br>(c) At this point there should be 2 green lights on</li>
-<li>To verify that you are in the forced recovery state, type in the host command: <code>lsusb</code>. If <code>Nvidia Corp</code> is in device list then success, o.w. back to do step (4) again.</li>
-<li>Connect the HDMI cable + screen to the development board. Then click <code>flash</code> on sdkmanager.</li>
-<li>Wait patiently for the development board to initialize the ubuntu system (configure the account password). Sdkmanager will ask to choose the connection method + enter your account password. In this case, choose to use the <code>USB connection</code> with <code>default ip address</code>, and enter the account/password of the ubuntu system of the development board.</li>
-<li>Wait patiently for long time until all libraries installed. Click <code>exit</code> to quit sdkmanager.</li>
-</ol>
-<h1 id="Further-Configuration"><a href="#Further-Configuration" class="headerlink" title="Further Configuration"></a>Further Configuration</h1><p>Connect the development board and check IP address with <code>ifconfig | grep eth0 -a1</code>. Then it can be accessed by ssh and configure as normal Ubuntu.</p>
-<h1 id="Potential-Problems-and-Solutions"><a href="#Potential-Problems-and-Solutions" class="headerlink" title="Potential Problems and Solutions"></a>Potential Problems and Solutions</h1><ol>
-<li>Slow downloading:<br>Replace the networking environment that can bypass firewall (GFW) and has sufficient bandwidth.</li>
-<li>Strange issues in installing process reported by sdkmanager(e.g., dependencies error)<br>Replace the host machine with <b>clean</b>Ubuntu 18.04, most of these kinds of problems are due to system configuration conflicts, which are very difficult to locate and fix.</li>
-<li>Performance bugs (Some CPU cores on board are idle)<br>rewrite /boot/extlinux/exltinux.conf <code>isolcpus=1-2</code> to <code>isolcpus=</code> (ref to <a target="_blank" rel="noopener" href="https://blog.csdn.net/JanKin_BY/article/details/120441238">Performance bug solution to TX2</a>.</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1315,7 +1251,7 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="gutter"><pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
