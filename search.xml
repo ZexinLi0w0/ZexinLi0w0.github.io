@@ -13,6 +13,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Download ImageNet1k from HuggingFace</title>
+    <url>/post/175f.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs access ImageNet-1k from HuggingFace Hub.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Enough disk (&gt;150GB)</li>
+<li>Anaconda pip</li>
+<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install datasets</span><br><span class="line"><span class="meta"># </span><span class="language-bash">use a linux <span class="built_in">command</span> screen to prevent session crashed</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">refer to https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/</span></span><br><span class="line">screen -S download</span><br><span class="line"><span class="meta"># </span><span class="language-bash">get a token from https://huggingface.co/settings/tokens</span></span><br><span class="line">huggingface-cli login</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Download-ImageNet-1k-with-Token-Assess"><a href="#Download-ImageNet-1k-with-Token-Assess" class="headerlink" title="Download ImageNet-1k with Token Assess"></a>Download ImageNet-1k with Token Assess</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># refer to https://huggingface.co/datasets/imagenet-1k</span></span><br><span class="line"><span class="comment"># refer to https://discuss.huggingface.co/t/imagenet-1k-is-not-available-in-huggingface-dataset-hub/25040</span></span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> load_dataset</span><br><span class="line">dset = load_dataset(<span class="string">&#x27;imagenet-1k&#x27;</span>, split=<span class="string">&#x27;train&#x27;</span>, use_auth_token=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Jetson Change Swap Memory</title>
     <url>/post/a8e8.html</url>
     <content><![CDATA[<h1 id="Jtop"><a href="#Jtop" class="headerlink" title="Jtop"></a>Jtop</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
@@ -242,8 +259,8 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
         <category>coding</category>
       </categories>
       <tags>
-        <tag>c++</tag>
         <tag>python</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>

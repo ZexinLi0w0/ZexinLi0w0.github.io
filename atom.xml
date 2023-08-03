@@ -6,7 +6,7 @@
   <link href="https://blog.zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zexinli.com/"/>
-  <updated>2023-08-03T18:19:57.534Z</updated>
+  <updated>2023-08-03T18:30:08.554Z</updated>
   <id>https://blog.zexinli.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Download ImageNet1k from HuggingFace</title>
+    <link href="https://blog.zexinli.com/post/175f.html"/>
+    <id>https://blog.zexinli.com/post/175f.html</id>
+    <published>2023-08-03T18:21:07.682Z</published>
+    <updated>2023-08-03T18:30:08.554Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="coding" scheme="https://blog.zexinli.com/categories/coding/"/>
+    
+    
+    <category term="python" scheme="https://blog.zexinli.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>Jetson Change Swap Memory</title>
@@ -287,9 +312,9 @@
     <category term="coding" scheme="https://blog.zexinli.com/categories/coding/"/>
     
     
-    <category term="c++" scheme="https://blog.zexinli.com/tags/c/"/>
-    
     <category term="python" scheme="https://blog.zexinli.com/tags/python/"/>
+    
+    <category term="c++" scheme="https://blog.zexinli.com/tags/c/"/>
     
   </entry>
   

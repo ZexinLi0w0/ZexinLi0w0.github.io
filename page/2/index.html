@@ -215,6 +215,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/dbaf.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/dbaf.html" class="post-title-link" itemprop="url">Tensorflow issues & solution</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-08 23:11:38 / Modified: 23:21:32" itemprop="dateCreated datePublished" datetime="2022-03-08T23:11:38-06:00">2022-03-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Problem-on-NVIDIA-Jetson-Development-Kit"><a href="#Problem-on-NVIDIA-Jetson-Development-Kit" class="headerlink" title="Problem on NVIDIA Jetson Development Kit"></a>Problem on NVIDIA Jetson Development Kit</h1><ol start="0">
+<li>Refer enviroment variables:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#x27;TF_CPP_MIN_VLOG_LEVEL&#x27;] = &#x27;1&#x27; # Low level of Tensorflow, if need locating bugs, raise it up to 10.</span><br><span class="line">os.environ[&#x27;CUDA_CACHE_MAXSIZE&#x27;] = &quot;2147483648&quot; # Enable CUDA_CACHE to avoid multiple long-last JIT compiling.</span><br><span class="line">os.environ[&#x27;TF_FORCE_GPU_ALLOW_GROWTH&#x27;] = &#x27;true&#x27; # Avoid allocating all memory rapidly in one process.</span><br><span class="line">os.environ[&#x27;TF_FORCE_UNIFIED_MEMORY&#x27;] = &#x27;1&#x27; # Use unified memory to reduce data transfer time.</span><br><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27; # Boost performance by disable GPU_GARBAGE_COLLCETION, enable only when meeting OOM.</span><br></pre></td></tr></table></figure></li>
+<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
+<li>local_cuda_not_found: switch to verified known version in the above.</li>
+<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
+<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
+<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
+<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
+<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
+<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
+<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
+<li>When using unified memory, display ‘NvMapReserveOp 0x80000001 failed [22]’: limit Tensorflow allocating memory.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">config = ConfigProto()</span><br><span class="line">config.gpu_options.per_process_gpu_memory_fraction = 0.2 # or other small values less than 1.0</span><br><span class="line">config.gpu_options.experimental.use_unified_memory= True</span><br><span class="line">with tf.compat.v1.Session(config=config) as s:</span><br><span class="line">    your_program</span><br></pre></td></tr></table></figure></li>
+<li>Performance bug: <code>W tensorflow/core/common_runtime/bfc_allocator.cc:311] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you&#39;d like to disable this feature.</code>: define enviroment variables<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/ec04.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1246,104 +1345,6 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/43164.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="R&D Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/43164.html" class="post-title-link" itemprop="url">hexo+next主题配置之怎么配成我这样</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-14 13:18:48" itemprop="dateCreated datePublished" datetime="2020-07-14T13:18:48-05:00">2020-07-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-19 16:23:56" itemprop="dateModified" datetime="2022-02-19T16:23:56-06:00">2022-02-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>15k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>24 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>这篇文用来介绍本站点使用的Hexo+Next主题配置及各种相关的依赖配置。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/43164.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1415,7 +1416,7 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1497,13 +1498,13 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">50k</span>
+    <span title="Symbols count total">51k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:23</span>
+    <span title="Reading time total">1:25</span>
 
 </div>
         
