@@ -15,8 +15,8 @@
   <entry>
     <title>Jetson Change Swap Memory</title>
     <url>/post/a8e8.html</url>
-    <content><![CDATA[<p>TODO soon.</p>
-]]></content>
+    <content><![CDATA[<h1 id="Jtop"><a href="#Jtop" class="headerlink" title="Jtop"></a>Jtop</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
+<h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -a</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>config</category>
       </categories>
@@ -27,8 +27,8 @@
   <entry>
     <title>Jetson Set HuggingFace Cache</title>
     <url>/post/e092.html</url>
-    <content><![CDATA[<p>TODO soon.</p>
-]]></content>
+    <content><![CDATA[<p>Refer to <a href="https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables">https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables</a>.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Add this command to ~/.bashrc</span><br><span class="line"># Defaults to &quot;~/.cache/huggingface&quot;</span><br><span class="line">export HF_HOME=/experiments/.cache/huggingface</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>config</category>
       </categories>
@@ -39,8 +39,7 @@
   <entry>
     <title>Jetson Mount NVME</title>
     <url>/post/4817.html</url>
-    <content><![CDATA[<p>TODO soon.</p>
-]]></content>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mount /dev/nvme0n1 /experiments</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>config</category>
       </categories>
