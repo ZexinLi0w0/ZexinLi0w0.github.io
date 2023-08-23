@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.zexinli.com/post/160b.html</loc>
+    
+    <lastmod>2023-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zexinli.com/links/index.html</loc>
     
     <lastmod>2023-08-03</lastmod>
@@ -86,15 +95,6 @@
     <loc>https://blog.zexinli.com/post/12cc.html</loc>
     
     <lastmod>2023-04-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zexinli.com/post/160b.html</loc>
-    
-    <lastmod>2023-04-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -274,64 +274,64 @@
 
   <url>
     <loc>https://blog.zexinli.com/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blog.zexinli.com/tags/Linux/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <loc>https://blog.zexinli.com/tags/NVIDIA-Jetson/</loc>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/tags/NVIDIA-Jetson/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <loc>https://blog.zexinli.com/tags/Linux/</loc>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/tags/python/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/tags/c/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/tags/Mac/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/tags/journal/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/tags/Hexo/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/tags/maven/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -340,21 +340,21 @@
   
   <url>
     <loc>https://blog.zexinli.com/categories/config/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/categories/coding/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zexinli.com/categories/writing/</loc>
-    <lastmod>2023-08-03</lastmod>
+    <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
