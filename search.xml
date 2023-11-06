@@ -3,7 +3,19 @@
   <entry>
     <title>NVIDIA Jetson R&amp;D Notes</title>
     <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/5c1d.html">Jetson Build Torchvision</a><br><a href="https://blog.zexinli.com/post/667f.html">Jetson PyTorch Bypass Distributed Errors</a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
+    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/c7c5.html">Jetson Install PyG</a><br><a href="https://blog.zexinli.com/post/5c1d.html">Jetson Build Torchvision</a><br><a href="https://blog.zexinli.com/post/667f.html">Jetson PyTorch Bypass Distributed Errors</a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Install PyG on Arm Platform</title>
+    <url>/post/c7c5.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyG on NVIDIA Jetson (or MacBook with Apple Silicon). Please refer to <a href="https://wadmes.github.io/2023/05/12/InstallPYG/">link</a>.</p>
 ]]></content>
       <categories>
         <category>config</category>
@@ -26,6 +38,12 @@
 <h1 id="Install-by-source-code"><a href="#Install-by-source-code" class="headerlink" title="Install by source code"></a>Install by source code</h1><p>Refer to <a href="https://forums.developer.nvidia.com/t/torchvision-issues-for-import-torchvision-transforms/267156">this blog from NVIDIA forum</a></p>
 <p>After installing PyTorch by wheels from NVIDIA, then install torchvision by source code to avoid compatibility issues.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev</span><br><span class="line">git clone --branch &lt;version&gt; https://github.com/pytorch/vision torchvision   # see below for version of torchvision to download</span><br><span class="line">cd torchvision</span><br><span class="line">export BUILD_VERSION=0.x.0  # where 0.x.0 is the torchvision version  </span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
   </entry>
   <entry>
     <title>Jetson PyTorch Bypass Distributed Errors</title>
