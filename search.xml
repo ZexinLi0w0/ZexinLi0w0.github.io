@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Learn from Others</title>
+    <url>/post/8041.html</url>
+    <content><![CDATA[<h1 id="Learning-from-others"><a href="#Learning-from-others" class="headerlink" title="Learning from others"></a>Learning from others</h1><ol>
+<li><a href="https://yichez.site/myblog/index.html">A road to become a good researcher in computer architecture &amp; security</a> from Mr. Yicheng Zhang.</li>
+<li><a href="http://www.tcse.cn/~wsdou/advice/deadline-chen.pdf">和导师一起赶文章死线（Deadline）的十大注意事项</a> from Dr. Yiran Chen.</li>
+<li><a href="https://wadmes.github.io/about/">教诲</a> from Wei Li.</li>
+<li><a href="https://www.linzhong.org/opinions/writing.html">Tips about writing systems papers</a>.</li>
+<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/bugs-cn.html">如何有效地报告 Bug</a>.</li>
+<li><a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">How To Ask Questions The Smart Way</a>.</li>
+<li><a href="https://yichez.site/myblog/readings/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E8%AF%84%E5%AE%A1%E7%9A%84.pdf">计算机系统会议论文是如何评审的</a> from Dr. Haibo Chen.</li>
+<li><a href="https://yichez.site/myblog/readings/five_year_summary_of_PhD.pdf">博士五年总结系列</a>.</li>
+<li><a href="https://yichez.site/myblog/readings/%E4%B8%80%E5%90%8D%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E6%94%80%E7%99%BB%E4%B9%8B%E8%B7%AF.pdf">一名系统研究者的攀登之路</a> from Dr. Haibo Chen.</li>
+<li><a href="https://csdiy.wiki/">CS自学指南</a>.</li>
+</ol>
+]]></content>
+      <categories>
+        <category>writing</category>
+      </categories>
+      <tags>
+        <tag>journal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NVIDIA Jetson R&amp;D Notes</title>
     <url>/post/226.html</url>
     <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/c7c5.html">Jetson Install PyG</a><br><a href="https://blog.zexinli.com/post/5c1d.html">Jetson Build Torchvision</a><br><a href="https://blog.zexinli.com/post/667f.html">Jetson PyTorch Bypass Distributed Errors</a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>

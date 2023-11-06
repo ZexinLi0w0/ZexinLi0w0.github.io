@@ -6,7 +6,7 @@
   <link href="https://blog.zexinli.com/atom.xml" rel="self"/>
   
   <link href="https://blog.zexinli.com/"/>
-  <updated>2023-11-06T19:52:46.129Z</updated>
+  <updated>2023-11-06T22:36:22.052Z</updated>
   <id>https://blog.zexinli.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Learn from Others</title>
+    <link href="https://blog.zexinli.com/post/8041.html"/>
+    <id>https://blog.zexinli.com/post/8041.html</id>
+    <published>2023-11-08T19:46:53.000Z</published>
+    <updated>2023-11-06T22:36:22.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="writing" scheme="https://blog.zexinli.com/categories/writing/"/>
+    
+    
+    <category term="journal" scheme="https://blog.zexinli.com/tags/journal/"/>
+    
+  </entry>
   
   <entry>
     <title>Install PyG on Arm Platform</title>
