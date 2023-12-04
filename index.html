@@ -416,6 +416,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/d290.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/d290.html" class="post-title-link" itemprop="url">Migrate user from /home to new disk</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-12-04 13:34:47 / Modified: 15:41:17" itemprop="dateCreated datePublished" datetime="2023-12-04T13:34:47-06:00">2023-12-04</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>815</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Sometimes we need to migrate user from /home to new disk, e.g., when the boot disk is full. This post is a note for this process.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><p>Check if the new disk is mounted correctly by <code>df -h</code>. If not, mount it by <code>sudo mount $&#123;DEVICE_NAME&#125; $&#123;MOUNT_POINT&#125;</code>.</p>
+<h1 id="Move-user-home-directory"><a href="#Move-user-home-directory" class="headerlink" title="Move user home directory"></a>Move user home directory</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /home/$&#123;USER_NAME&#125; $&#123;MOUNT_POINT&#125;</span><br><span class="line">sudo ln -s $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125; /home/$&#123;USER_NAME&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Important-Make-sure-the-permission-is-correct-for-the-new-home-directory"><a href="#Important-Make-sure-the-permission-is-correct-for-the-new-home-directory" class="headerlink" title="(Important) Make sure the permission is correct for the new home directory"></a>(Important) Make sure the permission is correct for the new home directory</h1><p>The permission of the new home directory should be <code>755</code> and the permission of <code>.ssh</code> and <code>authorized_keys</code> should be <code>700</code> and <code>600</code> respectively. Otherwise, ssh login will fail.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/c7c5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1051,106 +1131,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/70a3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/35922034?s=400&amp;u=db794f49344cc9620b851c4ef99d8e7ecb3dcb1c&amp;v=4">
-      <meta itemprop="name" content="Zexin Li">
-      <meta itemprop="description" content="R&D Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zexin Li">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/70a3.html" class="post-title-link" itemprop="url">Jetson install GPU TensorFlow</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-04-13 23:20:23" itemprop="dateCreated datePublished" datetime="2023-04-13T23:20:23-05:00">2023-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-14 01:24:04" itemprop="dateModified" datetime="2023-04-14T01:24:04-05:00">2023-04-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of TensorFlow running on NVIDIA Jetson.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Check model of embedded board</li>
-<li>Prepare a virtual python environment (e.g., <a target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
-<li>Check pre-built binary files on <a target="_blank" rel="noopener" href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl”.</li>
-<li>Run the following code:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> AGX with Jetpack 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> Jetpack 5.0.2)</span></span><br><span class="line">pip install tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl</span><br><span class="line"><span class="meta"># </span><span class="language-bash">For tensorflow 1.x, tensorflow-1.15.5+nv22.12-cp38-cp38-linux_aarch64.whl is suggested.</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow">TensorFlow</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow</span><br><span class="line">cd tensorflow</span><br><span class="line"><span class="meta"># </span><span class="language-bash">later similar to TensorFlow build (The specific procedure is omitted here)</span></span><br></pre></td></tr></table></figure>
-<p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
-
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1222,7 +1202,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1304,13 +1284,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">55k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:30</span>
+    <span title="Reading time total">1:31</span>
 
 </div>
         

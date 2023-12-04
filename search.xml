@@ -36,6 +36,16 @@
       </tags>
   </entry>
   <entry>
+    <title>Migrate user from /home to new disk</title>
+    <url>/post/d290.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Sometimes we need to migrate user from /home to new disk, e.g., when the boot disk is full. This post is a note for this process.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><p>Check if the new disk is mounted correctly by <code>df -h</code>. If not, mount it by <code>sudo mount $&#123;DEVICE_NAME&#125; $&#123;MOUNT_POINT&#125;</code>.</p>
+<h1 id="Move-user-home-directory"><a href="#Move-user-home-directory" class="headerlink" title="Move user home directory"></a>Move user home directory</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mv /home/$&#123;USER_NAME&#125; $&#123;MOUNT_POINT&#125;</span><br><span class="line">sudo ln -s $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125; /home/$&#123;USER_NAME&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Important-Make-sure-the-permission-is-correct-for-the-new-home-directory"><a href="#Important-Make-sure-the-permission-is-correct-for-the-new-home-directory" class="headerlink" title="(Important) Make sure the permission is correct for the new home directory"></a>(Important) Make sure the permission is correct for the new home directory</h1><p>The permission of the new home directory should be <code>755</code> and the permission of <code>.ssh</code> and <code>authorized_keys</code> should be <code>700</code> and <code>600</code> respectively. Otherwise, ssh login will fail.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>Install PyG on Arm Platform</title>
     <url>/post/c7c5.html</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyG on NVIDIA Jetson (or MacBook with Apple Silicon). Please refer to <a href="https://wadmes.github.io/2023/05/12/InstallPYG/">link</a>.</p>
