@@ -440,10 +440,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-12-04 13:34:47 / Modified: 15:41:17" itemprop="dateCreated datePublished" datetime="2023-12-04T13:34:47-06:00">2023-12-04</time>
+              <time title="Created: 2023-12-04 13:34:47" itemprop="dateCreated datePublished" datetime="2023-12-04T13:34:47-06:00">2023-12-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-12-05 16:08:58" itemprop="dateModified" datetime="2023-12-05T16:08:58-06:00">2023-12-05</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -451,7 +457,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>815</span>
+              <span>823</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -475,7 +481,7 @@
 <h1 id="Move-user-home-directory"><a href="#Move-user-home-directory" class="headerlink" title="Move user home directory"></a>Move user home directory</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /home/$&#123;USER_NAME&#125; $&#123;MOUNT_POINT&#125;</span><br><span class="line">sudo ln -s $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125; /home/$&#123;USER_NAME&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="Important-Make-sure-the-permission-is-correct-for-the-new-home-directory"><a href="#Important-Make-sure-the-permission-is-correct-for-the-new-home-directory" class="headerlink" title="(Important) Make sure the permission is correct for the new home directory"></a>(Important) Make sure the permission is correct for the new home directory</h1><p>The permission of the new home directory should be <code>755</code> and the permission of <code>.ssh</code> and <code>authorized_keys</code> should be <code>700</code> and <code>600</code> respectively. Otherwise, ssh login will fail.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">sudo chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">sudo chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
       
     </div>
 
