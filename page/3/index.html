@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.zexinli.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="R&amp;D Notes">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zexin Li">
+<meta property="og:url" content="https://blog.zexinli.com/page/3/index.html">
+<meta property="og:site_name" content="Zexin Li">
+<meta property="og:description" content="R&amp;D Notes">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Zexin Li">
+<meta property="article:tag" content="research,NVIDIA">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.zexinli.com/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Zexin Li</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Zexin Li" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Zexin Li</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Please keep honest, open, patient, happy and visionary.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/12cc.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/12cc.html" class="post-title-link" itemprop="url">NVIDIA Jetson开发套件刷机教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-02-02 18:36:49" itemprop="dateCreated datePublished" datetime="2022-02-02T18:36:49-06:00">2022-02-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍<b>Jetpack刷机</b>的技术细节。</p>
+<p>此外JetsonHacks提供了官方刷机教学视频，如果看本文还是不清楚一些细节，可以看视频一步步跟着学: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2安装</a> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0安装</a></p>
+<p>老版本的刷机教程也可以参考<a target="_blank" rel="noopener" href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 完整刷机教程</a>。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li><p>一台带有Intel或AMDx86架构的Ubuntu操作系统的电脑作为host主机 (Jetpack 4.x推荐系统为Ubuntu 18.04)。</p>
+</li>
+<li><p>物理空间：需要至少40G以上的物理空间。Jetpack和Jetpack下载的安装包需要的空间十分庞大。</p>
+</li>
+<li><p>下载Jetpack安装包：申请Nvidia developer账号，在<a target="_blank" rel="noopener" href="https://developer.nvidia.com/embedded/jetpack">NVIDIA官方网站</a>根据开发板的型号登录后下载。建议下载当前最新版本Jetpack 4.6。</p>
+</li>
+<li><p>只需要确保host主机能够上网<b style='color:red;'>(开发板没有网络也能刷机)</b>。</p>
+</li>
+<li><p>准备一根Micro-USB的数据线(一般手机充电线即可)(备注: AGX Xavier/AGX Orin只需要TypeC-USB数据线)，一根HDMI线，一个屏幕。</p>
+</li>
+</ol>
+<h1 id="安装Jetpack"><a href="#安装Jetpack" class="headerlink" title="安装Jetpack"></a>安装Jetpack</h1><ol>
+<li><p>断开开发板电源，断开开发板网线，数据线连接开发板和host主机。双击运行Jetpack安装包，然后命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdkmanager # 此处不能使用root</span><br></pre></td></tr></table></figure>
+<p>Nvidia developer账号登录后，进入step 1: 勾选host和target，选择需要刷机的设备类型(如果数据线连接正常，也会自动检测出设备)。</p>
+</li>
+<li><p>进入step 2: 创建2个新文件夹，用于存放下载库文件和target镜像文件。</p>
+</li>
+<li><p>点击继续进入step 3: 进入下载阶段，完成后自动进入install OS阶段。</p>
+</li>
+<li><p>Jetpack会自动提示，是否自动刷机(auto flash)/手动刷机(manual flash)。建议选择手动刷机(manual flash)，然后开启强制恢复模式，以TX2为例: </p>
+<p> (a) 保证开发板初始处于断电状态，确保Micro USB线正常连接</p>
+<p> (b) 接通开发板电源，按下power开机，然后迅速按住recovery键不松开，按一下reset键，过2秒松开recovery键</p>
+<p> (c) 此时应该有2个绿灯亮起</p>
+</li>
+<li><p>验证是否处于强制恢复状态，在host命令行输入</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsusb # 如果有Nvidia Corp设备检测到说明正确进入了强制恢复状态，否则重复第4步</span><br></pre></td></tr></table></figure></li>
+<li><p>给开发板连上HDMI线+屏幕，等待开发板的ubuntu系统初始化(配置账号密码)。</p>
+</li>
+<li><p>Jetpack会提示要求选择连接方式+输入账号密码。此时选择使用USB连接，不要修改默认的ip地址，输入开发板的ubuntu系统的账号密码。</p>
+</li>
+<li><p>冗长的等待，等待所有库全部安装完成，进入step 4: 点击exit退出sdkmanger。</p>
+</li>
+</ol>
+<h1 id="进一步配置"><a href="#进一步配置" class="headerlink" title="进一步配置"></a>进一步配置</h1><p>给开发板连接网线并查看ip。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig | grep eth0 -a1</span><br></pre></td></tr></table></figure>
+
+<p>随后可以ssh进行连接和进一步配置。</p>
+<h1 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a>可能的问题</h1><ol>
+<li><p>网络下载太慢<br>更换能过墙+带宽足够的环境。</p>
+</li>
+<li><p>Jetpack报奇怪的错(例如dependencies error)<br>更换纯净的ubuntu 18.04 host，多数是系统问题。不要想着fix这些error，有这时间不如重装/换靠谱的host。</p>
+</li>
+<li><p>有2个CPU核心不工作(性能问题)<br>将/boot/extlinux/exltinux.conf 文件里的<code>isolcpus=1-2</code>修改为<code>isolcpus=</code>，参考<a href="
+https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/2395.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/2395.html" class="post-title-link" itemprop="url">python中使用networkx画图</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-20 15:16:11" itemprop="dateCreated datePublished" datetime="2020-08-20T15:16:11-05:00">2020-08-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>883</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>今天被问了一个问题：如何把复杂的调用树可视化？</p>
+<p>首先，这个问题可以被归结为：如何实现有向图的可视化。</p>
+<p>当然，答案有很多种。可选的简单地解决方案可能是<a target="_blank" rel="noopener" href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">基于echarts的在线的生成工具</a> [1]，或是<a target="_blank" rel="noopener" href="https://antv.vision/en">Ant V</a> [2]此类专用于画图的框架。本文主要介绍使用python中的networkx宏包作图。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>python 2.7.17: 依赖库为matplotlib, networkx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install matplotlib</span><br><span class="line">pip install networkx</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import networkx as nx</span><br><span class="line"></span><br><span class="line">G=nx.DiGraph()</span><br><span class="line">list=[(1,2),(1,3),(2,4),(&quot;source&quot;,&quot;end&quot;)]</span><br><span class="line">G.add_edges_from(list)</span><br><span class="line">nx.draw(G,with_labels=True)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>具体的nerworkx用法参见<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ljhdo/p/10662902.html">已有博客</a> [3]或者<a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/tutorial.html">networkx官方文档</a> [4]，此处不再赘述。</p>
+<p>值得一提的是，虽然python编码相对方便，但是画图的速度远不及基于JavaScript的各种框架。<code>nx.draw(G,with_labels=True)</code>这一行的执行速度非常慢，即使图中只有不超过10个节点也花了近半分钟进行生成。如果需要实时性高的生成，建议使用前文中的[1][2]或类似框架。</p>
+<p><img src="/image/networkx.png" alt="效果图"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 利用echarts实现有向图可视化,<br><a target="_blank" rel="noopener" href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/</a><br>[2] AntV, <a target="_blank" rel="noopener" href="https://antv.vision/en">https://antv.vision/en</a><br>[3] networkx, <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ljhdo/p/10662902.html">https://www.cnblogs.com/ljhdo/p/10662902.html</a><br>[4] networkx tutorial,<br><a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/tutorial.html">https://networkx.github.io/documentation/stable/tutorial.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/61823.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/61823.html" class="post-title-link" itemprop="url">基于maven的test-repo发生build-failure的解决方案</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-05 16:45:57" itemprop="dateCreated datePublished" datetime="2020-08-05T16:45:57-05:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn compile等操作。有时会发生BUILD FAILURES。本文描述几个详细的案例及解决方案，供以后遇到类似情况参考。</p>
+<h2 id="HikariCP"><a href="#HikariCP" class="headerlink" title="HikariCP"></a>HikariCP</h2><p>project地址：<a target="_blank" rel="noopener" href="https://github.com/brettwooldridge/HikariCP.git">https://github.com/brettwooldridge/HikariCP.git</a><br>表现：某个test异常卡顿（OSGI这个test），出现HTTPS 501问题，然后该test fail导致BUILD FAILURES。<br>分析：查找发现HTTPS 501的原因是默认没有使用https的central源，在2020年1月后强制使用https，否则就会报501错误。在更换maven源之后仍然没有解决这个问题。<br>解决方案：在pom.xml的surefire configuration里配置exclude该test，问题解决（基本不影响执行时间）。</p>
+<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a target="_blank" rel="noopener" href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
+<h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a target="_blank" rel="noopener" href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a target="_blank" rel="noopener" href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
+<h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a target="_blank" rel="noopener" href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/34617.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/34617.html" class="post-title-link" itemprop="url">maven的源配置(更新)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-05 16:23:30" itemprop="dateCreated datePublished" datetime="2020-08-05T16:23:30-05:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>阿里云云效maven的站点查询 <a target="_blank" rel="noopener" href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
+<ol>
+<li>打开${maven_home}/conf/settings.xml</li>
+<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>转载<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/43019.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/43019.html" class="post-title-link" itemprop="url">Response-Letter的写作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-05 16:03:26" itemprop="dateCreated datePublished" datetime="2020-08-05T16:03:26-05:00">2020-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/writing/" itemprop="url" rel="index"><span itemprop="name">writing</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>716</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Response-Letter是什么"><a href="#Response-Letter是什么" class="headerlink" title="Response Letter是什么"></a>Response Letter是什么</h2><p>在投稿期刊论文时，需要进行一至多轮的review。在收到review结果后，论文作者需要整理该结果中的问题，并对其逐一进行解答。本文简要概述response letter写作中的注意事项。</p>
+<h2 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h2><h3 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h3><p>介绍response letter的结构。</p>
+<h3 id="Our-first-submission"><a href="#Our-first-submission" class="headerlink" title="Our first submission"></a>Our first submission</h3><p>简要解释初稿的大致内容和贡献。</p>
+<h3 id="Our-second-submission"><a href="#Our-second-submission" class="headerlink" title="Our second submission"></a>Our second submission</h3><p>简要解释第二次投稿（如果有）在第一稿上的改动；如果有第三次投稿就再增加Our third submission。</p>
+<h3 id="Our-revised-submission"><a href="#Our-revised-submission" class="headerlink" title="Our revised submission"></a>Our revised submission</h3><p>简要解释最后一次改动后修改的内容。</p>
+<h3 id="Answer-to-Comment-Editor"><a href="#Answer-to-Comment-Editor" class="headerlink" title="Answer to Comment: Editor"></a>Answer to Comment: Editor</h3><p>对编辑的review意见的回复。</p>
+<h3 id="Answer-to-Comment-Reviewer-X"><a href="#Answer-to-Comment-Reviewer-X" class="headerlink" title="Answer to Comment: Reviewer X"></a>Answer to Comment: Reviewer X</h3><p>对reviewer X意见的回复；需要对每个reviewer的意见分别逐一回复。</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>Response letter中的引用。</p>
+<h2 id="写作核心思想"><a href="#写作核心思想" class="headerlink" title="写作核心思想"></a>写作核心思想</h2><ol>
+<li><p>Reviewer问什么，就回答什么。不要回答无关内容。</p>
+</li>
+<li><p>回答逻辑上要合理：先回答一般性内容，再回答细节内容。</p>
+</li>
+</ol>
+<h2 id="写作细节问题"><a href="#写作细节问题" class="headerlink" title="写作细节问题"></a>写作细节问题</h2><ol>
+<li><p>每个comment的回答第一句要写上：”Thank you for the comment.”</p>
+</li>
+<li><p>如果需要在回答中引用reviewer的原话，需要斜体+引号。</p>
+</li>
+<li><p>专有名词设置成macro，保持格式/语法一致（例如统一斜体）。</p>
+</li>
+<li><p>文中新定义的名词如果需要使用缩写，在定义时即可说明，然后统一使用缩写。不应在定义前提及新定义名词。</p>
+</li>
+<li><p>双引号要正确使用：latex中是``和’’，而不是“”。</p>
+</li>
+</ol>
+<h2 id="Latex模板"><a href="#Latex模板" class="headerlink" title="Latex模板"></a>Latex模板</h2><p><a target="_blank" rel="noopener" href="https://www.overleaf.com/2454561743cmwzvycpggpv">https://www.overleaf.com/2454561743cmwzvycpggpv</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/43164.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/43164.html" class="post-title-link" itemprop="url">hexo+next主题配置之怎么配成我这样</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-14 13:18:48" itemprop="dateCreated datePublished" datetime="2020-07-14T13:18:48-05:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>15k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>24 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>这篇文用来介绍本站点使用的Hexo+Next主题配置及各种相关的依赖配置。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/43164.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/undefined.html" class="post-title-link" itemprop="url">如何编写maven插件（重新发布）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-14 10:55:01" itemprop="dateCreated datePublished" datetime="2020-07-14T10:55:01-05:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>maven作为热门的build system经常被各种Java project采用。有时我们会遇到需要编写自定义maven插件的需求。</p>
+<p>以IDEA为例：首先选择从maven创建一个project，如果勾选create from achetype就会生成模板程序代码（这里以maven-achetype-mojo为例）。项目名称规范是${NAME}-maven-plugin，然后需要选择maven home directory，随后自动生成模板程序代码。</p>
+<h2 id="对maven源的配置"><a href="#对maven源的配置" class="headerlink" title="对maven源的配置"></a>对maven源的配置</h2><p>值得一提的是，初次使用maven会自动下载大量依赖文件，就算有梯子，也可能非常慢。这时就需要在创建project之前先对<code>$&#123;maven_path&#125;/conf/settings.xml</code>进行设置更换国内源。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 对源的配置：增加localRepository，配置mirror url</span><br><span class="line">&lt;localRepository&gt;$&#123;YOUR_MAVEN_REPO_PATH&#125;&lt;/localRepository&gt;</span><br><span class="line">&lt;mirrors&gt;</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">    	&lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">    	&lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">    	&lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">    	&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;    </span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="正式开始写maven-project的代码"><a href="#正式开始写maven-project的代码" class="headerlink" title="正式开始写maven project的代码"></a>正式开始写maven project的代码</h2><h3 id="对模板程序pom-xml的修改"><a href="#对模板程序pom-xml的修改" class="headerlink" title="对模板程序pom.xml的修改"></a>对模板程序pom.xml的修改</h3><p>可以看出来maven模板程序的pom.xml配置已经非常老了（比如这个maven-plugin-api还是2.0），这里参考KIWI的一篇博客一通乱改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;$&#123;YOUR_GROUP_ID&#125;&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;$&#123;NAME&#125;-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;maven-plugin&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;name&gt;$&#123;NAME&#125;-mavne-plugin Maven Mojo&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-plugin-api&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.5.2&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven.plugin-tools&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-plugin-annotations&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.5.2&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;maven-plugin-plugin&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.5.2&lt;/version&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Mojo类的规则简要介绍"><a href="#Mojo类的规则简要介绍" class="headerlink" title="Mojo类的规则简要介绍"></a>Mojo类的规则简要介绍</h3><p>Mojo类必须继承AbstractMojo 并实现他的 execute 方法，而 execute 方法其实就是这个插件的入口类。简单介绍注解<code>@Mojo(name = $NAME)</code>，用于定义插件相关信息，以便于在pom.xml里通过<goal>$NAME</goal>的形式显示指定。@Execute()注解则能指定Mojo的执行时机，绑定phase或lifecycle等。</p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>写完了代码，需要mvn clean install（把该插件打包并部署至本地仓库），其他本地maven项目就可以通过pom.xml使用该插件。想要他人也可以使用，需要使用mvn deploy命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">  &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;$&#123;YOUR_GROUP_ID&#125;&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;$&#123;NAME&#125;-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">  &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<p>增加依赖后，可以直接命令行<code>mvn $&#123;NAME&#125;:$&#123;GOAL&#125; [args]</code>的方式调用；也绑定至lifecycle，通过mvn test等命令调用（也可以IDEA右上角maven集成插件手动点击）。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/4387.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/4387.html" class="post-title-link" itemprop="url">c++的struct和class（重新发布）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-14 10:51:39" itemprop="dateCreated datePublished" datetime="2020-07-14T10:51:39-05:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>在学习c++的时候会遇到一个问题：<strong>什么时候使用struct，什么时候使用class？</strong></p>
+<h2 id="C的struct"><a href="#C的struct" class="headerlink" title="C的struct"></a>C的struct</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct tag &#123; </span><br><span class="line">    member1;</span><br><span class="line">    member2; </span><br><span class="line">    member3;  </span><br><span class="line">    ...</span><br><span class="line">&#125; variable;</span><br></pre></td></tr></table></figure>
+
+<p><strong>tag</strong> 是结构体标签。<br><strong>member</strong> 是标准的变量定义，比如 int i; 或者 float f; 或者其他有效的变量定义。<br><strong>variable</strong> 结构变量，定义在结构的末尾，最后一个分号之前，可以指定一个或多个结构变量。<br>一般情况下，上述三个变量至少要出现2个。</p>
+<p>struct不能给内部变量初始化。<br>值得一提的是，在C中struct是用来封装数据的(<strong>member</strong>可以包含一个或多个基本数据类型，也可以包含其它结构体)，但是其中不能够有成员函数。</p>
+<p>想要C语言中的struct中包含成员函数，只能通过函数指针去替代成员函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">  </span><br><span class="line">void test(int input) &#123;</span><br><span class="line">        printf(&quot;%d&quot;,input);</span><br><span class="line">&#125;</span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void (*func)(int);</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func = &amp;test;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-的struct"><a href="#C-的struct" class="headerlink" title="C++的struct"></a>C++的struct</h2><h3 id="C-的struct和class的关联"><a href="#C-的struct和class的关联" class="headerlink" title="C++的struct和class的关联"></a>C++的struct和class的关联</h3><p>回到正题，c++中继承了在c语言中的用法，但是又做了改进：可以包含成员函数。从可实现功能上来看，struct和class基本上没有什么区别了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void func(int input) &#123;</span><br><span class="line">                printf(&quot;%d&quot;,input);</span><br><span class="line">        &#125;;</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 令人疑惑的是，在mac环境下居然这段代码用gcc编译也通过了，还能正常运行。</span><br><span class="line">// 应当在ubuntu环境下是不能编译通过的。</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-的struct和class的区别"><a href="#C-的struct和class的区别" class="headerlink" title="C++的struct和class的区别"></a>C++的struct和class的区别</h3><p>默认修饰符：struct是public，class是private。以下的代码从逻辑上是等价的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B &#123;</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>默认继承方式是：struct是public继承，class是private继承。建议在继承时需要显示地指明修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B : public A &#123;</span><br><span class="line">	// 建议在继承时需要显示地指明修饰符</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/26020.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/26020.html" class="post-title-link" itemprop="url">Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-14 10:41:09" itemprop="dateCreated datePublished" datetime="2020-07-14T10:41:09-05:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>546</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
+<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.zexinli.com/post/16107.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zexin Li">
+      <meta itemprop="description" content="R&D Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zexin Li">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/16107.html" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-10 10:51:39" itemprop="dateCreated datePublished" datetime="2020-07-10T10:51:39-05:00">2020-07-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-30 02:14:43" itemprop="dateModified" datetime="2024-03-30T02:14:43-05:00">2024-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>495</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>On windows, add “npx” prefix.</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo new draft <span class="string">&quot;New draft&quot;</span></span><br><span class="line">$ hexo publish <span class="string">&quot;New draft&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
+
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># This will only deploy generated files to remote sites! Nedd to backup source by yourself!</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zexin Li</p>
+  <div class="site-description" itemprop="description">R&D Notes</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zexin Li</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">56k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:33</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/z16.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":-30,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2}});</script></body>
+</html>
