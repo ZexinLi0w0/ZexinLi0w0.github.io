@@ -1,238 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Learn from Others</title>
-    <url>/post/8041.html</url>
-    <content><![CDATA[<h1 id="Learning-from-others"><a href="#Learning-from-others" class="headerlink" title="Learning from others"></a>Learning from others</h1><ol>
-<li><a href="https://yichez.site/myblog/index.html">A road to become a good researcher in computer architecture &amp; security</a> from Mr. Yicheng Zhang.</li>
-<li><a href="http://www.tcse.cn/~wsdou/advice/deadline-chen.pdf">和导师一起赶文章死线（Deadline）的十大注意事项</a> from Dr. Yiran Chen.</li>
-<li><a href="https://wadmes.github.io/about/">教诲</a> from Wei Li.</li>
-<li><a href="https://www.linzhong.org/opinions/writing.html">Tips about writing systems papers</a>.</li>
-<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/bugs-cn.html">如何有效地报告 Bug</a>.</li>
-<li><a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">How To Ask Questions The Smart Way</a>.</li>
-<li><a href="https://yichez.site/myblog/readings/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E8%AF%84%E5%AE%A1%E7%9A%84.pdf">计算机系统会议论文是如何评审的</a> from Dr. Haibo Chen.</li>
-<li><a href="https://yichez.site/myblog/readings/five_year_summary_of_PhD.pdf">博士五年总结系列</a>.</li>
-<li><a href="https://yichez.site/myblog/readings/%E4%B8%80%E5%90%8D%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E6%94%80%E7%99%BB%E4%B9%8B%E8%B7%AF.pdf">一名系统研究者的攀登之路</a> from Dr. Haibo Chen.</li>
-<li><a href="https://csdiy.wiki/">CS自学指南</a>.</li>
-</ol>
-]]></content>
-      <categories>
-        <category>writing</category>
-      </categories>
-      <tags>
-        <tag>journal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson R&amp;D Notes</title>
-    <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/c7c5.html">Jetson Install PyG</a><br><a href="https://blog.zexinli.com/post/5c1d.html">Jetson Build Torchvision</a><br><a href="https://blog.zexinli.com/post/667f.html">Jetson PyTorch Bypass Distributed Errors</a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Download ImageNet1k from HuggingFace</title>
-    <url>/post/175f.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs access ImageNet-1k from HuggingFace Hub.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Enough disk (&gt;150GB)</li>
-<li>Anaconda pip</li>
-<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install datasets</span><br><span class="line"><span class="meta"># </span><span class="language-bash">use a linux <span class="built_in">command</span> screen to prevent session crashed</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">refer to https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/</span></span><br><span class="line">screen -S download</span><br><span class="line"><span class="meta"># </span><span class="language-bash">get a token from https://huggingface.co/settings/tokens</span></span><br><span class="line">huggingface-cli login</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Download-ImageNet-1k-with-Token-Assess"><a href="#Download-ImageNet-1k-with-Token-Assess" class="headerlink" title="Download ImageNet-1k with Token Assess"></a>Download ImageNet-1k with Token Assess</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># refer to https://huggingface.co/datasets/imagenet-1k</span></span><br><span class="line"><span class="comment"># refer to https://discuss.huggingface.co/t/imagenet-1k-is-not-available-in-huggingface-dataset-hub/25040</span></span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> load_dataset</span><br><span class="line">dset = load_dataset(<span class="string">&#x27;imagenet-1k&#x27;</span>, split=<span class="string">&#x27;train&#x27;</span>, use_auth_token=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Migrate user from /home to new disk</title>
-    <url>/post/d290.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Sometimes we need to migrate user from /home to new disk, e.g., when the boot disk is full. This post is a note for this process.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><p>Check if the new disk is mounted correctly by <code>df -h</code>. If not, mount it by <code>sudo mount $&#123;DEVICE_NAME&#125; $&#123;MOUNT_POINT&#125;</code>.</p>
-<h1 id="Move-user-home-directory"><a href="#Move-user-home-directory" class="headerlink" title="Move user home directory"></a>Move user home directory</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mv /home/$&#123;USER_NAME&#125; $&#123;MOUNT_POINT&#125;</span><br><span class="line">sudo ln -s $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125; /home/$&#123;USER_NAME&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Important-Make-sure-the-permission-is-correct-for-the-new-home-directory"><a href="#Important-Make-sure-the-permission-is-correct-for-the-new-home-directory" class="headerlink" title="(Important) Make sure the permission is correct for the new home directory"></a>(Important) Make sure the permission is correct for the new home directory</h1><p>The permission of the new home directory should be <code>755</code> and the permission of <code>.ssh</code> and <code>authorized_keys</code> should be <code>700</code> and <code>600</code> respectively. Otherwise, ssh login will fail.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">sudo chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">sudo chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>Install PyG on Arm Platform</title>
-    <url>/post/c7c5.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyG on NVIDIA Jetson (or MacBook with Apple Silicon). Please refer to <a href="https://wadmes.github.io/2023/05/12/InstallPYG/">link</a>.</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson Build Torchvision</title>
-    <url>/post/5c1d.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of Torchvision running on NVIDIA Jetson. - Cannot simply install torchvision by pip.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Check model of embedded board</li>
-<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
-<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
-<li>Install PyTorch via this <a href="https://blog.zexinli.com/post/160b.html">blog</a>.</li>
-<li>Query <a href="https://pypi.org/project/torchvision/">Torchvision version</a> compatible with current PyTorch version.</li>
-</ol>
-<h1 id="Install-by-source-code"><a href="#Install-by-source-code" class="headerlink" title="Install by source code"></a>Install by source code</h1><p>Refer to <a href="https://forums.developer.nvidia.com/t/torchvision-issues-for-import-torchvision-transforms/267156">this blog from NVIDIA forum</a></p>
-<p>After installing PyTorch by wheels from NVIDIA, then install torchvision by source code to avoid compatibility issues.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev</span><br><span class="line">git clone --branch &lt;version&gt; https://github.com/pytorch/vision torchvision   # see below for version of torchvision to download</span><br><span class="line">cd torchvision</span><br><span class="line">export BUILD_VERSION=0.x.0  # where 0.x.0 is the torchvision version  </span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> instance: 0.16.0 refers to PyTorch v2.1.0</span></span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson PyTorch Bypass Distributed Errors</title>
-    <url>/post/667f.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs Running PyTorch HuggingFace based model inference on NVIDIA Jetson.</p>
-<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>When running PyTorch HuggingFace based model inference on NVIDIA Jetson, the following error may occur:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  File &quot;BERT.py&quot;, line 60, in &lt;module&gt;</span><br><span class="line">    model = AutoModelForCausalLM.from_pretrained(&quot;bert-base-uncased&quot;).to(device)</span><br><span class="line">  File &quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/models/auto/auto_factory.py&quot;, line 563, in from_pretrained</span><br><span class="line">    return model_class.from_pretrained(</span><br><span class="line">  File &quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/modeling_utils.py&quot;, line 2359, in from_pretrained</span><br><span class="line">    if is_fsdp_enabled():</span><br><span class="line">  File &quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/modeling_utils.py&quot;, line 118, in is_fsdp_enabled</span><br><span class="line">    return torch.distributed.is_initialized() and strtobool(os.environ.get(&quot;ACCELERATE_USE_FSDP&quot;, &quot;False&quot;)) == 1</span><br><span class="line">AttributeError: module &#x27;torch.distributed&#x27; has no attribute &#x27;is_initialized&#x27;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>The reason why this bug occurs is that the PyTorch wheel compiled for Jetson is not compiled with distributed support. One quick solution is to bypass the distributed module.</p>
-<p>Change file <code>&quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/modeling_utils.py&quot;</code> line 118 from</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> torch.distributed.is_initialized() <span class="keyword">and</span> strtobool(os.environ.get(<span class="string">&quot;ACCELERATE_USE_FSDP&quot;</span>, <span class="string">&quot;False&quot;</span>)) == <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>to</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson Change Swap Memory</title>
-    <url>/post/a8e8.html</url>
-    <content><![CDATA[<h1 id="Jtop"><a href="#Jtop" class="headerlink" title="Jtop"></a>Jtop</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
-<h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -a</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson Set HuggingFace Cache</title>
-    <url>/post/e092.html</url>
-    <content><![CDATA[<p>Refer to <a href="https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables">https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables</a>.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Add this command to ~/.bashrc</span><br><span class="line"># Defaults to &quot;~/.cache/huggingface&quot;</span><br><span class="line">export HF_HOME=/experiments/.cache/huggingface</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson Mount NVME</title>
-    <url>/post/4817.html</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mount /dev/nvme0n1 /experiments</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson install GPU TensorFlow</title>
-    <url>/post/70a3.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of TensorFlow running on NVIDIA Jetson.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Check model of embedded board</li>
-<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
-<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl”.</li>
-<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> AGX with Jetpack 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> Jetpack 5.0.2)</span></span><br><span class="line">pip install tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl</span><br><span class="line"><span class="meta"># </span><span class="language-bash">For tensorflow 1.x, tensorflow-1.15.5+nv22.12-cp38-cp38-linux_aarch64.whl is suggested.</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/tensorflow/tensorflow">TensorFlow</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow</span><br><span class="line">cd tensorflow</span><br><span class="line"><span class="meta"># </span><span class="language-bash">later similar to TensorFlow build (The specific procedure is omitted here)</span></span><br></pre></td></tr></table></figure>
-<p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson install GPU PyTorch</title>
-    <url>/post/160b.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyTorch running on NVIDIA Jetson.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Check model of embedded board</li>
-<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
-<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
-<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> Jetpack version &gt;= 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> newest Jetpack 5.1.2)</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">News: PyTorch 2.0.0 prebuilt is supported right now.</span></span><br><span class="line">pip install torch-2.0.0+nv23.05-cp38-cp38-linux_aarch64.whl</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/pytorch/pytorch">PyTorch</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get install python3-dev python3-pip libopenblas-base libopenmpi-dev libomp-dev libopenblas-dev libopenmpi-dev</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">Download a newer version of cmake <span class="keyword">for</span> building PyTorch from <span class="built_in">source</span></span></span><br><span class="line">wget https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">tar -xvzf cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">export PATH=/path/to/cmake-3.28.3-linux-aarch64/bin:$PATH</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">avalanche-lib requires this pytorch.distributed; so cannot use Jetson pre-built wheels</span></span><br><span class="line">export USE_NCCL=0</span><br><span class="line">export USE_DISTRIBUTED=1                    </span><br><span class="line">export USE_QNNPACK=0</span><br><span class="line">export USE_PYTORCH_QNNPACK=0</span><br><span class="line">export TORCH_CUDA_ARCH_LIST=&quot;7.2;8.7&quot;   # &quot;7.2;8.7&quot; for JetPack 5 wheels for Xavier/Orin</span><br><span class="line">export PYTORCH_BUILD_VERSION=2.1.0  # without the leading &#x27;v&#x27;, e.g. 1.3.0 for PyTorch v1.3.0</span><br><span class="line">export PYTORCH_BUILD_NUMBER=1</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">Build GPU-enabled PyTorch from <span class="built_in">source</span> <span class="keyword">for</span> v2.1.0</span></span><br><span class="line">git clone --recursive --branch v2.1.0 http://github.com/pytorch/pytorch</span><br><span class="line">cd pytorch</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">pip install scikit-build</span><br><span class="line">pip install ninja</span><br><span class="line">python setup.py bdist_wheel</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Configure a same virtual environment on server as Jetson</title>
-    <url>/post/2ef9.html</url>
-    <content><![CDATA[<h1 id="Talk-is-cheap-show-me-the-code"><a href="#Talk-is-cheap-show-me-the-code" class="headerlink" title="Talk is cheap, show me the code"></a>Talk is cheap, show me the code</h1><p>Note: these commands are for x86 based server, not for Jetson itself.</p>
-<p>For Jetpack 4.6</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n py36 python=3.6</span><br><span class="line">conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure>
-
-<p>For Jetpack 5.0+</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n py38 python=3.8.10</span><br><span class="line">conda install pytorch==1.13.0 cudatoolkit=11.8 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Save your Ubuntu from black/purple screen</title>
-    <url>/post/31eb.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Save your Ubuntu PC/server from black/purple screen.</p>
-<h1 id="Checklists-Hardware-check"><a href="#Checklists-Hardware-check" class="headerlink" title="Checklists [Hardware check]"></a>Checklists [Hardware check]</h1><ol>
-<li>Restart and press [F2/F6/F8/F10], try to get into BIOS. Check CPU/Memory are in good status.</li>
-<li>Try to remove the HDMI/DP cable from GPU and connect it to the motherboard and reboot. If you could get into system without problem now, The possible reason is that the recovery mode temporarily disabled the GPU, and then a normal reboot will re-enable the GPU.</li>
-</ol>
-<h1 id="Checklists-Software-check"><a href="#Checklists-Software-check" class="headerlink" title="Checklists [Software check]"></a>Checklists [Software check]</h1><ol>
-<li>Select Boot Ubuntu in BIOS.</li>
-<li>Press [Esc] and [e] to enter grub while booting. (if you could see grub).</li>
-<li>use arrow keys to select [Advanced Mode] and press [e] to edit configuration.</li>
-<li>use the arrow keys to locate the end of the line that starts with<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;linux /boot/vmlinuz***&quot;</span><br></pre></td></tr></table></figure>
-type <code>nomodeset</code> to make that line to temporarily disable GPU driver.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;... ro quiet sqlash nomodeset ...&quot;</span><br></pre></td></tr></table></figure></li>
-<li>Fix GPU driver or something else when get into the systems, then reboot can solve the problem.</li>
-</ol>
-<h1 id="Last-Hope"><a href="#Last-Hope" class="headerlink" title="Last Hope"></a>Last Hope</h1><p>If the above methods still don’t save your Ubuntu, locating exactly what went wrong and fixing it is expected to be difficult. Probably the most efficient solution is to reinstall Ubuntu (using with caution ONLY and backing up your data).</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CUDA reinstallment</title>
     <url>/post/a961.html</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Save your PC/server in CUDA driver crashed down.</p>
@@ -258,95 +26,19 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
       </tags>
   </entry>
   <entry>
-    <title>Tensorflow issues &amp; solution</title>
-    <url>/post/dbaf.html</url>
-    <content><![CDATA[<h1 id="Problem-on-NVIDIA-Jetson-Development-Kit"><a href="#Problem-on-NVIDIA-Jetson-Development-Kit" class="headerlink" title="Problem on NVIDIA Jetson Development Kit"></a>Problem on NVIDIA Jetson Development Kit</h1><ol start="0">
-<li>Refer enviroment variables:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_CPP_MIN_VLOG_LEVEL&#x27;] = &#x27;1&#x27; # Low level of Tensorflow, if need locating bugs, raise it up to 10.</span><br><span class="line">os.environ[&#x27;CUDA_CACHE_MAXSIZE&#x27;] = &quot;2147483648&quot; # Enable CUDA_CACHE to avoid multiple long-last JIT compiling.</span><br><span class="line">os.environ[&#x27;TF_FORCE_GPU_ALLOW_GROWTH&#x27;] = &#x27;true&#x27; # Avoid allocating all memory rapidly in one process.</span><br><span class="line">os.environ[&#x27;TF_FORCE_UNIFIED_MEMORY&#x27;] = &#x27;1&#x27; # Use unified memory to reduce data transfer time.</span><br><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27; # Boost performance by disable GPU_GARBAGE_COLLCETION, enable only when meeting OOM.</span><br></pre></td></tr></table></figure></li>
-<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
-<li>local_cuda_not_found: switch to verified known version in the above.</li>
-<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
-<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
-<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
-<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
-<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
-<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
-<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
-<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
-<li>When using unified memory, display ‘NvMapReserveOp 0x80000001 failed [22]’: limit Tensorflow allocating memory.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">config = ConfigProto()</span><br><span class="line">config.gpu_options.per_process_gpu_memory_fraction = 0.2 # or other small values less than 1.0</span><br><span class="line">config.gpu_options.experimental.use_unified_memory= True</span><br><span class="line">with tf.compat.v1.Session(config=config) as s:</span><br><span class="line">    your_program</span><br></pre></td></tr></table></figure></li>
-<li>Performance bug: <code>W tensorflow/core/common_runtime/bfc_allocator.cc:311] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you&#39;d like to disable this feature.</code>: define enviroment variables<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
+    <title>Configure a same virtual environment on server as Jetson</title>
+    <url>/post/2ef9.html</url>
+    <content><![CDATA[<h1 id="Talk-is-cheap-show-me-the-code"><a href="#Talk-is-cheap-show-me-the-code" class="headerlink" title="Talk is cheap, show me the code"></a>Talk is cheap, show me the code</h1><p>Note: these commands are for x86 based server, not for Jetson itself.</p>
+<p>For Jetpack 4.6</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n py36 python=3.6</span><br><span class="line">conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure>
+
+<p>For Jetpack 5.0+</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n py38 python=3.8.10</span><br><span class="line">conda install pytorch==1.13.0 cudatoolkit=11.8 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>config</category>
       </categories>
       <tags>
         <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
-    <url>/post/ec04.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Q: Who needs install tensorflow from source code?<br>A: 1. tensorflow developer (or anyone want to improve it); 2. developers who need a specific version of tensorflow but don’t have the resources to download itds. <b style="color: red">Note: only using tensorflow API are not required to building from source, suggested to use <b>NVIDIA offcial tensorflow image</b>, or download <b>built .whl file</b> and install from pip.</b></p>
-<h1 id="Install-Tensorflow-1-x-from-Source-Code"><a href="#Install-Tensorflow-1-x-from-Source-Code" class="headerlink" title="Install Tensorflow 1.x from Source Code"></a>Install Tensorflow 1.x from Source Code</h1><p>Jetsonhacks offers <a href="https://github.com/jetsonhacks/installTensorFlowTX2">github installation guidance<a>。</p>
-<h1 id="Install-Tensorflow-2-x-from-Source-Code"><a href="#Install-Tensorflow-2-x-from-Source-Code" class="headerlink" title="Install Tensorflow 2.x from Source Code"></a>Install Tensorflow 2.x from Source Code</h1><p>Currently nearly no concrete instructions for building Tensorflow 2.x from source. If have any problem, please see the below section: [Potential Problem].</p>
-<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol start="0">
-<li>Read official guidance to check the target version.<a href="https://www.tensorflow.org/install/source/">tensorflow official guidance</a> <a href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA building tensorflow official guidance</a><br><b style="color: red">Currently can build/run: </li>
-<li>Jetpack 3.3 (python 3.5/3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
-<li>Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
-<li>(recommended)Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 8.2 + tensorflow r2.4。</b></li>
-<li>Flash the board correctly (begin from clean os): Use NVIDIA offcial SDKmanager to install Jetpack【<a href="https://zexinli0w0.github.io/post/12cc.html">How to flash Jetson board</a>】. For instance, TX2 supports Jetpack version 4.6, 4.5.1, 4.5, 3.3. Note: 4.5+version may result in CUDA/CUDNN imcompatible.</li>
-<li>Install python dependencies<br>For jetpack 4.5+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.18.5 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==2.10.0</span><br></pre></td></tr></table></figure>
-For jetpack 3.3<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # pip3 has abandoned python 3.5 support, cannot use apt to install python3.5 pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure>
-Note: python dependenceis may conflict and result in <code>import core dumped</code>. Best check by a reactive python3 by importing these dependencies. One common feasible solution is to downgrade numpy to 1.18.5.</li>
-<li>Install JDK dependencies<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ref to &lt;a href=&quot;https://docs.bazel.build/versions/main/install-ubuntu.html&quot;&gt;link&lt;/a&gt;</span><br><span class="line"># For jetpack 4.5+ Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br><span class="line"># For jetpack 3.3 Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li>
-<li>Install bazel<br>Build bazel，the version refers to .bazelversion on <code>/tensorflow</code><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir bazel-$BAZEL_VERSION</span><br><span class="line">cd bazel-$BAZEL_VERSION</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">unzip bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">rm bazel-bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel version</span><br></pre></td></tr></table></figure></li>
-<li>Enable swap for board with less than 16GB memory<br>o.w., may result in <b>OOM error</b> -&gt; Error: c++ compiling error *** Killed<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s</span><br></pre></td></tr></table></figure>
-Or directly use the script offered by jetsonhack<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Compilation-Installation-Testing"><a href="#Compilation-Installation-Testing" class="headerlink" title="Compilation/Installation/Testing"></a>Compilation/Installation/Testing</h2><ol>
-<li>Get source code<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.2 # 对于jetpack 3.3</span><br></pre></td></tr></table></figure></li>
-<li>Configuration/Compilation<br>Note: very time consuming, best with an disconnection prevention session (e.g. tmux)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Configure correct path of python interpreter，enable CUDA</span><br><span class="line">./configure</span><br><span class="line"># Set output_base path (default is ~/.cache/), o.w. cross-disk will cause compilation to be much slower than without cross-disk</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=noaws --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure></li>
-<li>Install tensorflow .whl<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure></li>
-<li>Testing<br>Smoking Test<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow</span><br><span class="line">&gt;&gt; exit()</span><br></pre></td></tr></table></figure>
-GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Refer to two files under https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Potential-Problem"><a href="#Potential-Problem" class="headerlink" title="Potential Problem"></a>Potential Problem</h1><ol>
-<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
-<li>local_cuda_not_found: switch to verified known version in the above.</li>
-<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
-<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
-<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
-<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
-<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
-<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
-<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
-<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
-<li>import numpy/tensorflow core dumped: Downgrade numpy&lt;=1.18.5</li>
-<li>h5py installing stucks and cannot be successfully compiled, error ‘Cython is not installed’ with Cython installed: Downgrade numpy&lt;=1.18.5</li>
-</ol>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Leetcode Contest</title>
-    <url>/post/1564.html</url>
-    <content><![CDATA[<h1 id="Weekly-Contest-301"><a href="#Weekly-Contest-301" class="headerlink" title="Weekly Contest 301"></a>Weekly Contest 301</h1><p>Congratulations to 4A!<br>2909 / 24327 = 11.96%<br>Finish Time: 1:03:06<br>Q1: 0:03:38 -&gt; easy loop<br>Q2: 0:15:22 -&gt; greedy and map<br>Q3: 0:57:14 -&gt; greedy and map (use python) (take too much time)<br>Q4: 1:03:06 -&gt; very straightforward math</p>
-<h1 id="Weekly-Contest-301-1"><a href="#Weekly-Contest-301-1" class="headerlink" title="Weekly Contest 301"></a>Weekly Contest 301</h1><p>5742 / 23561 = 24.37%<br>Finish Time: 1:26:18<br>Q1: 0:10:42 -&gt; easy greedy (take too much time)<br>Q2: 0:27:39 -&gt; priority queue (take too much time)<br>Q3: 1:16:18 (2 erros) -&gt; crash car problem<br>Q4: N/A -&gt; dynamic programming</p>
-<h1 id="Weekly-Contest-286"><a href="#Weekly-Contest-286" class="headerlink" title="Weekly Contest 286"></a>Weekly Contest 286</h1><p>2766 / 21339 = 12.96%<br>Finish Time: 1:10:21<br>Q1: 0:06:04 -&gt; easy loop (take too much time)<br>Q2: 0:12:41 -&gt; greedy<br>Q3: 1:10:21 -&gt; modified binary search (slow implementation)<br>Q4: N/A -&gt; dynamic programming</p>
-<h1 id="Weekly-Contest-283"><a href="#Weekly-Contest-283" class="headerlink" title="Weekly Contest 283"></a>Weekly Contest 283</h1><p>5044 / 19916 = 25.33%<br>Finish Time: 1:09:06<br>Q1: 0:10:51 -&gt; easy loop (1 bug)<br>Q2: 0:17:31 -&gt; easy loop + map<br>Q3: 0:44:06 -&gt; binary search (4 bugs) (long long error)<br>Q4L N/A -&gt; Trie tree or easy math</p>
-<h1 id="Weekly-Contest-282"><a href="#Weekly-Contest-282" class="headerlink" title="Weekly Contest 282"></a>Weekly Contest 282</h1><p>3828 / 15143 = 25.28%<br>Finish Time: 1:35:40<br>Q1: 0:02:36 -&gt; easy loop<br>Q2: 0:05:17 -&gt; map<br>Q3: 1:10:40 (5 errors) -&gt; modified binary search<br>Q4: N/A -&gt; dynamic programming</p>
-]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -382,6 +74,192 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
       </categories>
       <tags>
         <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Download ImageNet1k from HuggingFace</title>
+    <url>/post/175f.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs access ImageNet-1k from HuggingFace Hub.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Enough disk (&gt;150GB)</li>
+<li>Anaconda pip</li>
+<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install datasets</span><br><span class="line"><span class="meta"># </span><span class="language-bash">use a linux <span class="built_in">command</span> screen to prevent session crashed</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">refer to https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/</span></span><br><span class="line">screen -S download</span><br><span class="line"><span class="meta"># </span><span class="language-bash">get a token from https://huggingface.co/settings/tokens</span></span><br><span class="line">huggingface-cli login</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Download-ImageNet-1k-with-Token-Assess"><a href="#Download-ImageNet-1k-with-Token-Assess" class="headerlink" title="Download ImageNet-1k with Token Assess"></a>Download ImageNet-1k with Token Assess</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># refer to https://huggingface.co/datasets/imagenet-1k</span></span><br><span class="line"><span class="comment"># refer to https://discuss.huggingface.co/t/imagenet-1k-is-not-available-in-huggingface-dataset-hub/25040</span></span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> load_dataset</span><br><span class="line">dset = load_dataset(<span class="string">&#x27;imagenet-1k&#x27;</span>, split=<span class="string">&#x27;train&#x27;</span>, use_auth_token=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Install PyG on Arm Platform</title>
+    <url>/post/c7c5.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyG on NVIDIA Jetson (or MacBook with Apple Silicon). Please refer to <a href="https://wadmes.github.io/2023/05/12/InstallPYG/">link</a>.</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson Change Swap Memory</title>
+    <url>/post/a8e8.html</url>
+    <content><![CDATA[<h1 id="Jtop"><a href="#Jtop" class="headerlink" title="Jtop"></a>Jtop</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
+<h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -a</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson Mount NVME</title>
+    <url>/post/4817.html</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mount /dev/nvme0n1 /experiments</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson PyTorch Bypass Distributed Errors</title>
+    <url>/post/667f.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs Running PyTorch HuggingFace based model inference on NVIDIA Jetson.</p>
+<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>When running PyTorch HuggingFace based model inference on NVIDIA Jetson, the following error may occur:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  File &quot;BERT.py&quot;, line 60, in &lt;module&gt;</span><br><span class="line">    model = AutoModelForCausalLM.from_pretrained(&quot;bert-base-uncased&quot;).to(device)</span><br><span class="line">  File &quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/models/auto/auto_factory.py&quot;, line 563, in from_pretrained</span><br><span class="line">    return model_class.from_pretrained(</span><br><span class="line">  File &quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/modeling_utils.py&quot;, line 2359, in from_pretrained</span><br><span class="line">    if is_fsdp_enabled():</span><br><span class="line">  File &quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/modeling_utils.py&quot;, line 118, in is_fsdp_enabled</span><br><span class="line">    return torch.distributed.is_initialized() and strtobool(os.environ.get(&quot;ACCELERATE_USE_FSDP&quot;, &quot;False&quot;)) == 1</span><br><span class="line">AttributeError: module &#x27;torch.distributed&#x27; has no attribute &#x27;is_initialized&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>The reason why this bug occurs is that the PyTorch wheel compiled for Jetson is not compiled with distributed support. One quick solution is to bypass the distributed module.</p>
+<p>Change file <code>&quot;/experiment/miniforge3/envs/dytransformer/lib/python3.8/site-packages/transformers/modeling_utils.py&quot;</code> line 118 from</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> torch.distributed.is_initialized() <span class="keyword">and</span> strtobool(os.environ.get(<span class="string">&quot;ACCELERATE_USE_FSDP&quot;</span>, <span class="string">&quot;False&quot;</span>)) == <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>to</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson Build Torchvision</title>
+    <url>/post/5c1d.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of Torchvision running on NVIDIA Jetson. - Cannot simply install torchvision by pip.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Check model of embedded board</li>
+<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
+<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
+<li>Install PyTorch via this <a href="https://blog.zexinli.com/post/160b.html">blog</a>.</li>
+<li>Query <a href="https://pypi.org/project/torchvision/">Torchvision version</a> compatible with current PyTorch version.</li>
+</ol>
+<h1 id="Install-by-source-code"><a href="#Install-by-source-code" class="headerlink" title="Install by source code"></a>Install by source code</h1><p>Refer to <a href="https://forums.developer.nvidia.com/t/torchvision-issues-for-import-torchvision-transforms/267156">this blog from NVIDIA forum</a></p>
+<p>After installing PyTorch by wheels from NVIDIA, then install torchvision by source code to avoid compatibility issues.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev</span><br><span class="line">git clone --branch &lt;version&gt; https://github.com/pytorch/vision torchvision   # see below for version of torchvision to download</span><br><span class="line">cd torchvision</span><br><span class="line">export BUILD_VERSION=0.x.0  # where 0.x.0 is the torchvision version  </span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> instance: 0.16.0 refers to PyTorch v2.1.0</span></span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson install GPU PyTorch</title>
+    <url>/post/160b.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyTorch running on NVIDIA Jetson.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Check model of embedded board</li>
+<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
+<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
+<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> Jetpack version &gt;= 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> newest Jetpack 5.1.2)</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">News: PyTorch 2.0.0 prebuilt is supported right now.</span></span><br><span class="line">pip install torch-2.0.0+nv23.05-cp38-cp38-linux_aarch64.whl</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/pytorch/pytorch">PyTorch</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get install python3-dev python3-pip libopenblas-base libopenmpi-dev libomp-dev libopenblas-dev libopenmpi-dev</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">Download a newer version of cmake <span class="keyword">for</span> building PyTorch from <span class="built_in">source</span></span></span><br><span class="line">wget https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">tar -xvzf cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">export PATH=/path/to/cmake-3.28.3-linux-aarch64/bin:$PATH</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">avalanche-lib requires this pytorch.distributed; so cannot use Jetson pre-built wheels</span></span><br><span class="line">export USE_NCCL=0</span><br><span class="line">export USE_DISTRIBUTED=1                    </span><br><span class="line">export USE_QNNPACK=0</span><br><span class="line">export USE_PYTORCH_QNNPACK=0</span><br><span class="line">export TORCH_CUDA_ARCH_LIST=&quot;7.2;8.7&quot;   # &quot;7.2;8.7&quot; for JetPack 5 wheels for Xavier/Orin</span><br><span class="line">export PYTORCH_BUILD_VERSION=2.1.0  # without the leading &#x27;v&#x27;, e.g. 1.3.0 for PyTorch v1.3.0</span><br><span class="line">export PYTORCH_BUILD_NUMBER=1</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">Build GPU-enabled PyTorch from <span class="built_in">source</span> <span class="keyword">for</span> v2.1.0</span></span><br><span class="line">git clone --recursive --branch v2.1.0 http://github.com/pytorch/pytorch</span><br><span class="line">cd pytorch</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">pip install scikit-build</span><br><span class="line">pip install ninja</span><br><span class="line">python setup.py bdist_wheel</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson Set HuggingFace Cache</title>
+    <url>/post/e092.html</url>
+    <content><![CDATA[<p>Refer to <a href="https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables">https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables</a>.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Add this command to ~/.bashrc</span><br><span class="line"># Defaults to &quot;~/.cache/huggingface&quot;</span><br><span class="line">export HF_HOME=/experiments/.cache/huggingface</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson install GPU TensorFlow</title>
+    <url>/post/70a3.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of TensorFlow running on NVIDIA Jetson.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Check model of embedded board</li>
+<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
+<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl”.</li>
+<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> AGX with Jetpack 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> Jetpack 5.0.2)</span></span><br><span class="line">pip install tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl</span><br><span class="line"><span class="meta"># </span><span class="language-bash">For tensorflow 1.x, tensorflow-1.15.5+nv22.12-cp38-cp38-linux_aarch64.whl is suggested.</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/tensorflow/tensorflow">TensorFlow</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow</span><br><span class="line">cd tensorflow</span><br><span class="line"><span class="meta"># </span><span class="language-bash">later similar to TensorFlow build (The specific procedure is omitted here)</span></span><br></pre></td></tr></table></figure>
+<p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learn from Others</title>
+    <url>/post/8041.html</url>
+    <content><![CDATA[<h1 id="Learning-from-others"><a href="#Learning-from-others" class="headerlink" title="Learning from others"></a>Learning from others</h1><ol>
+<li><a href="https://yichez.site/myblog/index.html">A road to become a good researcher in computer architecture &amp; security</a> from Mr. Yicheng Zhang.</li>
+<li><a href="http://www.tcse.cn/~wsdou/advice/deadline-chen.pdf">和导师一起赶文章死线（Deadline）的十大注意事项</a> from Dr. Yiran Chen.</li>
+<li><a href="https://wadmes.github.io/about/">教诲</a> from Wei Li.</li>
+<li><a href="https://www.linzhong.org/opinions/writing.html">Tips about writing systems papers</a>.</li>
+<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/bugs-cn.html">如何有效地报告 Bug</a>.</li>
+<li><a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">How To Ask Questions The Smart Way</a>.</li>
+<li><a href="https://yichez.site/myblog/readings/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E8%AF%84%E5%AE%A1%E7%9A%84.pdf">计算机系统会议论文是如何评审的</a> from Dr. Haibo Chen.</li>
+<li><a href="https://yichez.site/myblog/readings/five_year_summary_of_PhD.pdf">博士五年总结系列</a>.</li>
+<li><a href="https://yichez.site/myblog/readings/%E4%B8%80%E5%90%8D%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E6%94%80%E7%99%BB%E4%B9%8B%E8%B7%AF.pdf">一名系统研究者的攀登之路</a> from Dr. Haibo Chen.</li>
+<li><a href="https://csdiy.wiki/">CS自学指南</a>.</li>
+</ol>
+]]></content>
+      <categories>
+        <category>writing</category>
+      </categories>
+      <tags>
+        <tag>journal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode Contest</title>
+    <url>/post/1564.html</url>
+    <content><![CDATA[<h1 id="Weekly-Contest-301"><a href="#Weekly-Contest-301" class="headerlink" title="Weekly Contest 301"></a>Weekly Contest 301</h1><p>Congratulations to 4A!<br>2909 / 24327 = 11.96%<br>Finish Time: 1:03:06<br>Q1: 0:03:38 -&gt; easy loop<br>Q2: 0:15:22 -&gt; greedy and map<br>Q3: 0:57:14 -&gt; greedy and map (use python) (take too much time)<br>Q4: 1:03:06 -&gt; very straightforward math</p>
+<h1 id="Weekly-Contest-301-1"><a href="#Weekly-Contest-301-1" class="headerlink" title="Weekly Contest 301"></a>Weekly Contest 301</h1><p>5742 / 23561 = 24.37%<br>Finish Time: 1:26:18<br>Q1: 0:10:42 -&gt; easy greedy (take too much time)<br>Q2: 0:27:39 -&gt; priority queue (take too much time)<br>Q3: 1:16:18 (2 erros) -&gt; crash car problem<br>Q4: N/A -&gt; dynamic programming</p>
+<h1 id="Weekly-Contest-286"><a href="#Weekly-Contest-286" class="headerlink" title="Weekly Contest 286"></a>Weekly Contest 286</h1><p>2766 / 21339 = 12.96%<br>Finish Time: 1:10:21<br>Q1: 0:06:04 -&gt; easy loop (take too much time)<br>Q2: 0:12:41 -&gt; greedy<br>Q3: 1:10:21 -&gt; modified binary search (slow implementation)<br>Q4: N/A -&gt; dynamic programming</p>
+<h1 id="Weekly-Contest-283"><a href="#Weekly-Contest-283" class="headerlink" title="Weekly Contest 283"></a>Weekly Contest 283</h1><p>5044 / 19916 = 25.33%<br>Finish Time: 1:09:06<br>Q1: 0:10:51 -&gt; easy loop (1 bug)<br>Q2: 0:17:31 -&gt; easy loop + map<br>Q3: 0:44:06 -&gt; binary search (4 bugs) (long long error)<br>Q4L N/A -&gt; Trie tree or easy math</p>
+<h1 id="Weekly-Contest-282"><a href="#Weekly-Contest-282" class="headerlink" title="Weekly Contest 282"></a>Weekly Contest 282</h1><p>3828 / 15143 = 25.28%<br>Finish Time: 1:35:40<br>Q1: 0:02:36 -&gt; easy loop<br>Q2: 0:05:17 -&gt; map<br>Q3: 1:10:40 (5 errors) -&gt; modified binary search<br>Q4: N/A -&gt; dynamic programming</p>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -443,6 +321,65 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <li>tensorflow启动GPU需要非常久（例如在TX2上启动ResNet50的训练需要加载20min以上）: 设置环境变量<code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code></li>
 <li>import numpy/tensorflow 出现core dumped: 降级numpy版本&lt;=1.18.5</li>
 <li>h5py安装编译很长时间，持续无法编译通过，虽然Cython已经安装，但报错类似’Cython is not installed’: 降级numpy版本&lt;=1.18.5</li>
+</ol>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Migrate user from /home to new disk</title>
+    <url>/post/d290.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Sometimes we need to migrate user from /home to new disk, e.g., when the boot disk is full. This post is a note for this process.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><p>Check if the new disk is mounted correctly by <code>df -h</code>. If not, mount it by <code>sudo mount $&#123;DEVICE_NAME&#125; $&#123;MOUNT_POINT&#125;</code>.</p>
+<h1 id="Move-user-home-directory"><a href="#Move-user-home-directory" class="headerlink" title="Move user home directory"></a>Move user home directory</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mv /home/$&#123;USER_NAME&#125; $&#123;MOUNT_POINT&#125;</span><br><span class="line">sudo ln -s $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125; /home/$&#123;USER_NAME&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Important-Make-sure-the-permission-is-correct-for-the-new-home-directory"><a href="#Important-Make-sure-the-permission-is-correct-for-the-new-home-directory" class="headerlink" title="(Important) Make sure the permission is correct for the new home directory"></a>(Important) Make sure the permission is correct for the new home directory</h1><p>The permission of the new home directory should be <code>755</code> and the permission of <code>.ssh</code> and <code>authorized_keys</code> should be <code>700</code> and <code>600</code> respectively. Otherwise, ssh login will fail.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">sudo chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">sudo chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
+    <url>/post/ec04.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Q: Who needs install tensorflow from source code?<br>A: 1. tensorflow developer (or anyone want to improve it); 2. developers who need a specific version of tensorflow but don’t have the resources to download itds. <b style="color: red">Note: only using tensorflow API are not required to building from source, suggested to use <b>NVIDIA offcial tensorflow image</b>, or download <b>built .whl file</b> and install from pip.</b></p>
+<h1 id="Install-Tensorflow-1-x-from-Source-Code"><a href="#Install-Tensorflow-1-x-from-Source-Code" class="headerlink" title="Install Tensorflow 1.x from Source Code"></a>Install Tensorflow 1.x from Source Code</h1><p>Jetsonhacks offers <a href="https://github.com/jetsonhacks/installTensorFlowTX2">github installation guidance<a>。</p>
+<h1 id="Install-Tensorflow-2-x-from-Source-Code"><a href="#Install-Tensorflow-2-x-from-Source-Code" class="headerlink" title="Install Tensorflow 2.x from Source Code"></a>Install Tensorflow 2.x from Source Code</h1><p>Currently nearly no concrete instructions for building Tensorflow 2.x from source. If have any problem, please see the below section: [Potential Problem].</p>
+<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol start="0">
+<li>Read official guidance to check the target version.<a href="https://www.tensorflow.org/install/source/">tensorflow official guidance</a> <a href="https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html">NVIDIA building tensorflow official guidance</a><br><b style="color: red">Currently can build/run: </li>
+<li>Jetpack 3.3 (python 3.5/3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
+<li>Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 7.1 + tensorflow r2.2;</li>
+<li>(recommended)Jetpack 4.6 (python 3.6) + CUDA 10.2 + CUDNN 8.2 + tensorflow r2.4。</b></li>
+<li>Flash the board correctly (begin from clean os): Use NVIDIA offcial SDKmanager to install Jetpack【<a href="https://zexinli0w0.github.io/post/12cc.html">How to flash Jetson board</a>】. For instance, TX2 supports Jetpack version 4.6, 4.5.1, 4.5, 3.3. Note: 4.5+version may result in CUDA/CUDNN imcompatible.</li>
+<li>Install python dependencies<br>For jetpack 4.5+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">sudo pip3 install -U pip testresources setuptools==49.6.0 </span><br><span class="line">sudo pip3 install -U --no-deps numpy==1.18.5 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==2.10.0</span><br></pre></td></tr></table></figure>
+For jetpack 3.3<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">curl -fsSL https://bootstrap.pypa.io/pip/3.5/get-pip.py | python3.5 # pip3 has abandoned python 3.5 support, cannot use apt to install python3.5 pip</span><br><span class="line">sudo pip3 install -U testresources setuptools</span><br><span class="line">sudo pip3 install -U --no-deps numpy future mock keras_preprocessing keras_applications gast protobuf pybind11 cython pkgconfig</span><br><span class="line">sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py</span><br></pre></td></tr></table></figure>
+Note: python dependenceis may conflict and result in <code>import core dumped</code>. Best check by a reactive python3 by importing these dependencies. One common feasible solution is to downgrade numpy to 1.18.5.</li>
+<li>Install JDK dependencies<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ref to &lt;a href=&quot;https://docs.bazel.build/versions/main/install-ubuntu.html&quot;&gt;link&lt;/a&gt;</span><br><span class="line"># For jetpack 4.5+ Ubuntu 18.04 (LTS) uses OpenJDK 11 by default:</span><br><span class="line">sudo apt-get install openjdk-11-jdk</span><br><span class="line"># For jetpack 3.3 Ubuntu 16.04 (LTS) uses OpenJDK 8 by default:</span><br><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure></li>
+<li>Install bazel<br>Build bazel，the version refers to .bazelversion on <code>/tensorflow</code><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir bazel-$BAZEL_VERSION</span><br><span class="line">cd bazel-$BAZEL_VERSION</span><br><span class="line">wget https://github.com/bazelbuild/bazel/releases/download/$BAZEL_VERSION/bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">unzip bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">rm bazel-bazel-$BAZEL_VERSION-dist.zip</span><br><span class="line">./compile.sh</span><br><span class="line">sudo cp output/bazel /usr/local/bin</span><br><span class="line">bazel version</span><br></pre></td></tr></table></figure></li>
+<li>Enable swap for board with less than 16GB memory<br>o.w., may result in <b>OOM error</b> -&gt; Error: c++ compiling error *** Killed<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fallocate -l 8G swapfile</span><br><span class="line">chmod 600 swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">sudo swapon swapfile</span><br><span class="line">swapon -s</span><br></pre></td></tr></table></figure>
+Or directly use the script offered by jetsonhack<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/jetsonhacks/installTensorFlowTX2/master/createSwapfile.sh</span><br><span class="line">./createSwapfile.sh -d /experiment -s 8</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Compilation-Installation-Testing"><a href="#Compilation-Installation-Testing" class="headerlink" title="Compilation/Installation/Testing"></a>Compilation/Installation/Testing</h2><ol>
+<li>Get source code<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow.git</span><br><span class="line">cd tensorflow</span><br><span class="line">git checkout r2.2 # 对于jetpack 3.3</span><br></pre></td></tr></table></figure></li>
+<li>Configuration/Compilation<br>Note: very time consuming, best with an disconnection prevention session (e.g. tmux)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Configure correct path of python interpreter，enable CUDA</span><br><span class="line">./configure</span><br><span class="line"># Set output_base path (default is ~/.cache/), o.w. cross-disk will cause compilation to be much slower than without cross-disk</span><br><span class="line">bazel --output_base=/experiment/tensorflow_pkg build --verbose_failures --config=noaws --config=cuda //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line">./bazel-bin/tensorflow/tools/pip_package/build_pip_package /experiment/tensorflow_tmp</span><br></pre></td></tr></table></figure></li>
+<li>Install tensorflow .whl<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install /experiment/tensorflow_tmp/tensorflow-$version-$tags.whl</span><br></pre></td></tr></table></figure></li>
+<li>Testing<br>Smoking Test<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3</span><br><span class="line">&gt;&gt; import tensorflow</span><br><span class="line">&gt;&gt; exit()</span><br></pre></td></tr></table></figure>
+GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Refer to two files under https://github.com/peterlee0127/tensorflow-nvJetson/tree/master/tf-test</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Potential-Problem"><a href="#Potential-Problem" class="headerlink" title="Potential Problem"></a>Potential Problem</h1><ol>
+<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
+<li>local_cuda_not_found: switch to verified known version in the above.</li>
+<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
+<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
+<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
+<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
+<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
+<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
+<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
+<li>import numpy/tensorflow core dumped: Downgrade numpy&lt;=1.18.5</li>
+<li>h5py installing stucks and cannot be successfully compiled, error ‘Cython is not installed’ with Cython installed: Downgrade numpy&lt;=1.18.5</li>
 </ol>
 ]]></content>
       <categories>
@@ -515,59 +452,109 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </tags>
   </entry>
   <entry>
-    <title>python中使用networkx画图</title>
-    <url>/post/2395.html</url>
-    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>今天被问了一个问题：如何把复杂的调用树可视化？</p>
-<p>首先，这个问题可以被归结为：如何实现有向图的可视化。</p>
-<p>当然，答案有很多种。可选的简单地解决方案可能是<a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">基于echarts的在线的生成工具</a> [1]，或是<a href="https://antv.vision/en">Ant V</a> [2]此类专用于画图的框架。本文主要介绍使用python中的networkx宏包作图。</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>python 2.7.17: 依赖库为matplotlib, networkx</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install matplotlib</span><br><span class="line">pip install networkx</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import networkx as nx</span><br><span class="line"></span><br><span class="line">G=nx.DiGraph()</span><br><span class="line">list=[(1,2),(1,3),(2,4),(&quot;source&quot;,&quot;end&quot;)]</span><br><span class="line">G.add_edges_from(list)</span><br><span class="line">nx.draw(G,with_labels=True)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>具体的nerworkx用法参见<a href="https://www.cnblogs.com/ljhdo/p/10662902.html">已有博客</a> [3]或者<a href="https://networkx.github.io/documentation/stable/tutorial.html">networkx官方文档</a> [4]，此处不再赘述。</p>
-<p>值得一提的是，虽然python编码相对方便，但是画图的速度远不及基于JavaScript的各种框架。<code>nx.draw(G,with_labels=True)</code>这一行的执行速度非常慢，即使图中只有不超过10个节点也花了近半分钟进行生成。如果需要实时性高的生成，建议使用前文中的[1][2]或类似框架。</p>
-<p><img src="/image/networkx.png" alt="效果图"></p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 利用echarts实现有向图可视化,<br><a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/</a><br>[2] AntV, <a href="https://antv.vision/en">https://antv.vision/en</a><br>[3] networkx, <a href="https://www.cnblogs.com/ljhdo/p/10662902.html">https://www.cnblogs.com/ljhdo/p/10662902.html</a><br>[4] networkx tutorial,<br><a href="https://networkx.github.io/documentation/stable/tutorial.html">https://networkx.github.io/documentation/stable/tutorial.html</a></p>
+    <title>Save your Ubuntu from black/purple screen</title>
+    <url>/post/31eb.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Save your Ubuntu PC/server from black/purple screen.</p>
+<h1 id="Checklists-Hardware-check"><a href="#Checklists-Hardware-check" class="headerlink" title="Checklists [Hardware check]"></a>Checklists [Hardware check]</h1><ol>
+<li>Restart and press [F2/F6/F8/F10], try to get into BIOS. Check CPU/Memory are in good status.</li>
+<li>Try to remove the HDMI/DP cable from GPU and connect it to the motherboard and reboot. If you could get into system without problem now, The possible reason is that the recovery mode temporarily disabled the GPU, and then a normal reboot will re-enable the GPU.</li>
+</ol>
+<h1 id="Checklists-Software-check"><a href="#Checklists-Software-check" class="headerlink" title="Checklists [Software check]"></a>Checklists [Software check]</h1><ol>
+<li>Select Boot Ubuntu in BIOS.</li>
+<li>Press [Esc] and [e] to enter grub while booting. (if you could see grub).</li>
+<li>use arrow keys to select [Advanced Mode] and press [e] to edit configuration.</li>
+<li>use the arrow keys to locate the end of the line that starts with<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;linux /boot/vmlinuz***&quot;</span><br></pre></td></tr></table></figure>
+type <code>nomodeset</code> to make that line to temporarily disable GPU driver.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;... ro quiet sqlash nomodeset ...&quot;</span><br></pre></td></tr></table></figure></li>
+<li>Fix GPU driver or something else when get into the systems, then reboot can solve the problem.</li>
+</ol>
+<h1 id="Last-Hope"><a href="#Last-Hope" class="headerlink" title="Last Hope"></a>Last Hope</h1><p>If the above methods still don’t save your Ubuntu, locating exactly what went wrong and fixing it is expected to be difficult. Probably the most efficient solution is to reinstall Ubuntu (using with caution ONLY and backing up your data).</p>
 ]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NVIDIA Jetson R&amp;D Notes</title>
+    <url>/post/226.html</url>
+    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/c7c5.html">Jetson Install PyG</a><br><a href="https://blog.zexinli.com/post/5c1d.html">Jetson Build Torchvision</a><br><a href="https://blog.zexinli.com/post/667f.html">Jetson PyTorch Bypass Distributed Errors</a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
+    <url>/post/26020.html</url>
+    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
+<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tensorflow issues &amp; solution</title>
+    <url>/post/dbaf.html</url>
+    <content><![CDATA[<h1 id="Problem-on-NVIDIA-Jetson-Development-Kit"><a href="#Problem-on-NVIDIA-Jetson-Development-Kit" class="headerlink" title="Problem on NVIDIA Jetson Development Kit"></a>Problem on NVIDIA Jetson Development Kit</h1><ol start="0">
+<li>Refer enviroment variables:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_CPP_MIN_VLOG_LEVEL&#x27;] = &#x27;1&#x27; # Low level of Tensorflow, if need locating bugs, raise it up to 10.</span><br><span class="line">os.environ[&#x27;CUDA_CACHE_MAXSIZE&#x27;] = &quot;2147483648&quot; # Enable CUDA_CACHE to avoid multiple long-last JIT compiling.</span><br><span class="line">os.environ[&#x27;TF_FORCE_GPU_ALLOW_GROWTH&#x27;] = &#x27;true&#x27; # Avoid allocating all memory rapidly in one process.</span><br><span class="line">os.environ[&#x27;TF_FORCE_UNIFIED_MEMORY&#x27;] = &#x27;1&#x27; # Use unified memory to reduce data transfer time.</span><br><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27; # Boost performance by disable GPU_GARBAGE_COLLCETION, enable only when meeting OOM.</span><br></pre></td></tr></table></figure></li>
+<li>pip3 install h5py very slow/compilation failed: use root account to install pip dependencies.</li>
+<li>local_cuda_not_found: switch to verified known version in the above.</li>
+<li>c++ compiling error+cannot write file: need at least 32GB extra disk storage，NVIDIA Jetson internal storage is insufficient to a large amount of intermediate file while compiling tensorflow.</li>
+<li>c++ compiling error+process xx killed: OOM error, for NVIDIA Jetson TX2/Nano, set 8GB swap first.</li>
+<li>cannot import name ‘function_pb2’: switch current path, don’t try to run <code>import tensorflow</code> under Tensorflow source code path.</li>
+<li>can compile and pip installation, but cannot pass test, stuck when executing testing files: since Jetpack default CUDA/CUDNN versions may be incompatible to tensorflow official guidance version. Possible solution: (1) use known tested version above (2) from Jetpack downloading corresponding version of CUDA/CUDNN then compiling tensorflow (3) goto <a href="https://forums.developer.nvidia.com/">NVIDIA forum</a>to ask official help.</li>
+<li>C++ compilation of rule ‘//tensorflow/python:bfloat16_lib’ failed (Exit 1): For tensorflow&lt;=2.2, need to downgrade numpy version <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &#x27;numpy&lt;1.19.0&#x27;</span><br><span class="line"># conda install &#x27;numpy&lt;1.19.0&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>Runtime error: “CUDA driver version is insufficient for CUDA runtime version”. cuda10.2+cudnn7.0 are incompatible, re-create soft link to cuda9.0+cudnn7.0 and compile again.</li>
+<li>Executing long time python tensorflow script, may occur <code>CUDA_UNKNOWN_ERROR</code>: Maybe Tensorflow internal bug or memory problem. Possible solution: reboot the board; <code>pip uninstall tensorflow; pip install tensorflow-xxx.whl</code></li>
+<li>Performance bug of tensorflow: need extremely long time to initialize GPU on TX2 (e.g., on TX2 initialize ResNet50 training requires over 20min): set environment variables <code>export CUDA_CACHE_MAXSIZ=&quot;2147483648&quot;</code> and run the tensorflow code twice.</li>
+<li>When using unified memory, display ‘NvMapReserveOp 0x80000001 failed [22]’: limit Tensorflow allocating memory.<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">config = ConfigProto()</span><br><span class="line">config.gpu_options.per_process_gpu_memory_fraction = 0.2 # or other small values less than 1.0</span><br><span class="line">config.gpu_options.experimental.use_unified_memory= True</span><br><span class="line">with tf.compat.v1.Session(config=config) as s:</span><br><span class="line">    your_program</span><br></pre></td></tr></table></figure></li>
+<li>Performance bug: <code>W tensorflow/core/common_runtime/bfc_allocator.cc:311] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you&#39;d like to disable this feature.</code>: define enviroment variables<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">os.environ[&#x27;TF_ENABLE_GPU_GARBAGE_COLLECTION&#x27;] = &#x27;0&#x27;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>c++的struct和class（重新发布）</title>
+    <url>/post/4387.html</url>
+    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>在学习c++的时候会遇到一个问题：<strong>什么时候使用struct，什么时候使用class？</strong></p>
+<h2 id="C的struct"><a href="#C的struct" class="headerlink" title="C的struct"></a>C的struct</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct tag &#123; </span><br><span class="line">    member1;</span><br><span class="line">    member2; </span><br><span class="line">    member3;  </span><br><span class="line">    ...</span><br><span class="line">&#125; variable;</span><br></pre></td></tr></table></figure>
+
+<p><strong>tag</strong> 是结构体标签。<br><strong>member</strong> 是标准的变量定义，比如 int i; 或者 float f; 或者其他有效的变量定义。<br><strong>variable</strong> 结构变量，定义在结构的末尾，最后一个分号之前，可以指定一个或多个结构变量。<br>一般情况下，上述三个变量至少要出现2个。</p>
+<p>struct不能给内部变量初始化。<br>值得一提的是，在C中struct是用来封装数据的(<strong>member</strong>可以包含一个或多个基本数据类型，也可以包含其它结构体)，但是其中不能够有成员函数。</p>
+<p>想要C语言中的struct中包含成员函数，只能通过函数指针去替代成员函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">  </span><br><span class="line">void test(int input) &#123;</span><br><span class="line">        printf(&quot;%d&quot;,input);</span><br><span class="line">&#125;</span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void (*func)(int);</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func = &amp;test;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-的struct"><a href="#C-的struct" class="headerlink" title="C++的struct"></a>C++的struct</h2><h3 id="C-的struct和class的关联"><a href="#C-的struct和class的关联" class="headerlink" title="C++的struct和class的关联"></a>C++的struct和class的关联</h3><p>回到正题，c++中继承了在c语言中的用法，但是又做了改进：可以包含成员函数。从可实现功能上来看，struct和class基本上没有什么区别了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void func(int input) &#123;</span><br><span class="line">                printf(&quot;%d&quot;,input);</span><br><span class="line">        &#125;;</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 令人疑惑的是，在mac环境下居然这段代码用gcc编译也通过了，还能正常运行。</span><br><span class="line">// 应当在ubuntu环境下是不能编译通过的。</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-的struct和class的区别"><a href="#C-的struct和class的区别" class="headerlink" title="C++的struct和class的区别"></a>C++的struct和class的区别</h3><p>默认修饰符：struct是public，class是private。以下的代码从逻辑上是等价的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B &#123;</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>默认继承方式是：struct是public继承，class是private继承。建议在继承时需要显示地指明修饰符。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B : public A &#123;</span><br><span class="line">	// 建议在继承时需要显示地指明修饰符</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>coding</category>
       </categories>
       <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于maven的test-repo发生build-failure的解决方案</title>
-    <url>/post/61823.html</url>
-    <content><![CDATA[<h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn compile等操作。有时会发生BUILD FAILURES。本文描述几个详细的案例及解决方案，供以后遇到类似情况参考。</p>
-<h2 id="HikariCP"><a href="#HikariCP" class="headerlink" title="HikariCP"></a>HikariCP</h2><p>project地址：<a href="https://github.com/brettwooldridge/HikariCP.git">https://github.com/brettwooldridge/HikariCP.git</a><br>表现：某个test异常卡顿（OSGI这个test），出现HTTPS 501问题，然后该test fail导致BUILD FAILURES。<br>分析：查找发现HTTPS 501的原因是默认没有使用https的central源，在2020年1月后强制使用https，否则就会报501错误。在更换maven源之后仍然没有解决这个问题。<br>解决方案：在pom.xml的surefire configuration里配置exclude该test，问题解决（基本不影响执行时间）。</p>
-<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
-<h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
-<h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>maven的源配置(更新)</title>
-    <url>/post/34617.html</url>
-    <content><![CDATA[<p>阿里云云效maven的站点查询 <a href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
-<ol>
-<li>打开${maven_home}/conf/settings.xml</li>
-<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>转载<a href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -606,6 +593,58 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </categories>
       <tags>
         <tag>journal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/post/16107.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>On windows, add “npx” prefix.</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo new draft <span class="string">&quot;New draft&quot;</span></span><br><span class="line">$ hexo publish <span class="string">&quot;New draft&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
+
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># This will only deploy generated files to remote sites! Nedd to backup source by yourself!</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>maven的源配置(更新)</title>
+    <url>/post/34617.html</url>
+    <content><![CDATA[<p>阿里云云效maven的站点查询 <a href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
+<ol>
+<li>打开${maven_home}/conf/settings.xml</li>
+<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>转载<a href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于maven的test-repo发生build-failure的解决方案</title>
+    <url>/post/61823.html</url>
+    <content><![CDATA[<h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn compile等操作。有时会发生BUILD FAILURES。本文描述几个详细的案例及解决方案，供以后遇到类似情况参考。</p>
+<h2 id="HikariCP"><a href="#HikariCP" class="headerlink" title="HikariCP"></a>HikariCP</h2><p>project地址：<a href="https://github.com/brettwooldridge/HikariCP.git">https://github.com/brettwooldridge/HikariCP.git</a><br>表现：某个test异常卡顿（OSGI这个test），出现HTTPS 501问题，然后该test fail导致BUILD FAILURES。<br>分析：查找发现HTTPS 501的原因是默认没有使用https的central源，在2020年1月后强制使用https，否则就会报501错误。在更换maven源之后仍然没有解决这个问题。<br>解决方案：在pom.xml的surefire configuration里配置exclude该test，问题解决（基本不影响执行时间）。</p>
+<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
+<h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
+<h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -689,6 +728,29 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </tags>
   </entry>
   <entry>
+    <title>python中使用networkx画图</title>
+    <url>/post/2395.html</url>
+    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>今天被问了一个问题：如何把复杂的调用树可视化？</p>
+<p>首先，这个问题可以被归结为：如何实现有向图的可视化。</p>
+<p>当然，答案有很多种。可选的简单地解决方案可能是<a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">基于echarts的在线的生成工具</a> [1]，或是<a href="https://antv.vision/en">Ant V</a> [2]此类专用于画图的框架。本文主要介绍使用python中的networkx宏包作图。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>python 2.7.17: 依赖库为matplotlib, networkx</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install matplotlib</span><br><span class="line">pip install networkx</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import networkx as nx</span><br><span class="line"></span><br><span class="line">G=nx.DiGraph()</span><br><span class="line">list=[(1,2),(1,3),(2,4),(&quot;source&quot;,&quot;end&quot;)]</span><br><span class="line">G.add_edges_from(list)</span><br><span class="line">nx.draw(G,with_labels=True)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>具体的nerworkx用法参见<a href="https://www.cnblogs.com/ljhdo/p/10662902.html">已有博客</a> [3]或者<a href="https://networkx.github.io/documentation/stable/tutorial.html">networkx官方文档</a> [4]，此处不再赘述。</p>
+<p>值得一提的是，虽然python编码相对方便，但是画图的速度远不及基于JavaScript的各种框架。<code>nx.draw(G,with_labels=True)</code>这一行的执行速度非常慢，即使图中只有不超过10个节点也花了近半分钟进行生成。如果需要实时性高的生成，建议使用前文中的[1][2]或类似框架。</p>
+<p><img src="/image/networkx.png" alt="效果图"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 利用echarts实现有向图可视化,<br><a href="http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/">http://bookshadow.com/weblog/2016/11/22/echarts-directed-graph-visualization/</a><br>[2] AntV, <a href="https://antv.vision/en">https://antv.vision/en</a><br>[3] networkx, <a href="https://www.cnblogs.com/ljhdo/p/10662902.html">https://www.cnblogs.com/ljhdo/p/10662902.html</a><br>[4] networkx tutorial,<br><a href="https://networkx.github.io/documentation/stable/tutorial.html">https://networkx.github.io/documentation/stable/tutorial.html</a></p>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何编写maven插件（重新发布）</title>
     <url>/post/undefined.html</url>
     <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>maven作为热门的build system经常被各种Java project采用。有时我们会遇到需要编写自定义maven插件的需求。</p>
@@ -709,68 +771,6 @@ https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
       </categories>
       <tags>
         <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>c++的struct和class（重新发布）</title>
-    <url>/post/4387.html</url>
-    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>在学习c++的时候会遇到一个问题：<strong>什么时候使用struct，什么时候使用class？</strong></p>
-<h2 id="C的struct"><a href="#C的struct" class="headerlink" title="C的struct"></a>C的struct</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct tag &#123; </span><br><span class="line">    member1;</span><br><span class="line">    member2; </span><br><span class="line">    member3;  </span><br><span class="line">    ...</span><br><span class="line">&#125; variable;</span><br></pre></td></tr></table></figure>
-
-<p><strong>tag</strong> 是结构体标签。<br><strong>member</strong> 是标准的变量定义，比如 int i; 或者 float f; 或者其他有效的变量定义。<br><strong>variable</strong> 结构变量，定义在结构的末尾，最后一个分号之前，可以指定一个或多个结构变量。<br>一般情况下，上述三个变量至少要出现2个。</p>
-<p>struct不能给内部变量初始化。<br>值得一提的是，在C中struct是用来封装数据的(<strong>member</strong>可以包含一个或多个基本数据类型，也可以包含其它结构体)，但是其中不能够有成员函数。</p>
-<p>想要C语言中的struct中包含成员函数，只能通过函数指针去替代成员函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">  </span><br><span class="line">void test(int input) &#123;</span><br><span class="line">        printf(&quot;%d&quot;,input);</span><br><span class="line">&#125;</span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void (*func)(int);</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func = &amp;test;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="C-的struct"><a href="#C-的struct" class="headerlink" title="C++的struct"></a>C++的struct</h2><h3 id="C-的struct和class的关联"><a href="#C-的struct和class的关联" class="headerlink" title="C++的struct和class的关联"></a>C++的struct和class的关联</h3><p>回到正题，c++中继承了在c语言中的用法，但是又做了改进：可以包含成员函数。从可实现功能上来看，struct和class基本上没有什么区别了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">typedef struct _tag &#123;</span><br><span class="line">        void func(int input) &#123;</span><br><span class="line">                printf(&quot;%d&quot;,input);</span><br><span class="line">        &#125;;</span><br><span class="line">&#125; Tag;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">  Tag tag;</span><br><span class="line">  tag.func(0);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 令人疑惑的是，在mac环境下居然这段代码用gcc编译也通过了，还能正常运行。</span><br><span class="line">// 应当在ubuntu环境下是不能编译通过的。</span><br></pre></td></tr></table></figure>
-
-<h3 id="C-的struct和class的区别"><a href="#C-的struct和class的区别" class="headerlink" title="C++的struct和class的区别"></a>C++的struct和class的区别</h3><p>默认修饰符：struct是public，class是private。以下的代码从逻辑上是等价的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B &#123;</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>默认继承方式是：struct是public继承，class是private继承。建议在继承时需要显示地指明修饰符。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">	int A_a;</span><br><span class="line">public:</span><br><span class="line">	int A_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct B : public A &#123;</span><br><span class="line">	// 建议在继承时需要显示地指明修饰符</span><br><span class="line">	int B_b;</span><br><span class="line">private:</span><br><span class="line">	int B_a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
-    <url>/post/26020.html</url>
-    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
-<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/post/16107.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>On windows, add “npx” prefix.</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo new draft <span class="string">&quot;New draft&quot;</span></span><br><span class="line">$ hexo publish <span class="string">&quot;New draft&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ <span class="comment"># Or</span></span><br><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
-
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># This will only deploy generated files to remote sites! Nedd to backup source by yourself!</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
