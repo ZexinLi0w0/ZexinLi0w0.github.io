@@ -26,6 +26,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Download ImageNet1k from HuggingFace</title>
+    <url>/post/175f.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs access ImageNet-1k from HuggingFace Hub.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Enough disk (&gt;150GB)</li>
+<li>Anaconda pip</li>
+<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install datasets</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">use a linux <span class="built_in">command</span> screen to prevent session crashed</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">refer to https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/</span></span><br><span class="line">screen -S download</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">get a token from https://huggingface.co/settings/tokens</span></span><br><span class="line">huggingface-cli login</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Download-ImageNet-1k-with-Token-Assess"><a href="#Download-ImageNet-1k-with-Token-Assess" class="headerlink" title="Download ImageNet-1k with Token Assess"></a>Download ImageNet-1k with Token Assess</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># refer to https://huggingface.co/datasets/imagenet-1k</span></span><br><span class="line"><span class="comment"># refer to https://discuss.huggingface.co/t/imagenet-1k-is-not-available-in-huggingface-dataset-hub/25040</span></span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> load_dataset</span><br><span class="line">dset = load_dataset(<span class="string">&#x27;imagenet-1k&#x27;</span>, split=<span class="string">&#x27;train&#x27;</span>, use_auth_token=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Install PyG on Arm Platform</title>
+    <url>/post/c7c5.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyG on NVIDIA Jetson (or MacBook with Apple Silicon). Please refer to <a href="https://wadmes.github.io/2023/05/12/InstallPYG/">link</a>.</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Configure a same virtual environment on server as Jetson</title>
     <url>/post/2ef9.html</url>
     <content><![CDATA[<h1 id="Talk-is-cheap-show-me-the-code"><a href="#Talk-is-cheap-show-me-the-code" class="headerlink" title="Talk is cheap, show me the code"></a>Talk is cheap, show me the code</h1><p>Note: these commands are for x86 based server, not for Jetson itself.</p>
@@ -34,6 +63,39 @@
 
 <p>For Jetpack 5.0+</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n py38 python=3.8.10</span><br><span class="line">conda install pytorch==1.13.0 cudatoolkit=11.8 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson Build Torchvision</title>
+    <url>/post/5c1d.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of Torchvision running on NVIDIA Jetson. - Cannot simply install torchvision by pip.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Check model of embedded board</li>
+<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
+<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
+<li>Install PyTorch via this <a href="https://blog.zexinli.com/post/160b.html">blog</a>.</li>
+<li>Query <a href="https://pypi.org/project/torchvision/">Torchvision version</a> compatible with current PyTorch version.</li>
+</ol>
+<h1 id="Install-by-source-code"><a href="#Install-by-source-code" class="headerlink" title="Install by source code"></a>Install by source code</h1><p>Refer to <a href="https://forums.developer.nvidia.com/t/torchvision-issues-for-import-torchvision-transforms/267156">this blog from NVIDIA forum</a></p>
+<p>After installing PyTorch by wheels from NVIDIA, then install torchvision by source code to avoid compatibility issues.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev</span><br><span class="line">git clone --branch &lt;version&gt; https://github.com/pytorch/vision torchvision   # see below for version of torchvision to download</span><br><span class="line">cd torchvision</span><br><span class="line">export BUILD_VERSION=0.x.0  # where 0.x.0 is the torchvision version  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">for</span> instance: 0.16.0 refers to PyTorch v2.1.0</span></span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson Change Swap Memory</title>
+    <url>/post/a8e8.html</url>
+    <content><![CDATA[<h1 id="Jtop"><a href="#Jtop" class="headerlink" title="Jtop"></a>Jtop</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
+<h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -a</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>config</category>
       </categories>
@@ -77,58 +139,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Download ImageNet1k from HuggingFace</title>
-    <url>/post/175f.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs access ImageNet-1k from HuggingFace Hub.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Enough disk (&gt;150GB)</li>
-<li>Anaconda pip</li>
-<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install datasets</span><br><span class="line"><span class="meta"># </span><span class="language-bash">use a linux <span class="built_in">command</span> screen to prevent session crashed</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">refer to https://www.geeksforgeeks.org/screen-command-in-linux-with-examples/</span></span><br><span class="line">screen -S download</span><br><span class="line"><span class="meta"># </span><span class="language-bash">get a token from https://huggingface.co/settings/tokens</span></span><br><span class="line">huggingface-cli login</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Download-ImageNet-1k-with-Token-Assess"><a href="#Download-ImageNet-1k-with-Token-Assess" class="headerlink" title="Download ImageNet-1k with Token Assess"></a>Download ImageNet-1k with Token Assess</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># refer to https://huggingface.co/datasets/imagenet-1k</span></span><br><span class="line"><span class="comment"># refer to https://discuss.huggingface.co/t/imagenet-1k-is-not-available-in-huggingface-dataset-hub/25040</span></span><br><span class="line"><span class="keyword">from</span> datasets <span class="keyword">import</span> load_dataset</span><br><span class="line">dset = load_dataset(<span class="string">&#x27;imagenet-1k&#x27;</span>, split=<span class="string">&#x27;train&#x27;</span>, use_auth_token=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Install PyG on Arm Platform</title>
-    <url>/post/c7c5.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyG on NVIDIA Jetson (or MacBook with Apple Silicon). Please refer to <a href="https://wadmes.github.io/2023/05/12/InstallPYG/">link</a>.</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson Change Swap Memory</title>
-    <url>/post/a8e8.html</url>
-    <content><![CDATA[<h1 id="Jtop"><a href="#Jtop" class="headerlink" title="Jtop"></a>Jtop</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo jtop</span><br></pre></td></tr></table></figure>
-<h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -a</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson Mount NVME</title>
-    <url>/post/4817.html</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mount /dev/nvme0n1 /experiments</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Jetson PyTorch Bypass Distributed Errors</title>
     <url>/post/667f.html</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs Running PyTorch HuggingFace based model inference on NVIDIA Jetson.</p>
@@ -148,40 +158,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Jetson Build Torchvision</title>
-    <url>/post/5c1d.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of Torchvision running on NVIDIA Jetson. - Cannot simply install torchvision by pip.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Check model of embedded board</li>
-<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
-<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
-<li>Install PyTorch via this <a href="https://blog.zexinli.com/post/160b.html">blog</a>.</li>
-<li>Query <a href="https://pypi.org/project/torchvision/">Torchvision version</a> compatible with current PyTorch version.</li>
-</ol>
-<h1 id="Install-by-source-code"><a href="#Install-by-source-code" class="headerlink" title="Install by source code"></a>Install by source code</h1><p>Refer to <a href="https://forums.developer.nvidia.com/t/torchvision-issues-for-import-torchvision-transforms/267156">this blog from NVIDIA forum</a></p>
-<p>After installing PyTorch by wheels from NVIDIA, then install torchvision by source code to avoid compatibility issues.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libopenblas-dev libavcodec-dev libavformat-dev libswscale-dev</span><br><span class="line">git clone --branch &lt;version&gt; https://github.com/pytorch/vision torchvision   # see below for version of torchvision to download</span><br><span class="line">cd torchvision</span><br><span class="line">export BUILD_VERSION=0.x.0  # where 0.x.0 is the torchvision version  </span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> instance: 0.16.0 refers to PyTorch v2.1.0</span></span><br><span class="line">python setup.py install --user</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jetson install GPU PyTorch</title>
-    <url>/post/160b.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyTorch running on NVIDIA Jetson.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
-<li>Check model of embedded board</li>
-<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
-<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
-<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> Jetpack version &gt;= 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> newest Jetpack 5.1.2)</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">News: PyTorch 2.0.0 prebuilt is supported right now.</span></span><br><span class="line">pip install torch-2.0.0+nv23.05-cp38-cp38-linux_aarch64.whl</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/pytorch/pytorch">PyTorch</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get install python3-dev python3-pip libopenblas-base libopenmpi-dev libomp-dev libopenblas-dev libopenmpi-dev</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">Download a newer version of cmake <span class="keyword">for</span> building PyTorch from <span class="built_in">source</span></span></span><br><span class="line">wget https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">tar -xvzf cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">export PATH=/path/to/cmake-3.28.3-linux-aarch64/bin:$PATH</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">avalanche-lib requires this pytorch.distributed; so cannot use Jetson pre-built wheels</span></span><br><span class="line">export USE_NCCL=0</span><br><span class="line">export USE_DISTRIBUTED=1                    </span><br><span class="line">export USE_QNNPACK=0</span><br><span class="line">export USE_PYTORCH_QNNPACK=0</span><br><span class="line">export TORCH_CUDA_ARCH_LIST=&quot;7.2;8.7&quot;   # &quot;7.2;8.7&quot; for JetPack 5 wheels for Xavier/Orin</span><br><span class="line">export PYTORCH_BUILD_VERSION=2.1.0  # without the leading &#x27;v&#x27;, e.g. 1.3.0 for PyTorch v1.3.0</span><br><span class="line">export PYTORCH_BUILD_NUMBER=1</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">Build GPU-enabled PyTorch from <span class="built_in">source</span> <span class="keyword">for</span> v2.1.0</span></span><br><span class="line">git clone --recursive --branch v2.1.0 http://github.com/pytorch/pytorch</span><br><span class="line">cd pytorch</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">pip install scikit-build</span><br><span class="line">pip install ninja</span><br><span class="line">python setup.py bdist_wheel</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
-]]></content>
+    <title>Jetson Mount NVME</title>
+    <url>/post/4817.html</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mount /dev/nvme0n1 /experiments</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>config</category>
       </categories>
@@ -202,17 +181,17 @@
       </tags>
   </entry>
   <entry>
-    <title>Jetson install GPU TensorFlow</title>
-    <url>/post/70a3.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of TensorFlow running on NVIDIA Jetson.</p>
+    <title>Jetson install GPU PyTorch</title>
+    <url>/post/160b.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of PyTorch running on NVIDIA Jetson.</p>
 <h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
 <li>Check model of embedded board</li>
 <li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
-<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl”.</li>
-<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta"># </span><span class="language-bash"><span class="keyword">for</span> AGX with Jetpack 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> Jetpack 5.0.2)</span></span><br><span class="line">pip install tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl</span><br><span class="line"><span class="meta"># </span><span class="language-bash">For tensorflow 1.x, tensorflow-1.15.5+nv22.12-cp38-cp38-linux_aarch64.whl is suggested.</span></span><br></pre></td></tr></table></figure></li>
+<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “ torch-1.10.0-cp36-cp36m-linux_aarch64.whl”.</li>
+<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">for</span> Jetpack version &gt;= 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> newest Jetpack 5.1.2)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">News: PyTorch 2.0.0 prebuilt is supported right now.</span></span><br><span class="line">pip install torch-2.0.0+nv23.05-cp38-cp38-linux_aarch64.whl</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/tensorflow/tensorflow">TensorFlow</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow</span><br><span class="line">cd tensorflow</span><br><span class="line"><span class="meta"># </span><span class="language-bash">later similar to TensorFlow build (The specific procedure is omitted here)</span></span><br></pre></td></tr></table></figure>
+<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/pytorch/pytorch">PyTorch</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get install python3-dev python3-pip libopenblas-base libopenmpi-dev libomp-dev libopenblas-dev libopenmpi-dev</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Download a newer version of cmake <span class="keyword">for</span> building PyTorch from <span class="built_in">source</span></span></span><br><span class="line">wget https://github.com/Kitware/CMake/releases/download/v3.28.3/cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">tar -xvzf cmake-3.28.3-linux-aarch64.tar.gz</span><br><span class="line">export PATH=/path/to/cmake-3.28.3-linux-aarch64/bin:$PATH</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">avalanche-lib requires this pytorch.distributed; so cannot use Jetson pre-built wheels</span></span><br><span class="line">export USE_NCCL=0</span><br><span class="line">export USE_DISTRIBUTED=1                    </span><br><span class="line">export USE_QNNPACK=0</span><br><span class="line">export USE_PYTORCH_QNNPACK=0</span><br><span class="line">export TORCH_CUDA_ARCH_LIST=&quot;7.2;8.7&quot;   # &quot;7.2;8.7&quot; for JetPack 5 wheels for Xavier/Orin</span><br><span class="line">export PYTORCH_BUILD_VERSION=2.1.0  # without the leading &#x27;v&#x27;, e.g. 1.3.0 for PyTorch v1.3.0</span><br><span class="line">export PYTORCH_BUILD_NUMBER=1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Build GPU-enabled PyTorch from <span class="built_in">source</span> <span class="keyword">for</span> v2.1.0</span></span><br><span class="line">git clone --recursive --branch v2.1.0 http://github.com/pytorch/pytorch</span><br><span class="line">cd pytorch</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">pip install scikit-build</span><br><span class="line">pip install ninja</span><br><span class="line">python setup.py bdist_wheel</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
 <p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
 ]]></content>
       <categories>
@@ -220,6 +199,44 @@
       </categories>
       <tags>
         <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jetson install GPU TensorFlow</title>
+    <url>/post/70a3.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>To whom needs GPU version of TensorFlow running on NVIDIA Jetson.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><ol>
+<li>Check model of embedded board</li>
+<li>Prepare a virtual python environment (e.g., <a href="https://github.com/conda-forge/miniforge">miniforge3</a>), it’s not suggested to follow NVIDIA official version of guideline to install code by sudo (which may mess up system python environments).</li>
+<li>Check pre-built binary files on <a href="https://developer.download.nvidia.com/compute/redist/jp/">Jetson binaries</a>, if there are some appropriate prebuilt wheels, then download them. Make sure to rename them into the formate like “tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl”.</li>
+<li>Run the following code:<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install python3-dev python3-pip</span><br><span class="line">sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">for</span> AGX with Jetpack 5.0.2, python 3.8.10 is suggested.</span></span><br><span class="line">conda create -n pytorch_env python=3.8.10</span><br><span class="line">conda activate pytorch_env</span><br><span class="line">pip install pip testresources setuptools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">install by wheel file (example <span class="keyword">for</span> Jetpack 5.0.2)</span></span><br><span class="line">pip install tensorflow-2.10.0+nv22.10-cp38-cp38-linux_aarch64.whl</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">For tensorflow 1.x, tensorflow-1.15.5+nv22.12-cp38-cp38-linux_aarch64.whl is suggested.</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Install-by-source-code-not-suggested"><a href="#Install-by-source-code-not-suggested" class="headerlink" title="Install by source code (not suggested)"></a>Install by source code (not suggested)</h1><p>Unless you really need some typical version of <a href="https://github.com/tensorflow/tensorflow">TensorFlow</a>, otherwise to build a PyTorch wheel is really unnecessary (time-consuming, bug-filled, lack of documents)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/tensorflow/tensorflow</span><br><span class="line">cd tensorflow</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">later similar to TensorFlow build (The specific procedure is omitted here)</span></span><br></pre></td></tr></table></figure>
+<p>TensorFlow refer to <a href="https://blog.zexinli.com/post/ec04.html">en</a> or <a href="https://blog.zexinli.com/post/6311.html">zh</a>.</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
+    <url>/post/26020.html</url>
+    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
+<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -261,6 +278,16 @@
         <tag>python</tag>
         <tag>c++</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Migrate user from /home to new disk</title>
+    <url>/post/d290.html</url>
+    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Sometimes we need to migrate user from /home to new disk, e.g., when the boot disk is full. This post is a note for this process.</p>
+<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><p>Check if the new disk is mounted correctly by <code>df -h</code>. If not, mount it by <code>sudo mount $&#123;DEVICE_NAME&#125; $&#123;MOUNT_POINT&#125;</code>.</p>
+<h1 id="Move-user-home-directory"><a href="#Move-user-home-directory" class="headerlink" title="Move user home directory"></a>Move user home directory</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mv /home/$&#123;USER_NAME&#125; $&#123;MOUNT_POINT&#125;</span><br><span class="line">sudo ln -s $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125; /home/$&#123;USER_NAME&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Important-Make-sure-the-permission-is-correct-for-the-new-home-directory"><a href="#Important-Make-sure-the-permission-is-correct-for-the-new-home-directory" class="headerlink" title="(Important) Make sure the permission is correct for the new home directory"></a>(Important) Make sure the permission is correct for the new home directory</h1><p>The permission of the new home directory should be <code>755</code> and the permission of <code>.ssh</code> and <code>authorized_keys</code> should be <code>700</code> and <code>600</code> respectively. Otherwise, ssh login will fail.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">sudo chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">sudo chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>NVIDIA Jetson从源码安装tensorflow 2.x</title>
@@ -331,14 +358,54 @@
       </tags>
   </entry>
   <entry>
-    <title>Migrate user from /home to new disk</title>
-    <url>/post/d290.html</url>
-    <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Sometimes we need to migrate user from /home to new disk, e.g., when the boot disk is full. This post is a note for this process.</p>
-<h1 id="Prerequisite-checklist"><a href="#Prerequisite-checklist" class="headerlink" title="Prerequisite checklist"></a>Prerequisite checklist</h1><p>Check if the new disk is mounted correctly by <code>df -h</code>. If not, mount it by <code>sudo mount $&#123;DEVICE_NAME&#125; $&#123;MOUNT_POINT&#125;</code>.</p>
-<h1 id="Move-user-home-directory"><a href="#Move-user-home-directory" class="headerlink" title="Move user home directory"></a>Move user home directory</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mv /home/$&#123;USER_NAME&#125; $&#123;MOUNT_POINT&#125;</span><br><span class="line">sudo ln -s $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125; /home/$&#123;USER_NAME&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Important-Make-sure-the-permission-is-correct-for-the-new-home-directory"><a href="#Important-Make-sure-the-permission-is-correct-for-the-new-home-directory" class="headerlink" title="(Important) Make sure the permission is correct for the new home directory"></a>(Important) Make sure the permission is correct for the new home directory</h1><p>The permission of the new home directory should be <code>755</code> and the permission of <code>.ssh</code> and <code>authorized_keys</code> should be <code>700</code> and <code>600</code> respectively. Otherwise, ssh login will fail.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 755 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;</span><br><span class="line">sudo chmod 700 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh</span><br><span class="line">sudo chmod 600 $&#123;MOUNT_POINT&#125;/$&#123;USER_NAME&#125;/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Response-Letter的写作</title>
+    <url>/post/43019.html</url>
+    <content><![CDATA[<h2 id="Response-Letter是什么"><a href="#Response-Letter是什么" class="headerlink" title="Response Letter是什么"></a>Response Letter是什么</h2><p>在投稿期刊论文时，需要进行一至多轮的review。在收到review结果后，论文作者需要整理该结果中的问题，并对其逐一进行解答。本文简要概述response letter写作中的注意事项。</p>
+<h2 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h2><h3 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h3><p>介绍response letter的结构。</p>
+<h3 id="Our-first-submission"><a href="#Our-first-submission" class="headerlink" title="Our first submission"></a>Our first submission</h3><p>简要解释初稿的大致内容和贡献。</p>
+<h3 id="Our-second-submission"><a href="#Our-second-submission" class="headerlink" title="Our second submission"></a>Our second submission</h3><p>简要解释第二次投稿（如果有）在第一稿上的改动；如果有第三次投稿就再增加Our third submission。</p>
+<h3 id="Our-revised-submission"><a href="#Our-revised-submission" class="headerlink" title="Our revised submission"></a>Our revised submission</h3><p>简要解释最后一次改动后修改的内容。</p>
+<h3 id="Answer-to-Comment-Editor"><a href="#Answer-to-Comment-Editor" class="headerlink" title="Answer to Comment: Editor"></a>Answer to Comment: Editor</h3><p>对编辑的review意见的回复。</p>
+<h3 id="Answer-to-Comment-Reviewer-X"><a href="#Answer-to-Comment-Reviewer-X" class="headerlink" title="Answer to Comment: Reviewer X"></a>Answer to Comment: Reviewer X</h3><p>对reviewer X意见的回复；需要对每个reviewer的意见分别逐一回复。</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>Response letter中的引用。</p>
+<h2 id="写作核心思想"><a href="#写作核心思想" class="headerlink" title="写作核心思想"></a>写作核心思想</h2><ol>
+<li><p>Reviewer问什么，就回答什么。不要回答无关内容。</p>
+</li>
+<li><p>回答逻辑上要合理：先回答一般性内容，再回答细节内容。</p>
+</li>
+</ol>
+<h2 id="写作细节问题"><a href="#写作细节问题" class="headerlink" title="写作细节问题"></a>写作细节问题</h2><ol>
+<li><p>每个comment的回答第一句要写上：”Thank you for the comment.”</p>
+</li>
+<li><p>如果需要在回答中引用reviewer的原话，需要斜体+引号。</p>
+</li>
+<li><p>专有名词设置成macro，保持格式/语法一致（例如统一斜体）。</p>
+</li>
+<li><p>文中新定义的名词如果需要使用缩写，在定义时即可说明，然后统一使用缩写。不应在定义前提及新定义名词。</p>
+</li>
+<li><p>双引号要正确使用：latex中是``和’’，而不是“”。</p>
+</li>
+</ol>
+<h2 id="Latex模板"><a href="#Latex模板" class="headerlink" title="Latex模板"></a>Latex模板</h2><p><a href="https://www.overleaf.com/2454561743cmwzvycpggpv">https://www.overleaf.com/2454561743cmwzvycpggpv</a></p>
+]]></content>
+      <categories>
+        <category>writing</category>
+      </categories>
+      <tags>
+        <tag>journal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NVIDIA Jetson R&amp;D Notes</title>
+    <url>/post/226.html</url>
+    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/c7c5.html">Jetson Install PyG</a><br><a href="https://blog.zexinli.com/post/5c1d.html">Jetson Build Torchvision</a><br><a href="https://blog.zexinli.com/post/667f.html">Jetson PyTorch Bypass Distributed Errors</a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
   </entry>
   <entry>
     <title>NVIDIA Jetson install tensorflow 2.x from source code</title>
@@ -390,68 +457,6 @@ GPU/MNIST<figure class="highlight plaintext"><table><tr><td class="code"><pre><s
       </tags>
   </entry>
   <entry>
-    <title>NVIDIA Jetson开发套件刷机教程</title>
-    <url>/post/12cc.html</url>
-    <content><![CDATA[<p>NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍<b>Jetpack刷机</b>的技术细节。</p>
-<p>此外JetsonHacks提供了官方刷机教学视频，如果看本文还是不清楚一些细节，可以看视频一步步跟着学: <a href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2安装</a> <a href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0安装</a></p>
-<p>老版本的刷机教程也可以参考<a href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 完整刷机教程</a>。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
-<li><p>一台带有Intel或AMDx86架构的Ubuntu操作系统的电脑作为host主机 (Jetpack 4.x推荐系统为Ubuntu 18.04)。</p>
-</li>
-<li><p>物理空间：需要至少40G以上的物理空间。Jetpack和Jetpack下载的安装包需要的空间十分庞大。</p>
-</li>
-<li><p>下载Jetpack安装包：申请Nvidia developer账号，在<a href="https://developer.nvidia.com/embedded/jetpack">NVIDIA官方网站</a>根据开发板的型号登录后下载。建议下载当前最新版本Jetpack 4.6。</p>
-</li>
-<li><p>只需要确保host主机能够上网<b style='color:red;'>(开发板没有网络也能刷机)</b>。</p>
-</li>
-<li><p>准备一根Micro-USB的数据线(一般手机充电线即可)(备注: AGX Xavier/AGX Orin只需要TypeC-USB数据线)，一根HDMI线，一个屏幕。</p>
-</li>
-</ol>
-<h1 id="安装Jetpack"><a href="#安装Jetpack" class="headerlink" title="安装Jetpack"></a>安装Jetpack</h1><ol>
-<li><p>断开开发板电源，断开开发板网线，数据线连接开发板和host主机。双击运行Jetpack安装包，然后命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sdkmanager # 此处不能使用root</span><br></pre></td></tr></table></figure>
-<p>Nvidia developer账号登录后，进入step 1: 勾选host和target，选择需要刷机的设备类型(如果数据线连接正常，也会自动检测出设备)。</p>
-</li>
-<li><p>进入step 2: 创建2个新文件夹，用于存放下载库文件和target镜像文件。</p>
-</li>
-<li><p>点击继续进入step 3: 进入下载阶段，完成后自动进入install OS阶段。</p>
-</li>
-<li><p>Jetpack会自动提示，是否自动刷机(auto flash)/手动刷机(manual flash)。建议选择手动刷机(manual flash)，然后开启强制恢复模式，以TX2为例: </p>
-<p> (a) 保证开发板初始处于断电状态，确保Micro USB线正常连接</p>
-<p> (b) 接通开发板电源，按下power开机，然后迅速按住recovery键不松开，按一下reset键，过2秒松开recovery键</p>
-<p> (c) 此时应该有2个绿灯亮起</p>
-</li>
-<li><p>验证是否处于强制恢复状态，在host命令行输入</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsusb # 如果有Nvidia Corp设备检测到说明正确进入了强制恢复状态，否则重复第4步</span><br></pre></td></tr></table></figure></li>
-<li><p>给开发板连上HDMI线+屏幕，等待开发板的ubuntu系统初始化(配置账号密码)。</p>
-</li>
-<li><p>Jetpack会提示要求选择连接方式+输入账号密码。此时选择使用USB连接，不要修改默认的ip地址，输入开发板的ubuntu系统的账号密码。</p>
-</li>
-<li><p>冗长的等待，等待所有库全部安装完成，进入step 4: 点击exit退出sdkmanger。</p>
-</li>
-</ol>
-<h1 id="进一步配置"><a href="#进一步配置" class="headerlink" title="进一步配置"></a>进一步配置</h1><p>给开发板连接网线并查看ip。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig | grep eth0 -a1</span><br></pre></td></tr></table></figure>
-
-<p>随后可以ssh进行连接和进一步配置。</p>
-<h1 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a>可能的问题</h1><ol>
-<li><p>网络下载太慢<br>更换能过墙+带宽足够的环境。</p>
-</li>
-<li><p>Jetpack报奇怪的错(例如dependencies error)<br>更换纯净的ubuntu 18.04 host，多数是系统问题。不要想着fix这些error，有这时间不如重装/换靠谱的host。</p>
-</li>
-<li><p>有2个CPU核心不工作(性能问题)<br>将/boot/extlinux/exltinux.conf 文件里的<code>isolcpus=1-2</code>修改为<code>isolcpus=</code>，参考<a href="
-https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Save your Ubuntu from black/purple screen</title>
     <url>/post/31eb.html</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>Save your Ubuntu PC/server from black/purple screen.</p>
@@ -474,35 +479,6 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA Jetson R&amp;D Notes</title>
-    <url>/post/226.html</url>
-    <content><![CDATA[<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p><a href="https://gist.github.com/andrewssobral/ae77483b8fa147cce98b5b92f1a5ae17"><font color="#dd0000">A pretty comprehensive NVIDIA Jetson AGX Xavier cheatsheet</font></a><br><a href="https://blog.zexinli.com/post/c7c5.html">Jetson Install PyG</a><br><a href="https://blog.zexinli.com/post/5c1d.html">Jetson Build Torchvision</a><br><a href="https://blog.zexinli.com/post/667f.html">Jetson PyTorch Bypass Distributed Errors</a><br><a href="https://blog.zexinli.com/post/a8e8.html">Jetson change swap memory</a><br><a href="https://blog.zexinli.com/post/4817.html">Jetson mount nvme disk</a><br><a href="https://blog.zexinli.com/post/e092.html">Jetson set huggingface cache</a><br><a href="https://blog.zexinli.com/post/70a3.html">Jetson install GPU TensorFlow</a><br><a href="https://blog.zexinli.com/post/160b.html">Jetson install GPU PyTorch</a><br><a href="https://blog.zexinli.com/post/2ef9.html">Configure a same virtual environment on server as Jetson</a><br><a href="https://blog.zexinli.com/post/dbaf.html">Tensorflow issues &amp; solution</a><br><a href="https://blog.zexinli.com/post/cc0b.html">Flash NVIDIA Jetson TX2</a><br><a href="https://blog.zexinli.com/post/ec04.html">NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/6311.html"><font color="#dd0000">[zh]</font> NVIDIA Jetson install tensorflow 2.x from source code</a><br><a href="https://blog.zexinli.com/post/12cc.html"><font color="#dd0000">[zh]</font> Flash NVIDIA Jetson TX2</a></p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA Jetson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac下使用Jabref+Mendeley+OfficeWord进行文献引用（重新发布）</title>
-    <url>/post/26020.html</url>
-    <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>很多人会在Mac下使用Office Word进行写作，有时会有文献引用的需求（比如毕业论文）。通过Office Word自带的工具进行引用费时费力，一旦插入文献可能需要大量修改。今天为大家介绍一种在Mac下使用Jabref+Mendeley+Office Word进行便捷的文献引用的方式。</p>
-<p>!!!注意：常见搜索引擎会推荐BibTex4word这个插件，很不幸，这个插件不支持Mac环境 (官网明确写了it does not work on Mac)，所以不用再试了</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>环境：macOS Mojave, Microsoft Word for Mac 16.35<br>工具：Jabref(去这里下载Mac dmg), Mendeley Desktop(链接)</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>在Jabref里创建新的文献记录(可以直接使用BibTex source)，保存选择生成.bib文件</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Mendeley Desktop里创建一个账号，选择导入刚刚的.bib文件(建议新建一个文件夹导入，不然可能会弄乱列表)。</p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>在Microsoft Word中选择Insert-&gt;Get Add-Ins-&gt;搜索Mendeley，装上之后在References工具栏会出现Mendeley Cite。登录刚刚创建的Mendeley账号，即可进行引用。</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -558,44 +534,6 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
       </tags>
   </entry>
   <entry>
-    <title>Response-Letter的写作</title>
-    <url>/post/43019.html</url>
-    <content><![CDATA[<h2 id="Response-Letter是什么"><a href="#Response-Letter是什么" class="headerlink" title="Response Letter是什么"></a>Response Letter是什么</h2><p>在投稿期刊论文时，需要进行一至多轮的review。在收到review结果后，论文作者需要整理该结果中的问题，并对其逐一进行解答。本文简要概述response letter写作中的注意事项。</p>
-<h2 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h2><h3 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h3><p>介绍response letter的结构。</p>
-<h3 id="Our-first-submission"><a href="#Our-first-submission" class="headerlink" title="Our first submission"></a>Our first submission</h3><p>简要解释初稿的大致内容和贡献。</p>
-<h3 id="Our-second-submission"><a href="#Our-second-submission" class="headerlink" title="Our second submission"></a>Our second submission</h3><p>简要解释第二次投稿（如果有）在第一稿上的改动；如果有第三次投稿就再增加Our third submission。</p>
-<h3 id="Our-revised-submission"><a href="#Our-revised-submission" class="headerlink" title="Our revised submission"></a>Our revised submission</h3><p>简要解释最后一次改动后修改的内容。</p>
-<h3 id="Answer-to-Comment-Editor"><a href="#Answer-to-Comment-Editor" class="headerlink" title="Answer to Comment: Editor"></a>Answer to Comment: Editor</h3><p>对编辑的review意见的回复。</p>
-<h3 id="Answer-to-Comment-Reviewer-X"><a href="#Answer-to-Comment-Reviewer-X" class="headerlink" title="Answer to Comment: Reviewer X"></a>Answer to Comment: Reviewer X</h3><p>对reviewer X意见的回复；需要对每个reviewer的意见分别逐一回复。</p>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>Response letter中的引用。</p>
-<h2 id="写作核心思想"><a href="#写作核心思想" class="headerlink" title="写作核心思想"></a>写作核心思想</h2><ol>
-<li><p>Reviewer问什么，就回答什么。不要回答无关内容。</p>
-</li>
-<li><p>回答逻辑上要合理：先回答一般性内容，再回答细节内容。</p>
-</li>
-</ol>
-<h2 id="写作细节问题"><a href="#写作细节问题" class="headerlink" title="写作细节问题"></a>写作细节问题</h2><ol>
-<li><p>每个comment的回答第一句要写上：”Thank you for the comment.”</p>
-</li>
-<li><p>如果需要在回答中引用reviewer的原话，需要斜体+引号。</p>
-</li>
-<li><p>专有名词设置成macro，保持格式/语法一致（例如统一斜体）。</p>
-</li>
-<li><p>文中新定义的名词如果需要使用缩写，在定义时即可说明，然后统一使用缩写。不应在定义前提及新定义名词。</p>
-</li>
-<li><p>双引号要正确使用：latex中是``和’’，而不是“”。</p>
-</li>
-</ol>
-<h2 id="Latex模板"><a href="#Latex模板" class="headerlink" title="Latex模板"></a>Latex模板</h2><p><a href="https://www.overleaf.com/2454561743cmwzvycpggpv">https://www.overleaf.com/2454561743cmwzvycpggpv</a></p>
-]]></content>
-      <categories>
-        <category>writing</category>
-      </categories>
-      <tags>
-        <tag>journal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/post/16107.html</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -612,39 +550,6 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>maven的源配置(更新)</title>
-    <url>/post/34617.html</url>
-    <content><![CDATA[<p>阿里云云效maven的站点查询 <a href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
-<ol>
-<li>打开${maven_home}/conf/settings.xml</li>
-<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>转载<a href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于maven的test-repo发生build-failure的解决方案</title>
-    <url>/post/61823.html</url>
-    <content><![CDATA[<h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn compile等操作。有时会发生BUILD FAILURES。本文描述几个详细的案例及解决方案，供以后遇到类似情况参考。</p>
-<h2 id="HikariCP"><a href="#HikariCP" class="headerlink" title="HikariCP"></a>HikariCP</h2><p>project地址：<a href="https://github.com/brettwooldridge/HikariCP.git">https://github.com/brettwooldridge/HikariCP.git</a><br>表现：某个test异常卡顿（OSGI这个test），出现HTTPS 501问题，然后该test fail导致BUILD FAILURES。<br>分析：查找发现HTTPS 501的原因是默认没有使用https的central源，在2020年1月后强制使用https，否则就会报501错误。在更换maven源之后仍然没有解决这个问题。<br>解决方案：在pom.xml的surefire configuration里配置exclude该test，问题解决（基本不影响执行时间）。</p>
-<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
-<h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
-<h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
-]]></content>
-      <categories>
-        <category>config</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
@@ -728,6 +633,68 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
       </tags>
   </entry>
   <entry>
+    <title>NVIDIA Jetson开发套件刷机教程</title>
+    <url>/post/12cc.html</url>
+    <content><![CDATA[<p>NVIDIA Jetson的是arm64架构具有GPU的开发组件。相应地，很多系统库/深度学习库不能够容易地被找到。为了一劳永逸解决此类依赖问题，NVIDIA官方提供了刷机(flash)工具包(Jetpack)。本文主要介绍<b>Jetpack刷机</b>的技术细节。</p>
+<p>此外JetsonHacks提供了官方刷机教学视频，如果看本文还是不清楚一些细节，可以看视频一步步跟着学: <a href="https://www.youtube.com/watch?v=Pncjv6FoQzU">Jetpack 4.2安装</a> <a href="https://www.youtube.com/watch?v=D7lkth34rgM">Jetpack 3.0安装</a></p>
+<p>老版本的刷机教程也可以参考<a href="https://metrixlambert.github.io/2019/06/01/Jetson-TX2-%E5%AE%8C%E6%95%B4%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B/">Jetson TX2 完整刷机教程</a>。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li><p>一台带有Intel或AMDx86架构的Ubuntu操作系统的电脑作为host主机 (Jetpack 4.x推荐系统为Ubuntu 18.04)。</p>
+</li>
+<li><p>物理空间：需要至少40G以上的物理空间。Jetpack和Jetpack下载的安装包需要的空间十分庞大。</p>
+</li>
+<li><p>下载Jetpack安装包：申请Nvidia developer账号，在<a href="https://developer.nvidia.com/embedded/jetpack">NVIDIA官方网站</a>根据开发板的型号登录后下载。建议下载当前最新版本Jetpack 4.6。</p>
+</li>
+<li><p>只需要确保host主机能够上网<b style='color:red;'>(开发板没有网络也能刷机)</b>。</p>
+</li>
+<li><p>准备一根Micro-USB的数据线(一般手机充电线即可)(备注: AGX Xavier/AGX Orin只需要TypeC-USB数据线)，一根HDMI线，一个屏幕。</p>
+</li>
+</ol>
+<h1 id="安装Jetpack"><a href="#安装Jetpack" class="headerlink" title="安装Jetpack"></a>安装Jetpack</h1><ol>
+<li><p>断开开发板电源，断开开发板网线，数据线连接开发板和host主机。双击运行Jetpack安装包，然后命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sdkmanager # 此处不能使用root</span><br></pre></td></tr></table></figure>
+<p>Nvidia developer账号登录后，进入step 1: 勾选host和target，选择需要刷机的设备类型(如果数据线连接正常，也会自动检测出设备)。</p>
+</li>
+<li><p>进入step 2: 创建2个新文件夹，用于存放下载库文件和target镜像文件。</p>
+</li>
+<li><p>点击继续进入step 3: 进入下载阶段，完成后自动进入install OS阶段。</p>
+</li>
+<li><p>Jetpack会自动提示，是否自动刷机(auto flash)/手动刷机(manual flash)。建议选择手动刷机(manual flash)，然后开启强制恢复模式，以TX2为例: </p>
+<p> (a) 保证开发板初始处于断电状态，确保Micro USB线正常连接</p>
+<p> (b) 接通开发板电源，按下power开机，然后迅速按住recovery键不松开，按一下reset键，过2秒松开recovery键</p>
+<p> (c) 此时应该有2个绿灯亮起</p>
+</li>
+<li><p>验证是否处于强制恢复状态，在host命令行输入</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lsusb # 如果有Nvidia Corp设备检测到说明正确进入了强制恢复状态，否则重复第4步</span><br></pre></td></tr></table></figure></li>
+<li><p>给开发板连上HDMI线+屏幕，等待开发板的ubuntu系统初始化(配置账号密码)。</p>
+</li>
+<li><p>Jetpack会提示要求选择连接方式+输入账号密码。此时选择使用USB连接，不要修改默认的ip地址，输入开发板的ubuntu系统的账号密码。</p>
+</li>
+<li><p>冗长的等待，等待所有库全部安装完成，进入step 4: 点击exit退出sdkmanger。</p>
+</li>
+</ol>
+<h1 id="进一步配置"><a href="#进一步配置" class="headerlink" title="进一步配置"></a>进一步配置</h1><p>给开发板连接网线并查看ip。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig | grep eth0 -a1</span><br></pre></td></tr></table></figure>
+
+<p>随后可以ssh进行连接和进一步配置。</p>
+<h1 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a>可能的问题</h1><ol>
+<li><p>网络下载太慢<br>更换能过墙+带宽足够的环境。</p>
+</li>
+<li><p>Jetpack报奇怪的错(例如dependencies error)<br>更换纯净的ubuntu 18.04 host，多数是系统问题。不要想着fix这些error，有这时间不如重装/换靠谱的host。</p>
+</li>
+<li><p>有2个CPU核心不工作(性能问题)<br>将/boot/extlinux/exltinux.conf 文件里的<code>isolcpus=1-2</code>修改为<code>isolcpus=</code>，参考<a href="
+https://blog.csdn.net/JanKin_BY/article/details/120441238">解决方案</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>NVIDIA Jetson</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python中使用networkx画图</title>
     <url>/post/2395.html</url>
     <content><![CDATA[<h2 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h2><p>今天被问了一个问题：如何把复杂的调用树可视化？</p>
@@ -748,6 +715,39 @@ type <code>nomodeset</code> to make that line to temporarily disable GPU driver.
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>maven的源配置(更新)</title>
+    <url>/post/34617.html</url>
+    <content><![CDATA[<p>阿里云云效maven的站点查询 <a href="https://maven.aliyun.com/mvn/view">https://maven.aliyun.com/mvn/view</a></p>
+<ol>
+<li>打开${maven_home}/conf/settings.xml</li>
+<li><mirrors>中添加以下内容。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-central&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun central&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-spring-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun spring-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/spring-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-apache-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun apache-snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-google&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun google&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/google&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-gradle-plugin&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun gradle-plugin&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/gradle-plugin&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-jcenter&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun jcenter&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/jcenter&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-releases&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun releases&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/releases&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-snapshots&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun snapshots&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/snapshots&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;    </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-grails-core&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun grails-core&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/grails-core&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;  </span><br><span class="line">&lt;mirror&gt;     </span><br><span class="line"> &lt;id&gt;aliyun-mapr-public&lt;/id&gt;     </span><br><span class="line"> &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     </span><br><span class="line"> &lt;name&gt;aliyun mapr-public&lt;/name&gt;     </span><br><span class="line"> &lt;url&gt;https://maven.aliyun.com/repository/mapr-public&lt;/url&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>转载<a href="https://segmentfault.com/a/1190000018147680">https://segmentfault.com/a/1190000018147680</a></p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于maven的test-repo发生build-failure的解决方案</title>
+    <url>/post/61823.html</url>
+    <content><![CDATA[<h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>因实验需要，收集了一些Maven project在Ubuntu 16.04 LTS上进行mvn test/mvn compile等操作。有时会发生BUILD FAILURES。本文描述几个详细的案例及解决方案，供以后遇到类似情况参考。</p>
+<h2 id="HikariCP"><a href="#HikariCP" class="headerlink" title="HikariCP"></a>HikariCP</h2><p>project地址：<a href="https://github.com/brettwooldridge/HikariCP.git">https://github.com/brettwooldridge/HikariCP.git</a><br>表现：某个test异常卡顿（OSGI这个test），出现HTTPS 501问题，然后该test fail导致BUILD FAILURES。<br>分析：查找发现HTTPS 501的原因是默认没有使用https的central源，在2020年1月后强制使用https，否则就会报501错误。在更换maven源之后仍然没有解决这个问题。<br>解决方案：在pom.xml的surefire configuration里配置exclude该test，问题解决（基本不影响执行时间）。</p>
+<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><p>project地址：<a href="https://github.com/apache/log4j.git">https://github.com/apache/log4j.git</a><br>表现：使用python脚本os.system(“mvn test &gt;&gt; output.txt”)<br>分析：log4j可能在测试中使用了某些输入输出流，与脚本中的流冲突导致fail。<br>解决方案：尝试手动mvn test，问题解决。</p>
+<h2 id="java-apns"><a href="#java-apns" class="headerlink" title="java-apns"></a>java-apns</h2><p>project地址：<a href="https://github.com/notnoop/java-apns.git">https://github.com/notnoop/java-apns.git</a><br>表现：integration test中的FeedbackTest出现大量Exception，然后build流程卡顿不动。具体见<a href="https://github.com/notnoop/java-apns/issues/370%E3%80%82">https://github.com/notnoop/java-apns/issues/370。</a><br>分析：尝试用类似于HikariCP的解决方案exclude FeedbackTest，然而其它integration test也出现error。把整个integration test都exclude后，剩余BUILD时间只有15秒左右，执行时间变化很大。<br>解决方案：目前未解决。<strong>TODO</strong></p>
+<h2 id="OpenTripPlanner"><a href="#OpenTripPlanner" class="headerlink" title="OpenTripPlanner"></a>OpenTripPlanner</h2><p>project地址：<a href="https://github.com/opentripplanner/OpenTripPlanner.git">https://github.com/opentripplanner/OpenTripPlanner.git</a><br>表现：使用alimaven源出现大量Could not resolve artifact，在compile阶段开始前即BUILD FAILURES。<br>分析：查找发现此类问题大概率是由网络问题导致。在把alimaven源还原成central源后，download速率变慢很多，但仍未解决could not resolve artifact。<br>解决方案：更改pom.xml的配置，原有pom中配置的源是硬编码的已经失效。更改一些依赖的版本号。</p>
+]]></content>
+      <categories>
+        <category>config</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
       </tags>
   </entry>
   <entry>
