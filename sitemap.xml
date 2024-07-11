@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/links/index.html</loc>
+    <loc>https://blog.zexinli.com/categories/index.html</loc>
     
     <lastmod>2024-03-30</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/categories/index.html</loc>
+    <loc>https://blog.zexinli.com/links/index.html</loc>
     
     <lastmod>2024-03-30</lastmod>
     
@@ -333,13 +333,6 @@
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/tags/python/</loc>
-    <lastmod>2024-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.zexinli.com/tags/NVIDIA-Jetson/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -347,7 +340,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/tags/Mac/</loc>
+    <loc>https://blog.zexinli.com/tags/python/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -355,6 +348,13 @@
   
   <url>
     <loc>https://blog.zexinli.com/tags/journal/</loc>
+    <lastmod>2024-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zexinli.com/tags/Mac/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
