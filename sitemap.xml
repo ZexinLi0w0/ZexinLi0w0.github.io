@@ -326,7 +326,7 @@
 
   
   <url>
-    <loc>https://blog.zexinli.com/tags/Linux/</loc>
+    <loc>https://blog.zexinli.com/tags/NVIDIA-Jetson/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -340,14 +340,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/tags/NVIDIA-Jetson/</loc>
-    <lastmod>2024-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zexinli.com/tags/journal/</loc>
+    <loc>https://blog.zexinli.com/tags/Linux/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -361,6 +354,13 @@
   </url>
   
   <url>
+    <loc>https://blog.zexinli.com/tags/journal/</loc>
+    <lastmod>2024-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zexinli.com/tags/Mac/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -368,14 +368,14 @@
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/tags/maven/</loc>
+    <loc>https://blog.zexinli.com/tags/Hexo/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.zexinli.com/tags/Hexo/</loc>
+    <loc>https://blog.zexinli.com/tags/maven/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
